@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/styles.chunk.css","sources":["webpack:///./components/index.scss"],"sourcesContent":["*{word-wrap:break-word}h1{color:#00f}div{display:-ms-grid;display:grid;grid-row:span;grid-column:initial}"],"mappings":"AAAA;","sourceRoot":""}

@@ -1,0 +1,115 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+  text-decoration: none;
+  list-style: none;
+  font-family: 'Gotham Pro', 'Roboto';
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/*
+ 
+ :::    ::: ::::::::::     :::     :::::::::  :::::::::: :::::::::  
+ :+:    :+: :+:          :+: :+:   :+:    :+: :+:        :+:    :+: 
+ +:+    +:+ +:+         +:+   +:+  +:+    +:+ +:+        +:+    +:+ 
+ +#++:++#++ +#++:++#   +#++:++#++: +#+    +:+ +#++:++#   +#++:++#:  
+ +#+    +#+ +#+        +#+     +#+ +#+    +#+ +#+        +#+    +#+ 
+ #+#    #+# #+#        #+#     #+# #+#    #+# #+#        #+#    #+# 
+ ###    ### ########## ###     ### #########  ########## ###    ### 
+ 
+*/
+/*
+  ___  ___  _______   ________  ________  _______   ________          ________   ________  ___      ___ 
+ |\  \|\  \|\  ___ \ |\   __  \|\   ___ \|\  ___ \ |\   __  \        |\   ___  \|\   __  \|\  \    /  /|
+ \ \  \\\  \ \   __/|\ \  \|\  \ \  \_|\ \ \   __/|\ \  \|\  \       \ \  \\ \  \ \  \|\  \ \  \  /  / /
+  \ \   __  \ \  \_|/_\ \   __  \ \  \ \\ \ \  \_|/_\ \   _  _\       \ \  \\ \  \ \   __  \ \  \/  / / 
+   \ \  \ \  \ \  \_|\ \ \  \ \  \ \  \_\\ \ \  \_|\ \ \  \\  \|       \ \  \\ \  \ \  \ \  \ \    / /  
+    \ \__\ \__\ \_______\ \__\ \__\ \_______\ \_______\ \__\\ _\        \ \__\\ \__\ \__\ \__\ \__/ /   
+     \|__|\|__|\|_______|\|__|\|__|\|_______|\|_______|\|__|\|__|        \|__| \|__|\|__|\|__|\|__|/    
+                                                                                                        
+*/
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding: 20px;
+}
+
+header a {
+  display: block;
+  color: #000000;
+}
+
+.header-logo {
+  font-size: 0;
+}
+
+header .menu ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+header .menu ul a {
+  font-size: 0.9rem;
+  padding: 10px;
+  white-space: nowrap;
+  -webkit-transition: -webkit-transform 0.4s ease;
+  transition: -webkit-transform 0.4s ease;
+  transition: transform 0.4s ease;
+  transition: transform 0.4s ease, -webkit-transform 0.4s ease;
+}
+
+header .menu ul a:hover {
+  color: #e30613;
+}
+
+header .menu ul a:active {
+  color: #e30613;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.header-city_and_phone a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header-city_and_phone a img {
+  margin-left: 6px;
+}
+
+.box {
+  height: 1800px;
+}
+
+/*
+ 
+  ________ ________  ________  _________  _______   ________     
+ |\  _____\\   __  \|\   __  \|\___   ___\\  ___ \ |\   __  \    
+ \ \  \__/\ \  \|\  \ \  \|\  \|___ \  \_\ \   __/|\ \  \|\  \   
+  \ \   __\\ \  \\\  \ \  \\\  \   \ \  \ \ \  \_|/_\ \   _  _\  
+   \ \  \_| \ \  \\\  \ \  \\\  \   \ \  \ \ \  \_|\ \ \  \\  \| 
+    \ \__\   \ \_______\ \_______\   \ \__\ \ \_______\ \__\\ _\ 
+     \|__|    \|_______|\|_______|    \|__|  \|_______|\|__|\|__|
+                                                                 
+*/
+footer {
+  padding: 1em;
+  position: relative;
+  bottom: calc(-88vh + 90px);
+}
+/*# sourceMappingURL=index.css.map */

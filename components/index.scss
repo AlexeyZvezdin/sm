@@ -1,0 +1,15 @@
+* {
+  word-wrap: break-word;
+}
+
+h1 {
+  color: blue;
+}
+
+div {
+  display: grid;
+  grid-row: span;
+  grid-column: initial;
+}
+
+// проверка постксс

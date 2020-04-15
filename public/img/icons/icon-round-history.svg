@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 54.1 (76490) - https://sketchapp.com -->
+    <title>BB1E5688-B568-4AE2-916C-71CFDDBAAF89</title>
+    <desc>Created with sketchtool.</desc>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icons/ic_round-history-24px">
+            <g>
+                <g id="Bounding_Boxes">
+                    <polygon id="Shape" points="0 0 24 0 24 24 0 24"></polygon>
+                </g>
+                <g id="Rounded" transform="translate(1.000000, 2.000000)" fill="#1D1D1D" fill-rule="nonzero">
+                    <g id="Group">
+                        <path d="M12.26,1 C7.17,0.86 3,4.95 3,10 L1.21,10 C0.76,10 0.54,10.54 0.86,10.85 L3.65,13.65 C3.85,13.85 4.16,13.85 4.36,13.65 L7.15,10.85 C7.46,10.54 7.24,10 6.79,10 L5,10 C5,6.1 8.18,2.95 12.1,3 C15.82,3.05 18.95,6.18 19,9.9 C19.05,13.81 15.9,17 12,17 C10.39,17 8.9,16.45 7.72,15.52 C7.32,15.21 6.76,15.24 6.4,15.6 L6.4,15.6 C5.98,16.02 6.01,16.73 6.48,17.09 C8,18.29 9.91,19 12,19 C17.05,19 21.14,14.83 21,9.74 C20.87,5.05 16.95,1.13 12.26,1 Z" id="Shape"></path>
+                        <path d="M11.75,6 L11.75,6 C11.34,6 11,6.34 11,6.75 L11,10.43 C11,10.78 11.19,11.11 11.49,11.29 L14.61,13.14 C14.97,13.35 15.43,13.23 15.64,12.88 C15.85,12.52 15.73,12.06 15.38,11.85 L12.5,10.14 L12.5,6.74 C12.5,6.34 12.16,6 11.75,6 Z" id="Shape"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
