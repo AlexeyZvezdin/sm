@@ -7,16 +7,16 @@ export default class Layout extends React.Component {
   constructor(props) {
     super(props);
   }
-  state = {
-    loaded: 'no',
-  };
-  componentDidMount() {
-    setTimeout(() => {
-      this.setState({
-        loaded: 'yes',
-      });
-    }, 500);
-  }
+  // state = {
+  //   loaded: 'no',
+  // };
+  // componentDidMount() {
+  //   setTimeout(() => {
+  //     this.setState({
+  //       loaded: 'yes',
+  //     });
+  //   }, 500);
+  // }
 
   render() {
     return (
@@ -24,7 +24,7 @@ export default class Layout extends React.Component {
         <Header />
         <main>
           <div className="container">
-            {this.state.loaded === 'no' ? (
+            {/* {this.state.loaded === 'no' ? (
               <div
                 style={{
                   margin: '50px',
@@ -34,9 +34,9 @@ export default class Layout extends React.Component {
               >
                 <img src="/img/loader.gif" alt="loader" />
               </div>
-            ) : (
-              <>{this.props.children}</>
-            )}
+            ) : ( */}
+            <>{this.props.children}</>
+            {/* )} */}
           </div>
         </main>
         <footer className="container">
