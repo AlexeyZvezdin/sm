@@ -1072,14 +1072,14 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 6,
+        lineNumber: 5,
         columnNumber: 7
       }
     }, __jsx(next_document__WEBPACK_IMPORTED_MODULE_1__["Head"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 8,
+        lineNumber: 7,
         columnNumber: 9
       }
     }, __jsx("meta", {
@@ -1088,7 +1088,7 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 9,
+        lineNumber: 8,
         columnNumber: 11
       }
     }), __jsx("meta", {
@@ -1097,7 +1097,7 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 14,
+        lineNumber: 13,
         columnNumber: 11
       }
     }), __jsx("meta", {
@@ -1106,7 +1106,7 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 15,
+        lineNumber: 14,
         columnNumber: 11
       }
     }), __jsx("meta", {
@@ -1114,7 +1114,7 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 16,
+        lineNumber: 15,
         columnNumber: 11
       }
     }), __jsx("link", {
@@ -1123,12 +1123,21 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 17,
+        lineNumber: 16,
         columnNumber: 11
       }
     }), __jsx("link", {
       rel: "stylesheet",
       href: "/css/index.css",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 20,
+        columnNumber: 11
+      }
+    }), __jsx("link", {
+      rel: "stylesheet",
+      href: "/css/fonts.css",
       __self: this,
       __source: {
         fileName: _jsxFileName,
@@ -1139,21 +1148,30 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 23,
+        lineNumber: 66,
         columnNumber: 9
       }
     }, __jsx(next_document__WEBPACK_IMPORTED_MODULE_1__["Main"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 24,
+        lineNumber: 67,
         columnNumber: 11
       }
     }), __jsx(next_document__WEBPACK_IMPORTED_MODULE_1__["NextScript"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 25,
+        lineNumber: 68,
+        columnNumber: 11
+      }
+    }), __jsx("script", {
+      type: "text/javascript",
+      src: "/js/lazyImage.js",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 69,
         columnNumber: 11
       }
     })));
