@@ -1,4 +1,4 @@
-import Link from './node_modules/next/link';
+import Link from 'next/link';
 import SushiMasterLogo from '../../public/img/icons/ic-logo.svg';
 import './about.scss';
 import Swiper from './node_modules/react-id-swiper';
