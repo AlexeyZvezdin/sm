@@ -36,7 +36,7 @@ import logoSmall from '../../public/img/icons/icon-logo-small.svg';
 
 // import Head from '../../components/Head';
 // import { connect } from 'react-redux';
-const About = () => {
+const about = () => {
   const params = {
     spaceBetween: 0,
     pagination: {
@@ -474,4 +474,4 @@ const About = () => {
 
 // eslint-disable-next-line import/no-default-export
 // export default connect(mapStateToProps, null)(About);
-export default About;
+export default about;
