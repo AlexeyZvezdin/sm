@@ -318,6 +318,7 @@
 }
 
 .about__who-we-are {
+  background-image: url("/img/about/bg-whowe.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -339,6 +340,7 @@
 
 @media (max-width: 525px) {
   .about__who-we-are {
+    background-image: url("/img/about/bg-about-sm.png");
     background-position: bottom center;
     -webkit-box-align: start;
         -ms-flex-align: start;
@@ -532,10 +534,23 @@
 }
 
 .about__for-partner {
+  background-image: url("/img/about/part.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
   color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .about__for-partner {
+    background-image: url("/img/about/part-768.png");
+  }
+}
+
+@media (max-width: 525px) {
+  .about__for-partner {
+    background-image: url("/img/about/part-360.png");
+  }
 }
 
 .about__partner-features_box {

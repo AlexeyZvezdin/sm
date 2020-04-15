@@ -1,15 +1,1 @@
-* {
-  word-wrap: break-word;
-}
-
-h1 {
-  color: blue;
-}
-
-div {
-  display: -ms-grid;
-  display: grid;
-  grid-row: span;
-  grid-column: initial;
-}
-/*# sourceMappingURL=index.css.map */
+/* No CSS *//*# sourceMappingURL=index.css.map */

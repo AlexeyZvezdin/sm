@@ -260,7 +260,7 @@
 
 // section who we are
 .about__who-we-are {
-  //   background-image: url('../../img/about/bg-whowe.png');
+  background-image: url('/img/about/bg-whowe.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -277,7 +277,7 @@
     // background-image: url('../../img/about/bg-whowe-720.png');
   }
   @media (max-width: 525px) {
-    // background-image: url('../../img/about/bg-about-sm.png');
+    background-image: url('/img/about/bg-about-sm.png');
     background-position: bottom center;
     align-items: flex-start;
   }
@@ -409,7 +409,7 @@
 // about__for-partner
 
 .about__for-partner {
-  //   background-image: url('../../img/about/part.png');
+  background-image: url('/img/about/part.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -417,10 +417,10 @@
   color: #ffffff;
 
   @media (max-width: 768px) {
-    // background-image: url('../../img/about/part-768.png');
+    background-image: url('/img/about/part-768.png');
   }
   @media (max-width: 525px) {
-    // background-image: url('../../img/about/part-360.png');
+    background-image: url('/img/about/part-360.png');
   }
 }
 

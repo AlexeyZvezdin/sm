@@ -292,9 +292,6 @@ var _jsxFileName = "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0435\u0439\\Deskt
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
 
  // import loader from '../public/img/loader.gif';
 
@@ -302,19 +299,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 class Layout extends react__WEBPACK_IMPORTED_MODULE_1___default.a.Component {
   constructor(props) {
     super(props);
+  } // state = {
+  //   loaded: 'no',
+  // };
+  // componentDidMount() {
+  //   setTimeout(() => {
+  //     this.setState({
+  //       loaded: 'yes',
+  //     });
+  //   }, 500);
+  // }
 
-    _defineProperty(this, "state", {
-      loaded: 'no'
-    });
-  }
-
-  componentDidMount() {
-    setTimeout(() => {
-      this.setState({
-        loaded: 'yes'
-      });
-    }, 500);
-  }
 
   render() {
     return __jsx(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, __jsx(_Header__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -340,30 +335,7 @@ class Layout extends react__WEBPACK_IMPORTED_MODULE_1___default.a.Component {
         lineNumber: 26,
         columnNumber: 11
       }
-    }, this.state.loaded === 'no' ? __jsx("div", {
-      style: {
-        margin: '50px',
-        justifyContent: 'center',
-        display: 'flex'
-      },
-      className: "jsx-1635745536",
-      __self: this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 28,
-        columnNumber: 15
-      }
-    }, __jsx("img", {
-      src: "/img/loader.gif",
-      alt: "loader",
-      className: "jsx-1635745536",
-      __self: this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 35,
-        columnNumber: 17
-      }
-    })) : __jsx(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, this.props.children))), __jsx("footer", {
+    }, __jsx(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, this.props.children))), __jsx("footer", {
       className: "jsx-1635745536" + " " + "container",
       __self: this,
       __source: {
@@ -387,86 +359,18 @@ class Layout extends react__WEBPACK_IMPORTED_MODULE_1___default.a.Component {
         lineNumber: 44,
         columnNumber: 11
       }
-    }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
-      href: "/",
+    }, __jsx("h3", {
+      className: "jsx-1635745536",
       __self: this,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 45,
         columnNumber: 13
       }
-    }, __jsx("a", {
-      style: {
-        display: 'block'
-      },
-      className: "jsx-1635745536",
-      __self: this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 46,
-        columnNumber: 15
-      }
-    }, "Go to home")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
-      href: "./about",
-      __self: this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 48,
-        columnNumber: 13
-      }
-    }, __jsx("a", {
-      style: {
-        display: 'block'
-      },
-      className: "jsx-1635745536",
-      __self: this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 49,
-        columnNumber: 15
-      }
-    }, "Go to About")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
-      href: "./hireme",
-      __self: this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 51,
-        columnNumber: 13
-      }
-    }, __jsx("a", {
-      style: {
-        display: 'block'
-      },
-      className: "jsx-1635745536",
-      __self: this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 52,
-        columnNumber: 15
-      }
-    }, "Hire me")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
-      href: "./blog",
-      __self: this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 54,
-        columnNumber: 13
-      }
-    }, __jsx("a", {
-      style: {
-        display: 'block'
-      },
-      className: "jsx-1635745536",
-      __self: this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 55,
-        columnNumber: 15
-      }
-    }, "Blog")))), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
+    }, "FOOTER"))), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
       id: "1635745536",
       __self: this
-    }, "\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkM6XFxVc2Vyc1xc0JDQu9C10LrRgdC10LlcXERlc2t0b3BcXEFsbCBXb3JrXFxuZXh0LW9mZmljaWFsLWd1aWRlXFxjb21wb25lbnRzXFxMYXlvdXQuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBMkRXIiwiZmlsZSI6IkM6XFxVc2Vyc1xc0JDQu9C10LrRgdC10LlcXERlc2t0b3BcXEFsbCBXb3JrXFxuZXh0LW9mZmljaWFsLWd1aWRlXFxjb21wb25lbnRzXFxMYXlvdXQuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgTGluayBmcm9tICduZXh0L2xpbmsnO1xyXG5pbXBvcnQgUm91dGVyIGZyb20gJ25leHQvcm91dGVyJztcclxuaW1wb3J0ICcuL2luZGV4LnNjc3MnO1xyXG4vLyBpbXBvcnQgbG9hZGVyIGZyb20gJy4uL3B1YmxpYy9pbWcvbG9hZGVyLmdpZic7XHJcbmltcG9ydCBIZWFkZXIgZnJvbSAnLi9IZWFkZXInO1xyXG5leHBvcnQgZGVmYXVsdCBjbGFzcyBMYXlvdXQgZXh0ZW5kcyBSZWFjdC5Db21wb25lbnQge1xyXG4gIGNvbnN0cnVjdG9yKHByb3BzKSB7XHJcbiAgICBzdXBlcihwcm9wcyk7XHJcbiAgfVxyXG4gIHN0YXRlID0ge1xyXG4gICAgbG9hZGVkOiAnbm8nLFxyXG4gIH07XHJcbiAgY29tcG9uZW50RGlkTW91bnQoKSB7XHJcbiAgICBzZXRUaW1lb3V0KCgpID0+IHtcclxuICAgICAgdGhpcy5zZXRTdGF0ZSh7XHJcbiAgICAgICAgbG9hZGVkOiAneWVzJyxcclxuICAgICAgfSk7XHJcbiAgICB9LCA1MDApO1xyXG4gIH1cclxuXHJcbiAgcmVuZGVyKCkge1xyXG4gICAgcmV0dXJuIChcclxuICAgICAgPD5cclxuICAgICAgICA8SGVhZGVyIC8+XHJcbiAgICAgICAgPG1haW4+XHJcbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImNvbnRhaW5lclwiPlxyXG4gICAgICAgICAgICB7dGhpcy5zdGF0ZS5sb2FkZWQgPT09ICdubycgPyAoXHJcbiAgICAgICAgICAgICAgPGRpdlxyXG4gICAgICAgICAgICAgICAgc3R5bGU9e3tcclxuICAgICAgICAgICAgICAgICAgbWFyZ2luOiAnNTBweCcsXHJcbiAgICAgICAgICAgICAgICAgIGp1c3RpZnlDb250ZW50OiAnY2VudGVyJyxcclxuICAgICAgICAgICAgICAgICAgZGlzcGxheTogJ2ZsZXgnLFxyXG4gICAgICAgICAgICAgICAgfX1cclxuICAgICAgICAgICAgICA+XHJcbiAgICAgICAgICAgICAgICA8aW1nIHNyYz1cIi9pbWcvbG9hZGVyLmdpZlwiIGFsdD1cImxvYWRlclwiIC8+XHJcbiAgICAgICAgICAgICAgPC9kaXY+XHJcbiAgICAgICAgICAgICkgOiAoXHJcbiAgICAgICAgICAgICAgPD57dGhpcy5wcm9wcy5jaGlsZHJlbn08Lz5cclxuICAgICAgICAgICAgKX1cclxuICAgICAgICAgIDwvZGl2PlxyXG4gICAgICAgIDwvbWFpbj5cclxuICAgICAgICA8Zm9vdGVyIGNsYXNzTmFtZT1cImNvbnRhaW5lclwiPlxyXG4gICAgICAgICAgPGRpdj4mY29weTsge25ldyBEYXRlKCkuZ2V0RnVsbFllYXIoKX08L2Rpdj5cclxuICAgICAgICAgIDxkaXY+XHJcbiAgICAgICAgICAgIDxMaW5rIGhyZWY9XCIvXCI+XHJcbiAgICAgICAgICAgICAgPGEgc3R5bGU9e3sgZGlzcGxheTogJ2Jsb2NrJyB9fT5HbyB0byBob21lPC9hPlxyXG4gICAgICAgICAgICA8L0xpbms+XHJcbiAgICAgICAgICAgIDxMaW5rIGhyZWY9XCIuL2Fib3V0XCI+XHJcbiAgICAgICAgICAgICAgPGEgc3R5bGU9e3sgZGlzcGxheTogJ2Jsb2NrJyB9fT5HbyB0byBBYm91dDwvYT5cclxuICAgICAgICAgICAgPC9MaW5rPlxyXG4gICAgICAgICAgICA8TGluayBocmVmPVwiLi9oaXJlbWVcIj5cclxuICAgICAgICAgICAgICA8YSBzdHlsZT17eyBkaXNwbGF5OiAnYmxvY2snIH19PkhpcmUgbWU8L2E+XHJcbiAgICAgICAgICAgIDwvTGluaz5cclxuICAgICAgICAgICAgPExpbmsgaHJlZj1cIi4vYmxvZ1wiPlxyXG4gICAgICAgICAgICAgIDxhIHN0eWxlPXt7IGRpc3BsYXk6ICdibG9jaycgfX0+QmxvZzwvYT5cclxuICAgICAgICAgICAgPC9MaW5rPlxyXG4gICAgICAgICAgPC9kaXY+XHJcbiAgICAgICAgPC9mb290ZXI+XHJcbiAgICAgICAgPHN0eWxlIGpzeD5cclxuICAgICAgICAgIHtgXHJcbiAgICAgICAgICAgIC8vIGl0IGNhbiB3b3JrIGJ1dCBJIGRvbnQgc2VlIGEgcHVycG9zZSBiZWNhdXNlIHNob3J0Y3V0cyBkb2VzbnQgd29yayBoZXJlXHJcbiAgICAgICAgICBgfVxyXG4gICAgICAgIDwvc3R5bGU+XHJcbiAgICAgIDwvPlxyXG4gICAgKTtcclxuICB9XHJcbn1cclxuIl19 */\n/*@ sourceURL=C:\\\\Users\\\\\u0410\u043B\u0435\u043A\u0441\u0435\u0439\\\\Desktop\\\\All Work\\\\next-official-guide\\\\components\\\\Layout.js */"));
+    }, "\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkM6XFxVc2Vyc1xc0JDQu9C10LrRgdC10LlcXERlc2t0b3BcXEFsbCBXb3JrXFxuZXh0LW9mZmljaWFsLWd1aWRlXFxjb21wb25lbnRzXFxMYXlvdXQuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBZ0RXIiwiZmlsZSI6IkM6XFxVc2Vyc1xc0JDQu9C10LrRgdC10LlcXERlc2t0b3BcXEFsbCBXb3JrXFxuZXh0LW9mZmljaWFsLWd1aWRlXFxjb21wb25lbnRzXFxMYXlvdXQuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgTGluayBmcm9tICduZXh0L2xpbmsnO1xyXG5pbXBvcnQgUm91dGVyIGZyb20gJ25leHQvcm91dGVyJztcclxuaW1wb3J0ICcuL2luZGV4LnNjc3MnO1xyXG4vLyBpbXBvcnQgbG9hZGVyIGZyb20gJy4uL3B1YmxpYy9pbWcvbG9hZGVyLmdpZic7XHJcbmltcG9ydCBIZWFkZXIgZnJvbSAnLi9IZWFkZXInO1xyXG5leHBvcnQgZGVmYXVsdCBjbGFzcyBMYXlvdXQgZXh0ZW5kcyBSZWFjdC5Db21wb25lbnQge1xyXG4gIGNvbnN0cnVjdG9yKHByb3BzKSB7XHJcbiAgICBzdXBlcihwcm9wcyk7XHJcbiAgfVxyXG4gIC8vIHN0YXRlID0ge1xyXG4gIC8vICAgbG9hZGVkOiAnbm8nLFxyXG4gIC8vIH07XHJcbiAgLy8gY29tcG9uZW50RGlkTW91bnQoKSB7XHJcbiAgLy8gICBzZXRUaW1lb3V0KCgpID0+IHtcclxuICAvLyAgICAgdGhpcy5zZXRTdGF0ZSh7XHJcbiAgLy8gICAgICAgbG9hZGVkOiAneWVzJyxcclxuICAvLyAgICAgfSk7XHJcbiAgLy8gICB9LCA1MDApO1xyXG4gIC8vIH1cclxuXHJcbiAgcmVuZGVyKCkge1xyXG4gICAgcmV0dXJuIChcclxuICAgICAgPD5cclxuICAgICAgICA8SGVhZGVyIC8+XHJcbiAgICAgICAgPG1haW4+XHJcbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImNvbnRhaW5lclwiPlxyXG4gICAgICAgICAgICB7Lyoge3RoaXMuc3RhdGUubG9hZGVkID09PSAnbm8nID8gKFxyXG4gICAgICAgICAgICAgIDxkaXZcclxuICAgICAgICAgICAgICAgIHN0eWxlPXt7XHJcbiAgICAgICAgICAgICAgICAgIG1hcmdpbjogJzUwcHgnLFxyXG4gICAgICAgICAgICAgICAgICBqdXN0aWZ5Q29udGVudDogJ2NlbnRlcicsXHJcbiAgICAgICAgICAgICAgICAgIGRpc3BsYXk6ICdmbGV4JyxcclxuICAgICAgICAgICAgICAgIH19XHJcbiAgICAgICAgICAgICAgPlxyXG4gICAgICAgICAgICAgICAgPGltZyBzcmM9XCIvaW1nL2xvYWRlci5naWZcIiBhbHQ9XCJsb2FkZXJcIiAvPlxyXG4gICAgICAgICAgICAgIDwvZGl2PlxyXG4gICAgICAgICAgICApIDogKCAqL31cclxuICAgICAgICAgICAgPD57dGhpcy5wcm9wcy5jaGlsZHJlbn08Lz5cclxuICAgICAgICAgICAgey8qICl9ICovfVxyXG4gICAgICAgICAgPC9kaXY+XHJcbiAgICAgICAgPC9tYWluPlxyXG4gICAgICAgIDxmb290ZXIgY2xhc3NOYW1lPVwiY29udGFpbmVyXCI+XHJcbiAgICAgICAgICA8ZGl2PiZjb3B5OyB7bmV3IERhdGUoKS5nZXRGdWxsWWVhcigpfTwvZGl2PlxyXG4gICAgICAgICAgPGRpdj5cclxuICAgICAgICAgICAgPGgzPkZPT1RFUjwvaDM+XHJcbiAgICAgICAgICA8L2Rpdj5cclxuICAgICAgICA8L2Zvb3Rlcj5cclxuICAgICAgICA8c3R5bGUganN4PlxyXG4gICAgICAgICAge2BcclxuICAgICAgICAgICAgLy8gaXQgY2FuIHdvcmsgYnV0IEkgZG9udCBzZWUgYSBwdXJwb3NlIGJlY2F1c2Ugc2hvcnRjdXRzIGRvZXNudCB3b3JrIGhlcmVcclxuICAgICAgICAgIGB9XHJcbiAgICAgICAgPC9zdHlsZT5cclxuICAgICAgPC8+XHJcbiAgICApO1xyXG4gIH1cclxufVxyXG4iXX0= */\n/*@ sourceURL=C:\\\\Users\\\\\u0410\u043B\u0435\u043A\u0441\u0435\u0439\\\\Desktop\\\\All Work\\\\next-official-guide\\\\components\\\\Layout.js */"));
   }
 
 }
