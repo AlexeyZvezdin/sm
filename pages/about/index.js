@@ -464,7 +464,7 @@ const about = () => {
           </section>
         </main>
       </div>
-    </div>
+    </>
   );
 };
 
