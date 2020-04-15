@@ -7,7 +7,7 @@ module.exports = withImages(
     cssModules: true,
     cssLoaderOptions: {
       importLoaders: 1,
-      localIdentName: '[local]___[hash:base64:5]',
+      localIdentName: '[local]',
     },
     compress: true,
     poweredByHeader: false,
