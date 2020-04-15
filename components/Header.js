@@ -19,10 +19,10 @@ const links = [
     name: 'Доставка',
     link: UrlBuilder.delivery(),
   },
-  {
-    name: 'О компании',
-    link: UrlBuilder.about(),
-  },
+  // {
+  //   name: 'О компании',
+  //   link: UrlBuilder.about(),
+  // },
   {
     name: 'Вакансии',
     link: UrlBuilder.vacancy(),

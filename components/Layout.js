@@ -42,18 +42,7 @@ export default class Layout extends React.Component {
         <footer className="container">
           <div>&copy; {new Date().getFullYear()}</div>
           <div>
-            <Link href="/">
-              <a style={{ display: 'block' }}>Go to home</a>
-            </Link>
-            <Link href="./about">
-              <a style={{ display: 'block' }}>Go to About</a>
-            </Link>
-            <Link href="./hireme">
-              <a style={{ display: 'block' }}>Hire me</a>
-            </Link>
-            <Link href="./blog">
-              <a style={{ display: 'block' }}>Blog</a>
-            </Link>
+            <h3>FOOTER</h3>
           </div>
         </footer>
         <style jsx>
