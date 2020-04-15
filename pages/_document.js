@@ -1,5 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 class MyDocument extends Document {
+  // TODO: Подрубить наверное свайпер и джскуки сюда
   render() {
     return (
       <Html lang="ru">

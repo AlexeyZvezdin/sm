@@ -25,10 +25,12 @@ export default function Index({ data, error }) {
   const cityName = allData?.name;
   const cityId = allData?.id;
   const supportPhone = allData?.supportPhone;
-  supportPhone
-    ? Cookies.set('supportPhone', supportPhone, { expires: 3 })
-    : (supportPhone = false);
-  if (cityId == true) isLoading = false;
+  React.useEffect(() => {
+    supportPhone
+      ? Cookies.set('supportPhone', supportPhone, { expires: 3 })
+      : (supportPhone = false);
+    if (cityId == true) isLoading = false;
+  });
 
   // подрубить редакс чтобы туда отсюда вкидывать дату, или в куки
   return (
