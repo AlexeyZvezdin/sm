@@ -1,0 +1,418 @@
+//Gotham Pro
+
+@font-face {
+  font-family: 'Gotham Pro';
+  font-display: auto;
+  src: url('../fonts/GothamPro/GothamPro-BoldItalic.eot');
+  src: local('Gotham Pro Bold Italic'), local('GothamPro-BoldItalic'),
+    url('../fonts/GothamPro/GothamPro-BoldItalic.eot?#iefix')
+      format('embedded-opentype'),
+    url('../fonts/GothamPro/GothamPro-BoldItalic.woff') format('woff'),
+    url('../fonts/GothamPro/GothamPro-BoldItalic.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Gotham Pro';
+  font-display: auto;
+  src: url('../fonts/GothamPro/GothamPro-Italic.eot');
+  src: local('Gotham Pro Italic'), local('GothamPro-Italic'),
+    url('../fonts/GothamPro/GothamPro-Italic.eot?#iefix')
+      format('embedded-opentype'),
+    url('../fonts/GothamPro/GothamPro-Italic.woff') format('woff'),
+    url('../fonts/GothamPro/GothamPro-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Gotham Pro';
+  font-display: auto;
+  src: url('../fonts/GothamPro/GothamPro-Medium.eot');
+  src: local('Gotham Pro Medium'), local('GothamPro-Medium'),
+    url('../fonts/GothamPro/GothamPro-Medium.eot?#iefix')
+      format('embedded-opentype'),
+    url('../fonts/GothamPro/GothamPro-Medium.woff') format('woff'),
+    url('../fonts/GothamPro/GothamPro-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham Pro';
+  font-display: auto;
+  src: url('../fonts/GothamPro/GothamPro-BlackItalic.eot');
+  src: local('Gotham Pro Black Italic'), local('GothamPro-BlackItalic'),
+    url('../fonts/GothamPro/GothamPro-BlackItalic.eot?#iefix')
+      format('embedded-opentype'),
+    url('../fonts/GothamPro/GothamPro-BlackItalic.woff') format('woff'),
+    url('../fonts/GothamPro/GothamPro-BlackItalic.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Gotham Pro';
+  font-display: auto;
+  src: url('../fonts/GothamPro/GothamPro-Bold.eot');
+  src: local('Gotham Pro Bold'), local('GothamPro-Bold'),
+    url('../fonts/GothamPro/GothamPro-Bold.eot?#iefix')
+      format('embedded-opentype'),
+    url('../fonts/GothamPro/GothamPro-Bold.woff') format('woff'),
+    url('../fonts/GothamPro/GothamPro-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+// @font-face {
+//   font-family: 'Gotham Pro Narrow';
+//   font-display: auto;
+//   src: url('../fonts/GothamPro/GothamProNarrow-Bold.eot');
+//   src: local('Gotham Pro Narrow Bold'), local('GothamProNarrow-Bold'),
+//     url('../fonts/GothamPro/GothamProNarrow-Bold.eot?#iefix')
+//       format('embedded-opentype'),
+//     url('../fonts/GothamPro/GothamProNarrow-Bold.woff') format('woff'),
+//     url('../fonts/GothamPro/GothamProNarrow-Bold.ttf') format('truetype');
+//   font-weight: bold;
+//   font-style: normal;
+// }
+
+// @font-face {
+//   font-family: 'Gotham Pro Narrow';
+//   font-display: auto;
+//   src: url('../fonts/GothamPro/GothamProNarrow-Medium.eot');
+//   src: local('Gotham Pro Narrow Medium'), local('GothamProNarrow-Medium'),
+//     url('../fonts/GothamPro/GothamProNarrow-Medium.eot?#iefix')
+//       format('embedded-opentype'),
+//     url('../fonts/GothamPro/GothamProNarrow-Medium.woff') format('woff'),
+//     url('../fonts/GothamPro/GothamProNarrow-Medium.ttf') format('truetype');
+//   font-weight: 500;
+//   font-style: normal;
+// }
+
+@font-face {
+  font-family: 'Gotham Pro';
+  font-display: auto;
+  src: url('../fonts/GothamPro/GothamPro-LightItalic.eot');
+  src: local('Gotham Pro Light Italic'), local('GothamPro-LightItalic'),
+    url('../fonts/GothamPro/GothamPro-LightItalic.eot?#iefix')
+      format('embedded-opentype'),
+    url('../fonts/GothamPro/GothamPro-LightItalic.woff') format('woff'),
+    url('../fonts/GothamPro/GothamPro-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Gotham Pro';
+  font-display: auto;
+  src: url('../fonts/GothamPro/GothamPro-Light.eot');
+  src: local('Gotham Pro Light'), local('GothamPro-Light'),
+    url('../fonts/GothamPro/GothamPro-Light.eot?#iefix')
+      format('embedded-opentype'),
+    url('../fonts/GothamPro/GothamPro-Light.woff') format('woff'),
+    url('../fonts/GothamPro/GothamPro-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham Pro';
+  font-display: auto;
+  src: url('../fonts/GothamPro/GothamPro-Black.eot');
+  src: local('Gotham Pro Black'), local('GothamPro-Black'),
+    url('../fonts/GothamPro/GothamPro-Black.eot?#iefix')
+      format('embedded-opentype'),
+    url('../fonts/GothamPro/GothamPro-Black.woff') format('woff'),
+    url('../fonts/GothamPro/GothamPro-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham Pro';
+  font-display: auto;
+  src: url('../fonts/GothamPro/GothamPro.eot');
+  src: local('Gotham Pro'), local('GothamPro'),
+    url('../fonts/GothamPro/GothamPro.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/GothamPro/GothamPro.woff') format('woff'),
+    url('../fonts/GothamPro/GothamPro.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham Pro';
+  font-display: auto;
+  src: url('../fonts/GothamPro/GothamPro-MediumItalic.eot');
+  src: local('Gotham Pro Medium Italic'), local('GothamPro-MediumItalic'),
+    url('../fonts/GothamPro/GothamPro-MediumItalic.eot?#iefix')
+      format('embedded-opentype'),
+    url('../fonts/GothamPro/GothamPro-MediumItalic.woff') format('woff'),
+    url('../fonts/GothamPro/GothamPro-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+}
+
+//Pusia
+
+@font-face {
+  font-family: 'Pusia';
+  font-display: auto;
+  src: url('../fonts/Pusia/subset-Pusia-ExtraBold.eot');
+  src: local('Pusia ExtraBold'), local('Pusia-ExtraBold'),
+    url('../fonts/Pusia/subset-Pusia-ExtraBold.eot?#iefix')
+      format('embedded-opentype'),
+    url('../fonts/Pusia/subset-Pusia-ExtraBold.woff') format('woff'),
+    url('../fonts/Pusia/subset-Pusia-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+
+// @font-face {
+//   font-family: 'Pusia UltraThin';
+//   font-display: auto;
+//   src: url('../fonts/Pusia/subset-Pusia-UltraThin.eot');
+//   src: local('Pusia UltraThin'), local('Pusia-UltraThin'),
+//     url('../fonts/Pusia/subset-Pusia-UltraThin.eot?#iefix')
+//       format('embedded-opentype'),
+//     url('../fonts/Pusia/subset-Pusia-UltraThin.woff') format('woff'),
+//     url('../fonts/Pusia/subset-Pusia-UltraThin.ttf') format('truetype');
+//   font-weight: 100;
+//   font-style: normal;
+// }
+
+// @font-face {
+//   font-family: 'Pusia Hairline';
+//   font-display: auto;
+//   src: url('../fonts/Pusia/subset-Pusia-Hairline.eot');
+//   src: local('Pusia Hairline'), local('Pusia-Hairline'),
+//     url('../fonts/Pusia/subset-Pusia-Hairline.eot?#iefix')
+//       format('embedded-opentype'),
+//     url('../fonts/Pusia/subset-Pusia-Hairline.woff') format('woff'),
+//     url('../fonts/Pusia/subset-Pusia-Hairline.ttf') format('truetype');
+//   font-weight: normal;
+//   font-style: normal;
+// }
+
+@font-face {
+  font-family: 'Pusia';
+  font-display: auto;
+  src: url('../fonts/Pusia/subset-Pusia-RegularItalic.eot');
+  src: local('Pusia Regular Italic'), local('Pusia-RegularItalic'),
+    url('../fonts/Pusia/subset-Pusia-RegularItalic.eot?#iefix')
+      format('embedded-opentype'),
+    url('../fonts/Pusia/subset-Pusia-RegularItalic.woff') format('woff'),
+    url('../fonts/Pusia/subset-Pusia-RegularItalic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Pusia';
+  font-display: auto;
+  src: url('../fonts/Pusia/subset-Pusia-DemiBoldItalic.eot');
+  src: local('Pusia DemiBold Italic'), local('Pusia-DemiBoldItalic'),
+    url('../fonts/Pusia/subset-Pusia-DemiBoldItalic.eot?#iefix')
+      format('embedded-opentype'),
+    url('../fonts/Pusia/subset-Pusia-DemiBoldItalic.woff') format('woff'),
+    url('../fonts/Pusia/subset-Pusia-DemiBoldItalic.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Pusia';
+  font-display: auto;
+  src: url('../fonts/Pusia/subset-Pusia-Medium.eot');
+  src: local('Pusia Medium'), local('Pusia-Medium'),
+    url('../fonts/Pusia/subset-Pusia-Medium.eot?#iefix')
+      format('embedded-opentype'),
+    url('../fonts/Pusia/subset-Pusia-Medium.woff') format('woff'),
+    url('../fonts/Pusia/subset-Pusia-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pusia';
+  font-display: auto;
+  src: url('../fonts/Pusia/subset-Pusia-LightItalic.eot');
+  src: local('Pusia Light Italic'), local('Pusia-LightItalic'),
+    url('../fonts/Pusia/subset-Pusia-LightItalic.eot?#iefix')
+      format('embedded-opentype'),
+    url('../fonts/Pusia/subset-Pusia-LightItalic.woff') format('woff'),
+    url('../fonts/Pusia/subset-Pusia-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+// @font-face {
+//   font-family: 'Pusia UltraThin';
+//   font-display: auto;
+//   src: url('../fonts/Pusia/subset-Pusia-UltraThinItalic.eot');
+//   src: local('Pusia UltraThin Italic'), local('Pusia-UltraThinItalic'),
+//     url('../fonts/Pusia/subset-Pusia-UltraThinItalic.eot?#iefix')
+//       format('embedded-opentype'),
+//     url('../fonts/Pusia/subset-Pusia-UltraThinItalic.woff') format('woff'),
+//     url('../fonts/Pusia/subset-Pusia-UltraThinItalic.ttf') format('truetype');
+//   font-weight: 100;
+//   font-style: italic;
+// }
+
+@font-face {
+  font-family: 'Pusia';
+  font-display: auto;
+  src: url('../fonts/Pusia/subset-Pusia-DemiBold.eot');
+  src: local('Pusia DemiBold'), local('Pusia-DemiBold'),
+    url('../fonts/Pusia/subset-Pusia-DemiBold.eot?#iefix')
+      format('embedded-opentype'),
+    url('../fonts/Pusia/subset-Pusia-DemiBold.woff') format('woff'),
+    url('../fonts/Pusia/subset-Pusia-DemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pusia';
+  font-display: auto;
+  src: url('../fonts/Pusia/subset-Pusia-ExtraBoldItalic.eot');
+  src: local('Pusia ExtraBold Italic'), local('Pusia-ExtraBoldItalic'),
+    url('../fonts/Pusia/subset-Pusia-ExtraBoldItalic.eot?#iefix')
+      format('embedded-opentype'),
+    url('../fonts/Pusia/subset-Pusia-ExtraBoldItalic.woff') format('woff'),
+    url('../fonts/Pusia/subset-Pusia-ExtraBoldItalic.ttf') format('truetype');
+  font-weight: 800;
+  font-style: italic;
+}
+
+// @font-face {
+//   font-family: 'Pusia Hairline';
+//   font-display: auto;
+//   src: url('../fonts/Pusia/subset-Pusia-HairlineItalic.eot');
+//   src: local('Pusia Hairline Italic'), local('Pusia-HairlineItalic'),
+//     url('../fonts/Pusia/subset-Pusia-HairlineItalic.eot?#iefix')
+//       format('embedded-opentype'),
+//     url('../fonts/Pusia/subset-Pusia-HairlineItalic.woff') format('woff'),
+//     url('../fonts/Pusia/subset-Pusia-HairlineItalic.ttf') format('truetype');
+//   font-weight: normal;
+//   font-style: italic;
+// }
+
+@font-face {
+  font-family: 'Pusia';
+  font-display: auto;
+  src: url('../fonts/Pusia/subset-Pusia-ThinItalic.eot');
+  src: local('Pusia Thin Italic'), local('Pusia-ThinItalic'),
+    url('../fonts/Pusia/subset-Pusia-ThinItalic.eot?#iefix')
+      format('embedded-opentype'),
+    url('../fonts/Pusia/subset-Pusia-ThinItalic.woff') format('woff'),
+    url('../fonts/Pusia/subset-Pusia-ThinItalic.ttf') format('truetype');
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Pusia';
+  font-display: auto;
+  src: url('../fonts/Pusia/subset-Pusia-Black.eot');
+  src: local('Pusia Black'), local('Pusia-Black'),
+    url('../fonts/Pusia/subset-Pusia-Black.eot?#iefix')
+      format('embedded-opentype'),
+    url('../fonts/Pusia/subset-Pusia-Black.woff') format('woff'),
+    url('../fonts/Pusia/subset-Pusia-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pusia';
+  font-display: auto;
+  src: url('../fonts/Pusia/subset-Pusia-Thin.eot');
+  src: local('Pusia Thin'), local('Pusia-Thin'),
+    url('../fonts/Pusia/subset-Pusia-Thin.eot?#iefix')
+      format('embedded-opentype'),
+    url('../fonts/Pusia/subset-Pusia-Thin.woff') format('woff'),
+    url('../fonts/Pusia/subset-Pusia-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pusia';
+  font-display: auto;
+  src: url('../fonts/Pusia/subset-Pusia-Light.eot');
+  src: local('Pusia Light'), local('Pusia-Light'),
+    url('../fonts/Pusia/subset-Pusia-Light.eot?#iefix')
+      format('embedded-opentype'),
+    url('../fonts/Pusia/subset-Pusia-Light.woff') format('woff'),
+    url('../fonts/Pusia/subset-Pusia-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pusia';
+  font-display: auto;
+  src: url('../fonts/Pusia/subset-Pusia-BlackItalic.eot');
+  src: local('Pusia Black Italic'), local('Pusia-BlackItalic'),
+    url('../fonts/Pusia/subset-Pusia-BlackItalic.eot?#iefix')
+      format('embedded-opentype'),
+    url('../fonts/Pusia/subset-Pusia-BlackItalic.woff') format('woff'),
+    url('../fonts/Pusia/subset-Pusia-BlackItalic.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Pusia';
+  font-display: auto;
+  src: url('../fonts/Pusia/subset-Pusia-Bold.eot');
+  src: local('Pusia Bold'), local('Pusia-Bold'),
+    url('../fonts/Pusia/subset-Pusia-Bold.eot?#iefix')
+      format('embedded-opentype'),
+    url('../fonts/Pusia/subset-Pusia-Bold.woff') format('woff'),
+    url('../fonts/Pusia/subset-Pusia-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pusia';
+  font-display: auto;
+  src: url('../fonts/Pusia/subset-Pusia-Regular.eot');
+  src: local('Pusia Regular'), local('Pusia-Regular'),
+    url('../fonts/Pusia/subset-Pusia-Regular.eot?#iefix')
+      format('embedded-opentype'),
+    url('../fonts/Pusia/subset-Pusia-Regular.woff') format('woff'),
+    url('../fonts/Pusia/subset-Pusia-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pusia';
+  font-display: auto;
+  src: url('../fonts/Pusia/subset-Pusia-MediumItalic.eot');
+  src: local('Pusia Medium Italic'), local('Pusia-MediumItalic'),
+    url('../fonts/Pusia/subset-Pusia-MediumItalic.eot?#iefix')
+      format('embedded-opentype'),
+    url('../fonts/Pusia/subset-Pusia-MediumItalic.woff') format('woff'),
+    url('../fonts/Pusia/subset-Pusia-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Pusia';
+  font-display: auto;
+  src: url('../fonts/Pusia/subset-Pusia-BoldItalic.eot');
+  src: local('Pusia Bold Italic'), local('Pusia-BoldItalic'),
+    url('../fonts/Pusia/subset-Pusia-BoldItalic.eot?#iefix')
+      format('embedded-opentype'),
+    url('../fonts/Pusia/subset-Pusia-BoldItalic.woff') format('woff'),
+    url('../fonts/Pusia/subset-Pusia-BoldItalic.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
