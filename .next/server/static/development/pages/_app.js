@@ -229,7 +229,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
         lineNumber: 64,
         columnNumber: 30
       }
-    })) : __jsx("p", {
+    })) : __jsx("a", {
       __self: this,
       __source: {
         fileName: _jsxFileName,

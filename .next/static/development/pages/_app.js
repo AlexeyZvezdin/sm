@@ -172,7 +172,7 @@ var Header = /*#__PURE__*/function (_React$Component) {
           lineNumber: 64,
           columnNumber: 30
         }
-      })) : __jsx("p", {
+      })) : __jsx("a", {
         __self: this,
         __source: {
           fileName: _jsxFileName,

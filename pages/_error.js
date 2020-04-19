@@ -1,6 +1,6 @@
 export default ({ statusCode }) => (
   <>
-    <h1>404</h1>
+    <h1>Error</h1>
     {statusCode
       ? `Could not load your user data: Status code ${statusCode}`
       : ''}

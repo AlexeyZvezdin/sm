@@ -14,6 +14,7 @@ class MyDocument extends Document {
           <meta name="robots" content="noindex, nofollow" />
           <meta name="description" content="sushi-master" />
           <meta charSet="UTF-8" />
+          {/* в след раз попробуй его убрать */}
           <link
             href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
             rel="stylesheet"

@@ -101,7 +101,7 @@ const about = () => {
               городах России и ближнего зарубежья
             </p>
             <div className="about__panda">
-              <img src={Panda} alt="Панда" />
+              <img data-src={Panda} src="/img/loader.gif" alt="Панда" />
             </div>
             <div className="about__statistic-items">
               <div className="about__statistic-item">
@@ -210,7 +210,11 @@ const about = () => {
               </div>
             </div>
           </section>
-          <section className="about__who-we-are" id="who-we-are">
+          <section
+            data-src="'/img/about/bg-whowe.png'"
+            className="about__who-we-are bg-lazy"
+            id="who-we-are"
+          >
             <div className="about__container">
               <h2>Кто мы сегодня</h2>
               <p>
@@ -327,7 +331,11 @@ const about = () => {
               </div>
             </div>
           </section>
-          <section className="about__for-partner" id="partners">
+          <section
+            className="about__for-partner bg-lazy"
+            id="partners"
+            data-src="'/img/about/part.png'"
+          >
             <div className="about__partner-features about__container">
               <h2>Для партнера</h2>
               <p className="about__for-partner-desc">

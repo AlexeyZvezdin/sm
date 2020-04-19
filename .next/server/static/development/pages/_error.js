@@ -116,7 +116,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
     lineNumber: 3,
     columnNumber: 5
   }
-}, "404"), statusCode ? `Could not load your user data: Status code ${statusCode}` : '', __jsx("p", {
+}, "Error"), statusCode ? `Could not load your user data: Status code ${statusCode}` : '', __jsx("p", {
   __self: undefined,
   __source: {
     fileName: _jsxFileName,

@@ -64,7 +64,7 @@ class Header extends React.Component {
               {supportPhone} <img src="/img/icons/ic-phone.svg" alt="" />
             </a>
           ) : (
-            <p>No phone</p>
+            <a>No phone</a>
           )}
         </div>
         <nav className="menu">
