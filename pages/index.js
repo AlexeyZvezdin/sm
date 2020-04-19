@@ -48,14 +48,25 @@ function Index(state) {
   return (
     <>
       {/* <h1>Healoo {supportPhone}</h1> */}
-      <>
-        {JSON.stringify(state)}
-        {/* {cityName ? (
+      {/* {JSON.stringify(state)} */}
+      {/* {cityName ? (
           <p>{cityName}</p>
         ) : (
           'Failed to load data, please refresh the page'
         )} */}
-      </>
+      <div className="products" style={{ display: 'flex', flexWrap: 'wrap' }}>
+        {state.initialReducer.products.items.map((el) => {
+          return (
+            <div className="product">
+              <img
+                data-src={`https://client-api.sushi-master.ru/pics/${el.mainPictureId}?width=400`}
+                alt=""
+                style={{ width: '300px', objectFit: 'cover' }}
+              />
+            </div>
+          );
+        })}
+      </div>
     </>
   );
 }
