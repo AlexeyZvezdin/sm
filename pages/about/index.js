@@ -80,7 +80,7 @@ const about = () => {
           </h1>
         </div>
         <iframe
-          src="https://www.youtube.com/embed/KlATtJ-0LTI"
+          data-src="https://www.youtube.com/embed/KlATtJ-0LTI"
           frameBorder="0"
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
