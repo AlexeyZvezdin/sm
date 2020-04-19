@@ -17,7 +17,8 @@ class MyDocument extends Document {
           {/* в след раз попробуй его убрать */}
           <link
             href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
-            rel="stylesheet"
+            rel="preload"
+            as="font"
           />
           <link rel="stylesheet" href="/css/index.css" />
           <link rel="stylesheet" href="/css/fonts.css" />
