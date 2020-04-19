@@ -5,7 +5,7 @@ import Link from 'next/link';
  *  on which your code can be executed.
  *  Relative URLs are just not explicit & reliable enough in this case
  */
-
+import { connect } from 'react-redux';
 import fetch from 'isomorphic-unfetch';
 // import fetch from 'unfetch';
 import useSWR from 'swr';
@@ -15,8 +15,8 @@ import Cookies from 'js-cookie';
 function fetcher(url) {
   return fetch(url).then((r) => r.json());
 }
-
-export default function Index({ data, error }) {
+// { data, allCities, error }
+function Index(state) {
   const { query } = useRouter();
   const [supportPhone, setSupportPhone] = React.useState();
   // не попадает в браузер, можно пользоваться
@@ -28,68 +28,80 @@ export default function Index({ data, error }) {
    */
   // The following line has optional chaining, added in Next.js v9.1.5,
   // is the same as `data && data.author`
-  let allData = data?.result;
-  let cityName = allData?.name;
-  let cityId = allData?.id;
-  React.useEffect(() => {
-    // да хуй сделаешь ето через куки надо через редакс онли
-    // да и куки надо с бекенда ставить уже
-    allData?.supportPhone
-      ? Cookies.set('supportPhone', allData.supportPhone, { expires: 3 }) &&
-        setSupportPhone(allData.supportPhone)
-      : setSupportPhone();
-    if (cityId == true) isLoading = false;
-  });
+
+  // console.log(allCities, ' allCities');
+  //  let allData = data?.result;
+  //  let cityName = allData?.name;
+  //  let cityId = allData?.id;
+  //  React.useEffect(() => {
+  //    // да хуй сделаешь ето через куки надо через редакс онли
+  //    // да и куки надо с бекенда ставить уже
+  //    allData?.supportPhone
+  //      ? Cookies.set('supportPhone', allData.supportPhone, {
+  //          expires: 3,
+  //        }) && setSupportPhone(allData.supportPhone)
+  //      : setSupportPhone();
+  //    if (cityId == true) isLoading = false;
+  //  });
 
   // подрубить редакс чтобы туда отсюда вкидывать дату, или в куки
   return (
     <>
-      <h1>Healoo {supportPhone}</h1>
+      {/* <h1>Healoo {supportPhone}</h1> */}
       <>
-        {JSON.stringify(allData)}
-        {cityName ? (
+        {JSON.stringify(state)}
+        {/* {cityName ? (
           <p>{cityName}</p>
         ) : (
           'Failed to load data, please refresh the page'
-        )}
+        )} */}
       </>
     </>
   );
 }
+export default connect((state) => state)(Index);
+// Index.getInitialProps = async function () {
+//   // const defaultCityRequest = process.env.API + '/api/v1/city/default';
+//   const defaultCity = await fetch(
+//     'https://client-api.sushi-master.ru/api/v1/city/default'
+//   );
+//   let data = await defaultCity.json();
+//   // город айди
+//   let cityId = data.result.cityId;
+//   const config = {
+//     params: {
+//       cityId: cityId,
+//     },
+//   };
+// console.log(data.result, ' data.result');
+// const allCitiesReq = await fetch(
+//   'https://client-api.sushi-master.ru/api/v1/city'
+// );
 
-Index.getInitialProps = async function () {
-  // const defaultCityRequest = process.env.API + '/api/v1/city/default';
-  const defaultCity = await fetch(
-    'https://client-api.sushi-master.ru/api/v1/city/default'
-  );
-  let data = await defaultCity.json();
-  let cityId = data.result.cityId;
-  console.log(cityId, ' cityId');
-  const config = {
-    params: {
-      cityId: cityId,
-    },
-  };
+// const allCities = await allCitiesReq.json();
 
-  const allCategories = await fetch(
-    `https://client-api.sushi-master.ru/api/v1/catalog/categories/all`
-  );
-  let allCategoriesData = await allCategories.json();
-  // const phoneReq = await fetch(
-  //   `https://client-api.sushi-master.ru/api/v1/catalog/categories/all`
-  // );
-  // let  = await allCategories.json();
-  // console.log(allCategoriesData.result.items, ' allCategoriesData');
-  // const products = await fetch(
-  //   `https://client-api.sushi-master.ru/api/v1/catalog/products/`
-  // );
+// const allCategories = await fetch(
+//   `https://client-api.sushi-master.ru/api/v1/catalog/categories/all?cityId=${cityId}`
+// );
+// let categories = await allCategories.json();
+// console.log(categories, ' categories');
+// const phoneReq = await fetch(
+//   `https://client-api.sushi-master.ru/api/v1/catalog/categories/all`
+// );
+// let  = await allCategories.json();
+// console.log(allCategoriesData.result.items, ' allCategoriesData');
+// const products = await fetch(
+//   `https://client-api.sushi-master.ru/api/v1/catalog/products/`
+// );
 
-  // let products = await products.json();
-  // console.log(products, ' products');
-  return {
-    data,
-  };
-};
+// let products = await products.json();
+// console.log(products, ' products');
+//   return {
+//     data,
+//     // allCities,
+//     // categories,
+//   };
+// };
 
 /**
  * TODO: Ниже расположен тестовый код, в будущем удалить

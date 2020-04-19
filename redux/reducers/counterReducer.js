@@ -3,12 +3,14 @@ import {
   INCREMENT_COUNTER,
 } from '../actions/counterActions';
 
-const counterReducer = (state = { value: 0 }, action) => {
+const counterReducer = (state = { value: 0, city: {} }, action) => {
   switch (action.type) {
     case INCREMENT_COUNTER:
       return { ...state, value: state.value + 1 };
     case DECREMENT_COUNTER:
       return { ...state, value: state.value - 1 };
+    case 'POPULATE_INITIAL_STATE':
+      return { ...state, city: action.payload };
     default:
       return { ...state };
   }

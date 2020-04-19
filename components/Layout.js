@@ -3,6 +3,8 @@ import Router from 'next/router';
 import './index.module.scss';
 // import loader from '../public/img/loader.gif';
 import Header from './Basic/Header';
+import CityChoose from '../components/Modals/CityChoose';
+
 export default class Layout extends React.Component {
   constructor(props) {
     super(props);
@@ -21,6 +23,7 @@ export default class Layout extends React.Component {
   render() {
     return (
       <>
+        <CityChoose />
         <Header />
         <main>
           <div className="container">
