@@ -2359,10 +2359,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     const defaultCityData = await defaultCity.json(); // const thisCityCategories = await fetch(
     //   `https://client-api.sushi-master.ru/api/v1/catalog/categories?cityId=${defaultCityData.result.cityId}`
     // );
+    // 5d3834ad59201a66b905d9e7 - id abakan
 
-    const thisCityCategories = await fetch(`https://client-api.sushi-master.ru/api/v1/catalog/categories?cityId=5d3834ad59201a66b905d9e7`, options);
+    const thisCityCategories = await fetch(`https://client-api.sushi-master.ru/api/v1/catalog/categories/all?cityId=${defaultCityData.result.cityId}`, options);
     const thisCityCategoriesData = await thisCityCategories.json(); // debugger;
 
+    const category_id = thisCityCategoriesData.result.items[0].id;
+    console.log(category_id, ' category_id');
+    const thisCategoryProducts = await fetch(`https://client-api.sushi-master.ru/api/v1/catalog/categories/${category_id}/products`, options);
+    const thisCategoryProductsData = await thisCategoryProducts.json();
     ctx.store.dispatch({
       type: 'POPULATE_INITIAL_STATE',
       payload: defaultCityData
@@ -2370,6 +2375,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     ctx.store.dispatch({
       type: 'POPULATE_INITIAL_CATEGORIES',
       payload: thisCityCategoriesData
+    });
+    ctx.store.dispatch({
+      type: 'POPULATE_INITIAL_PRODUCTS',
+      payload: thisCategoryProductsData
     });
     console.timeEnd('fetchstart');
     return {
@@ -2388,21 +2397,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 73,
+        lineNumber: 84,
         columnNumber: 9
       }
     }, __jsx(_components_Layout__WEBPACK_IMPORTED_MODULE_4__["default"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 74,
+        lineNumber: 85,
         columnNumber: 11
       }
     }, __jsx(Component, _extends({}, pageProps, {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 75,
+        lineNumber: 86,
         columnNumber: 13
       }
     }))));
@@ -2490,6 +2499,11 @@ const counterReducer = (state = {
     case 'POPULATE_INITIAL_CATEGORIES':
       return _objectSpread({}, state, {
         categories: action.payload.result
+      });
+
+    case 'POPULATE_INITIAL_PRODUCTS':
+      return _objectSpread({}, state, {
+        products: action.payload.result
       });
 
     default:

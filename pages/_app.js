@@ -42,13 +42,20 @@ export default withRedux(makeStore, { debug: true })(
       // const thisCityCategories = await fetch(
       //   `https://client-api.sushi-master.ru/api/v1/catalog/categories?cityId=${defaultCityData.result.cityId}`
       // );
+      // 5d3834ad59201a66b905d9e7 - id abakan
       const thisCityCategories = await fetch(
-        `https://client-api.sushi-master.ru/api/v1/catalog/categories?cityId=5d3834ad59201a66b905d9e7`,
+        `https://client-api.sushi-master.ru/api/v1/catalog/categories/all?cityId=${defaultCityData.result.cityId}`,
         options
       );
       const thisCityCategoriesData = await thisCityCategories.json();
       // debugger;
-
+      const category_id = thisCityCategoriesData.result.items[0].id;
+      console.log(category_id, ' category_id');
+      const thisCategoryProducts = await fetch(
+        `https://client-api.sushi-master.ru/api/v1/catalog/categories/${category_id}/products`,
+        options
+      );
+      const thisCategoryProductsData = await thisCategoryProducts.json();
       ctx.store.dispatch({
         type: 'POPULATE_INITIAL_STATE',
         payload: defaultCityData,
@@ -56,6 +63,10 @@ export default withRedux(makeStore, { debug: true })(
       ctx.store.dispatch({
         type: 'POPULATE_INITIAL_CATEGORIES',
         payload: thisCityCategoriesData,
+      });
+      ctx.store.dispatch({
+        type: 'POPULATE_INITIAL_PRODUCTS',
+        payload: thisCategoryProductsData,
       });
       console.timeEnd('fetchstart');
       return {

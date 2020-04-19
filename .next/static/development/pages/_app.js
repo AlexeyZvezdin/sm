@@ -9326,21 +9326,21 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 73,
+          lineNumber: 84,
           columnNumber: 9
         }
       }, __jsx(_components_Layout__WEBPACK_IMPORTED_MODULE_12__["default"], {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 74,
+          lineNumber: 85,
           columnNumber: 11
         }
       }, __jsx(Component, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__["default"])({}, pageProps, {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 75,
+          lineNumber: 86,
           columnNumber: 13
         }
       }))));
@@ -9350,7 +9350,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
     value: function getInitialProps(_ref) {
       var _headers;
 
-      var Component, ctx, options, allCitiesReq, allCities, domain, cityInsteadOfDomain, defaultCity, defaultCityData, thisCityCategories, thisCityCategoriesData;
+      var Component, ctx, options, allCitiesReq, allCities, domain, cityInsteadOfDomain, defaultCity, defaultCityData, thisCityCategories, thisCityCategoriesData, category_id, thisCategoryProducts, thisCategoryProductsData;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function getInitialProps$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -9388,7 +9388,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
             case 16:
               defaultCityData = _context.sent;
               _context.next = 19;
-              return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(fetch("https://client-api.sushi-master.ru/api/v1/catalog/categories?cityId=5d3834ad59201a66b905d9e7", options));
+              return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(fetch("https://client-api.sushi-master.ru/api/v1/catalog/categories/all?cityId=".concat(defaultCityData.result.cityId), options));
 
             case 19:
               thisCityCategories = _context.sent;
@@ -9398,6 +9398,18 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
             case 22:
               thisCityCategoriesData = _context.sent;
               // debugger;
+              category_id = thisCityCategoriesData.result.items[0].id;
+              console.log(category_id, ' category_id');
+              _context.next = 27;
+              return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(fetch("https://client-api.sushi-master.ru/api/v1/catalog/categories/".concat(category_id, "/products"), options));
+
+            case 27:
+              thisCategoryProducts = _context.sent;
+              _context.next = 30;
+              return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(thisCategoryProducts.json());
+
+            case 30:
+              thisCategoryProductsData = _context.sent;
               ctx.store.dispatch({
                 type: 'POPULATE_INITIAL_STATE',
                 payload: defaultCityData
@@ -9406,34 +9418,38 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
                 type: 'POPULATE_INITIAL_CATEGORIES',
                 payload: thisCityCategoriesData
               });
+              ctx.store.dispatch({
+                type: 'POPULATE_INITIAL_PRODUCTS',
+                payload: thisCategoryProductsData
+              });
               console.timeEnd('fetchstart');
               _context.t0 = _objectSpread;
               _context.t1 = {};
 
               if (!Component.getInitialProps) {
-                _context.next = 34;
+                _context.next = 43;
                 break;
               }
 
-              _context.next = 31;
+              _context.next = 40;
               return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(Component.getInitialProps(ctx));
 
-            case 31:
+            case 40:
               _context.t2 = _context.sent;
-              _context.next = 35;
+              _context.next = 44;
               break;
 
-            case 34:
+            case 43:
               _context.t2 = {};
 
-            case 35:
+            case 44:
               _context.t3 = _context.t2;
               _context.t4 = (0, _context.t0)(_context.t1, _context.t3);
               return _context.abrupt("return", {
                 pageProps: _context.t4
               });
 
-            case 38:
+            case 47:
             case "end":
               return _context.stop();
           }
@@ -9533,6 +9549,11 @@ var counterReducer = function counterReducer() {
     case 'POPULATE_INITIAL_CATEGORIES':
       return _objectSpread({}, state, {
         categories: action.payload.result
+      });
+
+    case 'POPULATE_INITIAL_PRODUCTS':
+      return _objectSpread({}, state, {
+        products: action.payload.result
       });
 
     default:

@@ -16,6 +16,8 @@ const counterReducer = (
       return { ...state, city: action.payload.result };
     case 'POPULATE_INITIAL_CATEGORIES':
       return { ...state, categories: action.payload.result };
+    case 'POPULATE_INITIAL_PRODUCTS':
+      return { ...state, products: action.payload.result };
     default:
       return { ...state };
   }
