@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import SushiMasterLogo from '../../public/img/icons/ic-logo.svg';
-import './about.scss';
+import './about.module.scss';
 import Swiper from 'react-id-swiper';
 import Panda from '../../public/img/panda.png';
 import gr1 from '../../public/img/about/equal-quality/gr-1.png';

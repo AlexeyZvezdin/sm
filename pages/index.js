@@ -1,5 +1,11 @@
 import Layout from '../components/Layout';
 import Link from 'next/link';
+/**  However, isomorphic-unfetch requires an absolute URL or it will fail.
+ *  I’m assuming it has something to do with the different environments (client & server)
+ *  on which your code can be executed.
+ *  Relative URLs are just not explicit & reliable enough in this case
+ */
+
 import fetch from 'isomorphic-unfetch';
 // import fetch from 'unfetch';
 import useSWR from 'swr';
@@ -12,6 +18,7 @@ function fetcher(url) {
 
 export default function Index({ data, error }) {
   const { query } = useRouter();
+  const [supportPhone, setSupportPhone] = React.useState();
   // не попадает в браузер, можно пользоваться
   // console.log(process.env.BASE_API, ' process.env.BASE_API');
   /**
@@ -21,14 +28,16 @@ export default function Index({ data, error }) {
    */
   // The following line has optional chaining, added in Next.js v9.1.5,
   // is the same as `data && data.author`
-  const allData = data?.result;
-  const cityName = allData?.name;
-  const cityId = allData?.id;
-  const supportPhone = allData?.supportPhone;
+  let allData = data?.result;
+  let cityName = allData?.name;
+  let cityId = allData?.id;
   React.useEffect(() => {
-    supportPhone
-      ? Cookies.set('supportPhone', supportPhone, { expires: 3 })
-      : (supportPhone = false);
+    // да хуй сделаешь ето через куки надо через редакс онли
+    // да и куки надо с бекенда ставить уже
+    allData?.supportPhone
+      ? Cookies.set('supportPhone', allData.supportPhone, { expires: 3 }) &&
+        setSupportPhone(allData.supportPhone)
+      : setSupportPhone();
     if (cityId == true) isLoading = false;
   });
 

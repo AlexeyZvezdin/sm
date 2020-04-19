@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import Router from 'next/router';
-import './index.scss';
+import './index.module.scss';
 // import loader from '../public/img/loader.gif';
-import Header from './Header';
+import Header from './Basic/Header';
 export default class Layout extends React.Component {
   constructor(props) {
     super(props);

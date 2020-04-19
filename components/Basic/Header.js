@@ -1,10 +1,6 @@
 import Link from 'next/link';
-import * as UrlBuilder from '../utils/UrlBuilder';
-import './index.scss';
+import * as UrlBuilder from '../../utils/UrlBuilder';
 import Cookies from 'js-cookie';
-// const linkStyle = {
-//   marginRight: 15,
-// };
 
 const links = [
   {

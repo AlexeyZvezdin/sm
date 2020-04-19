@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["styles"],{
 
-/***/ "./components/index.scss":
-/*!*******************************!*\
-  !*** ./components/index.scss ***!
-  \*******************************/
+/***/ "./components/index.module.scss":
+/*!**************************************!*\
+  !*** ./components/index.module.scss ***!
+  \**************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -29,7 +29,7 @@
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1586985946900");
+            injectCss(link, link.href.split("?")[0] + "?unix=1587314755911");
           });
       }
     }
@@ -37,10 +37,10 @@
 
 /***/ }),
 
-/***/ "./pages/about/about.scss":
-/*!********************************!*\
-  !*** ./pages/about/about.scss ***!
-  \********************************/
+/***/ "./pages/about/about.module.scss":
+/*!***************************************!*\
+  !*** ./pages/about/about.module.scss ***!
+  \***************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -67,7 +67,7 @@ module.exports = {"about__container":"about__container","about__4k_container":"a
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1586985952236");
+            injectCss(link, link.href.split("?")[0] + "?unix=1587314760984");
           });
       }
     }
