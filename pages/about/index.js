@@ -131,7 +131,8 @@ const about = () => {
               от друга. Это наш случай, у нас их вон уже сколько:
             </p>
             <img
-              src={DiagramByPic}
+              data-src={DiagramByPic}
+              src="/img/loader.gif"
               alt="Диаграмы картинкой"
               id="diagrambypic"
             />
@@ -139,7 +140,7 @@ const about = () => {
               {/* diagram */}
               <div className="about_equal_diagram">
                 <div className="about_equal_diagram-imgs ">
-                  <img src={gr1} alt="diagram" />
+                  <img data-src={gr1} alt="diagram" />
                   <img
                     src={gr1n}
                     alt="diagram"
@@ -151,7 +152,7 @@ const about = () => {
               {/* diagram */}
               <div className="about_equal_diagram">
                 <div className="about_equal_diagram-imgs ">
-                  <img src={gr5} alt="diagram" />
+                  <img data-src={gr5} alt="diagram" />
                   <img
                     src={gr5n}
                     alt="diagram"
@@ -163,7 +164,7 @@ const about = () => {
               {/* diagram */}
               <div className="about_equal_diagram">
                 <div className="about_equal_diagram-imgs">
-                  <img src={gr23} alt="diagram" />
+                  <img data-src={gr23} alt="diagram" />
                   <img
                     src={gr23n}
                     alt="diagram"
@@ -175,7 +176,7 @@ const about = () => {
               {/* diagram */}
               <div className="about_equal_diagram">
                 <div className="about_equal_diagram-imgs">
-                  <img src={gr51} alt="diagram" />
+                  <img data-src={gr51} alt="diagram" />
                   <img
                     src={gr51n}
                     alt="diagram"
@@ -187,7 +188,7 @@ const about = () => {
               {/* diagram */}
               <div className="about_equal_diagram">
                 <div className="about_equal_diagram-imgs">
-                  <img src={gr140} alt="diagram" />
+                  <img data-src={gr140} alt="diagram" />
                   <img
                     src={gr140n}
                     alt="diagram"
@@ -199,7 +200,7 @@ const about = () => {
               {/* diagram */}
               <div className="about_equal_diagram">
                 <div className="about_equal_diagram-imgs">
-                  <img src={gr270} alt="diagram" />
+                  <img data-src={gr270} alt="diagram" />
                   <img
                     src={gr303n}
                     alt="diagram"
@@ -320,7 +321,7 @@ const about = () => {
               </Swiper>
             </div>
             <div className="about__service-features-bottom">
-              <img src={booklet} alt="Буклет" />
+              <img data-src={booklet} src="/img/loader.gif" alt="Буклет" />
               <div className="about__service-feature sf-5">
                 <img src={ic_gift} alt="акции и спецпредложения" />
                 <p>
