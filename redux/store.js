@@ -9,13 +9,8 @@ import rootReducer from './reducers/rootReducer';
  * @param {boolean} options.debug User-defined debug flag
  * @param {string} options.storeKey The key that will be used to persist the store in the browser's `window` object for safe HMR
  */
-let initialData = {
-  city: 'volgograd',
-  categories: {},
-  products: {},
-};
 
-const makeStore = (initialState = initialData, options) => {
+const makeStore = (initialState = {}, options) => {
   return createStore(rootReducer, initialState);
 };
 

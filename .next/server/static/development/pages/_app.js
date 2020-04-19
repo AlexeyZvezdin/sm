@@ -422,6 +422,53 @@ class CityChoose extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component 
 
 /***/ }),
 
+/***/ "./config/api.js":
+/*!***********************!*\
+  !*** ./config/api.js ***!
+  \***********************/
+/*! exports provided: HEADER_AUTH_TOKEN, HEADER_DEVICE_TYPE, HEADER_DEVICE_TOKEN, DEVICE_TYPE_WEB */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HEADER_AUTH_TOKEN", function() { return HEADER_AUTH_TOKEN; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HEADER_DEVICE_TYPE", function() { return HEADER_DEVICE_TYPE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HEADER_DEVICE_TOKEN", function() { return HEADER_DEVICE_TOKEN; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DEVICE_TYPE_WEB", function() { return DEVICE_TYPE_WEB; });
+const HEADER_AUTH_TOKEN = 'X-Auth-Token';
+const HEADER_DEVICE_TYPE = 'X-Device-Type';
+const HEADER_DEVICE_TOKEN = 'X-Device-Token';
+/* other */
+
+const DEVICE_TYPE_WEB = 'WEB';
+
+/***/ }),
+
+/***/ "./config/device-token.js":
+/*!********************************!*\
+  !*** ./config/device-token.js ***!
+  \********************************/
+/*! exports provided: getDeviceToken */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getDeviceToken", function() { return getDeviceToken; });
+/* harmony import */ var _utils_generateUniqueString__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/generateUniqueString */ "./utils/generateUniqueString.js");
+
+function getDeviceToken() {
+  let deviceToken = '';
+
+  if (deviceToken) {
+    return deviceToken;
+  } else {
+    deviceToken = Object(_utils_generateUniqueString__WEBPACK_IMPORTED_MODULE_0__["generateUniqueString"])(16);
+    return deviceToken;
+  }
+}
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js":
 /*!**********************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/interopRequireDefault.js ***!
@@ -2256,14 +2303,16 @@ module.exports = __webpack_require__(/*! ./dist/client/link */ "./node_modules/n
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/app */ "./node_modules/next/app.js");
-/* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_app__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _components_Layout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Layout */ "./components/Layout.js");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "react-redux");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _redux_store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../redux/store */ "./redux/store.js");
-/* harmony import */ var next_redux_wrapper__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! next-redux-wrapper */ "next-redux-wrapper");
-/* harmony import */ var next_redux_wrapper__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(next_redux_wrapper__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _config_api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../config/api */ "./config/api.js");
+/* harmony import */ var _config_device_token__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../config/device-token */ "./config/device-token.js");
+/* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/app */ "./node_modules/next/app.js");
+/* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_app__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _components_Layout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Layout */ "./components/Layout.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-redux */ "react-redux");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _redux_store__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../redux/store */ "./redux/store.js");
+/* harmony import */ var next_redux_wrapper__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! next-redux-wrapper */ "next-redux-wrapper");
+/* harmony import */ var next_redux_wrapper__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(next_redux_wrapper__WEBPACK_IMPORTED_MODULE_7__);
 var _jsxFileName = "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0435\u0439\\Desktop\\All Work\\next-official-guide\\pages\\_app.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
@@ -2281,16 +2330,24 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-/* harmony default export */ __webpack_exports__["default"] = (next_redux_wrapper__WEBPACK_IMPORTED_MODULE_5___default()(_redux_store__WEBPACK_IMPORTED_MODULE_4__["default"], {
+
+
+/* harmony default export */ __webpack_exports__["default"] = (next_redux_wrapper__WEBPACK_IMPORTED_MODULE_7___default()(_redux_store__WEBPACK_IMPORTED_MODULE_6__["default"], {
   debug: true
-})(class SushiMaster extends next_app__WEBPACK_IMPORTED_MODULE_1___default.a {
+})(class SushiMaster extends next_app__WEBPACK_IMPORTED_MODULE_3___default.a {
   static async getInitialProps({
     Component,
     ctx
   }) {
-    //   const cityByIpOrDomain = await fetch(
+    const options = {
+      headers: {
+        [_config_api__WEBPACK_IMPORTED_MODULE_1__["HEADER_DEVICE_TYPE"]]: _config_api__WEBPACK_IMPORTED_MODULE_1__["DEVICE_TYPE_WEB"],
+        [_config_api__WEBPACK_IMPORTED_MODULE_1__["HEADER_DEVICE_TOKEN"]]: Object(_config_device_token__WEBPACK_IMPORTED_MODULE_2__["getDeviceToken"])()
+      }
+    }; //   const cityByIpOrDomain = await fetch(
     //     'https://client-api.sushi-master.ru/api/v1/city/current?domain=abakan'
     //   );
+
     const allCitiesReq = await fetch('https://client-api.sushi-master.ru/api/v1/city');
     const allCities = await allCitiesReq.json(); // тут пока по двоеточию поделил чтобы чекнуть что работает, с доменами будет так же
 
@@ -2298,11 +2355,23 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
     let cityInsteadOfDomain = 'abakan';
     const defaultCity = await fetch(`https://client-api.sushi-master.ru/api/v1/city/current?domain=${cityInsteadOfDomain}`);
-    const defaultCityData = await defaultCity.json();
+    console.time('fetchstart');
+    const defaultCityData = await defaultCity.json(); // const thisCityCategories = await fetch(
+    //   `https://client-api.sushi-master.ru/api/v1/catalog/categories?cityId=${defaultCityData.result.cityId}`
+    // );
+
+    const thisCityCategories = await fetch(`https://client-api.sushi-master.ru/api/v1/catalog/categories?cityId=5d3834ad59201a66b905d9e7`, options);
+    const thisCityCategoriesData = await thisCityCategories.json(); // debugger;
+
     ctx.store.dispatch({
       type: 'POPULATE_INITIAL_STATE',
       payload: defaultCityData
     });
+    ctx.store.dispatch({
+      type: 'POPULATE_INITIAL_CATEGORIES',
+      payload: thisCityCategoriesData
+    });
+    console.timeEnd('fetchstart');
     return {
       pageProps: _objectSpread({}, Component.getInitialProps ? await Component.getInitialProps(ctx) : {})
     };
@@ -2314,26 +2383,26 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       pageProps,
       store
     } = this.props;
-    return __jsx(react_redux__WEBPACK_IMPORTED_MODULE_3__["Provider"], {
+    return __jsx(react_redux__WEBPACK_IMPORTED_MODULE_5__["Provider"], {
       store: store,
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 44,
+        lineNumber: 73,
         columnNumber: 9
       }
-    }, __jsx(_components_Layout__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    }, __jsx(_components_Layout__WEBPACK_IMPORTED_MODULE_4__["default"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 45,
+        lineNumber: 74,
         columnNumber: 11
       }
     }, __jsx(Component, _extends({}, pageProps, {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 46,
+        lineNumber: 75,
         columnNumber: 13
       }
     }))));
@@ -2379,9 +2448,9 @@ const decrementCounter = () => ({
 
 /***/ }),
 
-/***/ "./redux/reducers/counterReducer.js":
+/***/ "./redux/reducers/initialReducer.js":
 /*!******************************************!*\
-  !*** ./redux/reducers/counterReducer.js ***!
+  !*** ./redux/reducers/initialReducer.js ***!
   \******************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -2399,7 +2468,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 const counterReducer = (state = {
   value: 0,
-  city: {}
+  city: {},
+  categories: {}
 }, action) => {
   switch (action.type) {
     case _actions_counterActions__WEBPACK_IMPORTED_MODULE_0__["INCREMENT_COUNTER"]:
@@ -2414,7 +2484,12 @@ const counterReducer = (state = {
 
     case 'POPULATE_INITIAL_STATE':
       return _objectSpread({}, state, {
-        city: action.payload
+        city: action.payload.result
+      });
+
+    case 'POPULATE_INITIAL_CATEGORIES':
+      return _objectSpread({}, state, {
+        categories: action.payload.result
       });
 
     default:
@@ -2435,13 +2510,13 @@ const counterReducer = (state = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _counterReducer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./counterReducer */ "./redux/reducers/counterReducer.js");
+/* harmony import */ var _initialReducer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./initialReducer */ "./redux/reducers/initialReducer.js");
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux */ "redux");
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(redux__WEBPACK_IMPORTED_MODULE_1__);
 
 
 const rootReducer = Object(redux__WEBPACK_IMPORTED_MODULE_1__["combineReducers"])({
-  counter: _counterReducer__WEBPACK_IMPORTED_MODULE_0__["default"]
+  initialReducer: _initialReducer__WEBPACK_IMPORTED_MODULE_0__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (rootReducer);
 
@@ -2473,13 +2548,7 @@ __webpack_require__.r(__webpack_exports__);
  * @param {string} options.storeKey The key that will be used to persist the store in the browser's `window` object for safe HMR
  */
 
-let initialData = {
-  city: 'volgograd',
-  categories: {},
-  products: {}
-};
-
-const makeStore = (initialState = initialData, options) => {
+const makeStore = (initialState = {}, options) => {
   return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_reducers_rootReducer__WEBPACK_IMPORTED_MODULE_2__["default"], initialState);
 };
 
@@ -2567,6 +2636,30 @@ function profileHistory(orderId) {
   return `/profile/history/${orderId}`;
 }
 const about = () => `/about`; //TODO /campaign/
+
+/***/ }),
+
+/***/ "./utils/generateUniqueString.js":
+/*!***************************************!*\
+  !*** ./utils/generateUniqueString.js ***!
+  \***************************************/
+/*! exports provided: generateUniqueString */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateUniqueString", function() { return generateUniqueString; });
+function generateUniqueString(length) {
+  let result = '';
+  let randomASCII;
+
+  for (let i = 0; i < length; i++) {
+    randomASCII = Math.floor(Math.random() * 25 + 97);
+    result += String.fromCharCode(randomASCII);
+  }
+
+  return result;
+}
 
 /***/ }),
 

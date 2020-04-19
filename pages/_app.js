@@ -1,3 +1,11 @@
+import {
+  BASE_URL,
+  DEVICE_TYPE_WEB,
+  HEADER_AUTH_TOKEN,
+  HEADER_DEVICE_TOKEN,
+  HEADER_DEVICE_TYPE,
+} from '../config/api';
+import { getDeviceToken } from '../config/device-token';
 import App, { Container } from 'next/app';
 import Layout from '../components/Layout';
 import { Provider } from 'react-redux';
@@ -7,6 +15,12 @@ import withRedux from 'next-redux-wrapper';
 export default withRedux(makeStore, { debug: true })(
   class SushiMaster extends App {
     static async getInitialProps({ Component, ctx }) {
+      const options = {
+        headers: {
+          [HEADER_DEVICE_TYPE]: DEVICE_TYPE_WEB,
+          [HEADER_DEVICE_TOKEN]: getDeviceToken(),
+        },
+      };
       //   const cityByIpOrDomain = await fetch(
       //     'https://client-api.sushi-master.ru/api/v1/city/current?domain=abakan'
       //   );
@@ -23,12 +37,27 @@ export default withRedux(makeStore, { debug: true })(
       const defaultCity = await fetch(
         `https://client-api.sushi-master.ru/api/v1/city/current?domain=${cityInsteadOfDomain}`
       );
-
+      console.time('fetchstart');
       const defaultCityData = await defaultCity.json();
+      // const thisCityCategories = await fetch(
+      //   `https://client-api.sushi-master.ru/api/v1/catalog/categories?cityId=${defaultCityData.result.cityId}`
+      // );
+      const thisCityCategories = await fetch(
+        `https://client-api.sushi-master.ru/api/v1/catalog/categories?cityId=5d3834ad59201a66b905d9e7`,
+        options
+      );
+      const thisCityCategoriesData = await thisCityCategories.json();
+      // debugger;
+
       ctx.store.dispatch({
         type: 'POPULATE_INITIAL_STATE',
         payload: defaultCityData,
       });
+      ctx.store.dispatch({
+        type: 'POPULATE_INITIAL_CATEGORIES',
+        payload: thisCityCategoriesData,
+      });
+      console.timeEnd('fetchstart');
       return {
         pageProps: {
           // Call page-level getInitialProps

@@ -85,6 +85,8 @@ const about = () => {
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
           id="youtube_about_video"
+          loading="lazy"
+          importance="auto"
         ></iframe>
 
         <main className="">
