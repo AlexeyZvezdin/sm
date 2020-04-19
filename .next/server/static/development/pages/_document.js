@@ -1120,7 +1120,10 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
       }
     }), __jsx("link", {
       href: "https://fonts.googleapis.com/css?family=Roboto&display=swap",
-      rel: "stylesheet",
+      rel: "preconnect",
+      as: "font",
+      crossOrigin: "anonymous",
+      type: "font/woff2",
       __self: this,
       __source: {
         fileName: _jsxFileName,
@@ -1133,7 +1136,7 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 22,
+        lineNumber: 25,
         columnNumber: 11
       }
     }), __jsx("link", {
@@ -1142,28 +1145,28 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 23,
+        lineNumber: 26,
         columnNumber: 11
       }
     })), __jsx("body", {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 68,
+        lineNumber: 71,
         columnNumber: 9
       }
     }, __jsx(next_document__WEBPACK_IMPORTED_MODULE_1__["Main"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 69,
+        lineNumber: 72,
         columnNumber: 11
       }
     }), __jsx(next_document__WEBPACK_IMPORTED_MODULE_1__["NextScript"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 70,
+        lineNumber: 73,
         columnNumber: 11
       }
     }), __jsx("script", {
@@ -1172,7 +1175,7 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 71,
+        lineNumber: 74,
         columnNumber: 11
       }
     })));

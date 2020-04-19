@@ -17,8 +17,10 @@ class MyDocument extends Document {
           {/* в след раз попробуй его убрать */}
           <link
             href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
-            rel="preload"
+            rel="preconnect"
             as="font"
+            crossOrigin="anonymous"
+            type="font/woff2"
           />
           <link rel="stylesheet" href="/css/index.css" />
           <link rel="stylesheet" href="/css/fonts.css" />

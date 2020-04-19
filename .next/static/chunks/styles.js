@@ -29,7 +29,7 @@
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1587317530447");
+            injectCss(link, link.href.split("?")[0] + "?unix=1587318481829");
           });
       }
     }
@@ -67,7 +67,7 @@ module.exports = {"about__container":"about__container","about__4k_container":"a
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1587317538845");
+            injectCss(link, link.href.split("?")[0] + "?unix=1587318485992");
           });
       }
     }
