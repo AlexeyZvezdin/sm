@@ -11,7 +11,7 @@ import fetch from 'isomorphic-unfetch';
 import useSWR from 'swr';
 import { useRouter } from 'next/router';
 import Cookies from 'js-cookie';
-
+import styles from './index.module.scss';
 function fetcher(url) {
   return fetch(url).then((r) => r.json());
 }
@@ -54,15 +54,16 @@ function Index(state) {
         ) : (
           'Failed to load data, please refresh the page'
         )} */}
-      <div className="products" style={{ display: 'flex', flexWrap: 'wrap' }}>
+      <div className={styles['products']}>
         {state.initialReducer.products.items.map((el) => {
           return (
-            <div className="product">
+            <div className={styles['product']}>
               <img
                 data-src={`https://client-api.sushi-master.ru/pics/${el.mainPictureId}?width=400`}
                 alt=""
-                style={{ width: '300px', objectFit: 'cover' }}
               />
+              <h3 className={styles['product-name']}>{el.name}</h3>
+              <p className={styles['product-description']}>{el.description}</p>
             </div>
           );
         })}

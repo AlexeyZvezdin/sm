@@ -1,1 +1,1 @@
-{"version":3,"file":"static/css/styles.chunk.css","sources":[],"mappings":";","sourceRoot":""}
+{"version":3,"file":"static/css/styles.chunk.css","sources":["webpack:///./pages/index.module.scss"],"sourcesContent":[".products{display:flex;flex-wrap:wrap}.product{padding:6px;margin:10px;max-width:320px}.product img{width:300px;-o-object-fit:\"cover\";object-fit:\"cover\"}.product-name{margin:10px 6px}.product-description{padding:4px;margin:6px}"],"mappings":";AAAA;","sourceRoot":""}
