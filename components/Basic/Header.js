@@ -38,7 +38,7 @@ class Header extends React.Component {
 
   render() {
     const supportPhone = Cookies.get('supportPhone');
-    console.log(supportPhone, ' SupportPhone from header');
+    // console.log(supportPhone, ' SupportPhone from header');
     const menu = links.map((el, index) => (
       <li key={index}>
         <a href={el.link}>{el.name}</a>

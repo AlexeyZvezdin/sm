@@ -12,6 +12,7 @@ import useSWR from 'swr';
 import { useRouter } from 'next/router';
 import Cookies from 'js-cookie';
 import styles from './index.module.scss';
+
 function fetcher(url) {
   return fetch(url).then((r) => r.json());
 }
@@ -43,35 +44,47 @@ function Index(state) {
   //      : setSupportPhone();
   //    if (cityId == true) isLoading = false;
   //  });
+  // console.log(
+  //   state.initialReducer.products.items[0],
+  //   ' state.initialReducer.products.items'
+  // );
 
-  // подрубить редакс чтобы туда отсюда вкидывать дату, или в куки
+  const renderBanners = () =>
+    state.banners.items.map((el) => (
+      <div key={el.id} dangerouslySetInnerHTML={{ __html: el.description }}>
+        {/* <p>{el.description}</p> */}
+      </div>
+    ));
+
+  const renderProducts = () => (
+    <div className={styles['products']}>
+      {state.products.items.map((el) => {
+        return (
+          <div className={styles['product']} key={el.id}>
+            <img
+              data-src={`https://client-api.sushi-master.ru/pics/${el.mainPictureId}?width=400`}
+              alt=""
+            />
+            <h3 className={styles['product-name']}>{el.name}</h3>
+            <p className={styles['product-description']}>{el.description}</p>
+          </div>
+        );
+      })}
+    </div>
+  );
+
+  {
+    /* {JSON.stringify(state)} */
+  }
   return (
     <>
-      {/* <h1>Healoo {supportPhone}</h1> */}
-      {/* {JSON.stringify(state)} */}
-      {/* {cityName ? (
-          <p>{cityName}</p>
-        ) : (
-          'Failed to load data, please refresh the page'
-        )} */}
-      <div className={styles['products']}>
-        {state.initialReducer.products.items.map((el) => {
-          return (
-            <div className={styles['product']}>
-              <img
-                data-src={`https://client-api.sushi-master.ru/pics/${el.mainPictureId}?width=400`}
-                alt=""
-              />
-              <h3 className={styles['product-name']}>{el.name}</h3>
-              <p className={styles['product-description']}>{el.description}</p>
-            </div>
-          );
-        })}
-      </div>
+      {renderBanners()} <br />
+      {renderProducts()}
     </>
   );
 }
-export default connect((state) => state)(Index);
+export default connect((state) => state.initialReducer)(Index);
+
 // Index.getInitialProps = async function () {
 //   // const defaultCityRequest = process.env.API + '/api/v1/city/default';
 //   const defaultCity = await fetch(

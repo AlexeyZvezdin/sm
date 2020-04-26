@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Router from 'next/router';
-import './index.module.scss';
+import styles from './index.module.scss';
 // import loader from '../public/img/loader.gif';
 import Header from './Basic/Header';
 import CityChoose from '../components/Modals/CityChoose';
@@ -26,7 +26,8 @@ export default class Layout extends React.Component {
         <CityChoose />
         <Header />
         <main>
-          <div className="container">
+          {/* возможно в будущем уберу отсюда */}
+          <div className={styles['container__full']}>
             {/* {this.state.loaded === 'no' ? (
               <div
                 style={{

@@ -91,8 +91,8 @@ var Header = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
-      var supportPhone = js_cookie__WEBPACK_IMPORTED_MODULE_10___default.a.get('supportPhone');
-      console.log(supportPhone, ' SupportPhone from header');
+      var supportPhone = js_cookie__WEBPACK_IMPORTED_MODULE_10___default.a.get('supportPhone'); // console.log(supportPhone, ' SupportPhone from header');
+
       var menu = links.map(function (el, index) {
         return __jsx("li", {
           key: index,
@@ -300,11 +300,11 @@ var Layout = /*#__PURE__*/function (_React$Component) {
           columnNumber: 9
         }
       }, __jsx("div", {
-        className: "jsx-1635745536" + " " + "container",
+        className: "jsx-1635745536" + " " + (_index_module_scss__WEBPACK_IMPORTED_MODULE_9___default.a['container__full'] || ""),
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 29,
+          lineNumber: 30,
           columnNumber: 11
         }
       }, __jsx(react__WEBPACK_IMPORTED_MODULE_6___default.a.Fragment, null, this.props.children))), __jsx("footer", {
@@ -312,7 +312,7 @@ var Layout = /*#__PURE__*/function (_React$Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 45,
+          lineNumber: 46,
           columnNumber: 9
         }
       }, __jsx("div", {
@@ -320,7 +320,7 @@ var Layout = /*#__PURE__*/function (_React$Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 46,
+          lineNumber: 47,
           columnNumber: 11
         }
       }, "\xA9 ", new Date().getFullYear()), __jsx("div", {
@@ -328,7 +328,7 @@ var Layout = /*#__PURE__*/function (_React$Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 47,
+          lineNumber: 48,
           columnNumber: 11
         }
       }, __jsx("h3", {
@@ -336,13 +336,13 @@ var Layout = /*#__PURE__*/function (_React$Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 48,
+          lineNumber: 49,
           columnNumber: 13
         }
       }, "FOOTER"))), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_5___default.a, {
         id: "1635745536",
         __self: this
-      }, "\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkM6XFxVc2Vyc1xc0JDQu9C10LrRgdC10LlcXERlc2t0b3BcXEFsbCBXb3JrXFxuZXh0LW9mZmljaWFsLWd1aWRlXFxjb21wb25lbnRzXFxMYXlvdXQuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBbURXIiwiZmlsZSI6IkM6XFxVc2Vyc1xc0JDQu9C10LrRgdC10LlcXERlc2t0b3BcXEFsbCBXb3JrXFxuZXh0LW9mZmljaWFsLWd1aWRlXFxjb21wb25lbnRzXFxMYXlvdXQuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgTGluayBmcm9tICduZXh0L2xpbmsnO1xyXG5pbXBvcnQgUm91dGVyIGZyb20gJ25leHQvcm91dGVyJztcclxuaW1wb3J0ICcuL2luZGV4Lm1vZHVsZS5zY3NzJztcclxuLy8gaW1wb3J0IGxvYWRlciBmcm9tICcuLi9wdWJsaWMvaW1nL2xvYWRlci5naWYnO1xyXG5pbXBvcnQgSGVhZGVyIGZyb20gJy4vQmFzaWMvSGVhZGVyJztcclxuaW1wb3J0IENpdHlDaG9vc2UgZnJvbSAnLi4vY29tcG9uZW50cy9Nb2RhbHMvQ2l0eUNob29zZSc7XHJcblxyXG5leHBvcnQgZGVmYXVsdCBjbGFzcyBMYXlvdXQgZXh0ZW5kcyBSZWFjdC5Db21wb25lbnQge1xyXG4gIGNvbnN0cnVjdG9yKHByb3BzKSB7XHJcbiAgICBzdXBlcihwcm9wcyk7XHJcbiAgfVxyXG4gIC8vIHN0YXRlID0ge1xyXG4gIC8vICAgbG9hZGVkOiAnbm8nLFxyXG4gIC8vIH07XHJcbiAgLy8gY29tcG9uZW50RGlkTW91bnQoKSB7XHJcbiAgLy8gICBzZXRUaW1lb3V0KCgpID0+IHtcclxuICAvLyAgICAgdGhpcy5zZXRTdGF0ZSh7XHJcbiAgLy8gICAgICAgbG9hZGVkOiAneWVzJyxcclxuICAvLyAgICAgfSk7XHJcbiAgLy8gICB9LCA1MDApO1xyXG4gIC8vIH1cclxuXHJcbiAgcmVuZGVyKCkge1xyXG4gICAgcmV0dXJuIChcclxuICAgICAgPD5cclxuICAgICAgICA8Q2l0eUNob29zZSAvPlxyXG4gICAgICAgIDxIZWFkZXIgLz5cclxuICAgICAgICA8bWFpbj5cclxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiY29udGFpbmVyXCI+XHJcbiAgICAgICAgICAgIHsvKiB7dGhpcy5zdGF0ZS5sb2FkZWQgPT09ICdubycgPyAoXHJcbiAgICAgICAgICAgICAgPGRpdlxyXG4gICAgICAgICAgICAgICAgc3R5bGU9e3tcclxuICAgICAgICAgICAgICAgICAgbWFyZ2luOiAnNTBweCcsXHJcbiAgICAgICAgICAgICAgICAgIGp1c3RpZnlDb250ZW50OiAnY2VudGVyJyxcclxuICAgICAgICAgICAgICAgICAgZGlzcGxheTogJ2ZsZXgnLFxyXG4gICAgICAgICAgICAgICAgfX1cclxuICAgICAgICAgICAgICA+XHJcbiAgICAgICAgICAgICAgICA8aW1nIHNyYz1cIi9pbWcvbG9hZGVyLmdpZlwiIGFsdD1cImxvYWRlclwiIC8+XHJcbiAgICAgICAgICAgICAgPC9kaXY+XHJcbiAgICAgICAgICAgICkgOiAoICovfVxyXG4gICAgICAgICAgICA8Pnt0aGlzLnByb3BzLmNoaWxkcmVufTwvPlxyXG4gICAgICAgICAgICB7LyogKX0gKi99XHJcbiAgICAgICAgICA8L2Rpdj5cclxuICAgICAgICA8L21haW4+XHJcbiAgICAgICAgPGZvb3RlciBjbGFzc05hbWU9XCJjb250YWluZXJcIj5cclxuICAgICAgICAgIDxkaXY+JmNvcHk7IHtuZXcgRGF0ZSgpLmdldEZ1bGxZZWFyKCl9PC9kaXY+XHJcbiAgICAgICAgICA8ZGl2PlxyXG4gICAgICAgICAgICA8aDM+Rk9PVEVSPC9oMz5cclxuICAgICAgICAgIDwvZGl2PlxyXG4gICAgICAgIDwvZm9vdGVyPlxyXG4gICAgICAgIDxzdHlsZSBqc3g+XHJcbiAgICAgICAgICB7YFxyXG4gICAgICAgICAgICAvLyBpdCBjYW4gd29yayBidXQgSSBkb250IHNlZSBhIHB1cnBvc2UgYmVjYXVzZSBzaG9ydGN1dHMgZG9lc250IHdvcmsgaGVyZVxyXG4gICAgICAgICAgYH1cclxuICAgICAgICA8L3N0eWxlPlxyXG4gICAgICA8Lz5cclxuICAgICk7XHJcbiAgfVxyXG59XHJcbiJdfQ== */\n/*@ sourceURL=C:\\\\Users\\\\\u0410\u043B\u0435\u043A\u0441\u0435\u0439\\\\Desktop\\\\All Work\\\\next-official-guide\\\\components\\\\Layout.js */"));
+      }, "\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkM6XFxVc2Vyc1xc0JDQu9C10LrRgdC10LlcXERlc2t0b3BcXEFsbCBXb3JrXFxuZXh0LW9mZmljaWFsLWd1aWRlXFxjb21wb25lbnRzXFxMYXlvdXQuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBb0RXIiwiZmlsZSI6IkM6XFxVc2Vyc1xc0JDQu9C10LrRgdC10LlcXERlc2t0b3BcXEFsbCBXb3JrXFxuZXh0LW9mZmljaWFsLWd1aWRlXFxjb21wb25lbnRzXFxMYXlvdXQuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgTGluayBmcm9tICduZXh0L2xpbmsnO1xyXG5pbXBvcnQgUm91dGVyIGZyb20gJ25leHQvcm91dGVyJztcclxuaW1wb3J0IHN0eWxlcyBmcm9tICcuL2luZGV4Lm1vZHVsZS5zY3NzJztcclxuLy8gaW1wb3J0IGxvYWRlciBmcm9tICcuLi9wdWJsaWMvaW1nL2xvYWRlci5naWYnO1xyXG5pbXBvcnQgSGVhZGVyIGZyb20gJy4vQmFzaWMvSGVhZGVyJztcclxuaW1wb3J0IENpdHlDaG9vc2UgZnJvbSAnLi4vY29tcG9uZW50cy9Nb2RhbHMvQ2l0eUNob29zZSc7XHJcblxyXG5leHBvcnQgZGVmYXVsdCBjbGFzcyBMYXlvdXQgZXh0ZW5kcyBSZWFjdC5Db21wb25lbnQge1xyXG4gIGNvbnN0cnVjdG9yKHByb3BzKSB7XHJcbiAgICBzdXBlcihwcm9wcyk7XHJcbiAgfVxyXG4gIC8vIHN0YXRlID0ge1xyXG4gIC8vICAgbG9hZGVkOiAnbm8nLFxyXG4gIC8vIH07XHJcbiAgLy8gY29tcG9uZW50RGlkTW91bnQoKSB7XHJcbiAgLy8gICBzZXRUaW1lb3V0KCgpID0+IHtcclxuICAvLyAgICAgdGhpcy5zZXRTdGF0ZSh7XHJcbiAgLy8gICAgICAgbG9hZGVkOiAneWVzJyxcclxuICAvLyAgICAgfSk7XHJcbiAgLy8gICB9LCA1MDApO1xyXG4gIC8vIH1cclxuXHJcbiAgcmVuZGVyKCkge1xyXG4gICAgcmV0dXJuIChcclxuICAgICAgPD5cclxuICAgICAgICA8Q2l0eUNob29zZSAvPlxyXG4gICAgICAgIDxIZWFkZXIgLz5cclxuICAgICAgICA8bWFpbj5cclxuICAgICAgICAgIHsvKiDQstC+0LfQvNC+0LbQvdC+INCyINCx0YPQtNGD0YnQtdC8INGD0LHQtdGA0YMg0L7RgtGB0Y7QtNCwICovfVxyXG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9e3N0eWxlc1snY29udGFpbmVyX19mdWxsJ119PlxyXG4gICAgICAgICAgICB7Lyoge3RoaXMuc3RhdGUubG9hZGVkID09PSAnbm8nID8gKFxyXG4gICAgICAgICAgICAgIDxkaXZcclxuICAgICAgICAgICAgICAgIHN0eWxlPXt7XHJcbiAgICAgICAgICAgICAgICAgIG1hcmdpbjogJzUwcHgnLFxyXG4gICAgICAgICAgICAgICAgICBqdXN0aWZ5Q29udGVudDogJ2NlbnRlcicsXHJcbiAgICAgICAgICAgICAgICAgIGRpc3BsYXk6ICdmbGV4JyxcclxuICAgICAgICAgICAgICAgIH19XHJcbiAgICAgICAgICAgICAgPlxyXG4gICAgICAgICAgICAgICAgPGltZyBzcmM9XCIvaW1nL2xvYWRlci5naWZcIiBhbHQ9XCJsb2FkZXJcIiAvPlxyXG4gICAgICAgICAgICAgIDwvZGl2PlxyXG4gICAgICAgICAgICApIDogKCAqL31cclxuICAgICAgICAgICAgPD57dGhpcy5wcm9wcy5jaGlsZHJlbn08Lz5cclxuICAgICAgICAgICAgey8qICl9ICovfVxyXG4gICAgICAgICAgPC9kaXY+XHJcbiAgICAgICAgPC9tYWluPlxyXG4gICAgICAgIDxmb290ZXIgY2xhc3NOYW1lPVwiY29udGFpbmVyXCI+XHJcbiAgICAgICAgICA8ZGl2PiZjb3B5OyB7bmV3IERhdGUoKS5nZXRGdWxsWWVhcigpfTwvZGl2PlxyXG4gICAgICAgICAgPGRpdj5cclxuICAgICAgICAgICAgPGgzPkZPT1RFUjwvaDM+XHJcbiAgICAgICAgICA8L2Rpdj5cclxuICAgICAgICA8L2Zvb3Rlcj5cclxuICAgICAgICA8c3R5bGUganN4PlxyXG4gICAgICAgICAge2BcclxuICAgICAgICAgICAgLy8gaXQgY2FuIHdvcmsgYnV0IEkgZG9udCBzZWUgYSBwdXJwb3NlIGJlY2F1c2Ugc2hvcnRjdXRzIGRvZXNudCB3b3JrIGhlcmVcclxuICAgICAgICAgIGB9XHJcbiAgICAgICAgPC9zdHlsZT5cclxuICAgICAgPC8+XHJcbiAgICApO1xyXG4gIH1cclxufVxyXG4iXX0= */\n/*@ sourceURL=C:\\\\Users\\\\\u0410\u043B\u0435\u043A\u0441\u0435\u0439\\\\Desktop\\\\All Work\\\\next-official-guide\\\\components\\\\Layout.js */"));
     }
   }]);
 
@@ -9300,9 +9300,10 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 
 
+ // убирая дебаг на фолс можно контролировать высеры в консоль
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(next_redux_wrapper__WEBPACK_IMPORTED_MODULE_15__["default"])(_redux_store__WEBPACK_IMPORTED_MODULE_14__["default"], {
-  debug: true
+  debug: false
 })( /*#__PURE__*/function (_App) {
   Object(_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_5__["default"])(SushiMaster, _App);
 
@@ -9326,21 +9327,21 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 84,
+          lineNumber: 101,
           columnNumber: 9
         }
       }, __jsx(_components_Layout__WEBPACK_IMPORTED_MODULE_12__["default"], {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 85,
+          lineNumber: 102,
           columnNumber: 11
         }
       }, __jsx(Component, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__["default"])({}, pageProps, {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 86,
+          lineNumber: 103,
           columnNumber: 13
         }
       }))));
@@ -9350,7 +9351,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
     value: function getInitialProps(_ref) {
       var _headers;
 
-      var Component, ctx, options, allCitiesReq, allCities, domain, cityInsteadOfDomain, defaultCity, defaultCityData, thisCityCategories, thisCityCategoriesData, category_id, thisCategoryProducts, thisCategoryProductsData;
+      var Component, ctx, options, allCitiesReq, allCities, domain, cityInsteadOfDomain, defaultCity, defaultCityData, thisCityCategories, thisCityCategoriesData, category_id, thisCategoryProducts, thisCategoryProductsData, getAllBanners, getAllBannersData;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function getInitialProps$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -9387,19 +9388,24 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
             case 16:
               defaultCityData = _context.sent;
-              _context.next = 19;
+              console.log(defaultCityData.result.cityId, ' defaultCityData.result.cityId'); // const thisCityCategories = await fetch(
+              //   `https://client-api.sushi-master.ru/api/v1/catalog/categories?cityId=${defaultCityData.result.cityId}`
+              // );
+              // 5d3834ad59201a66b905d9e7 - id abakan
+
+              _context.next = 20;
               return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(fetch("https://client-api.sushi-master.ru/api/v1/catalog/categories/all?cityId=".concat(defaultCityData.result.cityId), options));
 
-            case 19:
+            case 20:
               thisCityCategories = _context.sent;
-              _context.next = 22;
+              _context.next = 23;
               return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(thisCityCategories.json());
 
-            case 22:
+            case 23:
               thisCityCategoriesData = _context.sent;
               // debugger;
-              category_id = thisCityCategoriesData.result.items[0].id;
-              console.log(category_id, ' category_id');
+              category_id = thisCityCategoriesData.result.items[0].id; // console.log(category_id, ' category_id');
+
               _context.next = 27;
               return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(fetch("https://client-api.sushi-master.ru/api/v1/catalog/categories/".concat(category_id, "/products"), options));
 
@@ -9410,16 +9416,31 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
             case 30:
               thisCategoryProductsData = _context.sent;
+              _context.next = 33;
+              return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(fetch("https://client-api.sushi-master.ru/api/v1/catalog/banners?".concat(defaultCityData.result.cityId), options));
+
+            case 33:
+              getAllBanners = _context.sent;
+              _context.next = 36;
+              return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(getAllBanners.json());
+
+            case 36:
+              getAllBannersData = _context.sent;
+              console.log(getAllBannersData, ' getAllBannersData');
+              ctx.store.dispatch({
+                type: 'INITIAL_BANNERS',
+                payload: getAllBannersData.result.update
+              });
               ctx.store.dispatch({
                 type: 'POPULATE_INITIAL_STATE',
                 payload: defaultCityData
               });
               ctx.store.dispatch({
-                type: 'POPULATE_INITIAL_CATEGORIES',
+                type: 'INITIAL_CATEGORIES',
                 payload: thisCityCategoriesData
               });
               ctx.store.dispatch({
-                type: 'POPULATE_INITIAL_PRODUCTS',
+                type: 'INITIAL_PRODUCTS',
                 payload: thisCategoryProductsData
               });
               console.timeEnd('fetchstart');
@@ -9427,29 +9448,29 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
               _context.t1 = {};
 
               if (!Component.getInitialProps) {
-                _context.next = 43;
+                _context.next = 51;
                 break;
               }
 
-              _context.next = 40;
+              _context.next = 48;
               return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(Component.getInitialProps(ctx));
 
-            case 40:
+            case 48:
               _context.t2 = _context.sent;
-              _context.next = 44;
+              _context.next = 52;
               break;
 
-            case 43:
+            case 51:
               _context.t2 = {};
 
-            case 44:
+            case 52:
               _context.t3 = _context.t2;
               _context.t4 = (0, _context.t0)(_context.t1, _context.t3);
               return _context.abrupt("return", {
                 pageProps: _context.t4
               });
 
-            case 47:
+            case 55:
             case "end":
               return _context.stop();
           }
@@ -9546,14 +9567,19 @@ var counterReducer = function counterReducer() {
         city: action.payload.result
       });
 
-    case 'POPULATE_INITIAL_CATEGORIES':
+    case 'INITIAL_CATEGORIES':
       return _objectSpread({}, state, {
         categories: action.payload.result
       });
 
-    case 'POPULATE_INITIAL_PRODUCTS':
+    case 'INITIAL_PRODUCTS':
       return _objectSpread({}, state, {
         products: action.payload.result
+      });
+
+    case 'INITIAL_BANNERS':
+      return _objectSpread({}, state, {
+        banners: action.payload
       });
 
     default:
