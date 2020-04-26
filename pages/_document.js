@@ -22,6 +22,10 @@ class MyDocument extends Document {
             crossOrigin="anonymous"
             type="font/woff2"
           />
+          <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css"
+          ></link>
           <link rel="stylesheet" href="/css/index.css" />
           <link rel="stylesheet" href="/css/fonts.css" />
           {/* <script

@@ -39,10 +39,10 @@ export default withRedux(makeStore, { debug: false })(
       );
       console.time('fetchstart');
       const defaultCityData = await defaultCity.json();
-      console.log(
-        defaultCityData.result.cityId,
-        ' defaultCityData.result.cityId'
-      );
+      // console.log(
+      //   defaultCityData.result.cityId,
+      //   ' defaultCityData.result.cityId'
+      // );
       // const thisCityCategories = await fetch(
       //   `https://client-api.sushi-master.ru/api/v1/catalog/categories?cityId=${defaultCityData.result.cityId}`
       // );
@@ -67,7 +67,7 @@ export default withRedux(makeStore, { debug: false })(
       );
 
       const getAllBannersData = await getAllBanners.json();
-      console.log(getAllBannersData, ' getAllBannersData');
+      // console.log(getAllBannersData, ' getAllBannersData');
 
       ctx.store.dispatch({
         type: 'INITIAL_BANNERS',

@@ -9388,45 +9388,40 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
             case 16:
               defaultCityData = _context.sent;
-              console.log(defaultCityData.result.cityId, ' defaultCityData.result.cityId'); // const thisCityCategories = await fetch(
-              //   `https://client-api.sushi-master.ru/api/v1/catalog/categories?cityId=${defaultCityData.result.cityId}`
-              // );
-              // 5d3834ad59201a66b905d9e7 - id abakan
-
-              _context.next = 20;
+              _context.next = 19;
               return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(fetch("https://client-api.sushi-master.ru/api/v1/catalog/categories/all?cityId=".concat(defaultCityData.result.cityId), options));
 
-            case 20:
+            case 19:
               thisCityCategories = _context.sent;
-              _context.next = 23;
+              _context.next = 22;
               return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(thisCityCategories.json());
 
-            case 23:
+            case 22:
               thisCityCategoriesData = _context.sent;
               // debugger;
               category_id = thisCityCategoriesData.result.items[0].id; // console.log(category_id, ' category_id');
 
-              _context.next = 27;
+              _context.next = 26;
               return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(fetch("https://client-api.sushi-master.ru/api/v1/catalog/categories/".concat(category_id, "/products"), options));
 
-            case 27:
+            case 26:
               thisCategoryProducts = _context.sent;
-              _context.next = 30;
+              _context.next = 29;
               return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(thisCategoryProducts.json());
 
-            case 30:
+            case 29:
               thisCategoryProductsData = _context.sent;
-              _context.next = 33;
+              _context.next = 32;
               return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(fetch("https://client-api.sushi-master.ru/api/v1/catalog/banners?".concat(defaultCityData.result.cityId), options));
 
-            case 33:
+            case 32:
               getAllBanners = _context.sent;
-              _context.next = 36;
+              _context.next = 35;
               return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(getAllBanners.json());
 
-            case 36:
+            case 35:
               getAllBannersData = _context.sent;
-              console.log(getAllBannersData, ' getAllBannersData');
+              // console.log(getAllBannersData, ' getAllBannersData');
               ctx.store.dispatch({
                 type: 'INITIAL_BANNERS',
                 payload: getAllBannersData.result.update
@@ -9448,29 +9443,29 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
               _context.t1 = {};
 
               if (!Component.getInitialProps) {
-                _context.next = 51;
+                _context.next = 49;
                 break;
               }
 
-              _context.next = 48;
+              _context.next = 46;
               return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(Component.getInitialProps(ctx));
 
-            case 48:
+            case 46:
               _context.t2 = _context.sent;
-              _context.next = 52;
+              _context.next = 50;
               break;
 
-            case 51:
+            case 49:
               _context.t2 = {};
 
-            case 52:
+            case 50:
               _context.t3 = _context.t2;
               _context.t4 = (0, _context.t0)(_context.t1, _context.t3);
               return _context.abrupt("return", {
                 pageProps: _context.t4
               });
 
-            case 55:
+            case 53:
             case "end":
               return _context.stop();
           }
