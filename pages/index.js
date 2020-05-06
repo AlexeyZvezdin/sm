@@ -12,10 +12,10 @@ import useSWR from 'swr';
 import { useRouter } from 'next/router';
 import Cookies from 'js-cookie';
 import styles from './index.module.scss';
-import Swiper from 'react-id-swiper';
-import bannersStyles from './banners.module.scss';
 import { filteredEntityByViewIntervals } from '../utils/filteredEntityByViewIntervals';
-
+import { splittedBanners } from '../components/Banners/splittedBanners';
+import { renderBanners } from '../components/Banners/renderBanners';
+import StickyHeader from '../components/Basic/StickyHeader';
 function fetcher(url) {
   return fetch(url).then((r) => r.json());
 }
@@ -23,92 +23,13 @@ function fetcher(url) {
 function Index(props) {
   const { query } = useRouter();
   const [supportPhone, setSupportPhone] = React.useState();
-  console.time('PandB');
+  const [bannerCounter, setBannerCounter] = React.useState(0);
+
   const products =
     filteredEntityByViewIntervals(Object.values(props.products.items)) || [];
   const filteredBanners = filteredEntityByViewIntervals(props.banners.items);
-  // console.log(filteredBanners.length, ' filteredBanners.length');
-
-  console.timeEnd('PandB');
-  // console.log(
-  //   props.products.items[0],
-  //   ' props.products.items'
-  // );
-  const swiperParams = {
-    // lazy: true,
-    // pagination: {
-    //   dynamicBullets: true,
-    //   clickable: true,
-    //   el: '.swiper-pagination',
-    // },
-    // autoplay: {
-    //   delay: 5000,
-    //   disableOnInteraction: false,
-    // },
-    // containerClass: 'swiper-container banner-swiper-wrapper',
-    spaceBetween: 0,
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-      dynamicBullets: true,
-    },
-    autoplay: {
-      delay: 4000,
-      disableOnInteraction: false,
-    },
-  };
-  const estimateBannersRender = () => {
-    const banners = state.banners.items;
-  };
-
   //   <div key={el.id} dangerouslySetInnerHTML={{ __html: el.description }} />
-  // сначала надо засплиттить баннеры по несколько штук
-  const splittedBanners = (filteredBanners) => {
-    let bannersLength = filteredBanners.length;
-    let newfilteredBanners = filteredBanners;
-    const isEven = !(bannersLength % 2);
-    let splittedBanners = [];
-    if (isEven) {
-      while (newfilteredBanners.length > 0) {
-        let slicedArr = newfilteredBanners.splice(0, 4);
-        splittedBanners.push(slicedArr);
-      }
-    } else {
-      while (newfilteredBanners.length > 0) {
-        let slicedArr = newfilteredBanners.splice(0, 3);
-        splittedBanners.push(slicedArr);
-      }
-    }
-
-    console.log(splittedBanners, ' splittedBanners');
-    return splittedBanners;
-  };
-
-  splittedBanners(filteredBanners);
-  const renderBanners = () => (
-    <div className="banner">
-      {filteredBanners.length > 1 ? (
-        <div className={bannersStyles['banners__swiper-container']}>
-          <Swiper
-            shouldSwiperUpdate={true}
-            rebuildOnUpdate={true}
-            {...swiperParams}
-          >
-            {filteredBanners.map((el) => (
-              <img
-                style={{
-                  padding: '1px',
-                }}
-                data-src={`https://client-api.sushi-master.ru/pics/${el.pictureId}`}
-              />
-            ))}
-          </Swiper>
-        </div>
-      ) : (
-        'no banners'
-      )}
-    </div>
-  );
+  const banners = splittedBanners(filteredBanners);
 
   const renderProducts = () => (
     <div className={styles['products']}>
@@ -127,16 +48,15 @@ function Index(props) {
     </div>
   );
 
-  const renderMix = () => {
-    <div className={bannersStyles['products__grid']}></div>;
-  };
+  const resolveBanners = () => banners.map((el) => renderBanners(el));
 
   {
     /* {JSON.stringify(state)} */
   }
   return (
     <>
-      {renderBanners()}
+      <StickyHeader />
+      {/* {resolveBanners()} */}
       {renderProducts()}
     </>
   );

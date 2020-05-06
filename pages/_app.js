@@ -11,6 +11,7 @@ import Layout from '../components/Layout';
 import { Provider } from 'react-redux';
 import makeStore from '../redux/store';
 import withRedux from 'next-redux-wrapper';
+import CityChoiceModal from '../components/Modals/CityChoiceModal';
 // убирая дебаг на фолс можно контролировать высеры в консоль
 export default withRedux(makeStore, { debug: false })(
   class SushiMaster extends App {
@@ -99,6 +100,7 @@ export default withRedux(makeStore, { debug: false })(
       const { Component, pageProps, store } = this.props;
       return (
         <Provider store={store}>
+          <CityChoiceModal />
           <Layout>
             <Component {...pageProps}></Component>
           </Layout>

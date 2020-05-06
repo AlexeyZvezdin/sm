@@ -73,6 +73,26 @@ class MyDocument extends Document {
           /> */}
         </Head>
         <body>
+          {/* <h1
+            style={{
+              color: 'pink',
+              paddingTop: '10px',
+              top: '10px',
+              height: 'auto',
+              position: 'fixed',
+              zIndex: '10001',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              backgroundColor: 'lightpink',
+              opacity: '0.5',
+              outline: '0',
+              overflow: 'hidden',
+            }}
+          >
+            does portal is going to work?
+          </h1> */}
           <Main />
           <NextScript />
           <script type="text/javascript" src="/js/lazyImage.js"></script>

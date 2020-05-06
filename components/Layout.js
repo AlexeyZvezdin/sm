@@ -3,7 +3,6 @@ import Router from 'next/router';
 import styles from './index.module.scss';
 // import loader from '../public/img/loader.gif';
 import Header from './Basic/Header';
-import CityChoose from '../components/Modals/CityChoose';
 
 export default class Layout extends React.Component {
   constructor(props) {
@@ -23,7 +22,6 @@ export default class Layout extends React.Component {
   render() {
     return (
       <>
-        <CityChoose />
         <Header />
         <main>
           {/* возможно в будущем уберу отсюда */}
@@ -49,11 +47,11 @@ export default class Layout extends React.Component {
             <h3>FOOTER</h3>
           </div>
         </footer>
-        <style jsx>
-          {`
-            // it can work but I dont see a purpose because shortcuts doesnt work here
-          `}
-        </style>
+        <style jsx global>{`
+          body {
+            // overflow: hidden; сделать надо для модалки потом будет
+          }
+        `}</style>
       </>
     );
   }

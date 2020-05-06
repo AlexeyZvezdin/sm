@@ -231,7 +231,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _index_module_scss__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./index.module.scss */ "./components/index.module.scss");
 /* harmony import */ var _index_module_scss__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_index_module_scss__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var _Basic_Header__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./Basic/Header */ "./components/Basic/Header.js");
-/* harmony import */ var _components_Modals_CityChoose__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../components/Modals/CityChoose */ "./components/Modals/CityChoose.js");
 
 
 
@@ -249,7 +248,6 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 
  // import loader from '../public/img/loader.gif';
-
 
 
 
@@ -277,72 +275,65 @@ var Layout = /*#__PURE__*/function (_React$Component) {
   Object(_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(Layout, [{
     key: "render",
     value: function render() {
-      return __jsx(react__WEBPACK_IMPORTED_MODULE_6___default.a.Fragment, null, __jsx(_components_Modals_CityChoose__WEBPACK_IMPORTED_MODULE_11__["default"], {
+      return __jsx(react__WEBPACK_IMPORTED_MODULE_6___default.a.Fragment, null, __jsx(_Basic_Header__WEBPACK_IMPORTED_MODULE_10__["default"], {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 25,
+          columnNumber: 9
+        }
+      }), __jsx("main", {
+        className: "jsx-2269112361",
         __self: this,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 26,
           columnNumber: 9
         }
-      }), __jsx(_Basic_Header__WEBPACK_IMPORTED_MODULE_10__["default"], {
-        __self: this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 27,
-          columnNumber: 9
-        }
-      }), __jsx("main", {
-        className: "jsx-1635745536",
+      }, __jsx("div", {
+        className: "jsx-2269112361" + " " + (_index_module_scss__WEBPACK_IMPORTED_MODULE_9___default.a['container__full'] || ""),
         __self: this,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 28,
-          columnNumber: 9
-        }
-      }, __jsx("div", {
-        className: "jsx-1635745536" + " " + (_index_module_scss__WEBPACK_IMPORTED_MODULE_9___default.a['container__full'] || ""),
-        __self: this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 30,
           columnNumber: 11
         }
       }, __jsx(react__WEBPACK_IMPORTED_MODULE_6___default.a.Fragment, null, this.props.children))), __jsx("footer", {
-        className: "jsx-1635745536" + " " + "container",
+        className: "jsx-2269112361" + " " + "container",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 44,
+          columnNumber: 9
+        }
+      }, __jsx("div", {
+        className: "jsx-2269112361",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 45,
+          columnNumber: 11
+        }
+      }, "\xA9 ", new Date().getFullYear()), __jsx("div", {
+        className: "jsx-2269112361",
         __self: this,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 46,
-          columnNumber: 9
+          columnNumber: 11
         }
-      }, __jsx("div", {
-        className: "jsx-1635745536",
+      }, __jsx("h3", {
+        className: "jsx-2269112361",
         __self: this,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 47,
-          columnNumber: 11
-        }
-      }, "\xA9 ", new Date().getFullYear()), __jsx("div", {
-        className: "jsx-1635745536",
-        __self: this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 48,
-          columnNumber: 11
-        }
-      }, __jsx("h3", {
-        className: "jsx-1635745536",
-        __self: this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 49,
           columnNumber: 13
         }
       }, "FOOTER"))), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_5___default.a, {
-        id: "1635745536",
+        id: "2269112361",
         __self: this
-      }, "\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkM6XFxVc2Vyc1xc0JDQu9C10LrRgdC10LlcXERlc2t0b3BcXEFsbCBXb3JrXFxuZXh0LW9mZmljaWFsLWd1aWRlXFxjb21wb25lbnRzXFxMYXlvdXQuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBb0RXIiwiZmlsZSI6IkM6XFxVc2Vyc1xc0JDQu9C10LrRgdC10LlcXERlc2t0b3BcXEFsbCBXb3JrXFxuZXh0LW9mZmljaWFsLWd1aWRlXFxjb21wb25lbnRzXFxMYXlvdXQuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgTGluayBmcm9tICduZXh0L2xpbmsnO1xyXG5pbXBvcnQgUm91dGVyIGZyb20gJ25leHQvcm91dGVyJztcclxuaW1wb3J0IHN0eWxlcyBmcm9tICcuL2luZGV4Lm1vZHVsZS5zY3NzJztcclxuLy8gaW1wb3J0IGxvYWRlciBmcm9tICcuLi9wdWJsaWMvaW1nL2xvYWRlci5naWYnO1xyXG5pbXBvcnQgSGVhZGVyIGZyb20gJy4vQmFzaWMvSGVhZGVyJztcclxuaW1wb3J0IENpdHlDaG9vc2UgZnJvbSAnLi4vY29tcG9uZW50cy9Nb2RhbHMvQ2l0eUNob29zZSc7XHJcblxyXG5leHBvcnQgZGVmYXVsdCBjbGFzcyBMYXlvdXQgZXh0ZW5kcyBSZWFjdC5Db21wb25lbnQge1xyXG4gIGNvbnN0cnVjdG9yKHByb3BzKSB7XHJcbiAgICBzdXBlcihwcm9wcyk7XHJcbiAgfVxyXG4gIC8vIHN0YXRlID0ge1xyXG4gIC8vICAgbG9hZGVkOiAnbm8nLFxyXG4gIC8vIH07XHJcbiAgLy8gY29tcG9uZW50RGlkTW91bnQoKSB7XHJcbiAgLy8gICBzZXRUaW1lb3V0KCgpID0+IHtcclxuICAvLyAgICAgdGhpcy5zZXRTdGF0ZSh7XHJcbiAgLy8gICAgICAgbG9hZGVkOiAneWVzJyxcclxuICAvLyAgICAgfSk7XHJcbiAgLy8gICB9LCA1MDApO1xyXG4gIC8vIH1cclxuXHJcbiAgcmVuZGVyKCkge1xyXG4gICAgcmV0dXJuIChcclxuICAgICAgPD5cclxuICAgICAgICA8Q2l0eUNob29zZSAvPlxyXG4gICAgICAgIDxIZWFkZXIgLz5cclxuICAgICAgICA8bWFpbj5cclxuICAgICAgICAgIHsvKiDQstC+0LfQvNC+0LbQvdC+INCyINCx0YPQtNGD0YnQtdC8INGD0LHQtdGA0YMg0L7RgtGB0Y7QtNCwICovfVxyXG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9e3N0eWxlc1snY29udGFpbmVyX19mdWxsJ119PlxyXG4gICAgICAgICAgICB7Lyoge3RoaXMuc3RhdGUubG9hZGVkID09PSAnbm8nID8gKFxyXG4gICAgICAgICAgICAgIDxkaXZcclxuICAgICAgICAgICAgICAgIHN0eWxlPXt7XHJcbiAgICAgICAgICAgICAgICAgIG1hcmdpbjogJzUwcHgnLFxyXG4gICAgICAgICAgICAgICAgICBqdXN0aWZ5Q29udGVudDogJ2NlbnRlcicsXHJcbiAgICAgICAgICAgICAgICAgIGRpc3BsYXk6ICdmbGV4JyxcclxuICAgICAgICAgICAgICAgIH19XHJcbiAgICAgICAgICAgICAgPlxyXG4gICAgICAgICAgICAgICAgPGltZyBzcmM9XCIvaW1nL2xvYWRlci5naWZcIiBhbHQ9XCJsb2FkZXJcIiAvPlxyXG4gICAgICAgICAgICAgIDwvZGl2PlxyXG4gICAgICAgICAgICApIDogKCAqL31cclxuICAgICAgICAgICAgPD57dGhpcy5wcm9wcy5jaGlsZHJlbn08Lz5cclxuICAgICAgICAgICAgey8qICl9ICovfVxyXG4gICAgICAgICAgPC9kaXY+XHJcbiAgICAgICAgPC9tYWluPlxyXG4gICAgICAgIDxmb290ZXIgY2xhc3NOYW1lPVwiY29udGFpbmVyXCI+XHJcbiAgICAgICAgICA8ZGl2PiZjb3B5OyB7bmV3IERhdGUoKS5nZXRGdWxsWWVhcigpfTwvZGl2PlxyXG4gICAgICAgICAgPGRpdj5cclxuICAgICAgICAgICAgPGgzPkZPT1RFUjwvaDM+XHJcbiAgICAgICAgICA8L2Rpdj5cclxuICAgICAgICA8L2Zvb3Rlcj5cclxuICAgICAgICA8c3R5bGUganN4PlxyXG4gICAgICAgICAge2BcclxuICAgICAgICAgICAgLy8gaXQgY2FuIHdvcmsgYnV0IEkgZG9udCBzZWUgYSBwdXJwb3NlIGJlY2F1c2Ugc2hvcnRjdXRzIGRvZXNudCB3b3JrIGhlcmVcclxuICAgICAgICAgIGB9XHJcbiAgICAgICAgPC9zdHlsZT5cclxuICAgICAgPC8+XHJcbiAgICApO1xyXG4gIH1cclxufVxyXG4iXX0= */\n/*@ sourceURL=C:\\\\Users\\\\\u0410\u043B\u0435\u043A\u0441\u0435\u0439\\\\Desktop\\\\All Work\\\\next-official-guide\\\\components\\\\Layout.js */"));
+      }, "\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkM6XFxVc2Vyc1xc0JDQu9C10LrRgdC10LlcXERlc2t0b3BcXEFsbCBXb3JrXFxuZXh0LW9mZmljaWFsLWd1aWRlXFxjb21wb25lbnRzXFxMYXlvdXQuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBaUQyQiIsImZpbGUiOiJDOlxcVXNlcnNcXNCQ0LvQtdC60YHQtdC5XFxEZXNrdG9wXFxBbGwgV29ya1xcbmV4dC1vZmZpY2lhbC1ndWlkZVxcY29tcG9uZW50c1xcTGF5b3V0LmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IExpbmsgZnJvbSAnbmV4dC9saW5rJztcclxuaW1wb3J0IFJvdXRlciBmcm9tICduZXh0L3JvdXRlcic7XHJcbmltcG9ydCBzdHlsZXMgZnJvbSAnLi9pbmRleC5tb2R1bGUuc2Nzcyc7XHJcbi8vIGltcG9ydCBsb2FkZXIgZnJvbSAnLi4vcHVibGljL2ltZy9sb2FkZXIuZ2lmJztcclxuaW1wb3J0IEhlYWRlciBmcm9tICcuL0Jhc2ljL0hlYWRlcic7XHJcblxyXG5leHBvcnQgZGVmYXVsdCBjbGFzcyBMYXlvdXQgZXh0ZW5kcyBSZWFjdC5Db21wb25lbnQge1xyXG4gIGNvbnN0cnVjdG9yKHByb3BzKSB7XHJcbiAgICBzdXBlcihwcm9wcyk7XHJcbiAgfVxyXG4gIC8vIHN0YXRlID0ge1xyXG4gIC8vICAgbG9hZGVkOiAnbm8nLFxyXG4gIC8vIH07XHJcbiAgLy8gY29tcG9uZW50RGlkTW91bnQoKSB7XHJcbiAgLy8gICBzZXRUaW1lb3V0KCgpID0+IHtcclxuICAvLyAgICAgdGhpcy5zZXRTdGF0ZSh7XHJcbiAgLy8gICAgICAgbG9hZGVkOiAneWVzJyxcclxuICAvLyAgICAgfSk7XHJcbiAgLy8gICB9LCA1MDApO1xyXG4gIC8vIH1cclxuXHJcbiAgcmVuZGVyKCkge1xyXG4gICAgcmV0dXJuIChcclxuICAgICAgPD5cclxuICAgICAgICA8SGVhZGVyIC8+XHJcbiAgICAgICAgPG1haW4+XHJcbiAgICAgICAgICB7Lyog0LLQvtC30LzQvtC20L3QviDQsiDQsdGD0LTRg9GJ0LXQvCDRg9Cx0LXRgNGDINC+0YLRgdGO0LTQsCAqL31cclxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPXtzdHlsZXNbJ2NvbnRhaW5lcl9fZnVsbCddfT5cclxuICAgICAgICAgICAgey8qIHt0aGlzLnN0YXRlLmxvYWRlZCA9PT0gJ25vJyA/IChcclxuICAgICAgICAgICAgICA8ZGl2XHJcbiAgICAgICAgICAgICAgICBzdHlsZT17e1xyXG4gICAgICAgICAgICAgICAgICBtYXJnaW46ICc1MHB4JyxcclxuICAgICAgICAgICAgICAgICAganVzdGlmeUNvbnRlbnQ6ICdjZW50ZXInLFxyXG4gICAgICAgICAgICAgICAgICBkaXNwbGF5OiAnZmxleCcsXHJcbiAgICAgICAgICAgICAgICB9fVxyXG4gICAgICAgICAgICAgID5cclxuICAgICAgICAgICAgICAgIDxpbWcgc3JjPVwiL2ltZy9sb2FkZXIuZ2lmXCIgYWx0PVwibG9hZGVyXCIgLz5cclxuICAgICAgICAgICAgICA8L2Rpdj5cclxuICAgICAgICAgICAgKSA6ICggKi99XHJcbiAgICAgICAgICAgIDw+e3RoaXMucHJvcHMuY2hpbGRyZW59PC8+XHJcbiAgICAgICAgICAgIHsvKiApfSAqL31cclxuICAgICAgICAgIDwvZGl2PlxyXG4gICAgICAgIDwvbWFpbj5cclxuICAgICAgICA8Zm9vdGVyIGNsYXNzTmFtZT1cImNvbnRhaW5lclwiPlxyXG4gICAgICAgICAgPGRpdj4mY29weTsge25ldyBEYXRlKCkuZ2V0RnVsbFllYXIoKX08L2Rpdj5cclxuICAgICAgICAgIDxkaXY+XHJcbiAgICAgICAgICAgIDxoMz5GT09URVI8L2gzPlxyXG4gICAgICAgICAgPC9kaXY+XHJcbiAgICAgICAgPC9mb290ZXI+XHJcbiAgICAgICAgPHN0eWxlIGpzeCBnbG9iYWw+e2BcclxuICAgICAgICAgIGJvZHkge1xyXG4gICAgICAgICAgICAvLyBvdmVyZmxvdzogaGlkZGVuOyDRgdC00LXQu9Cw0YLRjCDQvdCw0LTQviDQtNC70Y8g0LzQvtC00LDQu9C60Lgg0L/QvtGC0L7QvCDQsdGD0LTQtdGCXHJcbiAgICAgICAgICB9XHJcbiAgICAgICAgYH08L3N0eWxlPlxyXG4gICAgICA8Lz5cclxuICAgICk7XHJcbiAgfVxyXG59XHJcbiJdfQ== */\n/*@ sourceURL=C:\\\\Users\\\\\u0410\u043B\u0435\u043A\u0441\u0435\u0439\\\\Desktop\\\\All Work\\\\next-official-guide\\\\components\\\\Layout.js */"));
     }
   }]);
 
@@ -353,16 +344,15 @@ var Layout = /*#__PURE__*/function (_React$Component) {
 
 /***/ }),
 
-/***/ "./components/Modals/CityChoose.js":
-/*!*****************************************!*\
-  !*** ./components/Modals/CityChoose.js ***!
-  \*****************************************/
+/***/ "./components/Modals/CityChoiceModal.js":
+/*!**********************************************!*\
+  !*** ./components/Modals/CityChoiceModal.js ***!
+  \**********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return CityChoose; });
 /* harmony import */ var _babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
 /* harmony import */ var _babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
 /* harmony import */ var _babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inherits */ "./node_modules/@babel/runtime/helpers/esm/inherits.js");
@@ -370,12 +360,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/esm/getPrototypeOf */ "./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _css_city_choice_module_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./css/city_choice.module.scss */ "./components/Modals/css/city_choice.module.scss");
+/* harmony import */ var _css_city_choice_module_scss__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_css_city_choice_module_scss__WEBPACK_IMPORTED_MODULE_7__);
 
 
 
 
 
-var _jsxFileName = "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0435\u0439\\Desktop\\All Work\\next-official-guide\\components\\Modals\\CityChoose.js";
+var _jsxFileName = "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0435\u0439\\Desktop\\All Work\\next-official-guide\\components\\Modals\\CityChoiceModal.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement;
 
@@ -383,35 +376,64 @@ function _createSuper(Derived) { return function () { var Super = Object(_babel_
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
-var CityChoose = /*#__PURE__*/function (_React$Component) {
-  Object(_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_2__["default"])(CityChoose, _React$Component);
 
-  var _super = _createSuper(CityChoose);
 
-  function CityChoose() {
-    Object(_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, CityChoose);
+
+var CityChoiceModal = /*#__PURE__*/function (_React$Component) {
+  Object(_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_2__["default"])(CityChoiceModal, _React$Component);
+
+  var _super = _createSuper(CityChoiceModal);
+
+  function CityChoiceModal() {
+    Object(_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, CityChoiceModal);
 
     return _super.apply(this, arguments);
   }
 
-  Object(_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(CityChoose, [{
+  Object(_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(CityChoiceModal, [{
     key: "render",
     value: function render() {
-      return __jsx(react__WEBPACK_IMPORTED_MODULE_5___default.a.Fragment, null, __jsx("p", {
+      return __jsx(react__WEBPACK_IMPORTED_MODULE_5___default.a.Fragment, null, __jsx("div", {
+        className: _css_city_choice_module_scss__WEBPACK_IMPORTED_MODULE_7___default.a['modal-backdrop'],
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 5,
+          lineNumber: 9,
           columnNumber: 9
         }
-      }, "halo"));
+      }), __jsx("div", {
+        className: _css_city_choice_module_scss__WEBPACK_IMPORTED_MODULE_7___default.a['city_modal'],
+        role: "dialog",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 10,
+          columnNumber: 9
+        }
+      }, __jsx("div", {
+        className: _css_city_choice_module_scss__WEBPACK_IMPORTED_MODULE_7___default.a['city_modal-center_container'],
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 11,
+          columnNumber: 11
+        }
+      }, __jsx("div", {
+        className: _css_city_choice_module_scss__WEBPACK_IMPORTED_MODULE_7___default.a[('city_modal-center_container', 'm_m-box')],
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 12,
+          columnNumber: 13
+        }
+      }, "Center of the Modal"))));
     }
   }]);
 
-  return CityChoose;
+  return CityChoiceModal;
 }(react__WEBPACK_IMPORTED_MODULE_5___default.a.Component);
 
-
+/* harmony default export */ __webpack_exports__["default"] = (CityChoiceModal);
 
 /***/ }),
 
@@ -9274,6 +9296,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _redux_store__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../redux/store */ "./redux/store.js");
 /* harmony import */ var next_redux_wrapper__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! next-redux-wrapper */ "./node_modules/next-redux-wrapper/es6/index.js");
+/* harmony import */ var _components_Modals_CityChoiceModal__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../components/Modals/CityChoiceModal */ "./components/Modals/CityChoiceModal.js");
 
 
 
@@ -9293,6 +9316,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 function _createSuper(Derived) { return function () { var Super = Object(_babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_7__["default"])(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = Object(_babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_7__["default"])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return Object(_babel_runtime_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_6__["default"])(this, result); }; }
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
 
 
 
@@ -9327,21 +9351,28 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 101,
+          lineNumber: 102,
           columnNumber: 9
         }
-      }, __jsx(_components_Layout__WEBPACK_IMPORTED_MODULE_12__["default"], {
+      }, __jsx(_components_Modals_CityChoiceModal__WEBPACK_IMPORTED_MODULE_16__["default"], {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 102,
+          lineNumber: 103,
+          columnNumber: 11
+        }
+      }), __jsx(_components_Layout__WEBPACK_IMPORTED_MODULE_12__["default"], {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 104,
           columnNumber: 11
         }
       }, __jsx(Component, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__["default"])({}, pageProps, {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 103,
+          lineNumber: 105,
           columnNumber: 13
         }
       }))));

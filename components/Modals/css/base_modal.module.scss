@@ -1,0 +1,68 @@
+@import '../../public/css/_style.scss';
+
+.base-modal {
+  .modal-content {
+    border-radius: 16px;
+    border: none;
+    @include max-width(xs) {
+      border-radius: 0;
+      height: 100%;
+    }
+    .modal-header {
+      border-bottom: none;
+      @include max-width(xs) {
+        background-color: white;
+      }
+      .close-button {
+        position: absolute;
+        right: -40px;
+        top: 0;
+        padding: 0;
+        margin: 0;
+        cursor: pointer;
+      }
+    }
+
+    .modal-body {
+      @include max-width(xs) {
+        background-color: white;
+        flex: initial;
+      }
+    }
+    .modal-footer {
+      border-top: none;
+      display: block;
+      @include max-width(xs) {
+        background-color: white;
+      }
+    }
+  }
+}
+
+@include max-width(xs) {
+  .modal-dialog {
+    max-width: 100% !important;
+    width: 100%;
+    height: 100%;
+    max-height: 100% !important;
+    margin: 0;
+    z-index: 10000000;
+  }
+}
+
+.modal-dialog {
+  max-width: 60%;
+  max-height: 70%;
+}
+
+//.fade{
+//  transition: opacity .15s linear !important;
+//}
+
+//.modal.fade .modal-dialog{
+//  transition: -webkit-transform .3s ease-out;
+//  transition: transform .3s ease-out;
+//  transition: transform .3s ease-out, -webkit-transform .3s ease-out;
+//  -webkit-transform: translate(0,-50px);
+//  transform: translate(0,-50px);
+//}
