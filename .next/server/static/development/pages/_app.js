@@ -107,8 +107,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _utils_UrlBuilder__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils/UrlBuilder */ "./utils/UrlBuilder.js");
-/* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! js-cookie */ "js-cookie");
-/* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(js_cookie__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "react-redux");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _header_module_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./header.module.scss */ "./components/Basic/header.module.scss");
+/* harmony import */ var _header_module_scss__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_header_module_scss__WEBPACK_IMPORTED_MODULE_4__);
 var _jsxFileName = "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0435\u0439\\Desktop\\All Work\\next-official-guide\\components\\Basic\\Header.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
@@ -118,9 +120,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 const links = [{
   name: 'Акции',
-  link: _utils_UrlBuilder__WEBPACK_IMPORTED_MODULE_2__["campaign"]()
+  link: _utils_UrlBuilder__WEBPACK_IMPORTED_MODULE_2__["promotions"]()
 }, {
   name: 'Бонусы',
   link: _utils_UrlBuilder__WEBPACK_IMPORTED_MODULE_2__["bonuses"]()
@@ -147,17 +150,21 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       headerOffset: 0,
       showCitySelector: false
     });
+
+    _defineProperty(this, "handleCityModal", () => {
+      // fetch cities
+      // show city modal
+      this.props.dispatchModalStatus();
+    });
   }
 
   render() {
-    const supportPhone = js_cookie__WEBPACK_IMPORTED_MODULE_3___default.a.get('supportPhone'); // console.log(supportPhone, ' SupportPhone from header');
-
     const menu = links.map((el, index) => __jsx("li", {
       key: index,
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 43,
+        lineNumber: 47,
         columnNumber: 7
       }
     }, __jsx("a", {
@@ -165,17 +172,18 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 44,
+        lineNumber: 48,
         columnNumber: 9
       }
     }, el.name)));
     let re = /\D/gi; // Убирает всесимволы для номера
 
     return __jsx("header", {
+      className: _header_module_scss__WEBPACK_IMPORTED_MODULE_4___default.a['main_header'],
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 49,
+        lineNumber: 53,
         columnNumber: 7
       }
     }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
@@ -183,72 +191,81 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 50,
+        lineNumber: 54,
         columnNumber: 9
       }
     }, __jsx("a", {
-      className: "header-logo",
+      className: _header_module_scss__WEBPACK_IMPORTED_MODULE_4___default.a['header-logo'],
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 51,
+        lineNumber: 55,
         columnNumber: 11
       }
     }, __jsx("img", {
       src: "/img/icons/icon-logo.svg",
       alt: "\u0421\u0443\u0448\u0438 \u043C\u0430\u0441\u0442\u0435\u0440 \u2014 \u0437\u0430\u043A\u0430\u0437 \u0438 \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u044F\u043F\u043E\u043D\u0441\u043A\u043E\u0439 \u0435\u0434\u044B \u043D\u0430 \u0434\u043E\u043C",
-      className: "header-info__logo",
+      className: _header_module_scss__WEBPACK_IMPORTED_MODULE_4___default.a['header-info__logo'],
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 52,
+        lineNumber: 56,
         columnNumber: 13
       }
     }), "\u0421\u0443\u0448\u0438 \u043C\u0430\u0441\u0442\u0435\u0440 \u2014 \u0437\u0430\u043A\u0430\u0437 \u0438 \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0435\u0434\u044B \u043D\u0430 \u0434\u043E\u043C \u0432 \u0413\u043E\u0440\u043E\u0434\u041D\u0435\u0439\u043C")), __jsx("div", {
-      className: "header-city_and_phone",
+      className: _header_module_scss__WEBPACK_IMPORTED_MODULE_4___default.a['header-city_and_phone'],
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 61,
+        lineNumber: 65,
         columnNumber: 9
       }
-    }, supportPhone ? __jsx("a", {
-      href: `tel:+${supportPhone.replace(re, '')}`,
+    }, __jsx("button", {
+      className: _header_module_scss__WEBPACK_IMPORTED_MODULE_4___default.a['header-city_choice'],
+      onClick: this.handleCityModal,
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 63,
-        columnNumber: 13
+        lineNumber: 66,
+        columnNumber: 11
       }
-    }, supportPhone, " ", __jsx("img", {
-      src: "/img/icons/ic-phone.svg",
+    }, __jsx("img", {
+      src: "/img/icons/icon-location.svg",
       alt: "",
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 64,
-        columnNumber: 30
-      }
-    })) : __jsx("a", {
-      __self: this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 67,
+        lineNumber: 70,
         columnNumber: 13
       }
-    }, "No phone")), __jsx("nav", {
-      className: "menu",
+    }), __jsx("span", {
+      className: _header_module_scss__WEBPACK_IMPORTED_MODULE_4___default.a['header-city_choice-city_name'],
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 70,
+        lineNumber: 71,
+        columnNumber: 13
+      }
+    }, "\u0413\u043E\u0440\u043E\u0434")), __jsx("a", {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 81,
+        columnNumber: 11
+      }
+    }, "No phone")), __jsx("nav", {
+      className: _header_module_scss__WEBPACK_IMPORTED_MODULE_4___default.a['menu'],
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 83,
         columnNumber: 9
       }
     }, __jsx("ul", {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 71,
+        lineNumber: 84,
         columnNumber: 11
       }
     }, menu)));
@@ -256,7 +273,41 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
 
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (Header);
+const mapStateToProps = ({
+  modal
+}) => {
+  // console.log(modal.openModalBg, ' STATE modal');
+  const modalBg = modal.openModalBg;
+  return {
+    modalBg
+  };
+};
+
+const dispatchToProps = dispatch => ({
+  dispatchModalStatus: status => dispatch({
+    type: 'OPEN_MODAL'
+  })
+});
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["connect"])(mapStateToProps, dispatchToProps)(Header));
+
+/***/ }),
+
+/***/ "./components/Basic/header.module.scss":
+/*!*********************************************!*\
+  !*** ./components/Basic/header.module.scss ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = {
+	"main_header": "main_header",
+	"header-logo": "header-logo",
+	"menu": "menu",
+	"header-city_and_phone": "header-city_and_phone",
+	"header-city_choice": "header-city_choice",
+	"header-city_choice-city_name": "header-city_choice-city_name"
+};
 
 /***/ }),
 
@@ -380,59 +431,166 @@ class Layout extends react__WEBPACK_IMPORTED_MODULE_1___default.a.Component {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "react-redux");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _css_city_choice_module_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./css/city_choice.module.scss */ "./components/Modals/css/city_choice.module.scss");
-/* harmony import */ var _css_city_choice_module_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_css_city_choice_module_scss__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var styled_jsx_style__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-jsx/style */ "styled-jsx/style");
+/* harmony import */ var styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "react-redux");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _utils_fetcher__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils/fetcher */ "./utils/fetcher.js");
+/* harmony import */ var _css_city_choice_module_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./css/city_choice.module.scss */ "./components/Modals/css/city_choice.module.scss");
+/* harmony import */ var _css_city_choice_module_scss__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_css_city_choice_module_scss__WEBPACK_IMPORTED_MODULE_4__);
 var _jsxFileName = "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0435\u0439\\Desktop\\All Work\\next-official-guide\\components\\Modals\\CityChoiceModal.js";
 
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
-class CityChoiceModal extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
+
+
+class CityChoiceModal extends react__WEBPACK_IMPORTED_MODULE_1___default.a.Component {
+  constructor(props) {
+    super(props);
+
+    _defineProperty(this, "state", {
+      cities: null
+    });
+
+    _defineProperty(this, "handleModalBG", e => {
+      e.stopPropagation();
+      this.props.dispatchModalStatus();
+    });
+  }
+
+  async fetchCities() {
+    if (this.state.cities == null) {
+      let cities = await Object(_utils_fetcher__WEBPACK_IMPORTED_MODULE_3__["default"])('https://client-api.sushi-master.ru/api/v1/city');
+      console.log(cities, 'CITIES');
+      this.setState({
+        cities
+      });
+    } else {
+      return;
+    }
+  }
+
   render() {
-    return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("div", {
-      className: _css_city_choice_module_scss__WEBPACK_IMPORTED_MODULE_2___default.a['modal-backdrop'],
+    const modalHeader = () => __jsx("div", {
+      className: _css_city_choice_module_scss__WEBPACK_IMPORTED_MODULE_4___default.a['m_m-header'],
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 9,
+        lineNumber: 36,
+        columnNumber: 7
+      }
+    }, __jsx("h1", {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 37,
+        columnNumber: 9
+      }
+    }, "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0433\u043E\u0440\u043E\u0434"));
+
+    const modalFooter = () => __jsx("div", {
+      className: _css_city_choice_module_scss__WEBPACK_IMPORTED_MODULE_4___default.a['m_m-footer'],
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 41,
+        columnNumber: 7
+      }
+    }, __jsx("button", {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 42,
+        columnNumber: 9
+      }
+    }, "\u043F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C"));
+
+    this.props.modalBg ? this.fetchCities() : '';
+    return __jsx(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, __jsx("div", {
+      className: styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a.dynamic([["744395776", [this.props.modalBg ? 'block' : 'none', this.props.modalBg ? 'block' : 'none', this.props.modalBg ? 'block' : 'none']]]) + " " + (_css_city_choice_module_scss__WEBPACK_IMPORTED_MODULE_4___default.a['modal-backdrop'] || ""),
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 49,
         columnNumber: 9
       }
     }), __jsx("div", {
-      className: _css_city_choice_module_scss__WEBPACK_IMPORTED_MODULE_2___default.a['city_modal'],
       role: "dialog",
+      onClick: e => this.handleModalBG(e),
+      className: styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a.dynamic([["744395776", [this.props.modalBg ? 'block' : 'none', this.props.modalBg ? 'block' : 'none', this.props.modalBg ? 'block' : 'none']]]) + " " + (_css_city_choice_module_scss__WEBPACK_IMPORTED_MODULE_4___default.a['city_modal'] || ""),
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 10,
+        lineNumber: 50,
+        columnNumber: 9
+      }
+    }), __jsx("div", {
+      className: styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a.dynamic([["744395776", [this.props.modalBg ? 'block' : 'none', this.props.modalBg ? 'block' : 'none', this.props.modalBg ? 'block' : 'none']]]) + " " + (_css_city_choice_module_scss__WEBPACK_IMPORTED_MODULE_4___default.a['city_modal-center_container'] || ""),
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 55,
         columnNumber: 9
       }
     }, __jsx("div", {
-      className: _css_city_choice_module_scss__WEBPACK_IMPORTED_MODULE_2___default.a['city_modal-center_container'],
+      className: styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a.dynamic([["744395776", [this.props.modalBg ? 'block' : 'none', this.props.modalBg ? 'block' : 'none', this.props.modalBg ? 'block' : 'none']]]) + " " + (_css_city_choice_module_scss__WEBPACK_IMPORTED_MODULE_4___default.a['m_m-box'] || ""),
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 11,
+        lineNumber: 57,
         columnNumber: 11
       }
-    }, __jsx("div", {
-      className: _css_city_choice_module_scss__WEBPACK_IMPORTED_MODULE_2___default.a[('city_modal-center_container', 'm_m-box')],
+    }, modalHeader(), __jsx("div", {
+      className: styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a.dynamic([["744395776", [this.props.modalBg ? 'block' : 'none', this.props.modalBg ? 'block' : 'none', this.props.modalBg ? 'block' : 'none']]]) + " " + (_css_city_choice_module_scss__WEBPACK_IMPORTED_MODULE_4___default.a['m_m-body'] || ""),
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 12,
+        lineNumber: 59,
         columnNumber: 13
       }
-    }, "Center of the Modal"))));
+    }, this.props.modalBg && this.state.cities ? this.state.cities.result.items.map(item => __jsx("button", {
+      className: styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a.dynamic([["744395776", [this.props.modalBg ? 'block' : 'none', this.props.modalBg ? 'block' : 'none', this.props.modalBg ? 'block' : 'none']]]),
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 62,
+        columnNumber: 21
+      }
+    }, item.name)) : ''), modalFooter())), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
+      id: "744395776",
+      dynamic: [this.props.modalBg ? 'block' : 'none', this.props.modalBg ? 'block' : 'none', this.props.modalBg ? 'block' : 'none'],
+      __self: this
+    }, `.modal-backdrop.__jsx-style-dynamic-selector{display:${this.props.modalBg ? 'block' : 'none'};}.city_modal.__jsx-style-dynamic-selector{display:${this.props.modalBg ? 'block' : 'none'};}.city_modal-center_container.__jsx-style-dynamic-selector{display:${this.props.modalBg ? 'block' : 'none'};}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkM6XFxVc2Vyc1xc0JDQu9C10LrRgdC10LlcXERlc2t0b3BcXEFsbCBXb3JrXFxuZXh0LW9mZmljaWFsLWd1aWRlXFxjb21wb25lbnRzXFxNb2RhbHNcXENpdHlDaG9pY2VNb2RhbC5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFvRW9CLEFBR2tELEFBR0EsQUFHQSxxQ0FMdkMsQUFHQSxBQUdBIiwiZmlsZSI6IkM6XFxVc2Vyc1xc0JDQu9C10LrRgdC10LlcXERlc2t0b3BcXEFsbCBXb3JrXFxuZXh0LW9mZmljaWFsLWd1aWRlXFxjb21wb25lbnRzXFxNb2RhbHNcXENpdHlDaG9pY2VNb2RhbC5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IGNvbm5lY3QgfSBmcm9tICdyZWFjdC1yZWR1eCc7XHJcbmltcG9ydCBmZXRjaGVyIGZyb20gJy4uLy4uL3V0aWxzL2ZldGNoZXInO1xyXG5cclxuaW1wb3J0IHMgZnJvbSAnLi9jc3MvY2l0eV9jaG9pY2UubW9kdWxlLnNjc3MnO1xyXG5cclxuY2xhc3MgQ2l0eUNob2ljZU1vZGFsIGV4dGVuZHMgUmVhY3QuQ29tcG9uZW50IHtcclxuICBjb25zdHJ1Y3Rvcihwcm9wcykge1xyXG4gICAgc3VwZXIocHJvcHMpO1xyXG4gIH1cclxuXHJcbiAgc3RhdGUgPSB7XHJcbiAgICBjaXRpZXM6IG51bGwsXHJcbiAgfTtcclxuXHJcbiAgYXN5bmMgZmV0Y2hDaXRpZXMoKSB7XHJcbiAgICBpZiAodGhpcy5zdGF0ZS5jaXRpZXMgPT0gbnVsbCkge1xyXG4gICAgICBsZXQgY2l0aWVzID0gYXdhaXQgZmV0Y2hlcihcclxuICAgICAgICAnaHR0cHM6Ly9jbGllbnQtYXBpLnN1c2hpLW1hc3Rlci5ydS9hcGkvdjEvY2l0eSdcclxuICAgICAgKTtcclxuICAgICAgY29uc29sZS5sb2coY2l0aWVzLCAnQ0lUSUVTJyk7XHJcbiAgICAgIHRoaXMuc2V0U3RhdGUoe1xyXG4gICAgICAgIGNpdGllcyxcclxuICAgICAgfSk7XHJcbiAgICB9IGVsc2Uge1xyXG4gICAgICByZXR1cm47XHJcbiAgICB9XHJcbiAgfVxyXG5cclxuICBoYW5kbGVNb2RhbEJHID0gKGUpID0+IHtcclxuICAgIGUuc3RvcFByb3BhZ2F0aW9uKCk7XHJcbiAgICB0aGlzLnByb3BzLmRpc3BhdGNoTW9kYWxTdGF0dXMoKTtcclxuICB9O1xyXG5cclxuICByZW5kZXIoKSB7XHJcbiAgICBjb25zdCBtb2RhbEhlYWRlciA9ICgpID0+IChcclxuICAgICAgPGRpdiBjbGFzc05hbWU9e3NbJ21fbS1oZWFkZXInXX0+XHJcbiAgICAgICAgPGgxPtCS0YvQsdC10YDQuNGC0LUg0LPQvtGA0L7QtDwvaDE+XHJcbiAgICAgIDwvZGl2PlxyXG4gICAgKTtcclxuICAgIGNvbnN0IG1vZGFsRm9vdGVyID0gKCkgPT4gKFxyXG4gICAgICA8ZGl2IGNsYXNzTmFtZT17c1snbV9tLWZvb3RlciddfT5cclxuICAgICAgICA8YnV0dG9uPtC/0YDQvtC00L7Qu9C20LjRgtGMPC9idXR0b24+XHJcbiAgICAgIDwvZGl2PlxyXG4gICAgKTtcclxuXHJcbiAgICB0aGlzLnByb3BzLm1vZGFsQmcgPyB0aGlzLmZldGNoQ2l0aWVzKCkgOiAnJztcclxuICAgIHJldHVybiAoXHJcbiAgICAgIDw+XHJcbiAgICAgICAgPGRpdiBjbGFzc05hbWU9e3NbJ21vZGFsLWJhY2tkcm9wJ119PjwvZGl2PlxyXG4gICAgICAgIDxkaXZcclxuICAgICAgICAgIGNsYXNzTmFtZT17c1snY2l0eV9tb2RhbCddfVxyXG4gICAgICAgICAgcm9sZT1cImRpYWxvZ1wiXHJcbiAgICAgICAgICBvbkNsaWNrPXsoZSkgPT4gdGhpcy5oYW5kbGVNb2RhbEJHKGUpfVxyXG4gICAgICAgID48L2Rpdj5cclxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT17c1snY2l0eV9tb2RhbC1jZW50ZXJfY29udGFpbmVyJ119PlxyXG4gICAgICAgICAgey8qIG1haW4gbW9kYWwgKi99XHJcbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT17c1snbV9tLWJveCddfT5cclxuICAgICAgICAgICAge21vZGFsSGVhZGVyKCl9XHJcbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPXtzWydtX20tYm9keSddfT5cclxuICAgICAgICAgICAgICB7dGhpcy5wcm9wcy5tb2RhbEJnICYmIHRoaXMuc3RhdGUuY2l0aWVzXHJcbiAgICAgICAgICAgICAgICA/IHRoaXMuc3RhdGUuY2l0aWVzLnJlc3VsdC5pdGVtcy5tYXAoKGl0ZW0pID0+IChcclxuICAgICAgICAgICAgICAgICAgICA8YnV0dG9uPntpdGVtLm5hbWV9PC9idXR0b24+XHJcbiAgICAgICAgICAgICAgICAgICkpXHJcbiAgICAgICAgICAgICAgICA6ICcnfVxyXG4gICAgICAgICAgICA8L2Rpdj5cclxuICAgICAgICAgICAge21vZGFsRm9vdGVyKCl9XHJcbiAgICAgICAgICA8L2Rpdj5cclxuICAgICAgICA8L2Rpdj5cclxuICAgICAgICA8c3R5bGUganN4PntgXHJcbiAgICAgICAgICAubW9kYWwtYmFja2Ryb3Age1xyXG4gICAgICAgICAgICBkaXNwbGF5OiAke3RoaXMucHJvcHMubW9kYWxCZyA/ICdibG9jaycgOiAnbm9uZSd9O1xyXG4gICAgICAgICAgfVxyXG4gICAgICAgICAgLmNpdHlfbW9kYWwge1xyXG4gICAgICAgICAgICBkaXNwbGF5OiAke3RoaXMucHJvcHMubW9kYWxCZyA/ICdibG9jaycgOiAnbm9uZSd9O1xyXG4gICAgICAgICAgfVxyXG4gICAgICAgICAgLmNpdHlfbW9kYWwtY2VudGVyX2NvbnRhaW5lciB7XHJcbiAgICAgICAgICAgIGRpc3BsYXk6ICR7dGhpcy5wcm9wcy5tb2RhbEJnID8gJ2Jsb2NrJyA6ICdub25lJ307XHJcbiAgICAgICAgICB9XHJcbiAgICAgICAgYH08L3N0eWxlPlxyXG4gICAgICA8Lz5cclxuICAgICk7XHJcbiAgfVxyXG59XHJcbmNvbnN0IG1hcFN0YXRlVG9Qcm9wcyA9ICh7IG1vZGFsIH0pID0+IHtcclxuICAvLyBjb25zb2xlLmxvZyhtb2RhbC5vcGVuTW9kYWxCZywgJyBTVEFURSBtb2RhbCcpO1xyXG4gIGNvbnN0IG1vZGFsQmcgPSBtb2RhbC5vcGVuTW9kYWxCZztcclxuICByZXR1cm4geyBtb2RhbEJnIH07XHJcbn07XHJcbmNvbnN0IGRpc3BhdGNoVG9Qcm9wcyA9IChkaXNwYXRjaCkgPT4gKHtcclxuICBkaXNwYXRjaE1vZGFsU3RhdHVzOiAoc3RhdHVzKSA9PiBkaXNwYXRjaCh7IHR5cGU6ICdDTE9TRV9NT0RBTCcgfSksXHJcbn0pO1xyXG5leHBvcnQgZGVmYXVsdCBjb25uZWN0KG1hcFN0YXRlVG9Qcm9wcywgZGlzcGF0Y2hUb1Byb3BzKShDaXR5Q2hvaWNlTW9kYWwpO1xyXG4iXX0= */
+/*@ sourceURL=C:\\Users\\Алексей\\Desktop\\All Work\\next-official-guide\\components\\Modals\\CityChoiceModal.js */`));
   }
 
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (CityChoiceModal);
+const mapStateToProps = ({
+  modal
+}) => {
+  // console.log(modal.openModalBg, ' STATE modal');
+  const modalBg = modal.openModalBg;
+  return {
+    modalBg
+  };
+};
+
+const dispatchToProps = dispatch => ({
+  dispatchModalStatus: status => dispatch({
+    type: 'CLOSE_MODAL'
+  })
+});
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, dispatchToProps)(CityChoiceModal));
 
 /***/ }),
 
@@ -447,7 +605,10 @@ module.exports = {
 	"modal-backdrop": "modal-backdrop",
 	"city_modal": "city_modal",
 	"city_modal-center_container": "city_modal-center_container",
-	"m_m-box": "m_m-box"
+	"m_m-box": "m_m-box",
+	"m_m-header": "m_m-header",
+	"m_m-body": "m_m-body",
+	"m_m-footer": "m_m-footer"
 };
 
 /***/ }),
@@ -2346,17 +2507,16 @@ module.exports = __webpack_require__(/*! ./dist/client/link */ "./node_modules/n
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _config_api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../config/api */ "./config/api.js");
-/* harmony import */ var _config_device_token__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../config/device-token */ "./config/device-token.js");
-/* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/app */ "./node_modules/next/app.js");
-/* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_app__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _components_Layout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Layout */ "./components/Layout.js");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-redux */ "react-redux");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _redux_store__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../redux/store */ "./redux/store.js");
-/* harmony import */ var next_redux_wrapper__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! next-redux-wrapper */ "next-redux-wrapper");
-/* harmony import */ var next_redux_wrapper__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(next_redux_wrapper__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _components_Modals_CityChoiceModal__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/Modals/CityChoiceModal */ "./components/Modals/CityChoiceModal.js");
+/* harmony import */ var _utils_fetcher__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/fetcher */ "./utils/fetcher.js");
+/* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/app */ "./node_modules/next/app.js");
+/* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_app__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _components_Layout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Layout */ "./components/Layout.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-redux */ "react-redux");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _redux_store__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../redux/store */ "./redux/store.js");
+/* harmony import */ var next_redux_wrapper__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! next-redux-wrapper */ "next-redux-wrapper");
+/* harmony import */ var next_redux_wrapper__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(next_redux_wrapper__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _components_Modals_CityChoiceModal__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/Modals/CityChoiceModal */ "./components/Modals/CityChoiceModal.js");
 var _jsxFileName = "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0435\u0439\\Desktop\\All Work\\next-official-guide\\pages\\_app.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
@@ -2375,34 +2535,33 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-
  // убирая дебаг на фолс можно контролировать высеры в консоль
 
-/* harmony default export */ __webpack_exports__["default"] = (next_redux_wrapper__WEBPACK_IMPORTED_MODULE_7___default()(_redux_store__WEBPACK_IMPORTED_MODULE_6__["default"], {
+/* harmony default export */ __webpack_exports__["default"] = (next_redux_wrapper__WEBPACK_IMPORTED_MODULE_6___default()(_redux_store__WEBPACK_IMPORTED_MODULE_5__["default"], {
   debug: false
-})(class SushiMaster extends next_app__WEBPACK_IMPORTED_MODULE_3___default.a {
+})(class SushiMaster extends next_app__WEBPACK_IMPORTED_MODULE_2___default.a {
   static async getInitialProps({
     Component,
     ctx
   }) {
-    const options = {
-      headers: {
-        [_config_api__WEBPACK_IMPORTED_MODULE_1__["HEADER_DEVICE_TYPE"]]: _config_api__WEBPACK_IMPORTED_MODULE_1__["DEVICE_TYPE_WEB"],
-        [_config_api__WEBPACK_IMPORTED_MODULE_1__["HEADER_DEVICE_TOKEN"]]: Object(_config_device_token__WEBPACK_IMPORTED_MODULE_2__["getDeviceToken"])()
-      }
-    }; //   const cityByIpOrDomain = await fetch(
+    // const options = {
+    //   headers: {
+    //     [HEADER_DEVICE_TYPE]: DEVICE_TYPE_WEB,
+    //     [HEADER_DEVICE_TOKEN]: getDeviceToken(),
+    //   },
+    // };
+    //   const cityByIpOrDomain = await fetch(
     //     'https://client-api.sushi-master.ru/api/v1/city/current?domain=abakan'
     //   );
+    const allCities = await Object(_utils_fetcher__WEBPACK_IMPORTED_MODULE_1__["default"])('https://client-api.sushi-master.ru/api/v1/city'); // const allCities = await allCitiesReq.json();
+    // тут пока по двоеточию поделил чтобы чекнуть что работает, с доменами будет так же
 
-    const allCitiesReq = await fetch('https://client-api.sushi-master.ru/api/v1/city');
-    const allCities = await allCitiesReq.json(); // тут пока по двоеточию поделил чтобы чекнуть что работает, с доменами будет так же
-
-    let domain = ctx.req.headers.host.split(':', 1) || ''; // console.log(domain, ' DOMAIN');
+    let domain = ctx.req ? ctx.req.headers.host.split(':', 1) : ''; // console.log(domain, ' DOMAIN');
 
     let cityInsteadOfDomain = 'abakan';
-    const defaultCity = await fetch(`https://client-api.sushi-master.ru/api/v1/city/current?domain=${cityInsteadOfDomain}`);
-    console.time('fetchstart');
-    const defaultCityData = await defaultCity.json(); // console.log(
+    const defaultCityData = await Object(_utils_fetcher__WEBPACK_IMPORTED_MODULE_1__["default"])(`https://client-api.sushi-master.ru/api/v1/city/current?domain=${cityInsteadOfDomain}`);
+    console.time('fetchstart'); // const defaultCityData = await defaultCity.json();
+    // console.log(
     //   defaultCityData.result.cityId,
     //   ' defaultCityData.result.cityId'
     // );
@@ -2411,20 +2570,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     // );
     // 5d3834ad59201a66b905d9e7 - id abakan
 
-    const thisCityCategories = await fetch(`https://client-api.sushi-master.ru/api/v1/catalog/categories/all?cityId=${defaultCityData.result.cityId}`, options);
-    const thisCityCategoriesData = await thisCityCategories.json(); // debugger;
+    const thisCityCategoriesData = await Object(_utils_fetcher__WEBPACK_IMPORTED_MODULE_1__["default"])(`https://client-api.sushi-master.ru/api/v1/catalog/categories/all?cityId=${defaultCityData.result.cityId}`); // const thisCityCategoriesData = await thisCityCategories.json();
+    // debugger;
 
     const category_id = thisCityCategoriesData.result.items[0].id; // console.log(category_id, ' category_id');
 
-    const thisCategoryProducts = await fetch(`https://client-api.sushi-master.ru/api/v1/catalog/categories/${category_id}/products`, options);
-    const thisCategoryProductsData = await thisCategoryProducts.json();
-    const getAllBanners = await fetch(`https://client-api.sushi-master.ru/api/v1/catalog/banners?${defaultCityData.result.cityId}`, options);
-    const getAllBannersData = await getAllBanners.json(); // console.log(getAllBannersData, ' getAllBannersData');
+    const thisCategoryProductsData = await Object(_utils_fetcher__WEBPACK_IMPORTED_MODULE_1__["default"])(`https://client-api.sushi-master.ru/api/v1/catalog/categories/${category_id}/products`); // const thisCategoryProductsData = await thisCategoryProducts.json();
+
+    const getAllBannersData = await Object(_utils_fetcher__WEBPACK_IMPORTED_MODULE_1__["default"])(`https://client-api.sushi-master.ru/api/v1/catalog/banners?${defaultCityData.result.cityId}`); // const getAllBannersData = await getAllBanners.json();
+    // console.log(getAllBannersData, ' getAllBannersData');
 
     ctx.store.dispatch({
       type: 'INITIAL_BANNERS',
       payload: getAllBannersData.result.update
-    });
+    }); // console.log(defaultCityData, 'defaultCityData');
+
     ctx.store.dispatch({
       type: 'POPULATE_INITIAL_STATE',
       payload: defaultCityData
@@ -2449,33 +2609,33 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       pageProps,
       store
     } = this.props;
-    return __jsx(react_redux__WEBPACK_IMPORTED_MODULE_5__["Provider"], {
+    return __jsx(react_redux__WEBPACK_IMPORTED_MODULE_4__["Provider"], {
       store: store,
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 102,
+        lineNumber: 93,
         columnNumber: 9
       }
-    }, __jsx(_components_Modals_CityChoiceModal__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    }, __jsx(_components_Modals_CityChoiceModal__WEBPACK_IMPORTED_MODULE_7__["default"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 103,
+        lineNumber: 94,
         columnNumber: 11
       }
-    }), __jsx(_components_Layout__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    }), __jsx(_components_Layout__WEBPACK_IMPORTED_MODULE_3__["default"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 104,
+        lineNumber: 95,
         columnNumber: 11
       }
     }, __jsx(Component, _extends({}, pageProps, {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 105,
+        lineNumber: 96,
         columnNumber: 13
       }
     }))));
@@ -2584,6 +2744,45 @@ const counterReducer = (state = {
 
 /***/ }),
 
+/***/ "./redux/reducers/modals/modalReducer.js":
+/*!***********************************************!*\
+  !*** ./redux/reducers/modals/modalReducer.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+const modalReducer = (state = {
+  openModalBg: false
+}, action) => {
+  switch (action.type) {
+    case 'OPEN_MODAL':
+      // console.log(action, ' ACTION');
+      return {
+        openModalBg: true
+      };
+
+    case 'CLOSE_MODAL':
+      return {
+        openModalBg: false
+      };
+
+    default:
+      return _objectSpread({}, state);
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (modalReducer);
+
+/***/ }),
+
 /***/ "./redux/reducers/rootReducer.js":
 /*!***************************************!*\
   !*** ./redux/reducers/rootReducer.js ***!
@@ -2593,13 +2792,16 @@ const counterReducer = (state = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _initialReducer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./initialReducer */ "./redux/reducers/initialReducer.js");
-/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux */ "redux");
-/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(redux__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "redux");
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(redux__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _initialReducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./initialReducer */ "./redux/reducers/initialReducer.js");
+/* harmony import */ var _modals_modalReducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modals/modalReducer */ "./redux/reducers/modals/modalReducer.js");
 
 
-const rootReducer = Object(redux__WEBPACK_IMPORTED_MODULE_1__["combineReducers"])({
-  initialReducer: _initialReducer__WEBPACK_IMPORTED_MODULE_0__["default"]
+
+const rootReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
+  store: _initialReducer__WEBPACK_IMPORTED_MODULE_1__["default"],
+  modal: _modals_modalReducer__WEBPACK_IMPORTED_MODULE_2__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (rootReducer);
 
@@ -2643,7 +2845,7 @@ const makeStore = (initialState = {}, options) => {
 /*!*****************************!*\
   !*** ./utils/UrlBuilder.js ***!
   \*****************************/
-/*! exports provided: category, product, productById, productByUrl, productByCategoryAndUrl, cart, cartOrder, cartOrderSuccess, payment, vacancy, paymentStatus, delivery, bonuses, campaign, profile, profileHistory, about */
+/*! exports provided: category, product, productById, productByUrl, productByCategoryAndUrl, cart, cartOrder, cartOrderSuccess, payment, vacancy, paymentStatus, delivery, bonuses, promotions, profile, profileHistory, about */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2661,7 +2863,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "paymentStatus", function() { return paymentStatus; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "delivery", function() { return delivery; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "bonuses", function() { return bonuses; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "campaign", function() { return campaign; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "promotions", function() { return promotions; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "profile", function() { return profile; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "profileHistory", function() { return profileHistory; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "about", function() { return about; });
@@ -2705,10 +2907,10 @@ function delivery() {
   return '/delivery';
 }
 function bonuses() {
-  return '/bonus';
+  return '/bonuses';
 }
-function campaign() {
-  return '/actions';
+function promotions() {
+  return '/promotions';
 }
 function profile(tab) {
   // TODO
@@ -2719,6 +2921,38 @@ function profileHistory(orderId) {
   return `/profile/history/${orderId}`;
 }
 const about = () => `/about`; //TODO /campaign/
+
+/***/ }),
+
+/***/ "./utils/fetcher.js":
+/*!**************************!*\
+  !*** ./utils/fetcher.js ***!
+  \**************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! isomorphic-unfetch */ "isomorphic-unfetch");
+/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _config_device_token__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../config/device-token */ "./config/device-token.js");
+/* harmony import */ var _config_api__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../config/api */ "./config/api.js");
+
+
+
+const options = {
+  headers: {
+    [_config_api__WEBPACK_IMPORTED_MODULE_2__["HEADER_DEVICE_TYPE"]]: _config_api__WEBPACK_IMPORTED_MODULE_2__["DEVICE_TYPE_WEB"],
+    [_config_api__WEBPACK_IMPORTED_MODULE_2__["HEADER_DEVICE_TOKEN"]]: Object(_config_device_token__WEBPACK_IMPORTED_MODULE_1__["getDeviceToken"])()
+  }
+};
+
+function fetcher(url) {
+  console.log(url, 'URL FETCHER');
+  return isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_0___default()(url, options).then(r => r.json());
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (fetcher);
 
 /***/ }),
 
@@ -2766,17 +3000,6 @@ module.exports = __webpack_require__(/*! private-next-pages/_app.js */"./pages/_
 /***/ (function(module, exports) {
 
 module.exports = require("isomorphic-unfetch");
-
-/***/ }),
-
-/***/ "js-cookie":
-/*!****************************!*\
-  !*** external "js-cookie" ***!
-  \****************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("js-cookie");
 
 /***/ }),
 

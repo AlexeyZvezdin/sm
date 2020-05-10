@@ -1,11 +1,4 @@
-import {
-  BASE_URL,
-  DEVICE_TYPE_WEB,
-  HEADER_AUTH_TOKEN,
-  HEADER_DEVICE_TOKEN,
-  HEADER_DEVICE_TYPE,
-} from '../config/api';
-import { getDeviceToken } from '../config/device-token';
+import fetcher from '../utils/fetcher';
 import App, { Container } from 'next/app';
 import Layout from '../components/Layout';
 import { Provider } from 'react-redux';
@@ -16,30 +9,30 @@ import CityChoiceModal from '../components/Modals/CityChoiceModal';
 export default withRedux(makeStore, { debug: false })(
   class SushiMaster extends App {
     static async getInitialProps({ Component, ctx }) {
-      const options = {
-        headers: {
-          [HEADER_DEVICE_TYPE]: DEVICE_TYPE_WEB,
-          [HEADER_DEVICE_TOKEN]: getDeviceToken(),
-        },
-      };
+      // const options = {
+      //   headers: {
+      //     [HEADER_DEVICE_TYPE]: DEVICE_TYPE_WEB,
+      //     [HEADER_DEVICE_TOKEN]: getDeviceToken(),
+      //   },
+      // };
       //   const cityByIpOrDomain = await fetch(
       //     'https://client-api.sushi-master.ru/api/v1/city/current?domain=abakan'
       //   );
-      const allCitiesReq = await fetch(
+      const allCities = await fetcher(
         'https://client-api.sushi-master.ru/api/v1/city'
       );
-      const allCities = await allCitiesReq.json();
+      // const allCities = await allCitiesReq.json();
       // тут пока по двоеточию поделил чтобы чекнуть что работает, с доменами будет так же
-      let domain = ctx.req.headers.host.split(':', 1) || '';
+      let domain = ctx.req ? ctx.req.headers.host.split(':', 1) : '';
       // console.log(domain, ' DOMAIN');
 
       let cityInsteadOfDomain = 'abakan';
 
-      const defaultCity = await fetch(
+      const defaultCityData = await fetcher(
         `https://client-api.sushi-master.ru/api/v1/city/current?domain=${cityInsteadOfDomain}`
       );
       console.time('fetchstart');
-      const defaultCityData = await defaultCity.json();
+      // const defaultCityData = await defaultCity.json();
       // console.log(
       //   defaultCityData.result.cityId,
       //   ' defaultCityData.result.cityId'
@@ -48,32 +41,30 @@ export default withRedux(makeStore, { debug: false })(
       //   `https://client-api.sushi-master.ru/api/v1/catalog/categories?cityId=${defaultCityData.result.cityId}`
       // );
       // 5d3834ad59201a66b905d9e7 - id abakan
-      const thisCityCategories = await fetch(
-        `https://client-api.sushi-master.ru/api/v1/catalog/categories/all?cityId=${defaultCityData.result.cityId}`,
-        options
+      const thisCityCategoriesData = await fetcher(
+        `https://client-api.sushi-master.ru/api/v1/catalog/categories/all?cityId=${defaultCityData.result.cityId}`
       );
-      const thisCityCategoriesData = await thisCityCategories.json();
+      // const thisCityCategoriesData = await thisCityCategories.json();
       // debugger;
       const category_id = thisCityCategoriesData.result.items[0].id;
       // console.log(category_id, ' category_id');
-      const thisCategoryProducts = await fetch(
-        `https://client-api.sushi-master.ru/api/v1/catalog/categories/${category_id}/products`,
-        options
+      const thisCategoryProductsData = await fetcher(
+        `https://client-api.sushi-master.ru/api/v1/catalog/categories/${category_id}/products`
       );
-      const thisCategoryProductsData = await thisCategoryProducts.json();
+      // const thisCategoryProductsData = await thisCategoryProducts.json();
 
-      const getAllBanners = await fetch(
-        `https://client-api.sushi-master.ru/api/v1/catalog/banners?${defaultCityData.result.cityId}`,
-        options
+      const getAllBannersData = await fetcher(
+        `https://client-api.sushi-master.ru/api/v1/catalog/banners?${defaultCityData.result.cityId}`
       );
 
-      const getAllBannersData = await getAllBanners.json();
+      // const getAllBannersData = await getAllBanners.json();
       // console.log(getAllBannersData, ' getAllBannersData');
 
       ctx.store.dispatch({
         type: 'INITIAL_BANNERS',
         payload: getAllBannersData.result.update,
       });
+      // console.log(defaultCityData, 'defaultCityData');
       ctx.store.dispatch({
         type: 'POPULATE_INITIAL_STATE',
         payload: defaultCityData,

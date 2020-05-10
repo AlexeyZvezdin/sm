@@ -50,11 +50,11 @@ export function delivery() {
 }
 
 export function bonuses() {
-  return '/bonus';
+  return '/bonuses';
 }
 
-export function campaign() {
-  return '/actions';
+export function promotions() {
+  return '/promotions';
 }
 
 export function profile(tab) {

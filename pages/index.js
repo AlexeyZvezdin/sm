@@ -16,13 +16,10 @@ import { filteredEntityByViewIntervals } from '../utils/filteredEntityByViewInte
 import { splittedBanners } from '../components/Banners/splittedBanners';
 import { renderBanners } from '../components/Banners/renderBanners';
 import StickyHeader from '../components/Basic/StickyHeader';
-function fetcher(url) {
-  return fetch(url).then((r) => r.json());
-}
+
 // { data, allCities, error }
 function Index(props) {
   const { query } = useRouter();
-  const [supportPhone, setSupportPhone] = React.useState();
   const [bannerCounter, setBannerCounter] = React.useState(0);
 
   const products =
@@ -61,10 +58,10 @@ function Index(props) {
     </>
   );
 }
-export default connect(({ initialReducer }) => ({
-  products: initialReducer.products,
-  banners: initialReducer.banners,
-  categories: initialReducer.categories,
+export default connect(({ store }) => ({
+  products: store.products,
+  banners: store.banners,
+  categories: store.categories,
 }))(Index);
 
 // Index.getInitialProps = async function () {
