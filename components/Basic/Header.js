@@ -83,6 +83,23 @@ class Header extends React.Component {
         <nav className={s['menu']}>
           <ul>{menu}</ul>
         </nav>
+        <div className={s['header-cart_n_login']}>
+          <Link href="/cart">
+            <>
+              <div className={s['header-cart_n_login-price']}>
+                Price <span>₽</span>
+              </div>
+              <div className={s['header-cart_n_login-card_icon']}>
+                <div className={s['header-cart_n_login__icon']}>
+                  <div className={s['header-cart_n_login__icon__count']}>0</div>
+                </div>
+              </div>
+            </>
+          </Link>
+        </div>
+        <div className={s['profile-badge-block']}>
+          <div className={s['profile-badge-block__login']}>Войти</div>
+        </div>
       </header>
     );
   }

@@ -70,3 +70,69 @@
   text-decoration: underline;
   text-decoration-style: dashed;
 }
+
+.header-cart_n_login {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.header-cart_n_login__icon {
+  margin-left: 20px;
+  display: inline-block;
+  position: relative;
+  width: 32px;
+  height: 32px;
+  background-image: url('/img/icons/icon-cart-black.svg');
+}
+
+.header-cart_n_login__icon__count {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  padding-top: 2px;
+  background-color: #f0ecec;
+  border-radius: 50%;
+  min-width: 16px;
+  height: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Gotham Pro;
+  font-size: 10px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: center;
+  color: rgba(29, 29, 29, 0.54);
+}
+
+.profile-badge-block {
+}
+
+.profile-badge-block__login {
+  cursor: pointer;
+  margin-left: 36px;
+  border-radius: 16px;
+  border: 1px solid rgba(29, 29, 29, 0.2);
+  padding: 4px 16px 3px;
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.71;
+  letter-spacing: normal;
+  transition: transform 0.4s ease;
+}
+
+.profile-badge-block__login:hover {
+  color: #e30613;
+  border-color: #e30613;
+}
+.profile-badge-block__login:active {
+  color: #e30613;
+  transform: scale(1.2);
+  border-color: #e30613;
+}

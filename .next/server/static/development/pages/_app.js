@@ -268,7 +268,78 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
         lineNumber: 84,
         columnNumber: 11
       }
-    }, menu)));
+    }, menu)), __jsx("div", {
+      className: _header_module_scss__WEBPACK_IMPORTED_MODULE_4___default.a['header-cart_n_login'],
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 86,
+        columnNumber: 9
+      }
+    }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+      href: "/cart",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 87,
+        columnNumber: 11
+      }
+    }, __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("div", {
+      className: _header_module_scss__WEBPACK_IMPORTED_MODULE_4___default.a['header-cart_n_login-price'],
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 89,
+        columnNumber: 15
+      }
+    }, "Price ", __jsx("span", {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 90,
+        columnNumber: 23
+      }
+    }, "\u20BD")), __jsx("div", {
+      className: _header_module_scss__WEBPACK_IMPORTED_MODULE_4___default.a['header-cart_n_login-card_icon'],
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 92,
+        columnNumber: 15
+      }
+    }, __jsx("div", {
+      className: _header_module_scss__WEBPACK_IMPORTED_MODULE_4___default.a['header-cart_n_login__icon'],
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 93,
+        columnNumber: 17
+      }
+    }, __jsx("div", {
+      className: _header_module_scss__WEBPACK_IMPORTED_MODULE_4___default.a['header-cart_n_login__icon__count'],
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 94,
+        columnNumber: 19
+      }
+    }, "0")))))), __jsx("div", {
+      className: _header_module_scss__WEBPACK_IMPORTED_MODULE_4___default.a['profile-badge-block'],
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 100,
+        columnNumber: 9
+      }
+    }, __jsx("div", {
+      className: _header_module_scss__WEBPACK_IMPORTED_MODULE_4___default.a['profile-badge-block__login'],
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 101,
+        columnNumber: 11
+      }
+    }, "\u0412\u043E\u0439\u0442\u0438")));
   }
 
 }
@@ -306,7 +377,11 @@ module.exports = {
 	"menu": "menu",
 	"header-city_and_phone": "header-city_and_phone",
 	"header-city_choice": "header-city_choice",
-	"header-city_choice-city_name": "header-city_choice-city_name"
+	"header-city_choice-city_name": "header-city_choice-city_name",
+	"header-cart_n_login": "header-cart_n_login",
+	"header-cart_n_login__icon": "header-cart_n_login__icon",
+	"header-cart_n_login__icon__count": "header-cart_n_login__icon__count",
+	"profile-badge-block__login": "profile-badge-block__login"
 };
 
 /***/ }),
