@@ -14,12 +14,18 @@ const counterReducer = (
       return { ...state, value: state.value - 1 };
     case 'POPULATE_INITIAL_STATE':
       return { ...state, city: action.payload.result };
+    case 'CATALOG_STRUCTURE':
+      return { ...state, catalogStructure: action.payload.result };
     case 'INITIAL_CATEGORIES':
       return { ...state, categories: action.payload.result };
     case 'INITIAL_PRODUCTS':
-      return { ...state, products: action.payload.result };
+      console.log(action.payload, ' action.payload');
+      return { ...state, products: action.payload };
     case 'INITIAL_BANNERS':
       return { ...state, banners: action.payload };
+    case 'DISPATCH_CATEGORIES_WITH_MAIN':
+      console.log(action.payload, ' ITS WORK');
+      return { ...state, stickyTabs: action.payload };
     default:
       return { ...state };
   }

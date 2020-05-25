@@ -7,15 +7,20 @@ import {
   HEADER_DEVICE_TOKEN,
   HEADER_DEVICE_TYPE,
 } from '../config/api';
-const options = {
+let options = {
   headers: {
     [HEADER_DEVICE_TYPE]: DEVICE_TYPE_WEB,
     [HEADER_DEVICE_TOKEN]: getDeviceToken(),
   },
 };
-function fetcher(url) {
-  console.log(url, 'URL FETCHER');
-  return fetch(url, options).then((r) => r.json());
+function fetcher(url, otherOpts) {
+  if (otherOpts) {
+    options = { ...options, ...otherOpts };
+  }
+  console.log(options, ' options FETHCER');
+  return fetch(url, options)
+    .then((r) => r.json())
+    .catch((err) => console.log(err, ' ERROR in FETHCER'));
 }
 
 export default fetcher;

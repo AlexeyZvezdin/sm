@@ -5,6 +5,8 @@ import { Provider } from 'react-redux';
 import makeStore from '../redux/store';
 import withRedux from 'next-redux-wrapper';
 import CityChoiceModal from '../components/Modals/CityChoiceModal';
+import { dispatchCategoriesWithMain } from '../redux/actions/dispatchStickyTabsWithMain';
+
 // убирая дебаг на фолс можно контролировать высеры в консоль
 export default withRedux(makeStore, { debug: false })(
   class SushiMaster extends App {
@@ -32,50 +34,88 @@ export default withRedux(makeStore, { debug: false })(
         `https://client-api.sushi-master.ru/api/v1/city/current?domain=${cityInsteadOfDomain}`
       );
       console.time('fetchstart');
-      // const defaultCityData = await defaultCity.json();
-      // console.log(
-      //   defaultCityData.result.cityId,
-      //   ' defaultCityData.result.cityId'
-      // );
-      // const thisCityCategories = await fetch(
-      //   `https://client-api.sushi-master.ru/api/v1/catalog/categories?cityId=${defaultCityData.result.cityId}`
-      // );
+
       // 5d3834ad59201a66b905d9e7 - id abakan
       const thisCityCategoriesData = await fetcher(
-        `https://client-api.sushi-master.ru/api/v1/catalog/categories/all?cityId=${defaultCityData.result.cityId}`
+        `https://client-api.sushi-master.ru/api/v1/catalog/categories/?cityId=${defaultCityData.result.cityId}`
       );
-      // const thisCityCategoriesData = await thisCityCategories.json();
       // debugger;
-      const category_id = thisCityCategoriesData.result.items[0].id;
-      // console.log(category_id, ' category_id');
-      const thisCategoryProductsData = await fetcher(
-        `https://client-api.sushi-master.ru/api/v1/catalog/categories/${category_id}/products`
-      );
-      // const thisCategoryProductsData = await thisCategoryProducts.json();
-
+      // const category_id = thisCityCategoriesData.result.update.items[0].id;
+      // const thisCategoryProductsData = await fetcher(
+      //   `https://client-api.sushi-master.ru/api/v1/catalog/categories/${category_id}/products`
+      // );
       const getAllBannersData = await fetcher(
         `https://client-api.sushi-master.ru/api/v1/catalog/banners?${defaultCityData.result.cityId}`
+      );
+      const catalogStructure = await fetcher(
+        `https://client-api.sushi-master.ru/api/v1/catalog/structure?${defaultCityData.result.cityId}`
       );
 
       // const getAllBannersData = await getAllBanners.json();
       // console.log(getAllBannersData, ' getAllBannersData');
 
-      ctx.store.dispatch({
-        type: 'INITIAL_BANNERS',
-        payload: getAllBannersData.result.update,
-      });
       // console.log(defaultCityData, 'defaultCityData');
+
+      let stickyTabs = [];
+      console.log(catalogStructure, ' catalogStructure');
+      catalogStructure.result.update.categories.map((item) =>
+        thisCityCategoriesData.result.update.items.filter((categoryItem) =>
+          categoryItem.id === item.id ? stickyTabs.push(categoryItem) : ''
+        )
+      );
+
+      let stickyTabsWithMain = [
+        ...stickyTabs,
+        thisCityCategoriesData.result.update.items.filter(
+          (item) => item.path === 'main'
+        )[0],
+      ];
+      //   let stickyTabsWithMain = await store.getState().store.stickyTabsWithMain;
+      //   console.log(stickyTabsWithMain, ' stickyTabsWithMain');
+      //   let cityID = city.cityId;
+      //   ${fetchID}
+      //   let products = fetcher(
+      //     `https://client-api.sushi-master.ru/api/v1/catalog/categories/5d144d2059201a2c326effbc/products`
+      //       { cityId: cityID }
+      //   );
+      const cityID = defaultCityData.result.cityId;
+      console.log(cityID, ' city');
+      var allProducts = {};
+      await stickyTabsWithMain.forEach(async (item) => {
+        const promResult = await fetcher(
+          `https://client-api.sushi-master.ru/api/v1/catalog/categories/${item.id}/products`,
+          { cityId: cityID }
+        );
+
+        allProducts[`${item.path}`] = promResult;
+
+        // console.log(data, ' data');
+        // allProducts[`${item.path}`] = data.result;
+      });
+      console.log(allProducts, ' allProducts');
+
+      ctx.store.dispatch(
+        dispatchCategoriesWithMain(stickyTabsWithMain, stickyTabs)
+      );
       ctx.store.dispatch({
         type: 'POPULATE_INITIAL_STATE',
         payload: defaultCityData,
+      });
+      ctx.store.dispatch({
+        type: 'CATALOG_STRUCTURE',
+        payload: catalogStructure,
       });
       ctx.store.dispatch({
         type: 'INITIAL_CATEGORIES',
         payload: thisCityCategoriesData,
       });
       ctx.store.dispatch({
+        type: 'INITIAL_BANNERS',
+        payload: getAllBannersData.result.update,
+      });
+      ctx.store.dispatch({
         type: 'INITIAL_PRODUCTS',
-        payload: thisCategoryProductsData,
+        payload: [allProducts],
       });
       console.timeEnd('fetchstart');
       return {

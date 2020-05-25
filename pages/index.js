@@ -15,22 +15,32 @@ import styles from './index.module.scss';
 import { filteredEntityByViewIntervals } from '../utils/filteredEntityByViewIntervals';
 import { splittedBanners } from '../components/Banners/splittedBanners';
 import { renderBanners } from '../components/Banners/renderBanners';
-import StickyHeader from '../components/Basic/StickyHeader';
 
 // { data, allCities, error }
+/**
+ * @param {number} currentPageIndex — seems to me useless num, but let's see to the future
+ * @param {arrayOf[Object]} stickyTabsWithMain — page categories info
+ * @param {count: number, items: arrayOf[Object]} right now all banners without any filtration
+ * @param {function dispatch(action) {}} Redux dispatch
+ * @param {products} {count: number, items: arrayOf[Object]}
+ *
+ *
+ *
+ */
 function Index(props) {
+  console.log(props, ' PROPS');
   const { query } = useRouter();
   const [bannerCounter, setBannerCounter] = React.useState(0);
-
-  const products =
-    filteredEntityByViewIntervals(Object.values(props.products.items)) || [];
+  // const products =
+  //   filteredEntityByViewIntervals(Object.values(props.products.items)) || [];
   const filteredBanners = filteredEntityByViewIntervals(props.banners.items);
   //   <div key={el.id} dangerouslySetInnerHTML={{ __html: el.description }} />
   const banners = splittedBanners(filteredBanners);
-
+  // splittedProductsForMainPage
+  // const mainProducts = props.products.items.slice(0, 8);
   const renderProducts = () => (
     <div className={styles['products']}>
-      {props.products.items.map((el) => {
+      {/* {props.products.items.map((el) => {
         return (
           <div className={styles['product']} key={el.id}>
             <img
@@ -41,28 +51,54 @@ function Index(props) {
             <p className={styles['product-description']}>{el.description}</p>
           </div>
         );
-      })}
+      })} */}
     </div>
   );
 
-  const resolveBanners = () => banners.map((el) => renderBanners(el));
+  const resolveBanners = (products) =>
+    banners.map((el, index) =>
+      renderBanners(el, index, products.slice(index, index + 2))
+    );
 
   {
     /* {JSON.stringify(state)} */
   }
+
   return (
     <>
-      <StickyHeader />
-      {/* {resolveBanners()} */}
-      {renderProducts()}
+      {/* {resolveBanners(mainProducts)} */}
+      {/* {renderProducts()} */}
     </>
   );
 }
 export default connect(({ store }) => ({
-  products: store.products,
   banners: store.banners,
-  categories: store.categories,
 }))(Index);
+
+Index.getInitialProps = async ({ store, query }) => {
+  // console.log(ctx, ' CTX!!!!!!!');
+  // Имеется в наличии еще AppTree
+  // asPath: "/rolly"
+  // isServer: false;
+  // pathname: '/[path]';
+  // query: { path: 'rolly'; }
+  // let city = await store.getState().store.city;
+  // let stickyTabsWithMain = await store.getState().store.stickyTabsWithMain;
+  // console.log(stickyTabsWithMain, ' stickyTabsWithMain');
+  //   let cityID = city.cityId;
+  //   let queryPath = query.path;
+  //   let fetchID = await stickyTabsWithMain.find((item) => item.path === queryPath)
+  //     .id;
+  //   let products = await fetcher(
+  //     `https://client-api.sushi-master.ru/api/v1/catalog/categories/${fetchID}/products`,
+  //     { cityId: cityID }
+  //   );
+  //   console.log(products, ' products');
+  //   console.log(queryPath, ' stickyTabsWithMain queryPath');
+  //   console.log(fetchID, ' stickyTabsWithMain fetchID');
+
+  return { city };
+};
 
 // Index.getInitialProps = async function () {
 //   // const defaultCityRequest = process.env.API + '/api/v1/city/default';
