@@ -58,6 +58,29 @@ export let renderBanners = (banners, index, products) => {
               {products[0].nutritionalElement.weight + ' гр.'}
             </span>
           </p>
+          <div className="product-bottom">
+            <div className="product-prices">
+              <div className="price-prev">
+                {products[0].priceVariants[0].previousPrice
+                  ? products[0].priceVariants[0].previousPrice + ' ₽'
+                  : ''}
+              </div>
+              <div className="price-current">
+                {products[0].priceVariants[0].price + ' ₽'}
+              </div>
+            </div>
+            <div className="product-bottom_right">
+              <div className="product-bottom_right-info">
+                <img src="/img/icons/icon-info-white.svg" alt="Инфо" />
+              </div>
+              <div className="product-bottom_right-buy">
+                <div className="product-bottom_right-buy-collapsed">
+                  <span>Хочу</span>{' '}
+                  <img src="/img/icons/icon-cart.svg" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div className={p_s['product']} key={products[1].id}>
           <a href="#">
@@ -70,11 +93,34 @@ export let renderBanners = (banners, index, products) => {
             <h3 className={p_s['product-name']}>{products[1].name}</h3>
           </a>
           <p className={p_s['product-description']}>
-            <span>{products[1].description.slice(0, 160) + '...'}</span>
+            <span>{products[1].description.slice(0, 60) + '...'}</span>
             <span className="product-weight">
               {products[1].nutritionalElement.weight + ' гр.'}
             </span>
           </p>
+          <div className="product-bottom">
+            <div className="product-prices">
+              <div className="price-prev">
+                {products[1].priceVariants[0].previousPrice
+                  ? products[1].priceVariants[0].previousPrice + ' ₽'
+                  : ''}
+              </div>
+              <div className="price-current">
+                {products[1].priceVariants[0].price + ' ₽'}
+              </div>
+            </div>
+            <div className="product-bottom_right">
+              <div className="product-bottom_right-info">
+                <img src="/img/icons/icon-info-white.svg" alt="Инфо" />
+              </div>
+              <div className="product-bottom_right-buy">
+                <div className="product-bottom_right-buy-collapsed">
+                  <span>Хочу</span>{' '}
+                  <img src="/img/icons/icon-cart.svg" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
