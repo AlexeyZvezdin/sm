@@ -1,6 +1,6 @@
 import bannersStyles from './banners.module.scss';
 import Swiper from 'react-id-swiper';
-
+import p_s from '../Products/products.module.scss';
 export let renderBanners = (banners, index, products) => {
   const swiperParams = {
     spaceBetween: 0,
@@ -41,26 +41,43 @@ export let renderBanners = (banners, index, products) => {
           </Swiper>
         </div>
       </div>
-      <div className={bannersStyles['banners__products']}>
-        <div
-          style={{
-            width: '350px',
-            height: '300px',
-            border: '1px solid black',
-          }}
-        >
-          {JSON.stringify(products[0])}
+      <div className={p_s['products']}>
+        <div className={p_s['product']} key={products[0].id}>
+          <a href="#">
+            <img
+              src={`https://client-api.sushi-master.ru/pics/${products[0].mainPictureId}?width=400`}
+              alt=""
+            />
+          </a>
+          <a href="#">
+            <h3 className={p_s['product-name']}>{products[0].name}</h3>
+          </a>
+          <p className={p_s['product-description']}>
+            <span>{products[0].description.slice(0, 60) + '...'}</span>
+            <span className="product-weight">
+              {products[0].nutritionalElement.weight + ' гр.'}
+            </span>
+          </p>
         </div>
-        <div
-          style={{
-            width: '350px',
-            height: '300px',
-            border: '1px solid black',
-          }}
-        >
-          {JSON.stringify(products[1])}
+        <div className={p_s['product']} key={products[1].id}>
+          <a href="#">
+            <img
+              src={`https://client-api.sushi-master.ru/pics/${products[1].mainPictureId}?width=400`}
+              alt=""
+            />
+          </a>
+          <a href="#">
+            <h3 className={p_s['product-name']}>{products[1].name}</h3>
+          </a>
+          <p className={p_s['product-description']}>
+            <span>{products[1].description.slice(0, 160) + '...'}</span>
+            <span className="product-weight">
+              {products[1].nutritionalElement.weight + ' гр.'}
+            </span>
+          </p>
         </div>
       </div>
     </div>
   );
 };
+// {JSON.stringify(products[1])}

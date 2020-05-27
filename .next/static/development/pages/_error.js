@@ -71,7 +71,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 /***/ }),
 
-/***/ 5:
+/***/ 10:
 /*!*************************************************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F_error&absolutePagePath=C%3A%5CUsers%5C%D0%90%D0%BB%D0%B5%D0%BA%D1%81%D0%B5%D0%B9%5CDesktop%5CAll%20Work%5Cnext-official-guide%5Cpages%5C_error.js ***!
   \*************************************************************************************************************************************************************************************************/
@@ -94,5 +94,5 @@ module.exports = dll_2adc2403d89adc16ead0;
 
 /***/ })
 
-},[[5,"static/runtime/webpack.js"]]]);
+},[[10,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=_error.js.map

@@ -70,35 +70,24 @@ export default withRedux(makeStore, { debug: false })(
           (item) => item.path === 'main'
         )[0],
       ];
-      //   let stickyTabsWithMain = await store.getState().store.stickyTabsWithMain;
-      //   console.log(stickyTabsWithMain, ' stickyTabsWithMain');
-      //   let cityID = city.cityId;
-      //   ${fetchID}
-      //   let products = fetcher(
-      //     `https://client-api.sushi-master.ru/api/v1/catalog/categories/5d144d2059201a2c326effbc/products`
-      //       { cityId: cityID }
-      //   );
+
       const cityID = defaultCityData.result.cityId;
       console.log(cityID, ' city');
-      var allProducts = {};
-      await stickyTabsWithMain.forEach(async (item) => {
+
+      const promises = stickyTabsWithMain.map(async (item) => {
         const promResult = await fetcher(
           `https://client-api.sushi-master.ru/api/v1/catalog/categories/${item.id}/products`,
           { cityId: cityID }
         );
-
-        allProducts[`${item.path}`] = promResult;
-
-        // console.log(data, ' data');
-        // allProducts[`${item.path}`] = data.result;
+        const itemName = item.path;
+        return { ...promResult.result, itemName };
       });
-      console.log(allProducts, ' allProducts');
-
+      const allProducts = await Promise.all(promises);
       ctx.store.dispatch(
         dispatchCategoriesWithMain(stickyTabsWithMain, stickyTabs)
       );
       ctx.store.dispatch({
-        type: 'POPULATE_INITIAL_STATE',
+        type: 'INITIAL_CITY_STATE',
         payload: defaultCityData,
       });
       ctx.store.dispatch({

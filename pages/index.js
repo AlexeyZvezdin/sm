@@ -1,5 +1,6 @@
 import Layout from '../components/Layout';
 import Link from 'next/link';
+import { withRouter } from 'next/router';
 /**  However, isomorphic-unfetch requires an absolute URL or it will fail.
  *  I’m assuming it has something to do with the different environments (client & server)
  *  on which your code can be executed.
@@ -28,7 +29,7 @@ import { renderBanners } from '../components/Banners/renderBanners';
  *
  */
 function Index(props) {
-  console.log(props, ' PROPS');
+  console.log(props, ' PROPS main');
   const { query } = useRouter();
   const [bannerCounter, setBannerCounter] = React.useState(0);
   // const products =
@@ -37,43 +38,49 @@ function Index(props) {
   //   <div key={el.id} dangerouslySetInnerHTML={{ __html: el.description }} />
   const banners = splittedBanners(filteredBanners);
   // splittedProductsForMainPage
-  // const mainProducts = props.products.items.slice(0, 8);
-  const renderProducts = () => (
-    <div className={styles['products']}>
-      {/* {props.products.items.map((el) => {
-        return (
-          <div className={styles['product']} key={el.id}>
-            <img
-              data-src={`https://client-api.sushi-master.ru/pics/${el.mainPictureId}?width=400`}
-              alt=""
-            />
-            <h3 className={styles['product-name']}>{el.name}</h3>
-            <p className={styles['product-description']}>{el.description}</p>
-          </div>
-        );
-      })} */}
-    </div>
-  );
+  // Здесь какого-то хуя первым идет васаби
+  const products = filteredEntityByViewIntervals(
+    props.thisRouteProducts.items
+  ).slice(1);
 
-  const resolveBanners = (products) =>
+  console.log(products, ' PRODUCTS INDEX');
+  const resolveBanners = (products, counter = 0) =>
     banners.map((el, index) =>
-      renderBanners(el, index, products.slice(index, index + 2))
+      renderBanners(el, index, products.slice(counter, (counter += 2)))
     );
 
-  {
-    /* {JSON.stringify(state)} */
-  }
+  const children = React.Children.map(props.children, (child, index) => {
+    return React.cloneElement(child, {
+      thisRouteProducts,
+      currentPageIndex: index,
+    });
+  });
 
   return (
     <>
-      {/* {resolveBanners(mainProducts)} */}
+      {resolveBanners(products)}
       {/* {renderProducts()} */}
+      <p>{JSON.stringify(props.thisRouteProducts)}</p>
+      {children}
     </>
   );
 }
-export default connect(({ store }) => ({
-  banners: store.banners,
-}))(Index);
+
+const mapState = (
+  { store: { city, banners } },
+  {
+    router: {
+      query: { path },
+    },
+  }
+) => {
+  return { city, path, banners };
+};
+
+export default withRouter(connect(mapState)(Index));
+// export default connect(({ store }) => ({
+//   banners: store.banners,
+// }))(Index);
 
 Index.getInitialProps = async ({ store, query }) => {
   // console.log(ctx, ' CTX!!!!!!!');
@@ -99,49 +106,6 @@ Index.getInitialProps = async ({ store, query }) => {
 
   return { city };
 };
-
-// Index.getInitialProps = async function () {
-//   // const defaultCityRequest = process.env.API + '/api/v1/city/default';
-//   const defaultCity = await fetch(
-//     'https://client-api.sushi-master.ru/api/v1/city/default'
-//   );
-//   let data = await defaultCity.json();
-//   // город айди
-//   let cityId = data.result.cityId;
-//   const config = {
-//     params: {
-//       cityId: cityId,
-//     },
-//   };
-// console.log(data.result, ' data.result');
-// const allCitiesReq = await fetch(
-//   'https://client-api.sushi-master.ru/api/v1/city'
-// );
-
-// const allCities = await allCitiesReq.json();
-
-// const allCategories = await fetch(
-//   `https://client-api.sushi-master.ru/api/v1/catalog/categories/all?cityId=${cityId}`
-// );
-// let categories = await allCategories.json();
-// console.log(categories, ' categories');
-// const phoneReq = await fetch(
-//   `https://client-api.sushi-master.ru/api/v1/catalog/categories/all`
-// );
-// let  = await allCategories.json();
-// console.log(allCategoriesData.result.items, ' allCategoriesData');
-// const products = await fetch(
-//   `https://client-api.sushi-master.ru/api/v1/catalog/products/`
-// );
-
-// let products = await products.json();
-// console.log(products, ' products');
-//   return {
-//     data,
-//     // allCities,
-//     // categories,
-//   };
-// };
 
 /**
  * TODO: Ниже расположен тестовый код, в будущем удалить

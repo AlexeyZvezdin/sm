@@ -5,18 +5,27 @@ import styles from './index.module.scss';
 import Header from './Basic/Header';
 import StickyHeader from '../components/Basic/StickyHeader';
 import { connect } from 'react-redux';
+import { withRouter } from 'next/router';
 
 function Layout(props) {
   // Не работает, бэд сетСтейт
   // props.dispatchCategoriesWithMain(stickyTabsWithMain);
+  const thisRouteProducts = props.products[0].find((item) => {
+    if (props.path === undefined) {
+      return item.itemName === 'main';
+    }
+    return item.itemName === props.path;
+  });
+
   const children = React.Children.map(props.children, (child, index) => {
     return React.cloneElement(child, {
-      stickyTabsWithMain: props.stickyTabsWithMain,
+      stickyTabsWithMain: props.stickyTabs.stickyTabsWithMain,
       currentPageIndex: index,
+      thisRouteProducts,
     });
   });
 
-  console.log(props.stickyTabs.stickyTabs, ' stickyTabs');
+  console.log(props.stickyTabs.stickyTabsWithMain, ' stickyTabs');
   return (
     <>
       <Header />
@@ -55,10 +64,32 @@ function Layout(props) {
   );
 }
 
-const mapStateToProps = ({ store }) => ({
-  categories: store.categories,
-  catalogStructure: store.catalogStructure,
-  stickyTabs: store.stickyTabs,
-});
+const mapState = (
+  {
+    store: {
+      city,
+      products,
+      banners,
+      categories,
+      catalogStructure,
+      stickyTabs,
+    },
+  },
+  {
+    router: {
+      query: { path },
+    },
+  }
+) => {
+  return {
+    catalogStructure,
+    categories,
+    city,
+    products,
+    path,
+    banners,
+    stickyTabs,
+  };
+};
 
-export default connect(mapStateToProps)(Layout);
+export default withRouter(connect(mapState)(Layout));

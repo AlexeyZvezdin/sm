@@ -12,7 +12,7 @@ const counterReducer = (
       return { ...state, value: state.value + 1 };
     case DECREMENT_COUNTER:
       return { ...state, value: state.value - 1 };
-    case 'POPULATE_INITIAL_STATE':
+    case 'INITIAL_CITY_STATE':
       return { ...state, city: action.payload.result };
     case 'CATALOG_STRUCTURE':
       return { ...state, catalogStructure: action.payload.result };
