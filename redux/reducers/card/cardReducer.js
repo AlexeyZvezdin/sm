@@ -1,10 +1,10 @@
-const cardReducer = (state = {  }, action) => {
+const cardReducer = (state = {}, action) => {
   switch (action.type) {
     case 'OPEN_MODAL':
       // console.log(action, ' ACTION');
-      return { ;
+      return {};
     case 'CLOSE_MODAL':
-      return { };
+      return {};
     default:
       return { ...state };
   }
