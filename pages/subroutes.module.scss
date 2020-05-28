@@ -1,0 +1,14 @@
+.route-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.route-banner {
+  display: flex;
+  max-width: 50%;
+}
+
+.route-banner-pic {
+  width: 100%;
+}

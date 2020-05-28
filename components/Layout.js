@@ -11,17 +11,32 @@ function Layout(props) {
   // Не работает, бэд сетСтейт
   // props.dispatchCategoriesWithMain(stickyTabsWithMain);
   const thisRouteProducts = props.products[0].find((item) => {
+    // Если главная страница, то надо по-особому искать её имя
     if (props.path === undefined) {
       return item.itemName === 'main';
     }
     return item.itemName === props.path;
   });
 
+  const thisRouteTab = props.stickyTabs.stickyTabs.find(
+    (item) => item.path === props.path
+  );
+  // Если главная страница, то не искать, иначе страница упадет
+  const thisRouteBanner =
+    props.path === undefined
+      ? false
+      : props.banners.items.find((item) =>
+          thisRouteTab.banners[0]
+            ? thisRouteTab.banners[0].id === item.id
+            : false
+        );
+  console.log(thisRouteBanner, ' thisRouteBanner');
   const children = React.Children.map(props.children, (child, index) => {
     return React.cloneElement(child, {
-      stickyTabsWithMain: props.stickyTabs.stickyTabsWithMain,
+      tab: thisRouteTab,
       currentPageIndex: index,
       thisRouteProducts,
+      thisRouteBanner,
     });
   });
 

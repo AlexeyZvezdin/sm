@@ -43,7 +43,6 @@ function Index(props) {
     props.thisRouteProducts.items
   ).slice(1);
 
-  console.log(products, ' PRODUCTS INDEX');
   const resolveBanners = (products, counter = 0) =>
     banners.map((el, index) =>
       renderBanners(el, index, products.slice(counter, (counter += 2)))
