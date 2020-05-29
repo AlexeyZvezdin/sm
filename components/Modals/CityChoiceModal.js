@@ -58,8 +58,8 @@ class CityChoiceModal extends React.Component {
             {modalHeader()}
             <div className={s['m_m-body']}>
               {this.props.modalBg && this.state.cities
-                ? this.state.cities.result.items.map((item) => (
-                    <button>{item.name}</button>
+                ? this.state.cities.result.items.map((item, index) => (
+                    <button key={index}>{item.name}</button>
                   ))
                 : ''}
             </div>

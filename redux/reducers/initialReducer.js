@@ -1,17 +1,12 @@
-import {
-  DECREMENT_COUNTER,
-  INCREMENT_COUNTER,
-} from '../actions/counterActions';
+// import { createWrapper, HYDRATE } from 'next-redux-wrapper';
 
 const counterReducer = (
   state = { value: 0, city: {}, categories: {} },
   action
 ) => {
   switch (action.type) {
-    case INCREMENT_COUNTER:
-      return { ...state, value: state.value + 1 };
-    case DECREMENT_COUNTER:
-      return { ...state, value: state.value - 1 };
+    // case HYDRATE:
+    //   return { ...state, ...action.payload };
     case 'INITIAL_CITY_STATE':
       return { ...state, city: action.payload.result };
     case 'CATALOG_STRUCTURE':
@@ -19,12 +14,10 @@ const counterReducer = (
     case 'INITIAL_CATEGORIES':
       return { ...state, categories: action.payload.result };
     case 'INITIAL_PRODUCTS':
-      console.log(action.payload, ' action.payload');
       return { ...state, products: action.payload };
     case 'INITIAL_BANNERS':
       return { ...state, banners: action.payload };
     case 'DISPATCH_CATEGORIES_WITH_MAIN':
-      console.log(action.payload, ' ITS WORK');
       return { ...state, stickyTabs: action.payload };
     default:
       return { ...state };

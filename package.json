@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "NODE_ENV=production npm run start",
+    "prod": "next build && next export"
   },
   "keywords": [],
   "author": "",
@@ -19,7 +20,7 @@
     "next": "^9.3.4",
     "next-images": "^1.4.0",
     "next-redux-wrapper": "^5.0.0",
-    "node-sass": "^4.13.1",
+    "node-sass": "^4.14.1",
     "postcss-flexbugs-fixes": "^4.2.0",
     "postcss-media-minmax": "^4.0.0",
     "postcss-preset-env": "^6.7.0",

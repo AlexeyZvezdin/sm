@@ -20,7 +20,7 @@ function subroute(props) {
   // console.log(props.thisRouteProducts.items, ' props.thisRouteProducts.items');
   // console.log(products, ' products');
   return (
-    <div className={s['route-container']}>
+    <div className="route-container">
       <div className={s['route-banner']}>
         <img className={s['route-banner-pic']} src={bannerPath} alt="" />
       </div>
@@ -30,6 +30,49 @@ function subroute(props) {
     </div>
   );
 }
+
+subroute.getInitialProps = async (ctx) => {
+  // params contains the post `id`.
+  // If the route is like /posts/1, then params.id is 1
+  const resqueMe = await fetcher(
+    `http://fakerestapi.azurewebsites.net/api/Books/1`
+  );
+  console.log(resqueMe, ' RESPOSEN \n\n\n\n\n\n\n\n\n\n\n\n');
+  // Pass post data to the page via props
+  return { props: resqueMe };
+};
+
+// export async function getStaticPaths() {
+//   const paths = ['rolly'];
+//   return {
+//     paths: [
+//       // String variant:
+//       '/rolly',
+//       // Object variant:
+//       // { params: { slug: 'rolly' } },
+//     ],
+//     // Внимательно тут, может на эбауте и других не включенных в список ебануть 404
+//     fallback: false,
+//   };
+// }
+
+// export async function getStaticProps({ params }) {
+//   // params contains the post `id`.
+//   // If the route is like /posts/1, then params.id is 1
+//   const resqueMe = await fetcher(
+//     `http://fakerestapi.azurewebsites.net/api/Books/1`
+//   );
+//   console.log(resqueMe, ' RESPOSEN \n\n\n\n\n\n\n\n\n\n\n\n');
+//   // Pass post data to the page via props
+//   return { props: resqueMe };
+// }
+
+// subroute.getInitialProps = async (ctx) => {
+//   console.log(" DO YOU EVEN WORK ?!?!?!?!? \n\n\n\n\n\n\n")
+//   console.log(ctx.route, ' CTX');
+//   const routeRRR = ctx.route;
+//   return { routeRRR: 'data' };
+// };
 
 export default withRouter(
   connect(({ store }) => ({

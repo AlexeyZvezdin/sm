@@ -4,12 +4,14 @@ import styles from './index.module.scss';
 // import loader from '../public/img/loader.gif';
 import Header from './Basic/Header';
 import StickyHeader from '../components/Basic/StickyHeader';
+import Footer from './Basic/Footer';
 import { connect } from 'react-redux';
 import { withRouter } from 'next/router';
 
 function Layout(props) {
   // Не работает, бэд сетСтейт
   // props.dispatchCategoriesWithMain(stickyTabsWithMain);
+  console.log(props, ' PROPS');
   const thisRouteProducts = props.products[0].find((item) => {
     // Если главная страница, то надо по-особому искать её имя
     if (props.path === undefined) {
@@ -30,7 +32,7 @@ function Layout(props) {
             ? thisRouteTab.banners[0].id === item.id
             : false
         );
-  console.log(thisRouteBanner, ' thisRouteBanner');
+  // console.log(thisRouteBanner, ' thisRouteBanner');
   const children = React.Children.map(props.children, (child, index) => {
     return React.cloneElement(child, {
       tab: thisRouteTab,
@@ -39,13 +41,10 @@ function Layout(props) {
       thisRouteBanner,
     });
   });
-
-  console.log(props.stickyTabs.stickyTabsWithMain, ' stickyTabs');
   return (
     <>
       <Header />
       <StickyHeader stickyTabs={props.stickyTabs.stickyTabs} />
-
       <main>
         {/* возможно в будущем уберу отсюда */}
         <div className={styles['container__full']}>
@@ -64,15 +63,10 @@ function Layout(props) {
           {/* )} */}
         </div>
       </main>
-      <footer className="container">
-        <div>&copy; {new Date().getFullYear()}</div>
-        <div>
-          <h3>FOOTER</h3>
-        </div>
-      </footer>
+      <Footer />
       <style jsx global>{`
         body {
-          // overflow: hidden; сделать надо для модалки потом будет
+          overflow: ${props.openModalBg === true ? 'hidden' : 'none'};
         }
       `}</style>
     </>
@@ -89,6 +83,7 @@ const mapState = (
       catalogStructure,
       stickyTabs,
     },
+    modal: { openModalBg },
   },
   {
     router: {
@@ -104,6 +99,7 @@ const mapState = (
     path,
     banners,
     stickyTabs,
+    openModalBg,
   };
 };
 

@@ -43,6 +43,7 @@ class Header extends React.Component {
   };
 
   render() {
+    // console.log(this.props, ' HEADER PRPS');
     const menu = links.map((el, index) => (
       <li key={index}>
         <a href={el.link}>{el.name}</a>
@@ -68,7 +69,9 @@ class Header extends React.Component {
             onClick={this.handleCityModal}
           >
             <img src="/img/icons/icon-location.svg" alt="" />
-            <span className={s['header-city_choice-city_name']}>Город</span>
+            <span className={s['header-city_choice-city_name']}>
+              {this.props.city.name}
+            </span>
           </button>
           {/* phone below */}
           {/* {supportPhone ? (
@@ -85,7 +88,7 @@ class Header extends React.Component {
         </nav>
         <div className={s['header-cart_n_login']}>
           <Link href="/cart">
-            <>
+            <a className={s['header-cart_n_login']}>
               <div className={s['header-cart_n_login-price']}>
                 Price <span>₽</span>
               </div>
@@ -94,7 +97,7 @@ class Header extends React.Component {
                   <div className={s['header-cart_n_login__icon__count']}>0</div>
                 </div>
               </div>
-            </>
+            </a>
           </Link>
         </div>
         <div className={s['profile-badge-block']}>
@@ -105,10 +108,10 @@ class Header extends React.Component {
   }
 }
 
-const mapStateToProps = ({ modal }) => {
+const mapStateToProps = ({ modal, store: { city } }) => {
   // console.log(modal.openModalBg, ' STATE modal');
   const modalBg = modal.openModalBg;
-  return { modalBg };
+  return { modalBg, city };
 };
 const dispatchToProps = (dispatch) => ({
   dispatchModalStatus: (status) => dispatch({ type: 'OPEN_MODAL' }),

@@ -30,7 +30,44 @@ module.exports = {"banner":"banner","banners__swiper-container":"banners__swiper
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590636703211");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590722220717");
+          });
+      }
+    }
+  
+
+/***/ }),
+
+/***/ "./components/Basic/footer.module.scss":
+/*!*********************************************!*\
+  !*** ./components/Basic/footer.module.scss ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin;
+    if (true) {
+      var injectCss = function injectCss(prev, href) {
+        var link = prev.cloneNode();
+        link.href = href;
+        link.onload = function() {
+          prev.parentNode.removeChild(prev);
+        };
+        prev.stale = true;
+        prev.parentNode.insertBefore(link, prev);
+      };
+      module.hot.dispose(function() {
+        window.__webpack_reload_css__ = true;
+      });
+      if (window.__webpack_reload_css__) {
+        module.hot.__webpack_reload_css__ = false;
+        console.log("[HMR] Reloading stylesheets...");
+        var prefix = document.location.protocol + '//' + document.location.host;
+        document
+          .querySelectorAll("link[href][rel=stylesheet]")
+          .forEach(function(link) {
+            if (!link.href.match(prefix) || link.stale) return;
+            injectCss(link, link.href.split("?")[0] + "?unix=1590720455917");
           });
       }
     }
@@ -68,7 +105,7 @@ module.exports = {"main_header":"main_header","header-logo":"header-logo","menu"
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590636697232");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590720455919");
           });
       }
     }
@@ -106,7 +143,7 @@ module.exports = {"sticky-header":"sticky-header","sticky-header__categories__it
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590636697294");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590720455973");
           });
       }
     }
@@ -144,7 +181,7 @@ module.exports = {"modal-backdrop":"modal-backdrop","city_modal":"city_modal","c
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590636697223");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590720455914");
           });
       }
     }
@@ -182,7 +219,7 @@ module.exports = {"products":"products","product":"product","product-name":"prod
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590636703330");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590722220724");
           });
       }
     }
@@ -220,7 +257,7 @@ module.exports = {"container__full":"container__full"};;
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590636697218");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590720455911");
           });
       }
     }
@@ -235,45 +272,8 @@ module.exports = {"container__full":"container__full"};;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-// extracted by mini-css-extract-plugin;
-    if (true) {
-      var injectCss = function injectCss(prev, href) {
-        var link = prev.cloneNode();
-        link.href = href;
-        link.onload = function() {
-          prev.parentNode.removeChild(prev);
-        };
-        prev.stale = true;
-        prev.parentNode.insertBefore(link, prev);
-      };
-      module.hot.dispose(function() {
-        window.__webpack_reload_css__ = true;
-      });
-      if (window.__webpack_reload_css__) {
-        module.hot.__webpack_reload_css__ = false;
-        console.log("[HMR] Reloading stylesheets...");
-        var prefix = document.location.protocol + '//' + document.location.host;
-        document
-          .querySelectorAll("link[href][rel=stylesheet]")
-          .forEach(function(link) {
-            if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590636702999");
-          });
-      }
-    }
-  
-
-/***/ }),
-
-/***/ "./pages/subroutes.module.scss":
-/*!*************************************!*\
-  !*** ./pages/subroutes.module.scss ***!
-  \*************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
 // extracted by mini-css-extract-plugin
-module.exports = {"route-container":"route-container","route-banner":"route-banner","route-banner-pic":"route-banner-pic"};;
+module.exports = {"box":"box","menu":"menu"};;
     if (true) {
       var injectCss = function injectCss(prev, href) {
         var link = prev.cloneNode();
@@ -295,7 +295,7 @@ module.exports = {"route-container":"route-container","route-banner":"route-bann
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590636707955");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590720495366");
           });
       }
     }

@@ -1,10 +1,16 @@
 import { connect } from 'react-redux';
 import p_s from './products.module.scss';
 
-function Product({ product }) {
+import {
+  cardCounterIncrement,
+  cardCounterDecrement,
+} from '../../redux/actions/cardCounter';
+
+function Product({ product, store, ...props }) {
+  console.log(props, ' props');
+  console.log(store, ' store');
   const [cartButtonCounter, setCartButtonCounter] = React.useState(0);
   const [productInfo, setProductInfo] = React.useState(true);
-  console.log(productInfo, ' productInfo');
   return (
     <div className={p_s['product']} key={product.id}>
       <div
@@ -77,7 +83,10 @@ function Product({ product }) {
           {cartButtonCounter === 0 ? (
             <div
               className="product-bottom_right-buy"
-              onClick={() => setCartButtonCounter(cartButtonCounter + 1)}
+              onClick={() => {
+                setCartButtonCounter(cartButtonCounter + 1);
+                props.cardCounterIncrement();
+              }}
             >
               <div className="product-bottom_right-buy-collapsed">
                 <span>Хочу</span> <img src="/img/icons/icon-cart.svg" alt="" />
@@ -88,14 +97,20 @@ function Product({ product }) {
               <div className="cart-button__expanded">
                 <div
                   className="cart-button__expanded__minus"
-                  onClick={() => setCartButtonCounter(cartButtonCounter - 1)}
+                  onClick={() => {
+                    setCartButtonCounter(cartButtonCounter - 1);
+                    props.cardCounterDecrement();
+                  }}
                 ></div>
                 <div className="cart-button__expanded__count">
                   {cartButtonCounter}
                 </div>
                 <div
                   className="cart-button__expanded__plus"
-                  onClick={() => setCartButtonCounter(cartButtonCounter + 1)}
+                  onClick={() => {
+                    setCartButtonCounter(cartButtonCounter + 1);
+                    props.cardCounterIncrement();
+                  }}
                 ></div>
               </div>
             </div>
@@ -106,7 +121,18 @@ function Product({ product }) {
   );
 }
 
-const mapState = () => ({});
-const mapDispatch = (dispatch) => ({});
+Product.getInitialProps = ({ store, isServer, pathname, query }) => {
+  //store.dispatch(cardCounterIncrement()); // The component can read from the store's state when rendered
+  return { store }; // You can pass some custom props to the component from here
+};
+
+// const mapState = ({ card: { cardCounter } }) => ({ cardCounter });
+const mapState = (state) => state;
+const mapDispatch = (dispatch) => {
+  return {
+    cardCounterDecrement: () => dispatch(cardCounterDecrement()),
+    cardCounterIncrement: () => dispatch(cardCounterIncrement()),
+  };
+};
 
 export default connect(mapState, mapDispatch)(Product);

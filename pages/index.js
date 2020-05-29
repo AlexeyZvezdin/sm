@@ -29,7 +29,7 @@ import { renderBanners } from '../components/Banners/renderBanners';
  *
  */
 function Index(props) {
-  console.log(props, ' PROPS main');
+  // console.log(props, ' PROPS main');
   const { query } = useRouter();
   const [bannerCounter, setBannerCounter] = React.useState(0);
   // const products =
@@ -58,8 +58,6 @@ function Index(props) {
   return (
     <>
       {resolveBanners(products)}
-      {/* {renderProducts()} */}
-      <p>{JSON.stringify(props.thisRouteProducts)}</p>
       {children}
     </>
   );
@@ -81,30 +79,30 @@ export default withRouter(connect(mapState)(Index));
 //   banners: store.banners,
 // }))(Index);
 
-Index.getInitialProps = async ({ store, query }) => {
-  // console.log(ctx, ' CTX!!!!!!!');
-  // Имеется в наличии еще AppTree
-  // asPath: "/rolly"
-  // isServer: false;
-  // pathname: '/[path]';
-  // query: { path: 'rolly'; }
-  // let city = await store.getState().store.city;
-  // let stickyTabsWithMain = await store.getState().store.stickyTabsWithMain;
-  // console.log(stickyTabsWithMain, ' stickyTabsWithMain');
-  //   let cityID = city.cityId;
-  //   let queryPath = query.path;
-  //   let fetchID = await stickyTabsWithMain.find((item) => item.path === queryPath)
-  //     .id;
-  //   let products = await fetcher(
-  //     `https://client-api.sushi-master.ru/api/v1/catalog/categories/${fetchID}/products`,
-  //     { cityId: cityID }
-  //   );
-  //   console.log(products, ' products');
-  //   console.log(queryPath, ' stickyTabsWithMain queryPath');
-  //   console.log(fetchID, ' stickyTabsWithMain fetchID');
+// Index.getInitialProps = async ({ store, query }) => {
+// console.log(ctx, ' CTX!!!!!!!');
+// Имеется в наличии еще AppTree
+// asPath: "/rolly"
+// isServer: false;
+// pathname: '/[path]';
+// query: { path: 'rolly'; }
+// let city = await store.getState().store.city;
+// let stickyTabsWithMain = await store.getState().store.stickyTabsWithMain;
+// console.log(stickyTabsWithMain, ' stickyTabsWithMain');
+//   let cityID = city.cityId;
+//   let queryPath = query.path;
+//   let fetchID = await stickyTabsWithMain.find((item) => item.path === queryPath)
+//     .id;
+//   let products = await fetcher(
+//     `https://client-api.sushi-master.ru/api/v1/catalog/categories/${fetchID}/products`,
+//     { cityId: cityID }
+//   );
+//   console.log(products, ' products');
+//   console.log(queryPath, ' stickyTabsWithMain queryPath');
+//   console.log(fetchID, ' stickyTabsWithMain fetchID');
 
-  return { city };
-};
+//   return { city };
+// };
 
 /**
  * TODO: Ниже расположен тестовый код, в будущем удалить

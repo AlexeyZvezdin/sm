@@ -93,6 +93,40 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
+/***/ "./components/Basic/Footer.js":
+/*!************************************!*\
+  !*** ./components/Basic/Footer.js ***!
+  \************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _footer_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./footer.module.scss */ "./components/Basic/footer.module.scss");
+/* harmony import */ var _footer_module_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_footer_module_scss__WEBPACK_IMPORTED_MODULE_1__);
+var _jsxFileName = "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0435\u0439\\Desktop\\All Work\\next-official-guide\\components\\Basic\\Footer.js";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+const Footer = props => {
+  return __jsx("footer", {
+    className: "footer",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 4,
+      columnNumber: 10
+    }
+  }, JSON.stringify(props) + 'footer');
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Footer);
+
+/***/ }),
+
 /***/ "./components/Basic/Header.js":
 /*!************************************!*\
   !*** ./components/Basic/Header.js ***!
@@ -159,12 +193,13 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
   }
 
   render() {
+    // console.log(this.props, ' HEADER PRPS');
     const menu = links.map((el, index) => __jsx("li", {
       key: index,
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 47,
+        lineNumber: 48,
         columnNumber: 7
       }
     }, __jsx("a", {
@@ -172,7 +207,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 48,
+        lineNumber: 49,
         columnNumber: 9
       }
     }, el.name)));
@@ -183,7 +218,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 53,
+        lineNumber: 54,
         columnNumber: 7
       }
     }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
@@ -191,7 +226,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 54,
+        lineNumber: 55,
         columnNumber: 9
       }
     }, __jsx("a", {
@@ -199,7 +234,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 55,
+        lineNumber: 56,
         columnNumber: 11
       }
     }, __jsx("img", {
@@ -209,7 +244,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 56,
+        lineNumber: 57,
         columnNumber: 13
       }
     }), "\u0421\u0443\u0448\u0438 \u043C\u0430\u0441\u0442\u0435\u0440 \u2014 \u0437\u0430\u043A\u0430\u0437 \u0438 \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0435\u0434\u044B \u043D\u0430 \u0434\u043E\u043C \u0432 \u0413\u043E\u0440\u043E\u0434\u041D\u0435\u0439\u043C")), __jsx("div", {
@@ -217,7 +252,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 65,
+        lineNumber: 66,
         columnNumber: 9
       }
     }, __jsx("button", {
@@ -226,7 +261,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 66,
+        lineNumber: 67,
         columnNumber: 11
       }
     }, __jsx("img", {
@@ -235,7 +270,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 70,
+        lineNumber: 71,
         columnNumber: 13
       }
     }), __jsx("span", {
@@ -243,14 +278,14 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 71,
+        lineNumber: 72,
         columnNumber: 13
       }
-    }, "\u0413\u043E\u0440\u043E\u0434")), __jsx("a", {
+    }, this.props.city.name)), __jsx("a", {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 81,
+        lineNumber: 84,
         columnNumber: 11
       }
     }, "No phone")), __jsx("nav", {
@@ -258,14 +293,14 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 83,
+        lineNumber: 86,
         columnNumber: 9
       }
     }, __jsx("ul", {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 84,
+        lineNumber: 87,
         columnNumber: 11
       }
     }, menu)), __jsx("div", {
@@ -273,7 +308,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 86,
+        lineNumber: 89,
         columnNumber: 9
       }
     }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
@@ -281,22 +316,30 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 87,
+        lineNumber: 90,
         columnNumber: 11
       }
-    }, __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("div", {
+    }, __jsx("a", {
+      className: _header_module_scss__WEBPACK_IMPORTED_MODULE_4___default.a['header-cart_n_login'],
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 91,
+        columnNumber: 13
+      }
+    }, __jsx("div", {
       className: _header_module_scss__WEBPACK_IMPORTED_MODULE_4___default.a['header-cart_n_login-price'],
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 89,
+        lineNumber: 92,
         columnNumber: 15
       }
     }, "Price ", __jsx("span", {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 90,
+        lineNumber: 93,
         columnNumber: 23
       }
     }, "\u20BD")), __jsx("div", {
@@ -304,7 +347,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 92,
+        lineNumber: 95,
         columnNumber: 15
       }
     }, __jsx("div", {
@@ -312,7 +355,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 93,
+        lineNumber: 96,
         columnNumber: 17
       }
     }, __jsx("div", {
@@ -320,7 +363,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 94,
+        lineNumber: 97,
         columnNumber: 19
       }
     }, "0")))))), __jsx("div", {
@@ -328,7 +371,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 100,
+        lineNumber: 103,
         columnNumber: 9
       }
     }, __jsx("div", {
@@ -336,7 +379,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 101,
+        lineNumber: 104,
         columnNumber: 11
       }
     }, "\u0412\u043E\u0439\u0442\u0438")));
@@ -345,12 +388,16 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
 }
 
 const mapStateToProps = ({
-  modal
+  modal,
+  store: {
+    city
+  }
 }) => {
   // console.log(modal.openModalBg, ' STATE modal');
   const modalBg = modal.openModalBg;
   return {
-    modalBg
+    modalBg,
+    city
   };
 };
 
@@ -487,6 +534,17 @@ function StickyHeaderView(props) {
 
 /***/ }),
 
+/***/ "./components/Basic/footer.module.scss":
+/*!*********************************************!*\
+  !*** ./components/Basic/footer.module.scss ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
 /***/ "./components/Basic/header.module.scss":
 /*!*********************************************!*\
   !*** ./components/Basic/header.module.scss ***!
@@ -549,8 +607,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _index_module_scss__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_index_module_scss__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _Basic_Header__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Basic/Header */ "./components/Basic/Header.js");
 /* harmony import */ var _components_Basic_StickyHeader__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/Basic/StickyHeader */ "./components/Basic/StickyHeader.js");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-redux */ "react-redux");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _Basic_Footer__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Basic/Footer */ "./components/Basic/Footer.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-redux */ "react-redux");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_8__);
 var _jsxFileName = "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0435\u0439\\Desktop\\All Work\\next-official-guide\\components\\Layout.js";
 
 
@@ -564,9 +623,11 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
 
+
 function Layout(props) {
   // Не работает, бэд сетСтейт
   // props.dispatchCategoriesWithMain(stickyTabsWithMain);
+  console.log(props, ' PROPS');
   const thisRouteProducts = props.products[0].find(item => {
     // Если главная страница, то надо по-особому искать её имя
     if (props.path === undefined) {
@@ -577,8 +638,8 @@ function Layout(props) {
   });
   const thisRouteTab = props.stickyTabs.stickyTabs.find(item => item.path === props.path); // Если главная страница, то не искать, иначе страница упадет
 
-  const thisRouteBanner = props.path === undefined ? false : props.banners.items.find(item => thisRouteTab.banners[0] ? thisRouteTab.banners[0].id === item.id : false);
-  console.log(thisRouteBanner, ' thisRouteBanner');
+  const thisRouteBanner = props.path === undefined ? false : props.banners.items.find(item => thisRouteTab.banners[0] ? thisRouteTab.banners[0].id === item.id : false); // console.log(thisRouteBanner, ' thisRouteBanner');
+
   const children = react__WEBPACK_IMPORTED_MODULE_1___default.a.Children.map(props.children, (child, index) => {
     return react__WEBPACK_IMPORTED_MODULE_1___default.a.cloneElement(child, {
       tab: thisRouteTab,
@@ -587,7 +648,6 @@ function Layout(props) {
       thisRouteBanner
     });
   });
-  console.log(props.stickyTabs.stickyTabsWithMain, ' stickyTabs');
   return __jsx(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, __jsx(_Basic_Header__WEBPACK_IMPORTED_MODULE_5__["default"], {
     __self: this,
     __source: {
@@ -604,57 +664,35 @@ function Layout(props) {
       columnNumber: 7
     }
   }), __jsx("main", {
-    className: "jsx-1430570554",
+    className: styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a.dynamic([["2333614403", [props.openModalBg === true ? 'hidden' : 'none']]]),
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 49,
+      lineNumber: 48,
       columnNumber: 7
     }
   }, __jsx("div", {
-    className: "jsx-1430570554" + " " + (_index_module_scss__WEBPACK_IMPORTED_MODULE_4___default.a['container__full'] || ""),
+    className: styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a.dynamic([["2333614403", [props.openModalBg === true ? 'hidden' : 'none']]]) + " " + (_index_module_scss__WEBPACK_IMPORTED_MODULE_4___default.a['container__full'] || ""),
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 51,
+      lineNumber: 50,
       columnNumber: 9
     }
-  }, __jsx(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, children))), __jsx("footer", {
-    className: "jsx-1430570554" + " " + "container",
+  }, __jsx(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, children))), __jsx(_Basic_Footer__WEBPACK_IMPORTED_MODULE_7__["default"], {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 67,
+      lineNumber: 66,
       columnNumber: 7
     }
-  }, __jsx("div", {
-    className: "jsx-1430570554",
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 68,
-      columnNumber: 9
-    }
-  }, "\xA9 ", new Date().getFullYear()), __jsx("div", {
-    className: "jsx-1430570554",
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 69,
-      columnNumber: 9
-    }
-  }, __jsx("h3", {
-    className: "jsx-1430570554",
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 70,
-      columnNumber: 11
-    }
-  }, "FOOTER"))), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
-    id: "1430570554",
+  }), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
+    id: "2333614403",
+    dynamic: [props.openModalBg === true ? 'hidden' : 'none'],
     __self: this
-  }, "\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkM6XFxVc2Vyc1xc0JDQu9C10LrRgdC10LlcXERlc2t0b3BcXEFsbCBXb3JrXFxuZXh0LW9mZmljaWFsLWd1aWRlXFxjb21wb25lbnRzXFxMYXlvdXQuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBd0V5QiIsImZpbGUiOiJDOlxcVXNlcnNcXNCQ0LvQtdC60YHQtdC5XFxEZXNrdG9wXFxBbGwgV29ya1xcbmV4dC1vZmZpY2lhbC1ndWlkZVxcY29tcG9uZW50c1xcTGF5b3V0LmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IExpbmsgZnJvbSAnbmV4dC9saW5rJztcclxuaW1wb3J0IFJvdXRlciBmcm9tICduZXh0L3JvdXRlcic7XHJcbmltcG9ydCBzdHlsZXMgZnJvbSAnLi9pbmRleC5tb2R1bGUuc2Nzcyc7XHJcbi8vIGltcG9ydCBsb2FkZXIgZnJvbSAnLi4vcHVibGljL2ltZy9sb2FkZXIuZ2lmJztcclxuaW1wb3J0IEhlYWRlciBmcm9tICcuL0Jhc2ljL0hlYWRlcic7XHJcbmltcG9ydCBTdGlja3lIZWFkZXIgZnJvbSAnLi4vY29tcG9uZW50cy9CYXNpYy9TdGlja3lIZWFkZXInO1xyXG5pbXBvcnQgeyBjb25uZWN0IH0gZnJvbSAncmVhY3QtcmVkdXgnO1xyXG5pbXBvcnQgeyB3aXRoUm91dGVyIH0gZnJvbSAnbmV4dC9yb3V0ZXInO1xyXG5cclxuZnVuY3Rpb24gTGF5b3V0KHByb3BzKSB7XHJcbiAgLy8g0J3QtSDRgNCw0LHQvtGC0LDQtdGCLCDQsdGN0LQg0YHQtdGC0KHRgtC10LnRglxyXG4gIC8vIHByb3BzLmRpc3BhdGNoQ2F0ZWdvcmllc1dpdGhNYWluKHN0aWNreVRhYnNXaXRoTWFpbik7XHJcbiAgY29uc3QgdGhpc1JvdXRlUHJvZHVjdHMgPSBwcm9wcy5wcm9kdWN0c1swXS5maW5kKChpdGVtKSA9PiB7XHJcbiAgICAvLyDQldGB0LvQuCDQs9C70LDQstC90LDRjyDRgdGC0YDQsNC90LjRhtCwLCDRgtC+INC90LDQtNC+INC/0L4t0L7RgdC+0LHQvtC80YMg0LjRgdC60LDRgtGMINC10ZEg0LjQvNGPXHJcbiAgICBpZiAocHJvcHMucGF0aCA9PT0gdW5kZWZpbmVkKSB7XHJcbiAgICAgIHJldHVybiBpdGVtLml0ZW1OYW1lID09PSAnbWFpbic7XHJcbiAgICB9XHJcbiAgICByZXR1cm4gaXRlbS5pdGVtTmFtZSA9PT0gcHJvcHMucGF0aDtcclxuICB9KTtcclxuXHJcbiAgY29uc3QgdGhpc1JvdXRlVGFiID0gcHJvcHMuc3RpY2t5VGFicy5zdGlja3lUYWJzLmZpbmQoXHJcbiAgICAoaXRlbSkgPT4gaXRlbS5wYXRoID09PSBwcm9wcy5wYXRoXHJcbiAgKTtcclxuICAvLyDQldGB0LvQuCDQs9C70LDQstC90LDRjyDRgdGC0YDQsNC90LjRhtCwLCDRgtC+INC90LUg0LjRgdC60LDRgtGMLCDQuNC90LDRh9C1INGB0YLRgNCw0L3QuNGG0LAg0YPQv9Cw0LTQtdGCXHJcbiAgY29uc3QgdGhpc1JvdXRlQmFubmVyID1cclxuICAgIHByb3BzLnBhdGggPT09IHVuZGVmaW5lZFxyXG4gICAgICA/IGZhbHNlXHJcbiAgICAgIDogcHJvcHMuYmFubmVycy5pdGVtcy5maW5kKChpdGVtKSA9PlxyXG4gICAgICAgICAgdGhpc1JvdXRlVGFiLmJhbm5lcnNbMF1cclxuICAgICAgICAgICAgPyB0aGlzUm91dGVUYWIuYmFubmVyc1swXS5pZCA9PT0gaXRlbS5pZFxyXG4gICAgICAgICAgICA6IGZhbHNlXHJcbiAgICAgICAgKTtcclxuICBjb25zb2xlLmxvZyh0aGlzUm91dGVCYW5uZXIsICcgdGhpc1JvdXRlQmFubmVyJyk7XHJcbiAgY29uc3QgY2hpbGRyZW4gPSBSZWFjdC5DaGlsZHJlbi5tYXAocHJvcHMuY2hpbGRyZW4sIChjaGlsZCwgaW5kZXgpID0+IHtcclxuICAgIHJldHVybiBSZWFjdC5jbG9uZUVsZW1lbnQoY2hpbGQsIHtcclxuICAgICAgdGFiOiB0aGlzUm91dGVUYWIsXHJcbiAgICAgIGN1cnJlbnRQYWdlSW5kZXg6IGluZGV4LFxyXG4gICAgICB0aGlzUm91dGVQcm9kdWN0cyxcclxuICAgICAgdGhpc1JvdXRlQmFubmVyLFxyXG4gICAgfSk7XHJcbiAgfSk7XHJcblxyXG4gIGNvbnNvbGUubG9nKHByb3BzLnN0aWNreVRhYnMuc3RpY2t5VGFic1dpdGhNYWluLCAnIHN0aWNreVRhYnMnKTtcclxuICByZXR1cm4gKFxyXG4gICAgPD5cclxuICAgICAgPEhlYWRlciAvPlxyXG4gICAgICA8U3RpY2t5SGVhZGVyIHN0aWNreVRhYnM9e3Byb3BzLnN0aWNreVRhYnMuc3RpY2t5VGFic30gLz5cclxuXHJcbiAgICAgIDxtYWluPlxyXG4gICAgICAgIHsvKiDQstC+0LfQvNC+0LbQvdC+INCyINCx0YPQtNGD0YnQtdC8INGD0LHQtdGA0YMg0L7RgtGB0Y7QtNCwICovfVxyXG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPXtzdHlsZXNbJ2NvbnRhaW5lcl9fZnVsbCddfT5cclxuICAgICAgICAgIHsvKiB7dGhpcy5zdGF0ZS5sb2FkZWQgPT09ICdubycgPyAoXHJcbiAgICAgICAgICAgICAgPGRpdlxyXG4gICAgICAgICAgICAgICAgc3R5bGU9e3tcclxuICAgICAgICAgICAgICAgICAgbWFyZ2luOiAnNTBweCcsXHJcbiAgICAgICAgICAgICAgICAgIGp1c3RpZnlDb250ZW50OiAnY2VudGVyJyxcclxuICAgICAgICAgICAgICAgICAgZGlzcGxheTogJ2ZsZXgnLFxyXG4gICAgICAgICAgICAgICAgfX1cclxuICAgICAgICAgICAgICA+XHJcbiAgICAgICAgICAgICAgICA8aW1nIHNyYz1cIi9pbWcvbG9hZGVyLmdpZlwiIGFsdD1cImxvYWRlclwiIC8+XHJcbiAgICAgICAgICAgICAgPC9kaXY+XHJcbiAgICAgICAgICAgICkgOiAoICovfVxyXG4gICAgICAgICAgPD57Y2hpbGRyZW59PC8+XHJcbiAgICAgICAgICB7LyogKX0gKi99XHJcbiAgICAgICAgPC9kaXY+XHJcbiAgICAgIDwvbWFpbj5cclxuICAgICAgPGZvb3RlciBjbGFzc05hbWU9XCJjb250YWluZXJcIj5cclxuICAgICAgICA8ZGl2PiZjb3B5OyB7bmV3IERhdGUoKS5nZXRGdWxsWWVhcigpfTwvZGl2PlxyXG4gICAgICAgIDxkaXY+XHJcbiAgICAgICAgICA8aDM+Rk9PVEVSPC9oMz5cclxuICAgICAgICA8L2Rpdj5cclxuICAgICAgPC9mb290ZXI+XHJcbiAgICAgIDxzdHlsZSBqc3ggZ2xvYmFsPntgXHJcbiAgICAgICAgYm9keSB7XHJcbiAgICAgICAgICAvLyBvdmVyZmxvdzogaGlkZGVuOyDRgdC00LXQu9Cw0YLRjCDQvdCw0LTQviDQtNC70Y8g0LzQvtC00LDQu9C60Lgg0L/QvtGC0L7QvCDQsdGD0LTQtdGCXHJcbiAgICAgICAgfVxyXG4gICAgICBgfTwvc3R5bGU+XHJcbiAgICA8Lz5cclxuICApO1xyXG59XHJcblxyXG5jb25zdCBtYXBTdGF0ZSA9IChcclxuICB7XHJcbiAgICBzdG9yZToge1xyXG4gICAgICBjaXR5LFxyXG4gICAgICBwcm9kdWN0cyxcclxuICAgICAgYmFubmVycyxcclxuICAgICAgY2F0ZWdvcmllcyxcclxuICAgICAgY2F0YWxvZ1N0cnVjdHVyZSxcclxuICAgICAgc3RpY2t5VGFicyxcclxuICAgIH0sXHJcbiAgfSxcclxuICB7XHJcbiAgICByb3V0ZXI6IHtcclxuICAgICAgcXVlcnk6IHsgcGF0aCB9LFxyXG4gICAgfSxcclxuICB9XHJcbikgPT4ge1xyXG4gIHJldHVybiB7XHJcbiAgICBjYXRhbG9nU3RydWN0dXJlLFxyXG4gICAgY2F0ZWdvcmllcyxcclxuICAgIGNpdHksXHJcbiAgICBwcm9kdWN0cyxcclxuICAgIHBhdGgsXHJcbiAgICBiYW5uZXJzLFxyXG4gICAgc3RpY2t5VGFicyxcclxuICB9O1xyXG59O1xyXG5cclxuZXhwb3J0IGRlZmF1bHQgd2l0aFJvdXRlcihjb25uZWN0KG1hcFN0YXRlKShMYXlvdXQpKTtcclxuIl19 */\n/*@ sourceURL=C:\\\\Users\\\\\u0410\u043B\u0435\u043A\u0441\u0435\u0439\\\\Desktop\\\\All Work\\\\next-official-guide\\\\components\\\\Layout.js */"));
+  }, `body{overflow:${props.openModalBg === true ? 'hidden' : 'none'};}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkM6XFxVc2Vyc1xc0JDQu9C10LrRgdC10LlcXERlc2t0b3BcXEFsbCBXb3JrXFxuZXh0LW9mZmljaWFsLWd1aWRlXFxjb21wb25lbnRzXFxMYXlvdXQuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBa0V5QixBQUdpRCxzQ0FDeEMiLCJmaWxlIjoiQzpcXFVzZXJzXFzQkNC70LXQutGB0LXQuVxcRGVza3RvcFxcQWxsIFdvcmtcXG5leHQtb2ZmaWNpYWwtZ3VpZGVcXGNvbXBvbmVudHNcXExheW91dC5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBMaW5rIGZyb20gJ25leHQvbGluayc7XHJcbmltcG9ydCBSb3V0ZXIgZnJvbSAnbmV4dC9yb3V0ZXInO1xyXG5pbXBvcnQgc3R5bGVzIGZyb20gJy4vaW5kZXgubW9kdWxlLnNjc3MnO1xyXG4vLyBpbXBvcnQgbG9hZGVyIGZyb20gJy4uL3B1YmxpYy9pbWcvbG9hZGVyLmdpZic7XHJcbmltcG9ydCBIZWFkZXIgZnJvbSAnLi9CYXNpYy9IZWFkZXInO1xyXG5pbXBvcnQgU3RpY2t5SGVhZGVyIGZyb20gJy4uL2NvbXBvbmVudHMvQmFzaWMvU3RpY2t5SGVhZGVyJztcclxuaW1wb3J0IEZvb3RlciBmcm9tICcuL0Jhc2ljL0Zvb3Rlcic7XHJcbmltcG9ydCB7IGNvbm5lY3QgfSBmcm9tICdyZWFjdC1yZWR1eCc7XHJcbmltcG9ydCB7IHdpdGhSb3V0ZXIgfSBmcm9tICduZXh0L3JvdXRlcic7XHJcblxyXG5mdW5jdGlvbiBMYXlvdXQocHJvcHMpIHtcclxuICAvLyDQndC1INGA0LDQsdC+0YLQsNC10YIsINCx0Y3QtCDRgdC10YLQodGC0LXQudGCXHJcbiAgLy8gcHJvcHMuZGlzcGF0Y2hDYXRlZ29yaWVzV2l0aE1haW4oc3RpY2t5VGFic1dpdGhNYWluKTtcclxuICBjb25zb2xlLmxvZyhwcm9wcywgJyBQUk9QUycpO1xyXG4gIGNvbnN0IHRoaXNSb3V0ZVByb2R1Y3RzID0gcHJvcHMucHJvZHVjdHNbMF0uZmluZCgoaXRlbSkgPT4ge1xyXG4gICAgLy8g0JXRgdC70Lgg0LPQu9Cw0LLQvdCw0Y8g0YHRgtGA0LDQvdC40YbQsCwg0YLQviDQvdCw0LTQviDQv9C+LdC+0YHQvtCx0L7QvNGDINC40YHQutCw0YLRjCDQtdGRINC40LzRj1xyXG4gICAgaWYgKHByb3BzLnBhdGggPT09IHVuZGVmaW5lZCkge1xyXG4gICAgICByZXR1cm4gaXRlbS5pdGVtTmFtZSA9PT0gJ21haW4nO1xyXG4gICAgfVxyXG4gICAgcmV0dXJuIGl0ZW0uaXRlbU5hbWUgPT09IHByb3BzLnBhdGg7XHJcbiAgfSk7XHJcblxyXG4gIGNvbnN0IHRoaXNSb3V0ZVRhYiA9IHByb3BzLnN0aWNreVRhYnMuc3RpY2t5VGFicy5maW5kKFxyXG4gICAgKGl0ZW0pID0+IGl0ZW0ucGF0aCA9PT0gcHJvcHMucGF0aFxyXG4gICk7XHJcbiAgLy8g0JXRgdC70Lgg0LPQu9Cw0LLQvdCw0Y8g0YHRgtGA0LDQvdC40YbQsCwg0YLQviDQvdC1INC40YHQutCw0YLRjCwg0LjQvdCw0YfQtSDRgdGC0YDQsNC90LjRhtCwINGD0L/QsNC00LXRglxyXG4gIGNvbnN0IHRoaXNSb3V0ZUJhbm5lciA9XHJcbiAgICBwcm9wcy5wYXRoID09PSB1bmRlZmluZWRcclxuICAgICAgPyBmYWxzZVxyXG4gICAgICA6IHByb3BzLmJhbm5lcnMuaXRlbXMuZmluZCgoaXRlbSkgPT5cclxuICAgICAgICAgIHRoaXNSb3V0ZVRhYi5iYW5uZXJzWzBdXHJcbiAgICAgICAgICAgID8gdGhpc1JvdXRlVGFiLmJhbm5lcnNbMF0uaWQgPT09IGl0ZW0uaWRcclxuICAgICAgICAgICAgOiBmYWxzZVxyXG4gICAgICAgICk7XHJcbiAgLy8gY29uc29sZS5sb2codGhpc1JvdXRlQmFubmVyLCAnIHRoaXNSb3V0ZUJhbm5lcicpO1xyXG4gIGNvbnN0IGNoaWxkcmVuID0gUmVhY3QuQ2hpbGRyZW4ubWFwKHByb3BzLmNoaWxkcmVuLCAoY2hpbGQsIGluZGV4KSA9PiB7XHJcbiAgICByZXR1cm4gUmVhY3QuY2xvbmVFbGVtZW50KGNoaWxkLCB7XHJcbiAgICAgIHRhYjogdGhpc1JvdXRlVGFiLFxyXG4gICAgICBjdXJyZW50UGFnZUluZGV4OiBpbmRleCxcclxuICAgICAgdGhpc1JvdXRlUHJvZHVjdHMsXHJcbiAgICAgIHRoaXNSb3V0ZUJhbm5lcixcclxuICAgIH0pO1xyXG4gIH0pO1xyXG4gIHJldHVybiAoXHJcbiAgICA8PlxyXG4gICAgICA8SGVhZGVyIC8+XHJcbiAgICAgIDxTdGlja3lIZWFkZXIgc3RpY2t5VGFicz17cHJvcHMuc3RpY2t5VGFicy5zdGlja3lUYWJzfSAvPlxyXG4gICAgICA8bWFpbj5cclxuICAgICAgICB7Lyog0LLQvtC30LzQvtC20L3QviDQsiDQsdGD0LTRg9GJ0LXQvCDRg9Cx0LXRgNGDINC+0YLRgdGO0LTQsCAqL31cclxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT17c3R5bGVzWydjb250YWluZXJfX2Z1bGwnXX0+XHJcbiAgICAgICAgICB7Lyoge3RoaXMuc3RhdGUubG9hZGVkID09PSAnbm8nID8gKFxyXG4gICAgICAgICAgICAgIDxkaXZcclxuICAgICAgICAgICAgICAgIHN0eWxlPXt7XHJcbiAgICAgICAgICAgICAgICAgIG1hcmdpbjogJzUwcHgnLFxyXG4gICAgICAgICAgICAgICAgICBqdXN0aWZ5Q29udGVudDogJ2NlbnRlcicsXHJcbiAgICAgICAgICAgICAgICAgIGRpc3BsYXk6ICdmbGV4JyxcclxuICAgICAgICAgICAgICAgIH19XHJcbiAgICAgICAgICAgICAgPlxyXG4gICAgICAgICAgICAgICAgPGltZyBzcmM9XCIvaW1nL2xvYWRlci5naWZcIiBhbHQ9XCJsb2FkZXJcIiAvPlxyXG4gICAgICAgICAgICAgIDwvZGl2PlxyXG4gICAgICAgICAgICApIDogKCAqL31cclxuICAgICAgICAgIDw+e2NoaWxkcmVufTwvPlxyXG4gICAgICAgICAgey8qICl9ICovfVxyXG4gICAgICAgIDwvZGl2PlxyXG4gICAgICA8L21haW4+XHJcbiAgICAgIDxGb290ZXIgLz5cclxuICAgICAgPHN0eWxlIGpzeCBnbG9iYWw+e2BcclxuICAgICAgICBib2R5IHtcclxuICAgICAgICAgIG92ZXJmbG93OiAke3Byb3BzLm9wZW5Nb2RhbEJnID09PSB0cnVlID8gJ2hpZGRlbicgOiAnbm9uZSd9O1xyXG4gICAgICAgIH1cclxuICAgICAgYH08L3N0eWxlPlxyXG4gICAgPC8+XHJcbiAgKTtcclxufVxyXG5cclxuY29uc3QgbWFwU3RhdGUgPSAoXHJcbiAge1xyXG4gICAgc3RvcmU6IHtcclxuICAgICAgY2l0eSxcclxuICAgICAgcHJvZHVjdHMsXHJcbiAgICAgIGJhbm5lcnMsXHJcbiAgICAgIGNhdGVnb3JpZXMsXHJcbiAgICAgIGNhdGFsb2dTdHJ1Y3R1cmUsXHJcbiAgICAgIHN0aWNreVRhYnMsXHJcbiAgICB9LFxyXG4gICAgbW9kYWw6IHsgb3Blbk1vZGFsQmcgfSxcclxuICB9LFxyXG4gIHtcclxuICAgIHJvdXRlcjoge1xyXG4gICAgICBxdWVyeTogeyBwYXRoIH0sXHJcbiAgICB9LFxyXG4gIH1cclxuKSA9PiB7XHJcbiAgcmV0dXJuIHtcclxuICAgIGNhdGFsb2dTdHJ1Y3R1cmUsXHJcbiAgICBjYXRlZ29yaWVzLFxyXG4gICAgY2l0eSxcclxuICAgIHByb2R1Y3RzLFxyXG4gICAgcGF0aCxcclxuICAgIGJhbm5lcnMsXHJcbiAgICBzdGlja3lUYWJzLFxyXG4gICAgb3Blbk1vZGFsQmcsXHJcbiAgfTtcclxufTtcclxuXHJcbmV4cG9ydCBkZWZhdWx0IHdpdGhSb3V0ZXIoY29ubmVjdChtYXBTdGF0ZSkoTGF5b3V0KSk7XHJcbiJdfQ== */
+/*@ sourceURL=C:\\Users\\Алексей\\Desktop\\All Work\\next-official-guide\\components\\Layout.js */`));
 }
 
 const mapState = ({
@@ -665,6 +703,9 @@ const mapState = ({
     categories,
     catalogStructure,
     stickyTabs
+  },
+  modal: {
+    openModalBg
   }
 }, {
   router: {
@@ -680,11 +721,12 @@ const mapState = ({
     products,
     path,
     banners,
-    stickyTabs
+    stickyTabs,
+    openModalBg
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(next_router__WEBPACK_IMPORTED_MODULE_3__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_7__["connect"])(mapState)(Layout)));
+/* harmony default export */ __webpack_exports__["default"] = (Object(next_router__WEBPACK_IMPORTED_MODULE_3__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_8__["connect"])(mapState)(Layout)));
 
 /***/ }),
 
@@ -821,7 +863,8 @@ class CityChoiceModal extends react__WEBPACK_IMPORTED_MODULE_1___default.a.Compo
         lineNumber: 59,
         columnNumber: 13
       }
-    }, this.props.modalBg && this.state.cities ? this.state.cities.result.items.map(item => __jsx("button", {
+    }, this.props.modalBg && this.state.cities ? this.state.cities.result.items.map((item, index) => __jsx("button", {
+      key: index,
       className: styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a.dynamic([["744395776", [this.props.modalBg ? 'block' : 'none', this.props.modalBg ? 'block' : 'none', this.props.modalBg ? 'block' : 'none']]]),
       __self: this,
       __source: {
@@ -834,7 +877,7 @@ class CityChoiceModal extends react__WEBPACK_IMPORTED_MODULE_1___default.a.Compo
       dynamic: [this.props.modalBg ? 'block' : 'none', this.props.modalBg ? 'block' : 'none', this.props.modalBg ? 'block' : 'none'],
       __self: this
     }, `.modal-backdrop.__jsx-style-dynamic-selector{display:${this.props.modalBg ? 'block' : 'none'};}.city_modal.__jsx-style-dynamic-selector{display:${this.props.modalBg ? 'block' : 'none'};}.city_modal-center_container.__jsx-style-dynamic-selector{display:${this.props.modalBg ? 'block' : 'none'};}
-/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkM6XFxVc2Vyc1xc0JDQu9C10LrRgdC10LlcXERlc2t0b3BcXEFsbCBXb3JrXFxuZXh0LW9mZmljaWFsLWd1aWRlXFxjb21wb25lbnRzXFxNb2RhbHNcXENpdHlDaG9pY2VNb2RhbC5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFvRW9CLEFBR2tELEFBR0EsQUFHQSxxQ0FMdkMsQUFHQSxBQUdBIiwiZmlsZSI6IkM6XFxVc2Vyc1xc0JDQu9C10LrRgdC10LlcXERlc2t0b3BcXEFsbCBXb3JrXFxuZXh0LW9mZmljaWFsLWd1aWRlXFxjb21wb25lbnRzXFxNb2RhbHNcXENpdHlDaG9pY2VNb2RhbC5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IGNvbm5lY3QgfSBmcm9tICdyZWFjdC1yZWR1eCc7XHJcbmltcG9ydCBmZXRjaGVyIGZyb20gJy4uLy4uL3V0aWxzL2ZldGNoZXInO1xyXG5cclxuaW1wb3J0IHMgZnJvbSAnLi9jc3MvY2l0eV9jaG9pY2UubW9kdWxlLnNjc3MnO1xyXG5cclxuY2xhc3MgQ2l0eUNob2ljZU1vZGFsIGV4dGVuZHMgUmVhY3QuQ29tcG9uZW50IHtcclxuICBjb25zdHJ1Y3Rvcihwcm9wcykge1xyXG4gICAgc3VwZXIocHJvcHMpO1xyXG4gIH1cclxuXHJcbiAgc3RhdGUgPSB7XHJcbiAgICBjaXRpZXM6IG51bGwsXHJcbiAgfTtcclxuXHJcbiAgYXN5bmMgZmV0Y2hDaXRpZXMoKSB7XHJcbiAgICBpZiAodGhpcy5zdGF0ZS5jaXRpZXMgPT0gbnVsbCkge1xyXG4gICAgICBsZXQgY2l0aWVzID0gYXdhaXQgZmV0Y2hlcihcclxuICAgICAgICAnaHR0cHM6Ly9jbGllbnQtYXBpLnN1c2hpLW1hc3Rlci5ydS9hcGkvdjEvY2l0eSdcclxuICAgICAgKTtcclxuICAgICAgY29uc29sZS5sb2coY2l0aWVzLCAnQ0lUSUVTJyk7XHJcbiAgICAgIHRoaXMuc2V0U3RhdGUoe1xyXG4gICAgICAgIGNpdGllcyxcclxuICAgICAgfSk7XHJcbiAgICB9IGVsc2Uge1xyXG4gICAgICByZXR1cm47XHJcbiAgICB9XHJcbiAgfVxyXG5cclxuICBoYW5kbGVNb2RhbEJHID0gKGUpID0+IHtcclxuICAgIGUuc3RvcFByb3BhZ2F0aW9uKCk7XHJcbiAgICB0aGlzLnByb3BzLmRpc3BhdGNoTW9kYWxTdGF0dXMoKTtcclxuICB9O1xyXG5cclxuICByZW5kZXIoKSB7XHJcbiAgICBjb25zdCBtb2RhbEhlYWRlciA9ICgpID0+IChcclxuICAgICAgPGRpdiBjbGFzc05hbWU9e3NbJ21fbS1oZWFkZXInXX0+XHJcbiAgICAgICAgPGgxPtCS0YvQsdC10YDQuNGC0LUg0LPQvtGA0L7QtDwvaDE+XHJcbiAgICAgIDwvZGl2PlxyXG4gICAgKTtcclxuICAgIGNvbnN0IG1vZGFsRm9vdGVyID0gKCkgPT4gKFxyXG4gICAgICA8ZGl2IGNsYXNzTmFtZT17c1snbV9tLWZvb3RlciddfT5cclxuICAgICAgICA8YnV0dG9uPtC/0YDQvtC00L7Qu9C20LjRgtGMPC9idXR0b24+XHJcbiAgICAgIDwvZGl2PlxyXG4gICAgKTtcclxuXHJcbiAgICB0aGlzLnByb3BzLm1vZGFsQmcgPyB0aGlzLmZldGNoQ2l0aWVzKCkgOiAnJztcclxuICAgIHJldHVybiAoXHJcbiAgICAgIDw+XHJcbiAgICAgICAgPGRpdiBjbGFzc05hbWU9e3NbJ21vZGFsLWJhY2tkcm9wJ119PjwvZGl2PlxyXG4gICAgICAgIDxkaXZcclxuICAgICAgICAgIGNsYXNzTmFtZT17c1snY2l0eV9tb2RhbCddfVxyXG4gICAgICAgICAgcm9sZT1cImRpYWxvZ1wiXHJcbiAgICAgICAgICBvbkNsaWNrPXsoZSkgPT4gdGhpcy5oYW5kbGVNb2RhbEJHKGUpfVxyXG4gICAgICAgID48L2Rpdj5cclxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT17c1snY2l0eV9tb2RhbC1jZW50ZXJfY29udGFpbmVyJ119PlxyXG4gICAgICAgICAgey8qIG1haW4gbW9kYWwgKi99XHJcbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT17c1snbV9tLWJveCddfT5cclxuICAgICAgICAgICAge21vZGFsSGVhZGVyKCl9XHJcbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPXtzWydtX20tYm9keSddfT5cclxuICAgICAgICAgICAgICB7dGhpcy5wcm9wcy5tb2RhbEJnICYmIHRoaXMuc3RhdGUuY2l0aWVzXHJcbiAgICAgICAgICAgICAgICA/IHRoaXMuc3RhdGUuY2l0aWVzLnJlc3VsdC5pdGVtcy5tYXAoKGl0ZW0pID0+IChcclxuICAgICAgICAgICAgICAgICAgICA8YnV0dG9uPntpdGVtLm5hbWV9PC9idXR0b24+XHJcbiAgICAgICAgICAgICAgICAgICkpXHJcbiAgICAgICAgICAgICAgICA6ICcnfVxyXG4gICAgICAgICAgICA8L2Rpdj5cclxuICAgICAgICAgICAge21vZGFsRm9vdGVyKCl9XHJcbiAgICAgICAgICA8L2Rpdj5cclxuICAgICAgICA8L2Rpdj5cclxuICAgICAgICA8c3R5bGUganN4PntgXHJcbiAgICAgICAgICAubW9kYWwtYmFja2Ryb3Age1xyXG4gICAgICAgICAgICBkaXNwbGF5OiAke3RoaXMucHJvcHMubW9kYWxCZyA/ICdibG9jaycgOiAnbm9uZSd9O1xyXG4gICAgICAgICAgfVxyXG4gICAgICAgICAgLmNpdHlfbW9kYWwge1xyXG4gICAgICAgICAgICBkaXNwbGF5OiAke3RoaXMucHJvcHMubW9kYWxCZyA/ICdibG9jaycgOiAnbm9uZSd9O1xyXG4gICAgICAgICAgfVxyXG4gICAgICAgICAgLmNpdHlfbW9kYWwtY2VudGVyX2NvbnRhaW5lciB7XHJcbiAgICAgICAgICAgIGRpc3BsYXk6ICR7dGhpcy5wcm9wcy5tb2RhbEJnID8gJ2Jsb2NrJyA6ICdub25lJ307XHJcbiAgICAgICAgICB9XHJcbiAgICAgICAgYH08L3N0eWxlPlxyXG4gICAgICA8Lz5cclxuICAgICk7XHJcbiAgfVxyXG59XHJcbmNvbnN0IG1hcFN0YXRlVG9Qcm9wcyA9ICh7IG1vZGFsIH0pID0+IHtcclxuICAvLyBjb25zb2xlLmxvZyhtb2RhbC5vcGVuTW9kYWxCZywgJyBTVEFURSBtb2RhbCcpO1xyXG4gIGNvbnN0IG1vZGFsQmcgPSBtb2RhbC5vcGVuTW9kYWxCZztcclxuICByZXR1cm4geyBtb2RhbEJnIH07XHJcbn07XHJcbmNvbnN0IGRpc3BhdGNoVG9Qcm9wcyA9IChkaXNwYXRjaCkgPT4gKHtcclxuICBkaXNwYXRjaE1vZGFsU3RhdHVzOiAoc3RhdHVzKSA9PiBkaXNwYXRjaCh7IHR5cGU6ICdDTE9TRV9NT0RBTCcgfSksXHJcbn0pO1xyXG5leHBvcnQgZGVmYXVsdCBjb25uZWN0KG1hcFN0YXRlVG9Qcm9wcywgZGlzcGF0Y2hUb1Byb3BzKShDaXR5Q2hvaWNlTW9kYWwpO1xyXG4iXX0= */
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkM6XFxVc2Vyc1xc0JDQu9C10LrRgdC10LlcXERlc2t0b3BcXEFsbCBXb3JrXFxuZXh0LW9mZmljaWFsLWd1aWRlXFxjb21wb25lbnRzXFxNb2RhbHNcXENpdHlDaG9pY2VNb2RhbC5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFvRW9CLEFBR2tELEFBR0EsQUFHQSxxQ0FMdkMsQUFHQSxBQUdBIiwiZmlsZSI6IkM6XFxVc2Vyc1xc0JDQu9C10LrRgdC10LlcXERlc2t0b3BcXEFsbCBXb3JrXFxuZXh0LW9mZmljaWFsLWd1aWRlXFxjb21wb25lbnRzXFxNb2RhbHNcXENpdHlDaG9pY2VNb2RhbC5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IGNvbm5lY3QgfSBmcm9tICdyZWFjdC1yZWR1eCc7XHJcbmltcG9ydCBmZXRjaGVyIGZyb20gJy4uLy4uL3V0aWxzL2ZldGNoZXInO1xyXG5cclxuaW1wb3J0IHMgZnJvbSAnLi9jc3MvY2l0eV9jaG9pY2UubW9kdWxlLnNjc3MnO1xyXG5cclxuY2xhc3MgQ2l0eUNob2ljZU1vZGFsIGV4dGVuZHMgUmVhY3QuQ29tcG9uZW50IHtcclxuICBjb25zdHJ1Y3Rvcihwcm9wcykge1xyXG4gICAgc3VwZXIocHJvcHMpO1xyXG4gIH1cclxuXHJcbiAgc3RhdGUgPSB7XHJcbiAgICBjaXRpZXM6IG51bGwsXHJcbiAgfTtcclxuXHJcbiAgYXN5bmMgZmV0Y2hDaXRpZXMoKSB7XHJcbiAgICBpZiAodGhpcy5zdGF0ZS5jaXRpZXMgPT0gbnVsbCkge1xyXG4gICAgICBsZXQgY2l0aWVzID0gYXdhaXQgZmV0Y2hlcihcclxuICAgICAgICAnaHR0cHM6Ly9jbGllbnQtYXBpLnN1c2hpLW1hc3Rlci5ydS9hcGkvdjEvY2l0eSdcclxuICAgICAgKTtcclxuICAgICAgY29uc29sZS5sb2coY2l0aWVzLCAnQ0lUSUVTJyk7XHJcbiAgICAgIHRoaXMuc2V0U3RhdGUoe1xyXG4gICAgICAgIGNpdGllcyxcclxuICAgICAgfSk7XHJcbiAgICB9IGVsc2Uge1xyXG4gICAgICByZXR1cm47XHJcbiAgICB9XHJcbiAgfVxyXG5cclxuICBoYW5kbGVNb2RhbEJHID0gKGUpID0+IHtcclxuICAgIGUuc3RvcFByb3BhZ2F0aW9uKCk7XHJcbiAgICB0aGlzLnByb3BzLmRpc3BhdGNoTW9kYWxTdGF0dXMoKTtcclxuICB9O1xyXG5cclxuICByZW5kZXIoKSB7XHJcbiAgICBjb25zdCBtb2RhbEhlYWRlciA9ICgpID0+IChcclxuICAgICAgPGRpdiBjbGFzc05hbWU9e3NbJ21fbS1oZWFkZXInXX0+XHJcbiAgICAgICAgPGgxPtCS0YvQsdC10YDQuNGC0LUg0LPQvtGA0L7QtDwvaDE+XHJcbiAgICAgIDwvZGl2PlxyXG4gICAgKTtcclxuICAgIGNvbnN0IG1vZGFsRm9vdGVyID0gKCkgPT4gKFxyXG4gICAgICA8ZGl2IGNsYXNzTmFtZT17c1snbV9tLWZvb3RlciddfT5cclxuICAgICAgICA8YnV0dG9uPtC/0YDQvtC00L7Qu9C20LjRgtGMPC9idXR0b24+XHJcbiAgICAgIDwvZGl2PlxyXG4gICAgKTtcclxuXHJcbiAgICB0aGlzLnByb3BzLm1vZGFsQmcgPyB0aGlzLmZldGNoQ2l0aWVzKCkgOiAnJztcclxuICAgIHJldHVybiAoXHJcbiAgICAgIDw+XHJcbiAgICAgICAgPGRpdiBjbGFzc05hbWU9e3NbJ21vZGFsLWJhY2tkcm9wJ119PjwvZGl2PlxyXG4gICAgICAgIDxkaXZcclxuICAgICAgICAgIGNsYXNzTmFtZT17c1snY2l0eV9tb2RhbCddfVxyXG4gICAgICAgICAgcm9sZT1cImRpYWxvZ1wiXHJcbiAgICAgICAgICBvbkNsaWNrPXsoZSkgPT4gdGhpcy5oYW5kbGVNb2RhbEJHKGUpfVxyXG4gICAgICAgID48L2Rpdj5cclxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT17c1snY2l0eV9tb2RhbC1jZW50ZXJfY29udGFpbmVyJ119PlxyXG4gICAgICAgICAgey8qIG1haW4gbW9kYWwgKi99XHJcbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT17c1snbV9tLWJveCddfT5cclxuICAgICAgICAgICAge21vZGFsSGVhZGVyKCl9XHJcbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPXtzWydtX20tYm9keSddfT5cclxuICAgICAgICAgICAgICB7dGhpcy5wcm9wcy5tb2RhbEJnICYmIHRoaXMuc3RhdGUuY2l0aWVzXHJcbiAgICAgICAgICAgICAgICA/IHRoaXMuc3RhdGUuY2l0aWVzLnJlc3VsdC5pdGVtcy5tYXAoKGl0ZW0sIGluZGV4KSA9PiAoXHJcbiAgICAgICAgICAgICAgICAgICAgPGJ1dHRvbiBrZXk9e2luZGV4fT57aXRlbS5uYW1lfTwvYnV0dG9uPlxyXG4gICAgICAgICAgICAgICAgICApKVxyXG4gICAgICAgICAgICAgICAgOiAnJ31cclxuICAgICAgICAgICAgPC9kaXY+XHJcbiAgICAgICAgICAgIHttb2RhbEZvb3RlcigpfVxyXG4gICAgICAgICAgPC9kaXY+XHJcbiAgICAgICAgPC9kaXY+XHJcbiAgICAgICAgPHN0eWxlIGpzeD57YFxyXG4gICAgICAgICAgLm1vZGFsLWJhY2tkcm9wIHtcclxuICAgICAgICAgICAgZGlzcGxheTogJHt0aGlzLnByb3BzLm1vZGFsQmcgPyAnYmxvY2snIDogJ25vbmUnfTtcclxuICAgICAgICAgIH1cclxuICAgICAgICAgIC5jaXR5X21vZGFsIHtcclxuICAgICAgICAgICAgZGlzcGxheTogJHt0aGlzLnByb3BzLm1vZGFsQmcgPyAnYmxvY2snIDogJ25vbmUnfTtcclxuICAgICAgICAgIH1cclxuICAgICAgICAgIC5jaXR5X21vZGFsLWNlbnRlcl9jb250YWluZXIge1xyXG4gICAgICAgICAgICBkaXNwbGF5OiAke3RoaXMucHJvcHMubW9kYWxCZyA/ICdibG9jaycgOiAnbm9uZSd9O1xyXG4gICAgICAgICAgfVxyXG4gICAgICAgIGB9PC9zdHlsZT5cclxuICAgICAgPC8+XHJcbiAgICApO1xyXG4gIH1cclxufVxyXG5jb25zdCBtYXBTdGF0ZVRvUHJvcHMgPSAoeyBtb2RhbCB9KSA9PiB7XHJcbiAgLy8gY29uc29sZS5sb2cobW9kYWwub3Blbk1vZGFsQmcsICcgU1RBVEUgbW9kYWwnKTtcclxuICBjb25zdCBtb2RhbEJnID0gbW9kYWwub3Blbk1vZGFsQmc7XHJcbiAgcmV0dXJuIHsgbW9kYWxCZyB9O1xyXG59O1xyXG5jb25zdCBkaXNwYXRjaFRvUHJvcHMgPSAoZGlzcGF0Y2gpID0+ICh7XHJcbiAgZGlzcGF0Y2hNb2RhbFN0YXR1czogKHN0YXR1cykgPT4gZGlzcGF0Y2goeyB0eXBlOiAnQ0xPU0VfTU9EQUwnIH0pLFxyXG59KTtcclxuZXhwb3J0IGRlZmF1bHQgY29ubmVjdChtYXBTdGF0ZVRvUHJvcHMsIGRpc3BhdGNoVG9Qcm9wcykoQ2l0eUNob2ljZU1vZGFsKTtcclxuIl19 */
 /*@ sourceURL=C:\\Users\\Алексей\\Desktop\\All Work\\next-official-guide\\components\\Modals\\CityChoiceModal.js */`));
   }
 
@@ -2784,6 +2827,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_redux_wrapper__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(next_redux_wrapper__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var _components_Modals_CityChoiceModal__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/Modals/CityChoiceModal */ "./components/Modals/CityChoiceModal.js");
 /* harmony import */ var _redux_actions_dispatchStickyTabsWithMain__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../redux/actions/dispatchStickyTabsWithMain */ "./redux/actions/dispatchStickyTabsWithMain.js");
+/* harmony import */ var _index_module_scss__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./index.module.scss */ "./pages/index.module.scss");
+/* harmony import */ var _index_module_scss__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_index_module_scss__WEBPACK_IMPORTED_MODULE_9__);
 var _jsxFileName = "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0435\u0439\\Desktop\\All Work\\next-official-guide\\pages\\_app.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
@@ -2803,7 +2848,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
- // убирая дебаг на фолс можно контролировать высеры в консоль
+
+ // import { wrapper } from '../redux/store';
+// убирая дебаг на фолс можно контролировать высеры в консоль
 
 /* harmony default export */ __webpack_exports__["default"] = (next_redux_wrapper__WEBPACK_IMPORTED_MODULE_6___default()(_redux_store__WEBPACK_IMPORTED_MODULE_5__["default"], {
   debug: false
@@ -2841,12 +2888,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     // console.log(getAllBannersData, ' getAllBannersData');
     // console.log(defaultCityData, 'defaultCityData');
 
-    let stickyTabs = [];
-    console.log(catalogStructure, ' catalogStructure');
+    let stickyTabs = []; // console.log(catalogStructure, ' catalogStructure');
+
     catalogStructure.result.update.categories.map(item => thisCityCategoriesData.result.update.items.filter(categoryItem => categoryItem.id === item.id ? stickyTabs.push(categoryItem) : ''));
     let stickyTabsWithMain = [...stickyTabs, thisCityCategoriesData.result.update.items.filter(item => item.path === 'main')[0]];
-    const cityID = defaultCityData.result.cityId;
-    console.log(cityID, ' city');
+    const cityID = defaultCityData.result.cityId; // console.log(cityID, ' city');
+
     const promises = stickyTabsWithMain.map(async item => {
       const promResult = await Object(_utils_fetcher__WEBPACK_IMPORTED_MODULE_1__["default"])(`https://client-api.sushi-master.ru/api/v1/catalog/categories/${item.id}/products`, {
         cityId: cityID
@@ -2895,28 +2942,28 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 122,
+        lineNumber: 124,
         columnNumber: 9
       }
     }, __jsx(_components_Modals_CityChoiceModal__WEBPACK_IMPORTED_MODULE_7__["default"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 123,
+        lineNumber: 125,
         columnNumber: 11
       }
     }), __jsx(_components_Layout__WEBPACK_IMPORTED_MODULE_3__["default"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 124,
+        lineNumber: 126,
         columnNumber: 11
       }
     }, __jsx(Component, _extends({}, pageProps, {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 125,
+        lineNumber: 127,
         columnNumber: 13
       }
     }))));
@@ -2936,29 +2983,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /***/ }),
 
-/***/ "./redux/actions/counterActions.js":
-/*!*****************************************!*\
-  !*** ./redux/actions/counterActions.js ***!
-  \*****************************************/
-/*! exports provided: INCREMENT_COUNTER, DECREMENT_COUNTER, incrementCounter, decrementCounter */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ "./pages/index.module.scss":
+/*!*********************************!*\
+  !*** ./pages/index.module.scss ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "INCREMENT_COUNTER", function() { return INCREMENT_COUNTER; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DECREMENT_COUNTER", function() { return DECREMENT_COUNTER; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "incrementCounter", function() { return incrementCounter; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "decrementCounter", function() { return decrementCounter; });
-//Action Types
-const INCREMENT_COUNTER = 'INCREMENT_COUNTER';
-const DECREMENT_COUNTER = 'DECREMENT_COUNTER'; //Action Creator
-
-const incrementCounter = () => ({
-  type: INCREMENT_COUNTER
-});
-const decrementCounter = () => ({
-  type: DECREMENT_COUNTER
-});
+module.exports = {
+	"box": "box",
+	"menu": "menu"
+};
 
 /***/ }),
 
@@ -2984,6 +3019,68 @@ const dispatchCategoriesWithMain = (stickyTabsWithMain, stickyTabs) => {
 
 /***/ }),
 
+/***/ "./redux/reducers/card/cardReducer.js":
+/*!********************************************!*\
+  !*** ./redux/reducers/card/cardReducer.js ***!
+  \********************************************/
+/*! exports provided: cardCounter, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cardCounter", function() { return cardCounter; });
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+const cardReducer = (state = {
+  cardProducts: []
+}, action) => {
+  switch (action.type) {
+    case 'ADD':
+      // localStorage.setItem()
+      return _objectSpread({}, state, {
+        cardProducts: []
+      });
+
+    case 'REMOVE':
+      return _objectSpread({}, state, {
+        cardProducts: []
+      });
+
+    default:
+      return _objectSpread({}, state);
+  }
+};
+
+const cardCounter = (state = {
+  counter: 0
+}, action) => {
+  console.log(action, ' ACTION cardReducer');
+
+  switch (action.type) {
+    case 'INCREMENT':
+      // console.log(action, ' ACTION');
+      // localStorage.setItem()
+      return _objectSpread({}, state, {
+        counter: state.counter + 1
+      });
+
+    case 'DECREMENT':
+      return _objectSpread({}, state, {
+        counter: state.counter - 1
+      });
+
+    default:
+      return _objectSpread({}, state);
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = (cardReducer);
+
+/***/ }),
+
 /***/ "./redux/reducers/initialReducer.js":
 /*!******************************************!*\
   !*** ./redux/reducers/initialReducer.js ***!
@@ -2993,31 +3090,21 @@ const dispatchCategoriesWithMain = (stickyTabsWithMain, stickyTabs) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _actions_counterActions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/counterActions */ "./redux/actions/counterActions.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-
-
+// import { createWrapper, HYDRATE } from 'next-redux-wrapper';
 const counterReducer = (state = {
   value: 0,
   city: {},
   categories: {}
 }, action) => {
   switch (action.type) {
-    case _actions_counterActions__WEBPACK_IMPORTED_MODULE_0__["INCREMENT_COUNTER"]:
-      return _objectSpread({}, state, {
-        value: state.value + 1
-      });
-
-    case _actions_counterActions__WEBPACK_IMPORTED_MODULE_0__["DECREMENT_COUNTER"]:
-      return _objectSpread({}, state, {
-        value: state.value - 1
-      });
-
+    // case HYDRATE:
+    //   return { ...state, ...action.payload };
     case 'INITIAL_CITY_STATE':
       return _objectSpread({}, state, {
         city: action.payload.result
@@ -3034,7 +3121,6 @@ const counterReducer = (state = {
       });
 
     case 'INITIAL_PRODUCTS':
-      console.log(action.payload, ' action.payload');
       return _objectSpread({}, state, {
         products: action.payload
       });
@@ -3045,7 +3131,6 @@ const counterReducer = (state = {
       });
 
     case 'DISPATCH_CATEGORIES_WITH_MAIN':
-      console.log(action.payload, ' ITS WORK');
       return _objectSpread({}, state, {
         stickyTabs: action.payload
       });
@@ -3111,12 +3196,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(redux__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _initialReducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./initialReducer */ "./redux/reducers/initialReducer.js");
 /* harmony import */ var _modals_modalReducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modals/modalReducer */ "./redux/reducers/modals/modalReducer.js");
+/* harmony import */ var _card_cardReducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./card/cardReducer */ "./redux/reducers/card/cardReducer.js");
+
+
 
 
 
 const rootReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
   store: _initialReducer__WEBPACK_IMPORTED_MODULE_1__["default"],
-  modal: _modals_modalReducer__WEBPACK_IMPORTED_MODULE_2__["default"]
+  modal: _modals_modalReducer__WEBPACK_IMPORTED_MODULE_2__["default"],
+  card: Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
+    cardReducer: _card_cardReducer__WEBPACK_IMPORTED_MODULE_3__["default"],
+    cardCounter: _card_cardReducer__WEBPACK_IMPORTED_MODULE_3__["cardCounter"]
+  })
 });
 /* harmony default export */ __webpack_exports__["default"] = (rootReducer);
 
@@ -3136,6 +3228,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! isomorphic-unfetch */ "isomorphic-unfetch");
 /* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _reducers_rootReducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./reducers/rootReducer */ "./redux/reducers/rootReducer.js");
+/* harmony import */ var next_redux_wrapper__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next-redux-wrapper */ "next-redux-wrapper");
+/* harmony import */ var next_redux_wrapper__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_redux_wrapper__WEBPACK_IMPORTED_MODULE_3__);
+
 
 
 
@@ -3147,10 +3242,15 @@ __webpack_require__.r(__webpack_exports__);
  * @param {boolean} options.debug User-defined debug flag
  * @param {string} options.storeKey The key that will be used to persist the store in the browser's `window` object for safe HMR
  */
+// create a makeStore function
+// const makeStore = (context) => createStore(rootReducer);
 
 const makeStore = (initialState = {}, options) => {
   return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_reducers_rootReducer__WEBPACK_IMPORTED_MODULE_2__["default"], initialState);
-};
+}; // export an assembled wrapper
+// убирая дебаг на фолс можно контролировать высеры в консоль
+// export const wrapper = createWrapper(makeStore, { debug: true });
+
 
 /* harmony default export */ __webpack_exports__["default"] = (makeStore);
 

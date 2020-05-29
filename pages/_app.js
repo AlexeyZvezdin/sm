@@ -6,7 +6,8 @@ import makeStore from '../redux/store';
 import withRedux from 'next-redux-wrapper';
 import CityChoiceModal from '../components/Modals/CityChoiceModal';
 import { dispatchCategoriesWithMain } from '../redux/actions/dispatchStickyTabsWithMain';
-
+import './index.module.scss';
+// import { wrapper } from '../redux/store';
 // убирая дебаг на фолс можно контролировать высеры в консоль
 export default withRedux(makeStore, { debug: false })(
   class SushiMaster extends App {
@@ -57,7 +58,7 @@ export default withRedux(makeStore, { debug: false })(
       // console.log(defaultCityData, 'defaultCityData');
 
       let stickyTabs = [];
-      console.log(catalogStructure, ' catalogStructure');
+      // console.log(catalogStructure, ' catalogStructure');
       catalogStructure.result.update.categories.map((item) =>
         thisCityCategoriesData.result.update.items.filter((categoryItem) =>
           categoryItem.id === item.id ? stickyTabs.push(categoryItem) : ''
@@ -72,7 +73,7 @@ export default withRedux(makeStore, { debug: false })(
       ];
 
       const cityID = defaultCityData.result.cityId;
-      console.log(cityID, ' city');
+      // console.log(cityID, ' city');
 
       const promises = stickyTabsWithMain.map(async (item) => {
         const promResult = await fetcher(
@@ -107,6 +108,7 @@ export default withRedux(makeStore, { debug: false })(
         payload: [allProducts],
       });
       console.timeEnd('fetchstart');
+
       return {
         pageProps: {
           // Call page-level getInitialProps

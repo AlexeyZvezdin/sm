@@ -1168,14 +1168,14 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 96,
+        lineNumber: 76,
         columnNumber: 11
       }
     }), __jsx(next_document__WEBPACK_IMPORTED_MODULE_1__["NextScript"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 97,
+        lineNumber: 77,
         columnNumber: 11
       }
     }), __jsx("script", {
@@ -1184,7 +1184,7 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 98,
+        lineNumber: 78,
         columnNumber: 11
       }
     })));
