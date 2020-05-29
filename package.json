@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "NODE_ENV=production npm run start",
+    "start": "next start",
     "prod": "next build && next export"
   },
   "keywords": [],

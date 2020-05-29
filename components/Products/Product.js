@@ -11,6 +11,23 @@ function Product({ product, store, ...props }) {
   console.log(store, ' store');
   const [cartButtonCounter, setCartButtonCounter] = React.useState(0);
   const [productInfo, setProductInfo] = React.useState(true);
+
+  const handleCounterClick = (action) => {
+    // if (action === 'inc') {
+    //   localStorage.setItem(
+    //     'cardCounter',
+    //     Number(localStorage.getItem('cardCounter')) + 1
+    //   );
+    //   props.cardCounterIncrement();
+    // } else if (action === 'dec') {
+    //   localStorage.setItem(
+    //     'cardCounter',
+    //     Number(localStorage.getItem('cardCounter')) - 1
+    //   );
+    //   props.cardCounterDecrement();
+    // }
+  };
+
   return (
     <div className={p_s['product']} key={product.id}>
       <div
@@ -85,7 +102,7 @@ function Product({ product, store, ...props }) {
               className="product-bottom_right-buy"
               onClick={() => {
                 setCartButtonCounter(cartButtonCounter + 1);
-                props.cardCounterIncrement();
+                handleCounterClick('inc');
               }}
             >
               <div className="product-bottom_right-buy-collapsed">
@@ -99,7 +116,7 @@ function Product({ product, store, ...props }) {
                   className="cart-button__expanded__minus"
                   onClick={() => {
                     setCartButtonCounter(cartButtonCounter - 1);
-                    props.cardCounterDecrement();
+                    handleCounterClick('dec');
                   }}
                 ></div>
                 <div className="cart-button__expanded__count">
@@ -109,7 +126,7 @@ function Product({ product, store, ...props }) {
                   className="cart-button__expanded__plus"
                   onClick={() => {
                     setCartButtonCounter(cartButtonCounter + 1);
-                    props.cardCounterIncrement();
+                    handleCounterClick('inc');
                   }}
                 ></div>
               </div>

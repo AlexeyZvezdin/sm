@@ -104,11 +104,14 @@ module.exports =
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _footer_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./footer.module.scss */ "./components/Basic/footer.module.scss");
-/* harmony import */ var _footer_module_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_footer_module_scss__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _footer_module_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./footer.module.scss */ "./components/Basic/footer.module.scss");
+/* harmony import */ var _footer_module_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_footer_module_scss__WEBPACK_IMPORTED_MODULE_2__);
 var _jsxFileName = "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0435\u0439\\Desktop\\All Work\\next-official-guide\\components\\Basic\\Footer.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
 
 
 const Footer = props => {
@@ -117,10 +120,340 @@ const Footer = props => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 4,
-      columnNumber: 10
+      lineNumber: 6,
+      columnNumber: 5
     }
-  }, JSON.stringify(props) + 'footer');
+  }, __jsx("div", {
+    className: "footer-box",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7,
+      columnNumber: 7
+    }
+  }, __jsx("div", {
+    className: "footer-col",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8,
+      columnNumber: 9
+    }
+  }, __jsx("p", {
+    className: "footer__bold",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9,
+      columnNumber: 11
+    }
+  }, "@ ", new Date().getFullYear()), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    href: "#",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10,
+      columnNumber: 11
+    }
+  }, __jsx("a", {
+    className: "side-menu__link",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11,
+      columnNumber: 13
+    }
+  }, "\u041F\u0443\u0431\u043B\u0438\u0447\u043D\u0430\u044F \u043E\u0444\u0435\u0440\u0442\u0430")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    href: "#",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 13,
+      columnNumber: 11
+    }
+  }, __jsx("a", {
+    className: "side-menu__link",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 14,
+      columnNumber: 13
+    }
+  }, "\u041F\u043E\u043B\u0438\u0442\u0438\u043A\u0430 \u043A\u043E\u043D\u0444\u0438\u0434\u0435\u043D\u0446\u0438\u0430\u043B\u044C\u043D\u043E\u0441\u0442\u0438")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    href: "#",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 16,
+      columnNumber: 11
+    }
+  }, __jsx("a", {
+    className: "side-menu__link",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 17,
+      columnNumber: 13
+    }
+  }, "\u041F\u043E\u043B\u043D\u044B\u0435 \u0440\u0435\u043A\u0432\u0438\u0437\u0438\u0442\u044B"))), __jsx("div", {
+    className: "footer-col",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 20,
+      columnNumber: 9
+    }
+  }, __jsx("div", {
+    className: "footer__inn footer__bold",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 21,
+      columnNumber: 11
+    }
+  }, "\u0418\u041F \u041C\u0435\u0440\u0435\u0443\u0446\u044D \u0412.\u0412.")), __jsx("div", {
+    className: "footer-col",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 23,
+      columnNumber: 9
+    }
+  }, __jsx("div", {
+    className: "footer__bold",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 24,
+      columnNumber: 11
+    }
+  }, "\u0421\u043B\u0443\u0436\u0431\u0430 \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0438"), __jsx("div", {
+    className: "footer__phone",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 25,
+      columnNumber: 11
+    }
+  }, __jsx("a", {
+    href: "tel:+\u200E7(3452)57-90-50",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 26,
+      columnNumber: 13
+    }
+  }, "+\u200E7 (3452) 57-90-50"))), __jsx("div", {
+    className: "footer-col",
+    style: {
+      flexGrow: '1',
+      width: '320px',
+      paddingLeft: 0,
+      paddingRight: 0
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 29,
+      columnNumber: 9
+    }
+  }, __jsx("div", {
+    className: "footer__quiz",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 38,
+      columnNumber: 11
+    }
+  }, __jsx("p", {
+    className: "footer__quiz-text",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 39,
+      columnNumber: 13
+    }
+  }, "\u0417\u0430\u043A\u0430\u0437\u0430\u043B \u0432 \u0421\u0443\u0448\u0438 \u041C\u0430\u0441\u0442\u0435\u0440?"))), __jsx("div", {
+    className: "footer-col",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 42,
+      columnNumber: 9
+    }
+  }, __jsx("div", {
+    className: "footer__apps",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 43,
+      columnNumber: 11
+    }
+  }, __jsx("a", {
+    target: "_blank",
+    rel: "noopener noreferrer",
+    href: "https://apps.apple.com/ru/app/%D1%81%D1%83%D1%88%D0%B8-%D0%BC%D0%B0%D1%81%D1%82%D0%B5%D1%80/id1119016991",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 44,
+      columnNumber: 13
+    }
+  }, __jsx("div", {
+    className: "footer__apps__badge app-store",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 49,
+      columnNumber: 15
+    }
+  })), __jsx("a", {
+    target: "_blank",
+    rel: "noopener noreferrer",
+    href: "https://play.google.com/store/apps/details?id=com.ub.sushimaster",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 51,
+      columnNumber: 13
+    }
+  }, __jsx("div", {
+    className: "footer__apps__badge google-play",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 56,
+      columnNumber: 15
+    }
+  })), __jsx("div", {
+    className: "footer__socials-block",
+    style: {
+      display: 'flex',
+      marginTop: '12px'
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 58,
+      columnNumber: 13
+    }
+  }, __jsx("a", {
+    target: "_blank",
+    rel: "noopener noreferrer",
+    href: "https://www.facebook.com/sushimastershop/",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 62,
+      columnNumber: 15
+    }
+  }, __jsx("div", {
+    className: "footer__socials__icon fb",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 67,
+      columnNumber: 17
+    }
+  })), __jsx("a", {
+    target: "_blank",
+    rel: "noopener noreferrer",
+    href: "https://vk.com/sushi_takeaway",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 69,
+      columnNumber: 15
+    }
+  }, __jsx("div", {
+    className: "footer__socials__icon vk",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 74,
+      columnNumber: 17
+    }
+  })), __jsx("a", {
+    target: "_blank",
+    rel: "noopener noreferrer",
+    href: "https://www.instagram.com/sushimaster_shop",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 76,
+      columnNumber: 15
+    }
+  }, __jsx("div", {
+    className: "footer__socials__icon ig",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 81,
+      columnNumber: 17
+    }
+  })), __jsx("a", {
+    target: "_blank",
+    rel: "noopener noreferrer",
+    href: "https://zen.yandex.ru/sushi_master",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 83,
+      columnNumber: 15
+    }
+  }, __jsx("img", {
+    className: "yandex-dzen",
+    alt: "",
+    style: {
+      height: '28px',
+      width: '28px'
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 88,
+      columnNumber: 17
+    }
+  }))))), __jsx("div", {
+    className: "footer-col ",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 97,
+      columnNumber: 9
+    }
+  }, __jsx("div", {
+    style: {
+      maxWidth: '210px',
+      whiteSpace: 'nowrap'
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 98,
+      columnNumber: 11
+    }
+  }, "Made with", ' ', __jsx("span", {
+    role: "img",
+    "aria-label": "heart",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 100,
+      columnNumber: 13
+    }
+  }, "\u2764\uFE0F"), ' ', "from", ' ', __jsx("a", {
+    style: {
+      display: 'inline'
+    },
+    href: "http://unitbean.ru",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 104,
+      columnNumber: 13
+    }
+  }, "UnitBean")))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Footer);
@@ -541,7 +874,28 @@ function StickyHeaderView(props) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-
+module.exports = {
+	"footer": "footer",
+	"footer-box": "footer-box",
+	"footer-col": "footer-col",
+	"footer__bold": "footer__bold",
+	"footer__inn": "footer__inn",
+	"footer__phone": "footer__phone",
+	"footer__quiz": "footer__quiz",
+	"footer__quiz-text": "footer__quiz-text",
+	"footer__apps": "footer__apps",
+	"footer__apps__badge": "footer__apps__badge",
+	"app-store": "app-store",
+	"viber": "viber",
+	"telegram": "telegram",
+	"google-play": "google-play",
+	"footer__socials__icon": "footer__socials__icon",
+	"fb": "fb",
+	"vk": "vk",
+	"ok": "ok",
+	"ig": "ig",
+	"yandex-dzen": "yandex-dzen"
+};
 
 /***/ }),
 
@@ -610,6 +964,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Basic_Footer__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Basic/Footer */ "./components/Basic/Footer.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-redux */ "react-redux");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _pages_error__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../pages/_error */ "./pages/_error.js");
 var _jsxFileName = "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0435\u0439\\Desktop\\All Work\\next-official-guide\\components\\Layout.js";
 
 
@@ -624,10 +979,10 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
 
+
 function Layout(props) {
   // Не работает, бэд сетСтейт
   // props.dispatchCategoriesWithMain(stickyTabsWithMain);
-  console.log(props, ' PROPS');
   const thisRouteProducts = props.products[0].find(item => {
     // Если главная страница, то надо по-особому искать её имя
     if (props.path === undefined) {
@@ -652,7 +1007,7 @@ function Layout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46,
+      lineNumber: 45,
       columnNumber: 7
     }
   }), __jsx(_components_Basic_StickyHeader__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -660,7 +1015,7 @@ function Layout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47,
+      lineNumber: 46,
       columnNumber: 7
     }
   }), __jsx("main", {
@@ -668,7 +1023,7 @@ function Layout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 48,
+      lineNumber: 47,
       columnNumber: 7
     }
   }, __jsx("div", {
@@ -676,14 +1031,14 @@ function Layout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50,
+      lineNumber: 49,
       columnNumber: 9
     }
   }, __jsx(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, children))), __jsx(_Basic_Footer__WEBPACK_IMPORTED_MODULE_7__["default"], {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 66,
+      lineNumber: 65,
       columnNumber: 7
     }
   }), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
@@ -691,7 +1046,7 @@ function Layout(props) {
     dynamic: [props.openModalBg === true ? 'hidden' : 'none'],
     __self: this
   }, `body{overflow:${props.openModalBg === true ? 'hidden' : 'none'};}
-/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkM6XFxVc2Vyc1xc0JDQu9C10LrRgdC10LlcXERlc2t0b3BcXEFsbCBXb3JrXFxuZXh0LW9mZmljaWFsLWd1aWRlXFxjb21wb25lbnRzXFxMYXlvdXQuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBa0V5QixBQUdpRCxzQ0FDeEMiLCJmaWxlIjoiQzpcXFVzZXJzXFzQkNC70LXQutGB0LXQuVxcRGVza3RvcFxcQWxsIFdvcmtcXG5leHQtb2ZmaWNpYWwtZ3VpZGVcXGNvbXBvbmVudHNcXExheW91dC5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBMaW5rIGZyb20gJ25leHQvbGluayc7XHJcbmltcG9ydCBSb3V0ZXIgZnJvbSAnbmV4dC9yb3V0ZXInO1xyXG5pbXBvcnQgc3R5bGVzIGZyb20gJy4vaW5kZXgubW9kdWxlLnNjc3MnO1xyXG4vLyBpbXBvcnQgbG9hZGVyIGZyb20gJy4uL3B1YmxpYy9pbWcvbG9hZGVyLmdpZic7XHJcbmltcG9ydCBIZWFkZXIgZnJvbSAnLi9CYXNpYy9IZWFkZXInO1xyXG5pbXBvcnQgU3RpY2t5SGVhZGVyIGZyb20gJy4uL2NvbXBvbmVudHMvQmFzaWMvU3RpY2t5SGVhZGVyJztcclxuaW1wb3J0IEZvb3RlciBmcm9tICcuL0Jhc2ljL0Zvb3Rlcic7XHJcbmltcG9ydCB7IGNvbm5lY3QgfSBmcm9tICdyZWFjdC1yZWR1eCc7XHJcbmltcG9ydCB7IHdpdGhSb3V0ZXIgfSBmcm9tICduZXh0L3JvdXRlcic7XHJcblxyXG5mdW5jdGlvbiBMYXlvdXQocHJvcHMpIHtcclxuICAvLyDQndC1INGA0LDQsdC+0YLQsNC10YIsINCx0Y3QtCDRgdC10YLQodGC0LXQudGCXHJcbiAgLy8gcHJvcHMuZGlzcGF0Y2hDYXRlZ29yaWVzV2l0aE1haW4oc3RpY2t5VGFic1dpdGhNYWluKTtcclxuICBjb25zb2xlLmxvZyhwcm9wcywgJyBQUk9QUycpO1xyXG4gIGNvbnN0IHRoaXNSb3V0ZVByb2R1Y3RzID0gcHJvcHMucHJvZHVjdHNbMF0uZmluZCgoaXRlbSkgPT4ge1xyXG4gICAgLy8g0JXRgdC70Lgg0LPQu9Cw0LLQvdCw0Y8g0YHRgtGA0LDQvdC40YbQsCwg0YLQviDQvdCw0LTQviDQv9C+LdC+0YHQvtCx0L7QvNGDINC40YHQutCw0YLRjCDQtdGRINC40LzRj1xyXG4gICAgaWYgKHByb3BzLnBhdGggPT09IHVuZGVmaW5lZCkge1xyXG4gICAgICByZXR1cm4gaXRlbS5pdGVtTmFtZSA9PT0gJ21haW4nO1xyXG4gICAgfVxyXG4gICAgcmV0dXJuIGl0ZW0uaXRlbU5hbWUgPT09IHByb3BzLnBhdGg7XHJcbiAgfSk7XHJcblxyXG4gIGNvbnN0IHRoaXNSb3V0ZVRhYiA9IHByb3BzLnN0aWNreVRhYnMuc3RpY2t5VGFicy5maW5kKFxyXG4gICAgKGl0ZW0pID0+IGl0ZW0ucGF0aCA9PT0gcHJvcHMucGF0aFxyXG4gICk7XHJcbiAgLy8g0JXRgdC70Lgg0LPQu9Cw0LLQvdCw0Y8g0YHRgtGA0LDQvdC40YbQsCwg0YLQviDQvdC1INC40YHQutCw0YLRjCwg0LjQvdCw0YfQtSDRgdGC0YDQsNC90LjRhtCwINGD0L/QsNC00LXRglxyXG4gIGNvbnN0IHRoaXNSb3V0ZUJhbm5lciA9XHJcbiAgICBwcm9wcy5wYXRoID09PSB1bmRlZmluZWRcclxuICAgICAgPyBmYWxzZVxyXG4gICAgICA6IHByb3BzLmJhbm5lcnMuaXRlbXMuZmluZCgoaXRlbSkgPT5cclxuICAgICAgICAgIHRoaXNSb3V0ZVRhYi5iYW5uZXJzWzBdXHJcbiAgICAgICAgICAgID8gdGhpc1JvdXRlVGFiLmJhbm5lcnNbMF0uaWQgPT09IGl0ZW0uaWRcclxuICAgICAgICAgICAgOiBmYWxzZVxyXG4gICAgICAgICk7XHJcbiAgLy8gY29uc29sZS5sb2codGhpc1JvdXRlQmFubmVyLCAnIHRoaXNSb3V0ZUJhbm5lcicpO1xyXG4gIGNvbnN0IGNoaWxkcmVuID0gUmVhY3QuQ2hpbGRyZW4ubWFwKHByb3BzLmNoaWxkcmVuLCAoY2hpbGQsIGluZGV4KSA9PiB7XHJcbiAgICByZXR1cm4gUmVhY3QuY2xvbmVFbGVtZW50KGNoaWxkLCB7XHJcbiAgICAgIHRhYjogdGhpc1JvdXRlVGFiLFxyXG4gICAgICBjdXJyZW50UGFnZUluZGV4OiBpbmRleCxcclxuICAgICAgdGhpc1JvdXRlUHJvZHVjdHMsXHJcbiAgICAgIHRoaXNSb3V0ZUJhbm5lcixcclxuICAgIH0pO1xyXG4gIH0pO1xyXG4gIHJldHVybiAoXHJcbiAgICA8PlxyXG4gICAgICA8SGVhZGVyIC8+XHJcbiAgICAgIDxTdGlja3lIZWFkZXIgc3RpY2t5VGFicz17cHJvcHMuc3RpY2t5VGFicy5zdGlja3lUYWJzfSAvPlxyXG4gICAgICA8bWFpbj5cclxuICAgICAgICB7Lyog0LLQvtC30LzQvtC20L3QviDQsiDQsdGD0LTRg9GJ0LXQvCDRg9Cx0LXRgNGDINC+0YLRgdGO0LTQsCAqL31cclxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT17c3R5bGVzWydjb250YWluZXJfX2Z1bGwnXX0+XHJcbiAgICAgICAgICB7Lyoge3RoaXMuc3RhdGUubG9hZGVkID09PSAnbm8nID8gKFxyXG4gICAgICAgICAgICAgIDxkaXZcclxuICAgICAgICAgICAgICAgIHN0eWxlPXt7XHJcbiAgICAgICAgICAgICAgICAgIG1hcmdpbjogJzUwcHgnLFxyXG4gICAgICAgICAgICAgICAgICBqdXN0aWZ5Q29udGVudDogJ2NlbnRlcicsXHJcbiAgICAgICAgICAgICAgICAgIGRpc3BsYXk6ICdmbGV4JyxcclxuICAgICAgICAgICAgICAgIH19XHJcbiAgICAgICAgICAgICAgPlxyXG4gICAgICAgICAgICAgICAgPGltZyBzcmM9XCIvaW1nL2xvYWRlci5naWZcIiBhbHQ9XCJsb2FkZXJcIiAvPlxyXG4gICAgICAgICAgICAgIDwvZGl2PlxyXG4gICAgICAgICAgICApIDogKCAqL31cclxuICAgICAgICAgIDw+e2NoaWxkcmVufTwvPlxyXG4gICAgICAgICAgey8qICl9ICovfVxyXG4gICAgICAgIDwvZGl2PlxyXG4gICAgICA8L21haW4+XHJcbiAgICAgIDxGb290ZXIgLz5cclxuICAgICAgPHN0eWxlIGpzeCBnbG9iYWw+e2BcclxuICAgICAgICBib2R5IHtcclxuICAgICAgICAgIG92ZXJmbG93OiAke3Byb3BzLm9wZW5Nb2RhbEJnID09PSB0cnVlID8gJ2hpZGRlbicgOiAnbm9uZSd9O1xyXG4gICAgICAgIH1cclxuICAgICAgYH08L3N0eWxlPlxyXG4gICAgPC8+XHJcbiAgKTtcclxufVxyXG5cclxuY29uc3QgbWFwU3RhdGUgPSAoXHJcbiAge1xyXG4gICAgc3RvcmU6IHtcclxuICAgICAgY2l0eSxcclxuICAgICAgcHJvZHVjdHMsXHJcbiAgICAgIGJhbm5lcnMsXHJcbiAgICAgIGNhdGVnb3JpZXMsXHJcbiAgICAgIGNhdGFsb2dTdHJ1Y3R1cmUsXHJcbiAgICAgIHN0aWNreVRhYnMsXHJcbiAgICB9LFxyXG4gICAgbW9kYWw6IHsgb3Blbk1vZGFsQmcgfSxcclxuICB9LFxyXG4gIHtcclxuICAgIHJvdXRlcjoge1xyXG4gICAgICBxdWVyeTogeyBwYXRoIH0sXHJcbiAgICB9LFxyXG4gIH1cclxuKSA9PiB7XHJcbiAgcmV0dXJuIHtcclxuICAgIGNhdGFsb2dTdHJ1Y3R1cmUsXHJcbiAgICBjYXRlZ29yaWVzLFxyXG4gICAgY2l0eSxcclxuICAgIHByb2R1Y3RzLFxyXG4gICAgcGF0aCxcclxuICAgIGJhbm5lcnMsXHJcbiAgICBzdGlja3lUYWJzLFxyXG4gICAgb3Blbk1vZGFsQmcsXHJcbiAgfTtcclxufTtcclxuXHJcbmV4cG9ydCBkZWZhdWx0IHdpdGhSb3V0ZXIoY29ubmVjdChtYXBTdGF0ZSkoTGF5b3V0KSk7XHJcbiJdfQ== */
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkM6XFxVc2Vyc1xc0JDQu9C10LrRgdC10LlcXERlc2t0b3BcXEFsbCBXb3JrXFxuZXh0LW9mZmljaWFsLWd1aWRlXFxjb21wb25lbnRzXFxMYXlvdXQuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBaUV5QixBQUdpRCxzQ0FDeEMiLCJmaWxlIjoiQzpcXFVzZXJzXFzQkNC70LXQutGB0LXQuVxcRGVza3RvcFxcQWxsIFdvcmtcXG5leHQtb2ZmaWNpYWwtZ3VpZGVcXGNvbXBvbmVudHNcXExheW91dC5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBMaW5rIGZyb20gJ25leHQvbGluayc7XHJcbmltcG9ydCBSb3V0ZXIgZnJvbSAnbmV4dC9yb3V0ZXInO1xyXG5pbXBvcnQgc3R5bGVzIGZyb20gJy4vaW5kZXgubW9kdWxlLnNjc3MnO1xyXG4vLyBpbXBvcnQgbG9hZGVyIGZyb20gJy4uL3B1YmxpYy9pbWcvbG9hZGVyLmdpZic7XHJcbmltcG9ydCBIZWFkZXIgZnJvbSAnLi9CYXNpYy9IZWFkZXInO1xyXG5pbXBvcnQgU3RpY2t5SGVhZGVyIGZyb20gJy4uL2NvbXBvbmVudHMvQmFzaWMvU3RpY2t5SGVhZGVyJztcclxuaW1wb3J0IEZvb3RlciBmcm9tICcuL0Jhc2ljL0Zvb3Rlcic7XHJcbmltcG9ydCB7IGNvbm5lY3QgfSBmcm9tICdyZWFjdC1yZWR1eCc7XHJcbmltcG9ydCB7IHdpdGhSb3V0ZXIgfSBmcm9tICduZXh0L3JvdXRlcic7XHJcbmltcG9ydCBFcnJvciBmcm9tICcuLi9wYWdlcy9fZXJyb3InO1xyXG5mdW5jdGlvbiBMYXlvdXQocHJvcHMpIHtcclxuICAvLyDQndC1INGA0LDQsdC+0YLQsNC10YIsINCx0Y3QtCDRgdC10YLQodGC0LXQudGCXHJcbiAgLy8gcHJvcHMuZGlzcGF0Y2hDYXRlZ29yaWVzV2l0aE1haW4oc3RpY2t5VGFic1dpdGhNYWluKTtcclxuICBjb25zdCB0aGlzUm91dGVQcm9kdWN0cyA9IHByb3BzLnByb2R1Y3RzWzBdLmZpbmQoKGl0ZW0pID0+IHtcclxuICAgIC8vINCV0YHQu9C4INCz0LvQsNCy0L3QsNGPINGB0YLRgNCw0L3QuNGG0LAsINGC0L4g0L3QsNC00L4g0L/Qvi3QvtGB0L7QsdC+0LzRgyDQuNGB0LrQsNGC0Ywg0LXRkSDQuNC80Y9cclxuICAgIGlmIChwcm9wcy5wYXRoID09PSB1bmRlZmluZWQpIHtcclxuICAgICAgcmV0dXJuIGl0ZW0uaXRlbU5hbWUgPT09ICdtYWluJztcclxuICAgIH1cclxuICAgIHJldHVybiBpdGVtLml0ZW1OYW1lID09PSBwcm9wcy5wYXRoO1xyXG4gIH0pO1xyXG5cclxuICBjb25zdCB0aGlzUm91dGVUYWIgPSBwcm9wcy5zdGlja3lUYWJzLnN0aWNreVRhYnMuZmluZChcclxuICAgIChpdGVtKSA9PiBpdGVtLnBhdGggPT09IHByb3BzLnBhdGhcclxuICApO1xyXG4gIC8vINCV0YHQu9C4INCz0LvQsNCy0L3QsNGPINGB0YLRgNCw0L3QuNGG0LAsINGC0L4g0L3QtSDQuNGB0LrQsNGC0YwsINC40L3QsNGH0LUg0YHRgtGA0LDQvdC40YbQsCDRg9C/0LDQtNC10YJcclxuICBjb25zdCB0aGlzUm91dGVCYW5uZXIgPVxyXG4gICAgcHJvcHMucGF0aCA9PT0gdW5kZWZpbmVkXHJcbiAgICAgID8gZmFsc2VcclxuICAgICAgOiBwcm9wcy5iYW5uZXJzLml0ZW1zLmZpbmQoKGl0ZW0pID0+XHJcbiAgICAgICAgICB0aGlzUm91dGVUYWIuYmFubmVyc1swXVxyXG4gICAgICAgICAgICA/IHRoaXNSb3V0ZVRhYi5iYW5uZXJzWzBdLmlkID09PSBpdGVtLmlkXHJcbiAgICAgICAgICAgIDogZmFsc2VcclxuICAgICAgICApO1xyXG4gIC8vIGNvbnNvbGUubG9nKHRoaXNSb3V0ZUJhbm5lciwgJyB0aGlzUm91dGVCYW5uZXInKTtcclxuICBjb25zdCBjaGlsZHJlbiA9IFJlYWN0LkNoaWxkcmVuLm1hcChwcm9wcy5jaGlsZHJlbiwgKGNoaWxkLCBpbmRleCkgPT4ge1xyXG4gICAgcmV0dXJuIFJlYWN0LmNsb25lRWxlbWVudChjaGlsZCwge1xyXG4gICAgICB0YWI6IHRoaXNSb3V0ZVRhYixcclxuICAgICAgY3VycmVudFBhZ2VJbmRleDogaW5kZXgsXHJcbiAgICAgIHRoaXNSb3V0ZVByb2R1Y3RzLFxyXG4gICAgICB0aGlzUm91dGVCYW5uZXIsXHJcbiAgICB9KTtcclxuICB9KTtcclxuICByZXR1cm4gKFxyXG4gICAgPD5cclxuICAgICAgPEhlYWRlciAvPlxyXG4gICAgICA8U3RpY2t5SGVhZGVyIHN0aWNreVRhYnM9e3Byb3BzLnN0aWNreVRhYnMuc3RpY2t5VGFic30gLz5cclxuICAgICAgPG1haW4+XHJcbiAgICAgICAgey8qINCy0L7Qt9C80L7QttC90L4g0LIg0LHRg9C00YPRidC10Lwg0YPQsdC10YDRgyDQvtGC0YHRjtC00LAgKi99XHJcbiAgICAgICAgPGRpdiBjbGFzc05hbWU9e3N0eWxlc1snY29udGFpbmVyX19mdWxsJ119PlxyXG4gICAgICAgICAgey8qIHt0aGlzLnN0YXRlLmxvYWRlZCA9PT0gJ25vJyA/IChcclxuICAgICAgICAgICAgICA8ZGl2XHJcbiAgICAgICAgICAgICAgICBzdHlsZT17e1xyXG4gICAgICAgICAgICAgICAgICBtYXJnaW46ICc1MHB4JyxcclxuICAgICAgICAgICAgICAgICAganVzdGlmeUNvbnRlbnQ6ICdjZW50ZXInLFxyXG4gICAgICAgICAgICAgICAgICBkaXNwbGF5OiAnZmxleCcsXHJcbiAgICAgICAgICAgICAgICB9fVxyXG4gICAgICAgICAgICAgID5cclxuICAgICAgICAgICAgICAgIDxpbWcgc3JjPVwiL2ltZy9sb2FkZXIuZ2lmXCIgYWx0PVwibG9hZGVyXCIgLz5cclxuICAgICAgICAgICAgICA8L2Rpdj5cclxuICAgICAgICAgICAgKSA6ICggKi99XHJcbiAgICAgICAgICA8PntjaGlsZHJlbn08Lz5cclxuICAgICAgICAgIHsvKiApfSAqL31cclxuICAgICAgICA8L2Rpdj5cclxuICAgICAgPC9tYWluPlxyXG4gICAgICA8Rm9vdGVyIC8+XHJcbiAgICAgIDxzdHlsZSBqc3ggZ2xvYmFsPntgXHJcbiAgICAgICAgYm9keSB7XHJcbiAgICAgICAgICBvdmVyZmxvdzogJHtwcm9wcy5vcGVuTW9kYWxCZyA9PT0gdHJ1ZSA/ICdoaWRkZW4nIDogJ25vbmUnfTtcclxuICAgICAgICB9XHJcbiAgICAgIGB9PC9zdHlsZT5cclxuICAgIDwvPlxyXG4gICk7XHJcbn1cclxuXHJcbmNvbnN0IG1hcFN0YXRlID0gKFxyXG4gIHtcclxuICAgIHN0b3JlOiB7XHJcbiAgICAgIGNpdHksXHJcbiAgICAgIHByb2R1Y3RzLFxyXG4gICAgICBiYW5uZXJzLFxyXG4gICAgICBjYXRlZ29yaWVzLFxyXG4gICAgICBjYXRhbG9nU3RydWN0dXJlLFxyXG4gICAgICBzdGlja3lUYWJzLFxyXG4gICAgfSxcclxuICAgIG1vZGFsOiB7IG9wZW5Nb2RhbEJnIH0sXHJcbiAgfSxcclxuICB7XHJcbiAgICByb3V0ZXI6IHtcclxuICAgICAgcXVlcnk6IHsgcGF0aCB9LFxyXG4gICAgfSxcclxuICB9XHJcbikgPT4ge1xyXG4gIHJldHVybiB7XHJcbiAgICBjYXRhbG9nU3RydWN0dXJlLFxyXG4gICAgY2F0ZWdvcmllcyxcclxuICAgIGNpdHksXHJcbiAgICBwcm9kdWN0cyxcclxuICAgIHBhdGgsXHJcbiAgICBiYW5uZXJzLFxyXG4gICAgc3RpY2t5VGFicyxcclxuICAgIG9wZW5Nb2RhbEJnLFxyXG4gIH07XHJcbn07XHJcblxyXG5leHBvcnQgZGVmYXVsdCB3aXRoUm91dGVyKGNvbm5lY3QobWFwU3RhdGUpKExheW91dCkpO1xyXG4iXX0= */
 /*@ sourceURL=C:\\Users\\Алексей\\Desktop\\All Work\\next-official-guide\\components\\Layout.js */`));
 }
 
@@ -2980,6 +3335,40 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //   return { ...appProps }
 // }
+
+/***/ }),
+
+/***/ "./pages/_error.js":
+/*!*************************!*\
+  !*** ./pages/_error.js ***!
+  \*************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _jsxFileName = "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0435\u0439\\Desktop\\All Work\\next-official-guide\\pages\\_error.js";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+/* harmony default export */ __webpack_exports__["default"] = (({
+  statusCode
+}) => __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("h1", {
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 3,
+    columnNumber: 5
+  }
+}, "Error"), statusCode ? `Could not load your user data: Status code ${statusCode}` : '', __jsx("p", {
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 7,
+    columnNumber: 5
+  }
+}, "Couldn't get that page, sorry")));
 
 /***/ }),
 

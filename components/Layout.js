@@ -7,11 +7,10 @@ import StickyHeader from '../components/Basic/StickyHeader';
 import Footer from './Basic/Footer';
 import { connect } from 'react-redux';
 import { withRouter } from 'next/router';
-
+import Error from '../pages/_error';
 function Layout(props) {
   // Не работает, бэд сетСтейт
   // props.dispatchCategoriesWithMain(stickyTabsWithMain);
-  console.log(props, ' PROPS');
   const thisRouteProducts = props.products[0].find((item) => {
     // Если главная страница, то надо по-особому искать её имя
     if (props.path === undefined) {

@@ -5,6 +5,8 @@ import Product from '../components/Products/Product';
 import { filteredEntityByViewIntervals } from '../utils/filteredEntityByViewIntervals';
 import sortWithSortIndex from '../utils/sortWithSortIndex';
 import s from './subroutes.module.scss';
+import Error from '../pages/_error';
+
 /**
  * TODO: Сделать жсдокс нормальыне на файлы
  * @param {} props
@@ -31,16 +33,29 @@ function subroute(props) {
   );
 }
 
-subroute.getInitialProps = async (ctx) => {
-  // params contains the post `id`.
-  // If the route is like /posts/1, then params.id is 1
-  const resqueMe = await fetcher(
-    `http://fakerestapi.azurewebsites.net/api/Books/1`
-  );
-  console.log(resqueMe, ' RESPOSEN \n\n\n\n\n\n\n\n\n\n\n\n');
-  // Pass post data to the page via props
-  return { props: resqueMe };
-};
+// export async function getStaticPaths() {
+//   return {
+//     paths: [
+//       'rolly', // See the "paths" section below
+//     ],
+//     fallback: false, // See the "fallback" section below
+//   };
+// }
+
+// export async function getStaticProps() {
+//   return {};
+// }
+
+// subroute.getInitialProps = async (ctx) => {
+//   // params contains the post `id`.
+//   // If the route is like /posts/1, then params.id is 1
+//   const resqueMe = await fetcher(
+//     `http://fakerestapi.azurewebsites.net/api/Books/1`
+//   );
+//   console.log(resqueMe, ' RESPOSEN \n\n\n\n\n\n\n\n\n\n\n\n');
+//   // Pass post data to the page via props
+//   return { props: resqueMe };
+// };
 
 // export async function getStaticPaths() {
 //   const paths = ['rolly'];

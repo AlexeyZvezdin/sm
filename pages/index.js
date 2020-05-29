@@ -16,7 +16,6 @@ import styles from './index.module.scss';
 import { filteredEntityByViewIntervals } from '../utils/filteredEntityByViewIntervals';
 import { splittedBanners } from '../components/Banners/splittedBanners';
 import { renderBanners } from '../components/Banners/renderBanners';
-
 // { data, allCities, error }
 /**
  * @param {number} currentPageIndex — seems to me useless num, but let's see to the future
@@ -58,7 +57,7 @@ function Index(props) {
   return (
     <>
       {resolveBanners(products)}
-      {children}
+      {/* {children} */}
     </>
   );
 }
