@@ -1,6 +1,5 @@
 .products {
   display: flex;
-  flex-wrap: wrap;
   width: 100%;
   justify-content: space-between;
 }
@@ -63,6 +62,7 @@
 .product-prices {
   display: flex;
   align-items: center;
+  white-space: nowrap;
 }
 
 .price-prev {
@@ -226,4 +226,23 @@
 
 .product-info-display {
   display: none;
+}
+
+//  BANNERS
+
+@media (max-width: 1330px) {
+  .banners {
+    flex-wrap: wrap;
+  }
+  .banner {
+    max-width: 100%;
+  }
+  .products {
+    flex-wrap: wrap;
+  }
+
+  // .banners__swiper-container,
+  // .banners__swiper-container img {
+  //   width: 50%;
+  // }
 }

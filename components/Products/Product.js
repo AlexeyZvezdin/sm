@@ -7,8 +7,8 @@ import {
 } from '../../redux/actions/cardCounter';
 
 function Product({ product, store, ...props }) {
-  console.log(props, ' props');
-  console.log(store, ' store');
+  // console.log(props, ' props');
+  // console.log(store, ' store');
   const [cartButtonCounter, setCartButtonCounter] = React.useState(0);
   const [productInfo, setProductInfo] = React.useState(true);
 

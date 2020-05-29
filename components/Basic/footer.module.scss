@@ -137,3 +137,14 @@ a.footer__quiz-link {
 .yandex-dzen {
   background-image: url('/img/yandex_dzen.svg');
 }
+
+@media (max-width: 1330px) {
+  .footer-box {
+    flex-wrap: wrap;
+  }
+  .footer-col {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 24px;
+  }
+}

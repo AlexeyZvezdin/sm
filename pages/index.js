@@ -25,10 +25,9 @@ import { renderBanners } from '../components/Banners/renderBanners';
  * @param {products} {count: number, items: arrayOf[Object]}
  *
  *
- *
  */
 function Index(props) {
-  // console.log(props, ' PROPS main');
+  console.log(props, ' PROPS main');
   const { query } = useRouter();
   const [bannerCounter, setBannerCounter] = React.useState(0);
   // const products =
@@ -55,10 +54,43 @@ function Index(props) {
   });
 
   return (
-    <>
+    <div className="main_box">
+      <div className="subcategory-selector">
+        <h1 className="subcategory-selector__selected ">
+          СУШИ МАСТЕР В {props.city.namePrepositional}
+        </h1>
+      </div>
       {resolveBanners(products)}
       {/* {children} */}
-    </>
+      <style jsx>{`
+        .main_box {
+          display: flex;
+          flex-direction: column;
+        }
+        .subcategory-selector {
+          background-color: #fff;
+          min-height: 80px;
+          padding: 20px;
+          box-shadow: inset 0 -1px 0 0 rgba(29, 29, 29, 0.07);
+        }
+        .subcategory-selector__selected {
+          font-size: 28px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+          font-family: Pusia;
+          font-weight: 800;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: 1.45;
+          letter-spacing: 1px;
+          color: #1d1d1d;
+          text-transform: uppercase;
+          white-space: wrap;
+        }
+      `}</style>
+    </div>
   );
 }
 

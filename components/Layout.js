@@ -38,6 +38,7 @@ function Layout(props) {
       currentPageIndex: index,
       thisRouteProducts,
       thisRouteBanner,
+      // city: props.city,
     });
   });
   return (

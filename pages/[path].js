@@ -22,14 +22,42 @@ function subroute(props) {
   // console.log(props.thisRouteProducts.items, ' props.thisRouteProducts.items');
   // console.log(products, ' products');
   return (
-    <div className="route-container">
-      <div className={s['route-banner']}>
-        <img className={s['route-banner-pic']} src={bannerPath} alt="" />
+    <>
+      <div className="subcategory-selector">
+        <h1 className="subcategory-selector__selected">{props.tab.name}</h1>
       </div>
-      {products.map((product, index) => (
-        <Product key={index} product={product} />
-      ))}
-    </div>
+      <div className={s['route-container']}>
+        <div className={s['route-banner']}>
+          <img className={s['route-banner-pic']} src={bannerPath} alt="" />
+        </div>
+        {products.map((product, index) => (
+          <Product key={index} product={product} />
+        ))}
+      </div>
+      <style jsx>{`
+        .subcategory-selector {
+          background-color: #fff;
+          height: 80px;
+          padding: 20px;
+          box-shadow: inset 0 -1px 0 0 rgba(29, 29, 29, 0.07);
+        }
+        .subcategory-selector__selected {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+          font-family: Pusia;
+          font-weight: 800;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: 1.45;
+          letter-spacing: 1px;
+          color: #1d1d1d;
+          text-transform: uppercase;
+          white-space: nowrap;
+        }
+      `}</style>
+    </>
   );
 }
 
