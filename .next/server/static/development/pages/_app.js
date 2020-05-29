@@ -273,12 +273,30 @@ const Footer = props => {
       lineNumber: 39,
       columnNumber: 13
     }
-  }, "\u0417\u0430\u043A\u0430\u0437\u0430\u043B \u0432 \u0421\u0443\u0448\u0438 \u041C\u0430\u0441\u0442\u0435\u0440?"))), __jsx("div", {
+  }, "\u0417\u0430\u043A\u0430\u0437\u0430\u043B \u0432 \u0421\u0443\u0448\u0438 \u041C\u0430\u0441\u0442\u0435\u0440?"), __jsx("a", {
+    class: "footer__quiz-link",
+    target: "_blank",
+    href: "http://opros.sushi-master.ru/?utm_source=site&utm_medium=link",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 40,
+      columnNumber: 13
+    }
+  }, "\u041F\u0440\u043E\u0439\u0434\u0438 \u043E\u043F\u0440\u043E\u0441. \u041F\u043E\u043C\u043E\u0433\u0438 \u043D\u0430\u043C \u0441\u0442\u0430\u0442\u044C \u043B\u0443\u0447\u0448\u0435!"), __jsx("p", {
+    class: "footer__quiz-text-bot",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 47,
+      columnNumber: 13
+    }
+  }, "\u041C\u044B \u0431\u0443\u0434\u0435\u043C \u043E\u0447\u0435\u043D\u044C \u043F\u0440\u0438\u0437\u043D\u0430\u0442\u0435\u043B\u044C\u043D\u044B"))), __jsx("div", {
     className: "footer-col",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 42,
+      lineNumber: 50,
       columnNumber: 9
     }
   }, __jsx("div", {
@@ -286,7 +304,7 @@ const Footer = props => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 43,
+      lineNumber: 51,
       columnNumber: 11
     }
   }, __jsx("a", {
@@ -296,7 +314,7 @@ const Footer = props => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 44,
+      lineNumber: 52,
       columnNumber: 13
     }
   }, __jsx("div", {
@@ -304,7 +322,7 @@ const Footer = props => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 49,
+      lineNumber: 57,
       columnNumber: 15
     }
   })), __jsx("a", {
@@ -314,7 +332,7 @@ const Footer = props => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 51,
+      lineNumber: 59,
       columnNumber: 13
     }
   }, __jsx("div", {
@@ -322,7 +340,7 @@ const Footer = props => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 56,
+      lineNumber: 64,
       columnNumber: 15
     }
   })), __jsx("div", {
@@ -334,7 +352,7 @@ const Footer = props => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 58,
+      lineNumber: 66,
       columnNumber: 13
     }
   }, __jsx("a", {
@@ -344,7 +362,7 @@ const Footer = props => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 62,
+      lineNumber: 70,
       columnNumber: 15
     }
   }, __jsx("div", {
@@ -352,7 +370,7 @@ const Footer = props => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 67,
+      lineNumber: 75,
       columnNumber: 17
     }
   })), __jsx("a", {
@@ -362,7 +380,7 @@ const Footer = props => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 69,
+      lineNumber: 77,
       columnNumber: 15
     }
   }, __jsx("div", {
@@ -370,7 +388,7 @@ const Footer = props => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 74,
+      lineNumber: 82,
       columnNumber: 17
     }
   })), __jsx("a", {
@@ -380,7 +398,7 @@ const Footer = props => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 76,
+      lineNumber: 84,
       columnNumber: 15
     }
   }, __jsx("div", {
@@ -388,7 +406,7 @@ const Footer = props => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 81,
+      lineNumber: 89,
       columnNumber: 17
     }
   })), __jsx("a", {
@@ -398,7 +416,7 @@ const Footer = props => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 83,
+      lineNumber: 91,
       columnNumber: 15
     }
   }, __jsx("img", {
@@ -411,7 +429,7 @@ const Footer = props => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 88,
+      lineNumber: 96,
       columnNumber: 17
     }
   }))))), __jsx("div", {
@@ -419,7 +437,7 @@ const Footer = props => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 97,
+      lineNumber: 105,
       columnNumber: 9
     }
   }, __jsx("div", {
@@ -430,7 +448,7 @@ const Footer = props => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 98,
+      lineNumber: 106,
       columnNumber: 11
     }
   }, "Made with", ' ', __jsx("span", {
@@ -439,7 +457,7 @@ const Footer = props => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 100,
+      lineNumber: 108,
       columnNumber: 13
     }
   }, "\u2764\uFE0F"), ' ', "from", ' ', __jsx("a", {
@@ -450,7 +468,7 @@ const Footer = props => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 104,
+      lineNumber: 112,
       columnNumber: 13
     }
   }, "UnitBean")))));
@@ -882,6 +900,8 @@ module.exports = {
 	"footer__inn": "footer__inn",
 	"footer__phone": "footer__phone",
 	"footer__quiz": "footer__quiz",
+	"footer__quiz-link": "footer__quiz-link",
+	"footer__quiz-text-bot": "footer__quiz-text-bot",
 	"footer__quiz-text": "footer__quiz-text",
 	"footer__apps": "footer__apps",
 	"footer__apps__badge": "footer__apps__badge",

@@ -54,7 +54,21 @@
 .footer__quiz {
   background-color: #eb673d;
   padding: 22px 16px;
-  height: 100%;
+  padding: 22px 16px;
+  height: 240px;
+  color: white;
+}
+
+a.footer__quiz-link {
+  text-decoration: underline;
+  font-size: 1.4rem;
+  color: white;
+  margin-top: 14px;
+}
+
+.footer__quiz-text-bot {
+  font-size: 1rem;
+  margin-top: 30px;
 }
 
 .footer__quiz-text {

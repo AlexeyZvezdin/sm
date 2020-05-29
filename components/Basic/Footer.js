@@ -37,6 +37,14 @@ const Footer = (props) => {
         >
           <div className="footer__quiz">
             <p className="footer__quiz-text">Заказал в Суши Мастер?</p>
+            <a
+              class="footer__quiz-link"
+              target="_blank"
+              href="http://opros.sushi-master.ru/?utm_source=site&amp;utm_medium=link"
+            >
+              Пройди опрос. Помоги нам стать лучше!
+            </a>
+            <p class="footer__quiz-text-bot">Мы будем очень признательны</p>
           </div>
         </div>
         <div className="footer-col">

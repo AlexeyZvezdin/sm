@@ -13,19 +13,19 @@ function Product({ product, store, ...props }) {
   const [productInfo, setProductInfo] = React.useState(true);
 
   const handleCounterClick = (action) => {
-    // if (action === 'inc') {
-    //   localStorage.setItem(
-    //     'cardCounter',
-    //     Number(localStorage.getItem('cardCounter')) + 1
-    //   );
-    //   props.cardCounterIncrement();
-    // } else if (action === 'dec') {
-    //   localStorage.setItem(
-    //     'cardCounter',
-    //     Number(localStorage.getItem('cardCounter')) - 1
-    //   );
-    //   props.cardCounterDecrement();
-    // }
+    if (action === 'inc') {
+      localStorage.setItem(
+        'cardCounter',
+        Number(localStorage.getItem('cardCounter')) + 1
+      );
+      props.cardCounterIncrement();
+    } else if (action === 'dec') {
+      localStorage.setItem(
+        'cardCounter',
+        Number(localStorage.getItem('cardCounter')) - 1
+      );
+      props.cardCounterDecrement();
+    }
   };
 
   return (
