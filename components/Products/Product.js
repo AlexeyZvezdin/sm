@@ -27,7 +27,9 @@ function Product({ product, store, ...props }) {
       props.cardCounterDecrement();
     }
   };
-
+  console.log(product, ' PROPS PRODUCTs');
+  console.log(store, ' PROPS store');
+  console.log(props, ' PROPS props');
   return (
     <div className={p_s['product']} key={product.id}>
       <div
@@ -138,10 +140,10 @@ function Product({ product, store, ...props }) {
   );
 }
 
-Product.getInitialProps = ({ store, isServer, pathname, query }) => {
-  //store.dispatch(cardCounterIncrement()); // The component can read from the store's state when rendered
-  return { store }; // You can pass some custom props to the component from here
-};
+// Product.getInitialProps = ({ store, isServer, pathname, query }) => {
+//   //store.dispatch(cardCounterIncrement()); // The component can read from the store's state when rendered
+//   return { store }; // You can pass some custom props to the component from here
+// };
 
 // const mapState = ({ card: { cardCounter } }) => ({ cardCounter });
 const mapState = (state) => state;
