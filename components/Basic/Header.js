@@ -35,6 +35,7 @@ class Header extends React.Component {
     headerOffset: 0,
     showCitySelector: false,
     cardCounter: 0,
+    totalPrice: 0,
   };
 
   async componentDidMount() {
@@ -108,7 +109,8 @@ class Header extends React.Component {
           <Link href="/cart">
             <a className={s['header-cart_n_login']}>
               <div className={s['header-cart_n_login-price']}>
-                Price<span>₽</span>
+                {this.state.totalPrice}
+                <span> ₽</span>
               </div>
               <div className={s['header-cart_n_login-card_icon']}>
                 <div className={s['header-cart_n_login__icon']}>

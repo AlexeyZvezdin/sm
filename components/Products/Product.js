@@ -12,6 +12,7 @@ function Product({ product, store, ...props }) {
   const [cartButtonCounter, setCartButtonCounter] = React.useState(0);
   const [localProductCounter, setlocalProductCounter] = React.useState(0);
   const [productInfo, setProductInfo] = React.useState(true);
+  const [CounterFromLS, setCounterFromLS] = React.useState(0);
 
   const handleCounterClick = async (action) => {
     if (action === 'inc') {
@@ -80,7 +81,7 @@ function Product({ product, store, ...props }) {
   };
 
   const getCounterFromLS = () => {
-    if (window === undefined) {
+    if (typeof window === 'undefined') {
       return 0;
     }
 
@@ -97,7 +98,7 @@ function Product({ product, store, ...props }) {
   // Количество для каждого продукта
   const returnEachProductFromStorage = async () => {
     // localy there is no localstorage
-    if (window === undefined) {
+    if (typeof window !== 'undefined') {
       return 'window is undefined';
     }
     const preResult = await localStorage.getItem(`inCardProduct:${product.id}`);
@@ -110,6 +111,14 @@ function Product({ product, store, ...props }) {
       return result;
     }
   };
+
+  // const sumCounter = (productPrice&Id, action) => {
+  //   if (action === 'add') {
+
+  //   } else if (action === 'del') {
+
+  //   }
+  // }
 
   return (
     <div className={p_s['product']} key={product.id}>
