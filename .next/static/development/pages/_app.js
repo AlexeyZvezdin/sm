@@ -543,7 +543,7 @@ var Header = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
-      console.log(this.props, ' HEADER PRPS');
+      // console.log(this.props, ' HEADER PRPS');
       var menu = links.map(function (el, index) {
         return __jsx("li", {
           key: index,

@@ -568,7 +568,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
   }
 
   render() {
-    console.log(this.props, ' HEADER PRPS');
+    // console.log(this.props, ' HEADER PRPS');
     const menu = links.map((el, index) => __jsx("li", {
       key: index,
       __self: this,

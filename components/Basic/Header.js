@@ -61,7 +61,7 @@ class Header extends React.Component {
   }
 
   render() {
-    console.log(this.props, ' HEADER PRPS');
+    // console.log(this.props, ' HEADER PRPS');
     const menu = links.map((el, index) => (
       <li key={index}>
         <a href={el.link}>{el.name}</a>
