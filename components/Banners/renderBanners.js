@@ -16,41 +16,38 @@ export let renderBanners = (banners, index, products) => {
     },
   };
   return (
-    <>
-      <div
-        key={banners[0].id}
-        style={{
-          display: 'flex',
-          flexDirection: index % 2 ? 'row-reverse' : 'row',
-        }}
-        className="banners"
-      >
-        <div className={bannersStyles['banner']}>
-          <div className={bannersStyles['banners__swiper-container']}>
-            <Swiper
-              shouldSwiperUpdate={true}
-              rebuildOnUpdate={true}
-              {...swiperParams}
-            >
-              {banners.map((el) => (
-                <img
-                  key={el.id}
-                  style={{
-                    padding: '1px',
-                  }}
-                  src={`https://client-api.sushi-master.ru/pics/${el.pictureId}`}
-                />
-              ))}
-            </Swiper>
-          </div>
-        </div>
-        <div className={p_s['products']}>
-          <Product product={products[0]} />
-          <Product product={products[1]} />
+    <div
+      key={banners[0].id}
+      style={{
+        display: 'flex',
+        flexDirection: index % 2 ? 'row-reverse' : 'row',
+      }}
+      className="banners"
+    >
+      <div className={'banner'}>
+        <div className={'banners__swiper-container'}>
+          <Swiper
+            shouldSwiperUpdate={true}
+            rebuildOnUpdate={true}
+            {...swiperParams}
+          >
+            {banners.map((el) => (
+              <img
+                key={el.id}
+                style={{
+                  padding: '1px',
+                }}
+                src={`https://client-api.sushi-master.ru/pics/${el.pictureId}`}
+              />
+            ))}
+          </Swiper>
         </div>
       </div>
-      <style jsx>{``}</style>
-    </>
+      <div className={p_s['products']}>
+        <Product product={products[0]} />
+        <Product product={products[1]} />
+      </div>
+    </div>
   );
 };
 // {JSON.stringify(products[1])}

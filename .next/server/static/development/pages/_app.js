@@ -552,7 +552,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
     const LScounter = await localStorage.getItem('cardCounter');
     console.log(LScounter, ' LScounter');
 
-    if (LScounter === 0) {
+    if (!LScounter) {
       return;
     } else if (LScounter > 0) {
       this.setState(_objectSpread({}, this.state, {
@@ -1030,16 +1030,17 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
 function Layout(props) {
+  // console.log(props, ' PROPS');
   // Не работает, бэд сетСтейт
   // props.dispatchCategoriesWithMain(stickyTabsWithMain);
-  const thisRouteProducts = props.products[0].find(item => {
-    // Если главная страница, то надо по-особому искать её имя
-    if (props.path === undefined) {
-      return item.itemName === 'main';
-    }
-
-    return item.itemName === props.path;
-  });
+  // const thisRouteProducts = props.products[0].find((item) => {
+  //   // Если главная страница, то надо по-особому искать её имя
+  //   if (props.path === undefined) {
+  //     return item.itemName === 'main';
+  //   }
+  //   return item.itemName === props.path;
+  // });
+  const thisRouteProducts = props.products[0].result;
   const thisRouteTab = props.stickyTabs.stickyTabs.find(item => item.path === props.path); // Если главная страница, то не искать, иначе страница упадет
 
   const thisRouteBanner = props.path === undefined ? false : props.banners.items.find(item => thisRouteTab.banners[0] ? thisRouteTab.banners[0].id === item.id : false); // console.log(thisRouteBanner, ' thisRouteBanner');
@@ -1057,7 +1058,7 @@ function Layout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46,
+      lineNumber: 49,
       columnNumber: 7
     }
   }), __jsx(_components_Basic_StickyHeader__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -1065,7 +1066,7 @@ function Layout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47,
+      lineNumber: 50,
       columnNumber: 7
     }
   }), __jsx("main", {
@@ -1073,7 +1074,7 @@ function Layout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 48,
+      lineNumber: 51,
       columnNumber: 7
     }
   }, __jsx("div", {
@@ -1081,14 +1082,14 @@ function Layout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50,
+      lineNumber: 53,
       columnNumber: 9
     }
   }, __jsx(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, children))), __jsx(_Basic_Footer__WEBPACK_IMPORTED_MODULE_7__["default"], {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 66,
+      lineNumber: 69,
       columnNumber: 7
     }
   }), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
@@ -1096,7 +1097,7 @@ function Layout(props) {
     dynamic: [props.openModalBg === true ? 'hidden' : 'none'],
     __self: this
   }, `body{overflow:${props.openModalBg === true ? 'hidden' : 'none'};}
-/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkM6XFxVc2Vyc1xc0JDQu9C10LrRgdC10LlcXERlc2t0b3BcXEFsbCBXb3JrXFxuZXh0LW9mZmljaWFsLWd1aWRlXFxjb21wb25lbnRzXFxMYXlvdXQuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBa0V5QixBQUdpRCxzQ0FDeEMiLCJmaWxlIjoiQzpcXFVzZXJzXFzQkNC70LXQutGB0LXQuVxcRGVza3RvcFxcQWxsIFdvcmtcXG5leHQtb2ZmaWNpYWwtZ3VpZGVcXGNvbXBvbmVudHNcXExheW91dC5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBMaW5rIGZyb20gJ25leHQvbGluayc7XHJcbmltcG9ydCBSb3V0ZXIgZnJvbSAnbmV4dC9yb3V0ZXInO1xyXG5pbXBvcnQgc3R5bGVzIGZyb20gJy4vaW5kZXgubW9kdWxlLnNjc3MnO1xyXG4vLyBpbXBvcnQgbG9hZGVyIGZyb20gJy4uL3B1YmxpYy9pbWcvbG9hZGVyLmdpZic7XHJcbmltcG9ydCBIZWFkZXIgZnJvbSAnLi9CYXNpYy9IZWFkZXInO1xyXG5pbXBvcnQgU3RpY2t5SGVhZGVyIGZyb20gJy4uL2NvbXBvbmVudHMvQmFzaWMvU3RpY2t5SGVhZGVyJztcclxuaW1wb3J0IEZvb3RlciBmcm9tICcuL0Jhc2ljL0Zvb3Rlcic7XHJcbmltcG9ydCB7IGNvbm5lY3QgfSBmcm9tICdyZWFjdC1yZWR1eCc7XHJcbmltcG9ydCB7IHdpdGhSb3V0ZXIgfSBmcm9tICduZXh0L3JvdXRlcic7XHJcbmltcG9ydCBFcnJvciBmcm9tICcuLi9wYWdlcy9fZXJyb3InO1xyXG5mdW5jdGlvbiBMYXlvdXQocHJvcHMpIHtcclxuICAvLyDQndC1INGA0LDQsdC+0YLQsNC10YIsINCx0Y3QtCDRgdC10YLQodGC0LXQudGCXHJcbiAgLy8gcHJvcHMuZGlzcGF0Y2hDYXRlZ29yaWVzV2l0aE1haW4oc3RpY2t5VGFic1dpdGhNYWluKTtcclxuICBjb25zdCB0aGlzUm91dGVQcm9kdWN0cyA9IHByb3BzLnByb2R1Y3RzWzBdLmZpbmQoKGl0ZW0pID0+IHtcclxuICAgIC8vINCV0YHQu9C4INCz0LvQsNCy0L3QsNGPINGB0YLRgNCw0L3QuNGG0LAsINGC0L4g0L3QsNC00L4g0L/Qvi3QvtGB0L7QsdC+0LzRgyDQuNGB0LrQsNGC0Ywg0LXRkSDQuNC80Y9cclxuICAgIGlmIChwcm9wcy5wYXRoID09PSB1bmRlZmluZWQpIHtcclxuICAgICAgcmV0dXJuIGl0ZW0uaXRlbU5hbWUgPT09ICdtYWluJztcclxuICAgIH1cclxuICAgIHJldHVybiBpdGVtLml0ZW1OYW1lID09PSBwcm9wcy5wYXRoO1xyXG4gIH0pO1xyXG5cclxuICBjb25zdCB0aGlzUm91dGVUYWIgPSBwcm9wcy5zdGlja3lUYWJzLnN0aWNreVRhYnMuZmluZChcclxuICAgIChpdGVtKSA9PiBpdGVtLnBhdGggPT09IHByb3BzLnBhdGhcclxuICApO1xyXG4gIC8vINCV0YHQu9C4INCz0LvQsNCy0L3QsNGPINGB0YLRgNCw0L3QuNGG0LAsINGC0L4g0L3QtSDQuNGB0LrQsNGC0YwsINC40L3QsNGH0LUg0YHRgtGA0LDQvdC40YbQsCDRg9C/0LDQtNC10YJcclxuICBjb25zdCB0aGlzUm91dGVCYW5uZXIgPVxyXG4gICAgcHJvcHMucGF0aCA9PT0gdW5kZWZpbmVkXHJcbiAgICAgID8gZmFsc2VcclxuICAgICAgOiBwcm9wcy5iYW5uZXJzLml0ZW1zLmZpbmQoKGl0ZW0pID0+XHJcbiAgICAgICAgICB0aGlzUm91dGVUYWIuYmFubmVyc1swXVxyXG4gICAgICAgICAgICA/IHRoaXNSb3V0ZVRhYi5iYW5uZXJzWzBdLmlkID09PSBpdGVtLmlkXHJcbiAgICAgICAgICAgIDogZmFsc2VcclxuICAgICAgICApO1xyXG4gIC8vIGNvbnNvbGUubG9nKHRoaXNSb3V0ZUJhbm5lciwgJyB0aGlzUm91dGVCYW5uZXInKTtcclxuICBjb25zdCBjaGlsZHJlbiA9IFJlYWN0LkNoaWxkcmVuLm1hcChwcm9wcy5jaGlsZHJlbiwgKGNoaWxkLCBpbmRleCkgPT4ge1xyXG4gICAgcmV0dXJuIFJlYWN0LmNsb25lRWxlbWVudChjaGlsZCwge1xyXG4gICAgICB0YWI6IHRoaXNSb3V0ZVRhYixcclxuICAgICAgY3VycmVudFBhZ2VJbmRleDogaW5kZXgsXHJcbiAgICAgIHRoaXNSb3V0ZVByb2R1Y3RzLFxyXG4gICAgICB0aGlzUm91dGVCYW5uZXIsXHJcbiAgICAgIC8vIGNpdHk6IHByb3BzLmNpdHksXHJcbiAgICB9KTtcclxuICB9KTtcclxuICByZXR1cm4gKFxyXG4gICAgPD5cclxuICAgICAgPEhlYWRlciAvPlxyXG4gICAgICA8U3RpY2t5SGVhZGVyIHN0aWNreVRhYnM9e3Byb3BzLnN0aWNreVRhYnMuc3RpY2t5VGFic30gLz5cclxuICAgICAgPG1haW4+XHJcbiAgICAgICAgey8qINCy0L7Qt9C80L7QttC90L4g0LIg0LHRg9C00YPRidC10Lwg0YPQsdC10YDRgyDQvtGC0YHRjtC00LAgKi99XHJcbiAgICAgICAgPGRpdiBjbGFzc05hbWU9e3N0eWxlc1snY29udGFpbmVyX19mdWxsJ119PlxyXG4gICAgICAgICAgey8qIHt0aGlzLnN0YXRlLmxvYWRlZCA9PT0gJ25vJyA/IChcclxuICAgICAgICAgICAgICA8ZGl2XHJcbiAgICAgICAgICAgICAgICBzdHlsZT17e1xyXG4gICAgICAgICAgICAgICAgICBtYXJnaW46ICc1MHB4JyxcclxuICAgICAgICAgICAgICAgICAganVzdGlmeUNvbnRlbnQ6ICdjZW50ZXInLFxyXG4gICAgICAgICAgICAgICAgICBkaXNwbGF5OiAnZmxleCcsXHJcbiAgICAgICAgICAgICAgICB9fVxyXG4gICAgICAgICAgICAgID5cclxuICAgICAgICAgICAgICAgIDxpbWcgc3JjPVwiL2ltZy9sb2FkZXIuZ2lmXCIgYWx0PVwibG9hZGVyXCIgLz5cclxuICAgICAgICAgICAgICA8L2Rpdj5cclxuICAgICAgICAgICAgKSA6ICggKi99XHJcbiAgICAgICAgICA8PntjaGlsZHJlbn08Lz5cclxuICAgICAgICAgIHsvKiApfSAqL31cclxuICAgICAgICA8L2Rpdj5cclxuICAgICAgPC9tYWluPlxyXG4gICAgICA8Rm9vdGVyIC8+XHJcbiAgICAgIDxzdHlsZSBqc3ggZ2xvYmFsPntgXHJcbiAgICAgICAgYm9keSB7XHJcbiAgICAgICAgICBvdmVyZmxvdzogJHtwcm9wcy5vcGVuTW9kYWxCZyA9PT0gdHJ1ZSA/ICdoaWRkZW4nIDogJ25vbmUnfTtcclxuICAgICAgICB9XHJcbiAgICAgIGB9PC9zdHlsZT5cclxuICAgIDwvPlxyXG4gICk7XHJcbn1cclxuXHJcbmNvbnN0IG1hcFN0YXRlID0gKFxyXG4gIHtcclxuICAgIHN0b3JlOiB7XHJcbiAgICAgIGNpdHksXHJcbiAgICAgIHByb2R1Y3RzLFxyXG4gICAgICBiYW5uZXJzLFxyXG4gICAgICBjYXRlZ29yaWVzLFxyXG4gICAgICBjYXRhbG9nU3RydWN0dXJlLFxyXG4gICAgICBzdGlja3lUYWJzLFxyXG4gICAgfSxcclxuICAgIG1vZGFsOiB7IG9wZW5Nb2RhbEJnIH0sXHJcbiAgfSxcclxuICB7XHJcbiAgICByb3V0ZXI6IHtcclxuICAgICAgcXVlcnk6IHsgcGF0aCB9LFxyXG4gICAgfSxcclxuICB9XHJcbikgPT4ge1xyXG4gIHJldHVybiB7XHJcbiAgICBjYXRhbG9nU3RydWN0dXJlLFxyXG4gICAgY2F0ZWdvcmllcyxcclxuICAgIGNpdHksXHJcbiAgICBwcm9kdWN0cyxcclxuICAgIHBhdGgsXHJcbiAgICBiYW5uZXJzLFxyXG4gICAgc3RpY2t5VGFicyxcclxuICAgIG9wZW5Nb2RhbEJnLFxyXG4gIH07XHJcbn07XHJcblxyXG5leHBvcnQgZGVmYXVsdCB3aXRoUm91dGVyKGNvbm5lY3QobWFwU3RhdGUpKExheW91dCkpO1xyXG4iXX0= */
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkM6XFxVc2Vyc1xc0JDQu9C10LrRgdC10LlcXERlc2t0b3BcXEFsbCBXb3JrXFxuZXh0LW9mZmljaWFsLWd1aWRlXFxjb21wb25lbnRzXFxMYXlvdXQuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBcUV5QixBQUdpRCxzQ0FDeEMiLCJmaWxlIjoiQzpcXFVzZXJzXFzQkNC70LXQutGB0LXQuVxcRGVza3RvcFxcQWxsIFdvcmtcXG5leHQtb2ZmaWNpYWwtZ3VpZGVcXGNvbXBvbmVudHNcXExheW91dC5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBMaW5rIGZyb20gJ25leHQvbGluayc7XHJcbmltcG9ydCBSb3V0ZXIgZnJvbSAnbmV4dC9yb3V0ZXInO1xyXG5pbXBvcnQgc3R5bGVzIGZyb20gJy4vaW5kZXgubW9kdWxlLnNjc3MnO1xyXG4vLyBpbXBvcnQgbG9hZGVyIGZyb20gJy4uL3B1YmxpYy9pbWcvbG9hZGVyLmdpZic7XHJcbmltcG9ydCBIZWFkZXIgZnJvbSAnLi9CYXNpYy9IZWFkZXInO1xyXG5pbXBvcnQgU3RpY2t5SGVhZGVyIGZyb20gJy4uL2NvbXBvbmVudHMvQmFzaWMvU3RpY2t5SGVhZGVyJztcclxuaW1wb3J0IEZvb3RlciBmcm9tICcuL0Jhc2ljL0Zvb3Rlcic7XHJcbmltcG9ydCB7IGNvbm5lY3QgfSBmcm9tICdyZWFjdC1yZWR1eCc7XHJcbmltcG9ydCB7IHdpdGhSb3V0ZXIgfSBmcm9tICduZXh0L3JvdXRlcic7XHJcbmltcG9ydCBFcnJvciBmcm9tICcuLi9wYWdlcy9fZXJyb3InO1xyXG5mdW5jdGlvbiBMYXlvdXQocHJvcHMpIHtcclxuICAvLyBjb25zb2xlLmxvZyhwcm9wcywgJyBQUk9QUycpO1xyXG4gIC8vINCd0LUg0YDQsNCx0L7RgtCw0LXRgiwg0LHRjdC0INGB0LXRgtCh0YLQtdC50YJcclxuICAvLyBwcm9wcy5kaXNwYXRjaENhdGVnb3JpZXNXaXRoTWFpbihzdGlja3lUYWJzV2l0aE1haW4pO1xyXG4gIC8vIGNvbnN0IHRoaXNSb3V0ZVByb2R1Y3RzID0gcHJvcHMucHJvZHVjdHNbMF0uZmluZCgoaXRlbSkgPT4ge1xyXG4gIC8vICAgLy8g0JXRgdC70Lgg0LPQu9Cw0LLQvdCw0Y8g0YHRgtGA0LDQvdC40YbQsCwg0YLQviDQvdCw0LTQviDQv9C+LdC+0YHQvtCx0L7QvNGDINC40YHQutCw0YLRjCDQtdGRINC40LzRj1xyXG4gIC8vICAgaWYgKHByb3BzLnBhdGggPT09IHVuZGVmaW5lZCkge1xyXG4gIC8vICAgICByZXR1cm4gaXRlbS5pdGVtTmFtZSA9PT0gJ21haW4nO1xyXG4gIC8vICAgfVxyXG4gIC8vICAgcmV0dXJuIGl0ZW0uaXRlbU5hbWUgPT09IHByb3BzLnBhdGg7XHJcbiAgLy8gfSk7XHJcblxyXG4gIGNvbnN0IHRoaXNSb3V0ZVByb2R1Y3RzID0gcHJvcHMucHJvZHVjdHNbMF0ucmVzdWx0O1xyXG5cclxuICBjb25zdCB0aGlzUm91dGVUYWIgPSBwcm9wcy5zdGlja3lUYWJzLnN0aWNreVRhYnMuZmluZChcclxuICAgIChpdGVtKSA9PiBpdGVtLnBhdGggPT09IHByb3BzLnBhdGhcclxuICApO1xyXG4gIC8vINCV0YHQu9C4INCz0LvQsNCy0L3QsNGPINGB0YLRgNCw0L3QuNGG0LAsINGC0L4g0L3QtSDQuNGB0LrQsNGC0YwsINC40L3QsNGH0LUg0YHRgtGA0LDQvdC40YbQsCDRg9C/0LDQtNC10YJcclxuICBjb25zdCB0aGlzUm91dGVCYW5uZXIgPVxyXG4gICAgcHJvcHMucGF0aCA9PT0gdW5kZWZpbmVkXHJcbiAgICAgID8gZmFsc2VcclxuICAgICAgOiBwcm9wcy5iYW5uZXJzLml0ZW1zLmZpbmQoKGl0ZW0pID0+XHJcbiAgICAgICAgICB0aGlzUm91dGVUYWIuYmFubmVyc1swXVxyXG4gICAgICAgICAgICA/IHRoaXNSb3V0ZVRhYi5iYW5uZXJzWzBdLmlkID09PSBpdGVtLmlkXHJcbiAgICAgICAgICAgIDogZmFsc2VcclxuICAgICAgICApO1xyXG4gIC8vIGNvbnNvbGUubG9nKHRoaXNSb3V0ZUJhbm5lciwgJyB0aGlzUm91dGVCYW5uZXInKTtcclxuICBjb25zdCBjaGlsZHJlbiA9IFJlYWN0LkNoaWxkcmVuLm1hcChwcm9wcy5jaGlsZHJlbiwgKGNoaWxkLCBpbmRleCkgPT4ge1xyXG4gICAgcmV0dXJuIFJlYWN0LmNsb25lRWxlbWVudChjaGlsZCwge1xyXG4gICAgICB0YWI6IHRoaXNSb3V0ZVRhYixcclxuICAgICAgY3VycmVudFBhZ2VJbmRleDogaW5kZXgsXHJcbiAgICAgIHRoaXNSb3V0ZVByb2R1Y3RzLFxyXG4gICAgICB0aGlzUm91dGVCYW5uZXIsXHJcbiAgICAgIC8vIGNpdHk6IHByb3BzLmNpdHksXHJcbiAgICB9KTtcclxuICB9KTtcclxuICByZXR1cm4gKFxyXG4gICAgPD5cclxuICAgICAgPEhlYWRlciAvPlxyXG4gICAgICA8U3RpY2t5SGVhZGVyIHN0aWNreVRhYnM9e3Byb3BzLnN0aWNreVRhYnMuc3RpY2t5VGFic30gLz5cclxuICAgICAgPG1haW4+XHJcbiAgICAgICAgey8qINCy0L7Qt9C80L7QttC90L4g0LIg0LHRg9C00YPRidC10Lwg0YPQsdC10YDRgyDQvtGC0YHRjtC00LAgKi99XHJcbiAgICAgICAgPGRpdiBjbGFzc05hbWU9e3N0eWxlc1snY29udGFpbmVyX19mdWxsJ119PlxyXG4gICAgICAgICAgey8qIHt0aGlzLnN0YXRlLmxvYWRlZCA9PT0gJ25vJyA/IChcclxuICAgICAgICAgICAgICA8ZGl2XHJcbiAgICAgICAgICAgICAgICBzdHlsZT17e1xyXG4gICAgICAgICAgICAgICAgICBtYXJnaW46ICc1MHB4JyxcclxuICAgICAgICAgICAgICAgICAganVzdGlmeUNvbnRlbnQ6ICdjZW50ZXInLFxyXG4gICAgICAgICAgICAgICAgICBkaXNwbGF5OiAnZmxleCcsXHJcbiAgICAgICAgICAgICAgICB9fVxyXG4gICAgICAgICAgICAgID5cclxuICAgICAgICAgICAgICAgIDxpbWcgc3JjPVwiL2ltZy9sb2FkZXIuZ2lmXCIgYWx0PVwibG9hZGVyXCIgLz5cclxuICAgICAgICAgICAgICA8L2Rpdj5cclxuICAgICAgICAgICAgKSA6ICggKi99XHJcbiAgICAgICAgICA8PntjaGlsZHJlbn08Lz5cclxuICAgICAgICAgIHsvKiApfSAqL31cclxuICAgICAgICA8L2Rpdj5cclxuICAgICAgPC9tYWluPlxyXG4gICAgICA8Rm9vdGVyIC8+XHJcbiAgICAgIDxzdHlsZSBqc3ggZ2xvYmFsPntgXHJcbiAgICAgICAgYm9keSB7XHJcbiAgICAgICAgICBvdmVyZmxvdzogJHtwcm9wcy5vcGVuTW9kYWxCZyA9PT0gdHJ1ZSA/ICdoaWRkZW4nIDogJ25vbmUnfTtcclxuICAgICAgICB9XHJcbiAgICAgIGB9PC9zdHlsZT5cclxuICAgIDwvPlxyXG4gICk7XHJcbn1cclxuXHJcbmNvbnN0IG1hcFN0YXRlID0gKFxyXG4gIHtcclxuICAgIHN0b3JlOiB7XHJcbiAgICAgIGNpdHksXHJcbiAgICAgIHByb2R1Y3RzLFxyXG4gICAgICBiYW5uZXJzLFxyXG4gICAgICBjYXRlZ29yaWVzLFxyXG4gICAgICBjYXRhbG9nU3RydWN0dXJlLFxyXG4gICAgICBzdGlja3lUYWJzLFxyXG4gICAgICBwYXRobmFtZSxcclxuICAgIH0sXHJcbiAgICBtb2RhbDogeyBvcGVuTW9kYWxCZyB9LFxyXG4gIH0sXHJcbiAge1xyXG4gICAgcm91dGVyOiB7XHJcbiAgICAgIHF1ZXJ5OiB7IHBhdGggfSxcclxuICAgIH0sXHJcbiAgfVxyXG4pID0+IHtcclxuICByZXR1cm4ge1xyXG4gICAgY2F0YWxvZ1N0cnVjdHVyZSxcclxuICAgIGNhdGVnb3JpZXMsXHJcbiAgICBjaXR5LFxyXG4gICAgcHJvZHVjdHMsXHJcbiAgICBwYXRoLFxyXG4gICAgYmFubmVycyxcclxuICAgIHN0aWNreVRhYnMsXHJcbiAgICBvcGVuTW9kYWxCZyxcclxuICB9O1xyXG59O1xyXG5cclxuZXhwb3J0IGRlZmF1bHQgd2l0aFJvdXRlcihjb25uZWN0KG1hcFN0YXRlKShMYXlvdXQpKTtcclxuIl19 */
 /*@ sourceURL=C:\\Users\\Алексей\\Desktop\\All Work\\next-official-guide\\components\\Layout.js */`));
 }
 
@@ -1107,7 +1108,8 @@ const mapState = ({
     banners,
     categories,
     catalogStructure,
-    stickyTabs
+    stickyTabs,
+    pathname
   },
   modal: {
     openModalBg
@@ -3264,18 +3266,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     Component,
     ctx
   }) {
-    // const options = {
-    //   headers: {
-    //     [HEADER_DEVICE_TYPE]: DEVICE_TYPE_WEB,
-    //     [HEADER_DEVICE_TOKEN]: getDeviceToken(),
-    //   },
-    // };
     //   const cityByIpOrDomain = await fetch(
     //     'https://client-api.sushi-master.ru/api/v1/city/current?domain=abakan'
     //   );
-    const allCities = await Object(_utils_fetcher__WEBPACK_IMPORTED_MODULE_1__["default"])('https://client-api.sushi-master.ru/api/v1/city'); // const allCities = await allCitiesReq.json();
     // тут пока по двоеточию поделил чтобы чекнуть что работает, с доменами будет так же
-
     let domain = ctx.req ? ctx.req.headers.host.split(':', 1) : ''; // console.log(domain, ' DOMAIN');
 
     let cityInsteadOfDomain = 'abakan';
@@ -3289,26 +3283,41 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     // );
 
     const getAllBannersData = await Object(_utils_fetcher__WEBPACK_IMPORTED_MODULE_1__["default"])(`https://client-api.sushi-master.ru/api/v1/catalog/banners?${defaultCityData.result.cityId}`);
-    const catalogStructure = await Object(_utils_fetcher__WEBPACK_IMPORTED_MODULE_1__["default"])(`https://client-api.sushi-master.ru/api/v1/catalog/structure?${defaultCityData.result.cityId}`); // const getAllBannersData = await getAllBanners.json();
-    // console.log(getAllBannersData, ' getAllBannersData');
-    // console.log(defaultCityData, 'defaultCityData');
-
+    const catalogStructure = await Object(_utils_fetcher__WEBPACK_IMPORTED_MODULE_1__["default"])(`https://client-api.sushi-master.ru/api/v1/catalog/structure?${defaultCityData.result.cityId}`);
     let stickyTabs = []; // console.log(catalogStructure, ' catalogStructure');
 
     catalogStructure.result.update.categories.map(item => thisCityCategoriesData.result.update.items.filter(categoryItem => categoryItem.id === item.id ? stickyTabs.push(categoryItem) : ''));
     let stickyTabsWithMain = [...stickyTabs, thisCityCategoriesData.result.update.items.filter(item => item.path === 'main')[0]];
-    const cityID = defaultCityData.result.cityId; // console.log(cityID, ' city');
+    const cityID = defaultCityData.result.cityId;
+    let pathname = ctx.query.path;
+    let ProductForPathFiltered = stickyTabsWithMain.filter(item => {
+      if (!pathname) {
+        return item.path === 'main';
+      }
 
-    const promises = stickyTabsWithMain.map(async item => {
-      const promResult = await Object(_utils_fetcher__WEBPACK_IMPORTED_MODULE_1__["default"])(`https://client-api.sushi-master.ru/api/v1/catalog/categories/${item.id}/products`, {
+      return item.path === pathname;
+    }); // console.log(ProductForPathFiltered, ' ProductForPathFiltered');
+
+    let productsForPath;
+
+    if (ProductForPathFiltered[0]) {
+      productsForPath = await Object(_utils_fetcher__WEBPACK_IMPORTED_MODULE_1__["default"])(`https://client-api.sushi-master.ru/api/v1/catalog/categories/${ProductForPathFiltered[0].id}/products`, {
         cityId: cityID
       });
-      const itemName = item.path;
-      return _objectSpread({}, promResult.result, {
-        itemName
-      });
-    });
-    const allProducts = await Promise.all(promises);
+    } else {
+      productsForPath = [];
+    } // Предыдущее рещение было не лучшим
+    // const promises = stickyTabsWithMain.map(async (item) => {
+    //   const promResult = await fetcher(
+    //     `https://client-api.sushi-master.ru/api/v1/catalog/categories/${item.id}/products`,
+    //     { cityId: cityID }
+    //   );
+    //   const itemName = item.path;
+    //   return { ...promResult.result, itemName };
+    // });
+    // const allProducts = await Promise.all(promises);
+
+
     ctx.store.dispatch(Object(_redux_actions_dispatchStickyTabsWithMain__WEBPACK_IMPORTED_MODULE_8__["dispatchCategoriesWithMain"])(stickyTabsWithMain, stickyTabs));
     ctx.store.dispatch({
       type: 'INITIAL_CITY_STATE',
@@ -3328,7 +3337,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     });
     ctx.store.dispatch({
       type: 'INITIAL_PRODUCTS',
-      payload: [allProducts]
+      // payload: [allProducts],
+      payload: [productsForPath]
     });
     console.timeEnd('fetchstart');
     return {
@@ -3347,28 +3357,28 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 124,
+        lineNumber: 130,
         columnNumber: 9
       }
     }, __jsx(_components_Modals_CityChoiceModal__WEBPACK_IMPORTED_MODULE_7__["default"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 125,
+        lineNumber: 131,
         columnNumber: 11
       }
     }), __jsx(_components_Layout__WEBPACK_IMPORTED_MODULE_3__["default"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 126,
+        lineNumber: 132,
         columnNumber: 11
       }
     }, __jsx(Component, _extends({}, pageProps, {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 127,
+        lineNumber: 133,
         columnNumber: 13
       }
     }))));
@@ -3497,8 +3507,7 @@ const cardReducer = (state = {
 const cardCounter = (state = {
   counter: 0
 }, action) => {
-  console.log(action, ' ACTION cardReducer');
-
+  // console.log(action, ' ACTION cardReducer');
   switch (action.type) {
     case 'INCREMENT':
       // console.log(action, ' ACTION');
@@ -3810,9 +3819,9 @@ let options = {
 function fetcher(url, otherOpts) {
   if (otherOpts) {
     options = _objectSpread({}, options, {}, otherOpts);
-  }
+  } // console.log(url, ' url');
 
-  console.log(url, ' url');
+
   return isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_0___default()(url, options).then(r => r.json()).catch(err => console.log(err, ' ERROR in FETHCER'));
 }
 

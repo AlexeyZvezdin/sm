@@ -10,19 +10,8 @@ function Product({ product, store, ...props }) {
   // console.log(props, ' props');
   // console.log(store, ' store');
   const [cartButtonCounter, setCartButtonCounter] = React.useState(0);
+  const [localProductCounter, setlocalProductCounter] = React.useState(0);
   const [productInfo, setProductInfo] = React.useState(true);
-
-  const handleEachProduct = async (quantity) => {
-    await localStorage.setItem(
-      `inCardProduct:${product.id}`,
-      JSON.stringify({ product, quantity: quantity })
-    );
-
-    console.log(
-      localStorage.getItem(`inCardProduct:${product.id}`),
-      'localStorage.getItem("inCardProduct")'
-    );
-  };
 
   const handleCounterClick = async (action) => {
     if (action === 'inc') {
@@ -31,49 +20,102 @@ function Product({ product, store, ...props }) {
         Number(localStorage.getItem('cardCounter')) + 1
       );
       await props.cardCounterIncrement();
-
-      handleEachProduct(Number(localStorage.getItem('cardCounter')) + 1);
+      await handleEachProduct('inc');
     } else if (action === 'dec') {
       await localStorage.setItem(
         'cardCounter',
         Number(localStorage.getItem('cardCounter')) - 1
       );
       await props.cardCounterDecrement();
-
-      handleEachProduct(Number(localStorage.getItem('cardCounter')) - 1);
+      await handleEachProduct('dec');
     }
   };
-  console.log(product, ' PROPS PRODUCTs');
-  console.log(store, ' PROPS store');
-  console.log(props, ' PROPS props');
+  // console.log(product, ' PROPS PRODUCTs');
+  // console.log(store, ' PROPS store');
+  // console.log(props, ' PROPS props');
 
   React.useEffect(() => {
-    returnEachQuantityValue();
-  });
+    // для каждого продукта вернуть количество в сторадже
+    returnEachProductFromStorage();
+  }, [`${product.id}`]);
 
-  const returnEachQuantityValue = () => {
+  const CheckCounter = () => {
+    return cartButtonCounter;
+  };
+  // обработка каждого продукта, его счетчик и объект, который будет передаваться в корзину
+  const handleEachProduct = async (action) => {
+    const isProductAlreadyInStorage = await returnEachProductFromStorage();
+    console.log(isProductAlreadyInStorage, ' isProductAlreadyInStorage');
+    if (isProductAlreadyInStorage) {
+      const quantity = isProductAlreadyInStorage.quantity;
+      if (action === 'inc') {
+        await localStorage.setItem(
+          `inCardProduct:${product.id}`,
+          JSON.stringify({
+            product,
+            quantity: quantity + 1,
+          })
+        );
+        await setCartButtonCounter(quantity + 1);
+      } else if (action === 'dec') {
+        await localStorage.setItem(
+          `inCardProduct:${product.id}`,
+          JSON.stringify({
+            product,
+            quantity: quantity - 1,
+          })
+        );
+        await setCartButtonCounter(quantity - 1);
+      }
+    } else {
+      await localStorage.setItem(
+        `inCardProduct:${product.id}`,
+        JSON.stringify({
+          product,
+          quantity: 1,
+        })
+      );
+      await setCartButtonCounter(1);
+    }
+  };
+
+  const getCounterFromLS = () => {
+    if (window === undefined) {
+      return 0;
+    }
+
+    const LSobject = JSON.parse(
+      localStorage.getItem(`inCardProduct:${product.id}`)
+    );
+
+    console.log(LSobject, ' LSOBJECT');
+    if (!LSobject) {
+      return 0;
+    }
+    return LSobject.quantity;
+  };
+  // Количество для каждого продукта
+  const returnEachProductFromStorage = async () => {
     // localy there is no localstorage
-
-    const preResult = localStorage.getItem(`inCardProduct:${product.id}`);
-
-    console.log(preResult, ' preResult');
-    let r = preResult === null ? '' : preResult.quantity;
-    console.log(r, ' R');
-    // console.log(preResult, '  preResult RESULT!!!');
-    return r;
+    if (window === undefined) {
+      return 'window is undefined';
+    }
+    const preResult = await localStorage.getItem(`inCardProduct:${product.id}`);
+    if (!preResult) {
+      return false;
+    } else {
+      const result = JSON.parse(preResult);
+      // не работает как надо, на других страницах сохраняются цены на товарах
+      await setCartButtonCounter(result.quantity);
+      return result;
+    }
   };
 
   return (
     <div className={p_s['product']} key={product.id}>
       <div
         // Забавное поведение, если сделать так, то будет убираться ТОЛЬКО обертка, нижние отобразятся
-        // className={
-        //   p_s[
-        //     `${
-        //   //    !productInfo ? 'product-info product-info-display' : 'product-info'
-        //     }`
-        //   ]
-        // }
+        // className={p_s[`${!productInfo ? 'product-info product-info-display' : 'product-info'}`]}
         className={p_s['product-info']}
         hidden={productInfo}
         onClick={() => setProductInfo(!productInfo)}
@@ -132,12 +174,12 @@ function Product({ product, store, ...props }) {
             <img src="/img/icons/icon-info-white.svg" alt="Инфо" />
           </div>
           {/* тут */}
-          {cartButtonCounter === 0 ? (
+          {getCounterFromLS() === 0 ? (
             <div
               className="product-bottom_right-buy"
-              onClick={() => {
+              onClick={async () => {
                 setCartButtonCounter(cartButtonCounter + 1);
-                handleCounterClick('inc');
+                await handleCounterClick('inc');
               }}
             >
               <div className="product-bottom_right-buy-collapsed">
@@ -155,7 +197,7 @@ function Product({ product, store, ...props }) {
                   }}
                 ></div>
                 <div className="cart-button__expanded__count">
-                  {cartButtonCounter}
+                  {getCounterFromLS()}
                 </div>
                 <div
                   className="cart-button__expanded__plus"

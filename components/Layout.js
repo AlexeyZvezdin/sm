@@ -9,15 +9,18 @@ import { connect } from 'react-redux';
 import { withRouter } from 'next/router';
 import Error from '../pages/_error';
 function Layout(props) {
+  // console.log(props, ' PROPS');
   // Не работает, бэд сетСтейт
   // props.dispatchCategoriesWithMain(stickyTabsWithMain);
-  const thisRouteProducts = props.products[0].find((item) => {
-    // Если главная страница, то надо по-особому искать её имя
-    if (props.path === undefined) {
-      return item.itemName === 'main';
-    }
-    return item.itemName === props.path;
-  });
+  // const thisRouteProducts = props.products[0].find((item) => {
+  //   // Если главная страница, то надо по-особому искать её имя
+  //   if (props.path === undefined) {
+  //     return item.itemName === 'main';
+  //   }
+  //   return item.itemName === props.path;
+  // });
+
+  const thisRouteProducts = props.products[0].result;
 
   const thisRouteTab = props.stickyTabs.stickyTabs.find(
     (item) => item.path === props.path
@@ -82,6 +85,7 @@ const mapState = (
       categories,
       catalogStructure,
       stickyTabs,
+      pathname,
     },
     modal: { openModalBg },
   },
