@@ -1,0 +1,41 @@
+.button-link {
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  
+  .wide-button {
+    width: 100%;
+    height: 40px;
+    padding-top: 8px;
+    background-color: #ffffff;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: Gotham Pro;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.71;
+    letter-spacing: normal;
+    color: #1d1d1d;
+    border: 1px solid rgba(29, 29, 29, 0.2);
+    border-radius: 20px;
+    &_black {
+      color: white;
+      background: #1d1d1d;
+    }
+  }
+  
+  .primary-button {
+    background-color: #e30613;
+    color: #ffffff;
+    border: none;
+    padding-top: 9px;
+  }
+  
+  .uppercase {
+    text-transform: uppercase;
+  }
+  

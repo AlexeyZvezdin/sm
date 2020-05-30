@@ -396,21 +396,24 @@ var Footer = function Footer(props) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
-/* harmony import */ var _babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
-/* harmony import */ var _babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/assertThisInitialized */ "./node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js");
-/* harmony import */ var _babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inherits */ "./node_modules/@babel/runtime/helpers/esm/inherits.js");
-/* harmony import */ var _babel_runtime_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/esm/possibleConstructorReturn */ "./node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js");
-/* harmony import */ var _babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime/helpers/esm/getPrototypeOf */ "./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js");
-/* harmony import */ var _babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _utils_UrlBuilder__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../utils/UrlBuilder */ "./utils/UrlBuilder.js");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _header_module_scss__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./header.module.scss */ "./components/Basic/header.module.scss");
-/* harmony import */ var _header_module_scss__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_header_module_scss__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/esm/assertThisInitialized */ "./node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js");
+/* harmony import */ var _babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inherits */ "./node_modules/@babel/runtime/helpers/esm/inherits.js");
+/* harmony import */ var _babel_runtime_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime/helpers/esm/possibleConstructorReturn */ "./node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js");
+/* harmony import */ var _babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime/helpers/esm/getPrototypeOf */ "./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js");
+/* harmony import */ var _babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _utils_UrlBuilder__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../utils/UrlBuilder */ "./utils/UrlBuilder.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _header_module_scss__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./header.module.scss */ "./components/Basic/header.module.scss");
+/* harmony import */ var _header_module_scss__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_header_module_scss__WEBPACK_IMPORTED_MODULE_12__);
+
 
 
 
@@ -420,9 +423,13 @@ __webpack_require__.r(__webpack_exports__);
 
 var _jsxFileName = "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0435\u0439\\Desktop\\All Work\\next-official-guide\\components\\Basic\\Header.js";
 
-var __jsx = react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement;
+var __jsx = react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement;
 
-function _createSuper(Derived) { return function () { var Super = Object(_babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = Object(_babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return Object(_babel_runtime_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__["default"])(this, result); }; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { Object(_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _createSuper(Derived) { return function () { var Super = Object(_babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__["default"])(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = Object(_babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__["default"])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return Object(_babel_runtime_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_5__["default"])(this, result); }; }
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
@@ -432,33 +439,33 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 var links = [{
   name: 'Акции',
-  link: _utils_UrlBuilder__WEBPACK_IMPORTED_MODULE_9__["promotions"]()
+  link: _utils_UrlBuilder__WEBPACK_IMPORTED_MODULE_10__["promotions"]()
 }, {
   name: 'Бонусы',
-  link: _utils_UrlBuilder__WEBPACK_IMPORTED_MODULE_9__["bonuses"]()
+  link: _utils_UrlBuilder__WEBPACK_IMPORTED_MODULE_10__["bonuses"]()
 }, {
   name: 'Доставка',
-  link: _utils_UrlBuilder__WEBPACK_IMPORTED_MODULE_9__["delivery"]()
+  link: _utils_UrlBuilder__WEBPACK_IMPORTED_MODULE_10__["delivery"]()
 }, {
   name: 'О компании',
-  link: _utils_UrlBuilder__WEBPACK_IMPORTED_MODULE_9__["about"]()
+  link: _utils_UrlBuilder__WEBPACK_IMPORTED_MODULE_10__["about"]()
 }, {
   name: 'Вакансии',
-  link: _utils_UrlBuilder__WEBPACK_IMPORTED_MODULE_9__["vacancy"]()
+  link: _utils_UrlBuilder__WEBPACK_IMPORTED_MODULE_10__["vacancy"]()
 }, {
   name: 'Франшиза',
   link: 'https://fr.sushi-master.ru/?utm_source=glavniy_sait'
 }];
 
 var Header = /*#__PURE__*/function (_React$Component) {
-  Object(_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_3__["default"])(Header, _React$Component);
+  Object(_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(Header, _React$Component);
 
   var _super = _createSuper(Header);
 
   function Header() {
     var _this;
 
-    Object(_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, Header);
+    Object(_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, Header);
 
     for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
@@ -466,13 +473,14 @@ var Header = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call.apply(_super, [this].concat(args));
 
-    Object(_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__["default"])(_this), "state", {
+    Object(_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])(Object(_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3__["default"])(_this), "state", {
       sticky: false,
       headerOffset: 0,
-      showCitySelector: false
+      showCitySelector: false,
+      cardCounter: 0
     });
 
-    Object(_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__["default"])(_this), "handleCityModal", function () {
+    Object(_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])(Object(_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3__["default"])(_this), "handleCityModal", function () {
       // fetch cities
       // show city modal
       _this.props.dispatchModalStatus();
@@ -481,7 +489,56 @@ var Header = /*#__PURE__*/function (_React$Component) {
     return _this;
   }
 
-  Object(_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(Header, [{
+  Object(_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(Header, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var LScounter;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function componentDidMount$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(localStorage.getItem('cardCounter'));
+
+            case 2:
+              LScounter = _context.sent;
+              console.log(LScounter, ' LScounter');
+
+              if (!(LScounter === 0)) {
+                _context.next = 8;
+                break;
+              }
+
+              return _context.abrupt("return");
+
+            case 8:
+              if (!(LScounter > 0)) {
+                _context.next = 12;
+                break;
+              }
+
+              this.setState(_objectSpread({}, this.state, {
+                cardCounter: LScounter
+              }));
+              _context.next = 14;
+              break;
+
+            case 12:
+              console.log(LScounter, ' LScounter is below zero?');
+              throw Error;
+
+            case 14:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, null, this, null, Promise);
+    }
+  }, {
+    key: "returnTotalProducts",
+    value: function returnTotalProducts() {// switch
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this2 = this;
@@ -493,7 +550,7 @@ var Header = /*#__PURE__*/function (_React$Component) {
           __self: _this2,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 48,
+            lineNumber: 66,
             columnNumber: 7
           }
         }, __jsx("a", {
@@ -501,7 +558,7 @@ var Header = /*#__PURE__*/function (_React$Component) {
           __self: _this2,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 49,
+            lineNumber: 67,
             columnNumber: 9
           }
         }, el.name));
@@ -509,54 +566,54 @@ var Header = /*#__PURE__*/function (_React$Component) {
       var re = /\D/gi; // Убирает всесимволы для номера
 
       return __jsx("header", {
-        className: _header_module_scss__WEBPACK_IMPORTED_MODULE_11___default.a['main_header'],
+        className: _header_module_scss__WEBPACK_IMPORTED_MODULE_12___default.a['main_header'],
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 54,
+          lineNumber: 72,
           columnNumber: 7
         }
-      }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_8___default.a, {
+      }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_9___default.a, {
         href: "/",
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 55,
+          lineNumber: 73,
           columnNumber: 9
         }
       }, __jsx("a", {
-        className: _header_module_scss__WEBPACK_IMPORTED_MODULE_11___default.a['header-logo'],
+        className: _header_module_scss__WEBPACK_IMPORTED_MODULE_12___default.a['header-logo'],
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 56,
+          lineNumber: 74,
           columnNumber: 11
         }
       }, __jsx("img", {
         src: "/img/icons/icon-logo.svg",
         alt: "\u0421\u0443\u0448\u0438 \u043C\u0430\u0441\u0442\u0435\u0440 \u2014 \u0437\u0430\u043A\u0430\u0437 \u0438 \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u044F\u043F\u043E\u043D\u0441\u043A\u043E\u0439 \u0435\u0434\u044B \u043D\u0430 \u0434\u043E\u043C",
-        className: _header_module_scss__WEBPACK_IMPORTED_MODULE_11___default.a['header-info__logo'],
+        className: _header_module_scss__WEBPACK_IMPORTED_MODULE_12___default.a['header-info__logo'],
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 57,
+          lineNumber: 75,
           columnNumber: 13
         }
       }), "\u0421\u0443\u0448\u0438 \u043C\u0430\u0441\u0442\u0435\u0440 \u2014 \u0437\u0430\u043A\u0430\u0437 \u0438 \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0435\u0434\u044B \u043D\u0430 \u0434\u043E\u043C \u0432 \u0413\u043E\u0440\u043E\u0434\u041D\u0435\u0439\u043C")), __jsx("div", {
-        className: _header_module_scss__WEBPACK_IMPORTED_MODULE_11___default.a['header-city_and_phone'],
+        className: _header_module_scss__WEBPACK_IMPORTED_MODULE_12___default.a['header-city_and_phone'],
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 66,
+          lineNumber: 84,
           columnNumber: 9
         }
       }, __jsx("button", {
-        className: _header_module_scss__WEBPACK_IMPORTED_MODULE_11___default.a['header-city_choice'],
+        className: _header_module_scss__WEBPACK_IMPORTED_MODULE_12___default.a['header-city_choice'],
         onClick: this.handleCityModal,
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 67,
+          lineNumber: 85,
           columnNumber: 11
         }
       }, __jsx("img", {
@@ -565,116 +622,116 @@ var Header = /*#__PURE__*/function (_React$Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 71,
+          lineNumber: 89,
           columnNumber: 13
         }
       }), __jsx("span", {
-        className: _header_module_scss__WEBPACK_IMPORTED_MODULE_11___default.a['header-city_choice-city_name'],
+        className: _header_module_scss__WEBPACK_IMPORTED_MODULE_12___default.a['header-city_choice-city_name'],
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 72,
+          lineNumber: 90,
           columnNumber: 13
         }
       }, this.props.city.name)), __jsx("a", {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 84,
+          lineNumber: 102,
           columnNumber: 11
         }
       }, "No phone")), __jsx("nav", {
-        className: _header_module_scss__WEBPACK_IMPORTED_MODULE_11___default.a['menu'],
+        className: _header_module_scss__WEBPACK_IMPORTED_MODULE_12___default.a['menu'],
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 86,
+          lineNumber: 104,
           columnNumber: 9
         }
       }, __jsx("ul", {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 87,
+          lineNumber: 105,
           columnNumber: 11
         }
       }, menu)), __jsx("div", {
-        className: _header_module_scss__WEBPACK_IMPORTED_MODULE_11___default.a['header-cart_n_login'],
+        className: _header_module_scss__WEBPACK_IMPORTED_MODULE_12___default.a['header-cart_n_login'],
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 89,
+          lineNumber: 107,
           columnNumber: 9
         }
-      }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_8___default.a, {
+      }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_9___default.a, {
         href: "/cart",
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 90,
+          lineNumber: 108,
           columnNumber: 11
         }
       }, __jsx("a", {
-        className: _header_module_scss__WEBPACK_IMPORTED_MODULE_11___default.a['header-cart_n_login'],
+        className: _header_module_scss__WEBPACK_IMPORTED_MODULE_12___default.a['header-cart_n_login'],
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 91,
+          lineNumber: 109,
           columnNumber: 13
         }
       }, __jsx("div", {
-        className: _header_module_scss__WEBPACK_IMPORTED_MODULE_11___default.a['header-cart_n_login-price'],
+        className: _header_module_scss__WEBPACK_IMPORTED_MODULE_12___default.a['header-cart_n_login-price'],
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 92,
+          lineNumber: 110,
           columnNumber: 15
         }
-      }, "Price ", __jsx("span", {
+      }, "Price", __jsx("span", {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 93,
-          columnNumber: 23
+          lineNumber: 111,
+          columnNumber: 22
         }
       }, "\u20BD")), __jsx("div", {
-        className: _header_module_scss__WEBPACK_IMPORTED_MODULE_11___default.a['header-cart_n_login-card_icon'],
+        className: _header_module_scss__WEBPACK_IMPORTED_MODULE_12___default.a['header-cart_n_login-card_icon'],
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 95,
+          lineNumber: 113,
           columnNumber: 15
         }
       }, __jsx("div", {
-        className: _header_module_scss__WEBPACK_IMPORTED_MODULE_11___default.a['header-cart_n_login__icon'],
+        className: _header_module_scss__WEBPACK_IMPORTED_MODULE_12___default.a['header-cart_n_login__icon'],
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 96,
+          lineNumber: 114,
           columnNumber: 17
         }
       }, __jsx("div", {
-        className: _header_module_scss__WEBPACK_IMPORTED_MODULE_11___default.a['header-cart_n_login__icon__count'],
+        className: this.props.cardCounter.counter || this.state.cardCounter ? _header_module_scss__WEBPACK_IMPORTED_MODULE_12___default.a['header-cart_n_login__icon__count'] + ' ' + _header_module_scss__WEBPACK_IMPORTED_MODULE_12___default.a['red'] : _header_module_scss__WEBPACK_IMPORTED_MODULE_12___default.a['header-cart_n_login__icon__count'],
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 97,
+          lineNumber: 115,
           columnNumber: 19
         }
-      }, "0")))))), __jsx("div", {
-        className: _header_module_scss__WEBPACK_IMPORTED_MODULE_11___default.a['profile-badge-block'],
+      }, this.props.cardCounter.counter ? Number(this.props.cardCounter.counter) + Number(this.state.cardCounter) : Number(this.state.cardCounter) + Number(this.props.cardCounter.counter))))))), __jsx("div", {
+        className: _header_module_scss__WEBPACK_IMPORTED_MODULE_12___default.a['profile-badge-block'],
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 103,
+          lineNumber: 133,
           columnNumber: 9
         }
       }, __jsx("div", {
-        className: _header_module_scss__WEBPACK_IMPORTED_MODULE_11___default.a['profile-badge-block__login'],
+        className: _header_module_scss__WEBPACK_IMPORTED_MODULE_12___default.a['profile-badge-block__login'],
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 104,
+          lineNumber: 134,
           columnNumber: 11
         }
       }, "\u0412\u043E\u0439\u0442\u0438")));
@@ -682,16 +739,18 @@ var Header = /*#__PURE__*/function (_React$Component) {
   }]);
 
   return Header;
-}(react__WEBPACK_IMPORTED_MODULE_7___default.a.Component);
+}(react__WEBPACK_IMPORTED_MODULE_8___default.a.Component);
 
 var mapStateToProps = function mapStateToProps(_ref) {
   var modal = _ref.modal,
-      city = _ref.store.city;
+      city = _ref.store.city,
+      cardCounter = _ref.card.cardCounter;
   // console.log(modal.openModalBg, ' STATE modal');
   var modalBg = modal.openModalBg;
   return {
     modalBg: modalBg,
-    city: city
+    city: city,
+    cardCounter: cardCounter
   };
 };
 
@@ -705,7 +764,7 @@ var dispatchToProps = function dispatchToProps(dispatch) {
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_10__["connect"])(mapStateToProps, dispatchToProps)(Header));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_11__["connect"])(mapStateToProps, dispatchToProps)(Header));
 
 /***/ }),
 

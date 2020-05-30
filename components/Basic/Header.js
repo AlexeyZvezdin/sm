@@ -34,13 +34,31 @@ class Header extends React.Component {
     sticky: false,
     headerOffset: 0,
     showCitySelector: false,
+    cardCounter: 0,
   };
+
+  async componentDidMount() {
+    const LScounter = await localStorage.getItem('cardCounter');
+    console.log(LScounter, ' LScounter');
+    if (LScounter === 0) {
+      return;
+    } else if (LScounter > 0) {
+      this.setState({ ...this.state, cardCounter: LScounter });
+    } else {
+      console.log(LScounter, ' LScounter is below zero?');
+      throw Error;
+    }
+  }
 
   handleCityModal = () => {
     // fetch cities
     // show city modal
     this.props.dispatchModalStatus();
   };
+
+  returnTotalProducts() {
+    // switch
+  }
 
   render() {
     // console.log(this.props, ' HEADER PRPS');
@@ -90,11 +108,23 @@ class Header extends React.Component {
           <Link href="/cart">
             <a className={s['header-cart_n_login']}>
               <div className={s['header-cart_n_login-price']}>
-                Price <span>₽</span>
+                Price<span>₽</span>
               </div>
               <div className={s['header-cart_n_login-card_icon']}>
                 <div className={s['header-cart_n_login__icon']}>
-                  <div className={s['header-cart_n_login__icon__count']}>0</div>
+                  <div
+                    className={
+                      this.props.cardCounter.counter || this.state.cardCounter
+                        ? s['header-cart_n_login__icon__count'] + ' ' + s['red']
+                        : s['header-cart_n_login__icon__count']
+                    }
+                  >
+                    {this.props.cardCounter.counter
+                      ? Number(this.props.cardCounter.counter) +
+                        Number(this.state.cardCounter)
+                      : Number(this.state.cardCounter) +
+                        Number(this.props.cardCounter.counter)}
+                  </div>
                 </div>
               </div>
             </a>
@@ -108,10 +138,10 @@ class Header extends React.Component {
   }
 }
 
-const mapStateToProps = ({ modal, store: { city } }) => {
+const mapStateToProps = ({ modal, store: { city }, card: { cardCounter } }) => {
   // console.log(modal.openModalBg, ' STATE modal');
   const modalBg = modal.openModalBg;
-  return { modalBg, city };
+  return { modalBg, city, cardCounter };
 };
 const dispatchToProps = (dispatch) => ({
   dispatchModalStatus: (status) => dispatch({ type: 'OPEN_MODAL' }),

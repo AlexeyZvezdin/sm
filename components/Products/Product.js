@@ -12,20 +12,55 @@ function Product({ product, store, ...props }) {
   const [cartButtonCounter, setCartButtonCounter] = React.useState(0);
   const [productInfo, setProductInfo] = React.useState(true);
 
-  const handleCounterClick = (action) => {
+  const handleEachProduct = async (quantity) => {
+    await localStorage.setItem(
+      `inCardProduct:${product.id}`,
+      JSON.stringify({ product, quantity: quantity })
+    );
+
+    console.log(
+      localStorage.getItem(`inCardProduct:${product.id}`),
+      'localStorage.getItem("inCardProduct")'
+    );
+  };
+
+  const handleCounterClick = async (action) => {
     if (action === 'inc') {
-      localStorage.setItem(
+      await localStorage.setItem(
         'cardCounter',
         Number(localStorage.getItem('cardCounter')) + 1
       );
-      props.cardCounterIncrement();
+      await props.cardCounterIncrement();
+
+      handleEachProduct(Number(localStorage.getItem('cardCounter')) + 1);
     } else if (action === 'dec') {
-      localStorage.setItem(
+      await localStorage.setItem(
         'cardCounter',
         Number(localStorage.getItem('cardCounter')) - 1
       );
-      props.cardCounterDecrement();
+      await props.cardCounterDecrement();
+
+      handleEachProduct(Number(localStorage.getItem('cardCounter')) - 1);
     }
+  };
+  console.log(product, ' PROPS PRODUCTs');
+  console.log(store, ' PROPS store');
+  console.log(props, ' PROPS props');
+
+  React.useEffect(() => {
+    returnEachQuantityValue();
+  });
+
+  const returnEachQuantityValue = () => {
+    // localy there is no localstorage
+
+    const preResult = localStorage.getItem(`inCardProduct:${product.id}`);
+
+    console.log(preResult, ' preResult');
+    let r = preResult === null ? '' : preResult.quantity;
+    console.log(r, ' R');
+    // console.log(preResult, '  preResult RESULT!!!');
+    return r;
   };
 
   return (
@@ -138,10 +173,10 @@ function Product({ product, store, ...props }) {
   );
 }
 
-Product.getInitialProps = ({ store, isServer, pathname, query }) => {
-  //store.dispatch(cardCounterIncrement()); // The component can read from the store's state when rendered
-  return { store }; // You can pass some custom props to the component from here
-};
+// Product.getInitialProps = ({ store, isServer, pathname, query }) => {
+//   //store.dispatch(cardCounterIncrement()); // The component can read from the store's state when rendered
+//   return { store }; // You can pass some custom props to the component from here
+// };
 
 // const mapState = ({ card: { cardCounter } }) => ({ cardCounter });
 const mapState = (state) => state;
