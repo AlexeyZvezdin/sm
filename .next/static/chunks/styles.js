@@ -30,7 +30,7 @@ module.exports = {"banner":"banner","banners__swiper-container":"banners__swiper
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590867012196");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590878455107");
           });
       }
     }
@@ -68,7 +68,7 @@ module.exports = {"footer":"footer","footer-box":"footer-box","footer-col":"foot
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590867010828");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590871268649");
           });
       }
     }
@@ -106,7 +106,7 @@ module.exports = {"main_header":"main_header","header-logo":"header-logo","menu"
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590867010795");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590871268481");
           });
       }
     }
@@ -144,7 +144,7 @@ module.exports = {"sticky-header":"sticky-header","sticky-header__categories__it
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590867011025");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590871268736");
           });
       }
     }
@@ -182,7 +182,7 @@ module.exports = {"modal-backdrop":"modal-backdrop","city_modal":"city_modal","c
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590867010629");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590871268275");
           });
       }
     }
@@ -220,7 +220,7 @@ module.exports = {"products":"products","product":"product","product-name":"prod
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590867012254");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590871504867");
           });
       }
     }
@@ -258,45 +258,7 @@ module.exports = {"container__full":"container__full"};;
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590867010626");
-          });
-      }
-    }
-  
-
-/***/ }),
-
-/***/ "./pages/cart/cart.module.scss":
-/*!*************************************!*\
-  !*** ./pages/cart/cart.module.scss ***!
-  \*************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-module.exports = {"cart-container":"cart-container","cart-container-back":"cart-container-back","cart-container-back-text":"cart-container-back-text","cart-container-back-button":"cart-container-back-button","cart-content":"cart-content","cart-products-box":"cart-products-box","cart-products-box-label":"cart-products-box-label","cart-order-widget":"cart-order-widget","cart-order-widget-promocode":"cart-order-widget-promocode","order-inner-container_input":"order-inner-container_input","inner-container__promocode_enter":"inner-container__promocode_enter","inner-container__promocode_arrow":"inner-container__promocode_arrow","cart-content-info":"cart-content-info","cart-content-info-products_price_bold":"cart-content-info-products_price_bold","products_price_bold":"products_price_bold","cart-content-info-products_price":"cart-content-info-products_price","order-inner-container__submit-button":"order-inner-container__submit-button"};;
-    if (true) {
-      var injectCss = function injectCss(prev, href) {
-        var link = prev.cloneNode();
-        link.href = href;
-        link.onload = function() {
-          prev.parentNode.removeChild(prev);
-        };
-        prev.stale = true;
-        prev.parentNode.insertBefore(link, prev);
-      };
-      module.hot.dispose(function() {
-        window.__webpack_reload_css__ = true;
-      });
-      if (window.__webpack_reload_css__) {
-        module.hot.__webpack_reload_css__ = false;
-        console.log("[HMR] Reloading stylesheets...");
-        var prefix = document.location.protocol + '//' + document.location.host;
-        document
-          .querySelectorAll("link[href][rel=stylesheet]")
-          .forEach(function(link) {
-            if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590870818550");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590871268271");
           });
       }
     }
@@ -334,7 +296,45 @@ module.exports = {"box":"box","menu":"menu"};;
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590867010622");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590871268266");
+          });
+      }
+    }
+  
+
+/***/ }),
+
+/***/ "./pages/subroutes.module.scss":
+/*!*************************************!*\
+  !*** ./pages/subroutes.module.scss ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+module.exports = {"route-container":"route-container","route-banner":"route-banner","route-banner-pic":"route-banner-pic"};;
+    if (true) {
+      var injectCss = function injectCss(prev, href) {
+        var link = prev.cloneNode();
+        link.href = href;
+        link.onload = function() {
+          prev.parentNode.removeChild(prev);
+        };
+        prev.stale = true;
+        prev.parentNode.insertBefore(link, prev);
+      };
+      module.hot.dispose(function() {
+        window.__webpack_reload_css__ = true;
+      });
+      if (window.__webpack_reload_css__) {
+        module.hot.__webpack_reload_css__ = false;
+        console.log("[HMR] Reloading stylesheets...");
+        var prefix = document.location.protocol + '//' + document.location.host;
+        document
+          .querySelectorAll("link[href][rel=stylesheet]")
+          .forEach(function(link) {
+            if (!link.href.match(prefix) || link.stale) return;
+            injectCss(link, link.href.split("?")[0] + "?unix=1590871279702");
           });
       }
     }

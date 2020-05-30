@@ -42,6 +42,46 @@ function Product({ product, store, ...props }) {
   const CheckCounter = () => {
     return cartButtonCounter;
   };
+
+  const concatCardProductsWhenStorageIsEmpty = async (product) => {
+    // Мне нужно создать Объект продукта
+    let cardProduct = {};
+    cardProduct[`inCardProduct:${product.id}`] = {
+      product: product,
+      quantity: 1,
+    };
+    console.log(cardProduct, ' HOW cardProduct LOOKS');
+    // сделано
+    // мне нужно проверять есть ли в локалсторадже уже объект
+    // мне нужно записывать в объект стораджа через деструктуризацию объекты чтобы перезаписывать имеющиеся на новые данные
+    let cardProductsFromStorage = await JSON.parse(
+      localStorage.getItem('cardProducts')
+    );
+    if (cardProductsFromStorage == null) {
+      // если продукты в сторадже не равны нулю, то мне надо вытащить их и склеить с новым продуктом и при совпадении заменить
+      let cardProductsFromStorageWhenNull = cardProduct;
+      await localStorage.setItem(
+        'cardProducts',
+        JSON.stringify(cardProductsFromStorageWhenNull)
+      );
+      console.log(
+        cardProductsFromStorageWhenNull,
+        ' cardProductsFromStorageWhenNull'
+      );
+    } else {
+      let cardProductsFromStorage = await JSON.parse(
+        localStorage.getItem('cardProducts')
+      );
+      let newObject = Object.assign(cardProductsFromStorage, cardProduct);
+      console.log(
+        cardProductsFromStorage,
+        ' cardProductsFromStorage in global else if there is any products'
+      );
+      console.log(newObject, ' newObject');
+      await localStorage.setItem('cardProducts', JSON.stringify(newObject));
+    }
+  };
+
   // обработка каждого продукта, его счетчик и объект, который будет передаваться в корзину
   const handleEachProduct = async (action) => {
     const isProductAlreadyInStorage = await returnEachProductFromStorage();
@@ -56,6 +96,23 @@ function Product({ product, store, ...props }) {
             quantity: quantity + 1,
           })
         );
+
+        console.log(
+          cardProductsFromStorage,
+          ' HOW cardProductsFromStorage LOOKS'
+        );
+        cardProductsFromStorage = cardProductsFromStorage.cardProduct[
+          `inCardProduct:${product.id}`
+        ] = {
+          product: product,
+          quantity: 1,
+        };
+        await localStorage.setItem(
+          'cardProducts',
+          JSON.stringify(cardProductsFromStorage)
+        );
+
+        // await localStorage.setItem('cardProducts', cardProductsReadyToPush);
         await setCartButtonCounter(quantity + 1);
         // Вот это ниже обязательно надо, асинхронность на рендере на сср не работает как надо
         let res = await getCounterFromLS();
@@ -74,6 +131,7 @@ function Product({ product, store, ...props }) {
       }
     } else {
       console.log('shit is false');
+      await concatCardProductsWhenStorageIsEmpty(product);
       localStorage.setItem(
         `inCardProduct:${product.id}`,
         JSON.stringify({
@@ -95,7 +153,10 @@ function Product({ product, store, ...props }) {
   const getCounterFromLS = () => {
     if (typeof window == 'undefined') {
       return 0;
-    } else if (typeof window == 'object') {
+    } else if (
+      typeof window === 'object' ||
+      typeof localStorage != 'undefined'
+    ) {
       const LSobject = JSON.parse(
         localStorage.getItem(`inCardProduct:${product.id}`)
       );
@@ -108,21 +169,22 @@ function Product({ product, store, ...props }) {
     }
   };
   // Количество для каждого продукта
-  const returnEachProductFromStorage = async () => {
+  const returnEachProductFromStorage = () => {
     // localy there is no localstorage
-    if (window === undefined) {
+    if (typeof window === undefined) {
       return 'window is undefined';
     }
-    const preResult = await localStorage.getItem(`inCardProduct:${product.id}`);
+    const preResult = localStorage.getItem(`inCardProduct:${product.id}`);
     if (!preResult) {
       return false;
     } else {
       const result = JSON.parse(preResult);
       // Потом отрефакторить немного
-      await setCartButtonCounter(result.quantity);
-      let res = await getCounterFromLS();
+      setCartButtonCounter(result.quantity);
+
+      let res = getCounterFromLS();
       setlocalProductCounter(res);
-      return result;
+      return res;
     }
   };
 
@@ -189,7 +251,7 @@ function Product({ product, store, ...props }) {
             <img src="/img/icons/icon-info-white.svg" alt="Инфо" />
           </div>
           {/* тут */}
-          {localProductCounter === 0 ? (
+          {getCounterFromLS() === 0 ? (
             <div
               className="product-bottom_right-buy"
               onClick={async () => {
@@ -213,7 +275,7 @@ function Product({ product, store, ...props }) {
                 ></div>
                 <div className="cart-button__expanded__count">
                   {/* {getCounterFromLS()} */}
-                  {localProductCounter}
+                  {getCounterFromLS()}
                 </div>
                 <div
                   className="cart-button__expanded__plus"
