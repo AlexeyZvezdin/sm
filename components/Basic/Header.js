@@ -40,7 +40,7 @@ class Header extends React.Component {
   async componentDidMount() {
     const LScounter = await localStorage.getItem('cardCounter');
     console.log(LScounter, ' LScounter');
-    if (LScounter === 0) {
+    if (!LScounter) {
       return;
     } else if (LScounter > 0) {
       this.setState({ ...this.state, cardCounter: LScounter });

@@ -10,19 +10,8 @@ function Product({ product, store, ...props }) {
   // console.log(props, ' props');
   // console.log(store, ' store');
   const [cartButtonCounter, setCartButtonCounter] = React.useState(0);
+  const [thisProductQuantity, setThisProductQuantity] = React.useState(0);
   const [productInfo, setProductInfo] = React.useState(true);
-
-  const handleEachProduct = async (quantity) => {
-    await localStorage.setItem(
-      `inCardProduct:${product.id}`,
-      JSON.stringify({ product, quantity: quantity })
-    );
-
-    console.log(
-      localStorage.getItem(`inCardProduct:${product.id}`),
-      'localStorage.getItem("inCardProduct")'
-    );
-  };
 
   const handleCounterClick = async (action) => {
     if (action === 'inc') {
@@ -31,36 +20,47 @@ function Product({ product, store, ...props }) {
         Number(localStorage.getItem('cardCounter')) + 1
       );
       await props.cardCounterIncrement();
-
-      handleEachProduct(Number(localStorage.getItem('cardCounter')) + 1);
+      await handleEachProduct('inc');
     } else if (action === 'dec') {
       await localStorage.setItem(
         'cardCounter',
         Number(localStorage.getItem('cardCounter')) - 1
       );
       await props.cardCounterDecrement();
-
-      handleEachProduct(Number(localStorage.getItem('cardCounter')) - 1);
+      await handleEachProduct('dec');
     }
   };
-  console.log(product, ' PROPS PRODUCTs');
-  console.log(store, ' PROPS store');
-  console.log(props, ' PROPS props');
+  // console.log(product, ' PROPS PRODUCTs');
+  // console.log(store, ' PROPS store');
+  // console.log(props, ' PROPS props');
 
   React.useEffect(() => {
-    returnEachQuantityValue();
-  });
+    // для каждого продукта вернуть количество в сторадже
+    returnEachProductFromStorage();
+  }, [`${product.id}`]);
 
-  const returnEachQuantityValue = () => {
+  // обработка каждого продукта, его счетчик и объект, который будет передаваться в корзину
+  const handleEachProduct = async (action) => {
+    const isProductAlreadyInStorage = await returnEachProductFromStorage();
+
+    if (isProductAlreadyInStorage) {
+      const quantity = isProductAlreadyInStorage.quantity;
+      console.log(quantity, ' QUANTITY FROM handleEach');
+    }
+  };
+  // Количество для каждого продукта
+  const returnEachProductFromStorage = async () => {
     // localy there is no localstorage
-
-    const preResult = localStorage.getItem(`inCardProduct:${product.id}`);
-
-    console.log(preResult, ' preResult');
-    let r = preResult === null ? '' : preResult.quantity;
-    console.log(r, ' R');
-    // console.log(preResult, '  preResult RESULT!!!');
-    return r;
+    if (window === undefined) {
+      return 'window is undefined';
+    }
+    const preResult = await localStorage.getItem(`inCardProduct:${product.id}`);
+    if (!preResult) {
+      return false;
+    } else {
+      return JSON.parse(preResult);
+    }
+    // let r = preResult != null ? JSON.parse(preResult) : '';
   };
 
   return (
@@ -138,6 +138,7 @@ function Product({ product, store, ...props }) {
               onClick={() => {
                 setCartButtonCounter(cartButtonCounter + 1);
                 handleCounterClick('inc');
+                handleEachProduct();
               }}
             >
               <div className="product-bottom_right-buy-collapsed">

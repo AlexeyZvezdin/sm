@@ -12,19 +12,12 @@ import './index.module.scss';
 export default withRedux(makeStore, { debug: false })(
   class SushiMaster extends App {
     static async getInitialProps({ Component, ctx }) {
-      // const options = {
-      //   headers: {
-      //     [HEADER_DEVICE_TYPE]: DEVICE_TYPE_WEB,
-      //     [HEADER_DEVICE_TOKEN]: getDeviceToken(),
-      //   },
-      // };
       //   const cityByIpOrDomain = await fetch(
       //     'https://client-api.sushi-master.ru/api/v1/city/current?domain=abakan'
       //   );
-      const allCities = await fetcher(
-        'https://client-api.sushi-master.ru/api/v1/city'
-      );
-      // const allCities = await allCitiesReq.json();
+      // const allCities = await fetcher(
+      //   'https://client-api.sushi-master.ru/api/v1/city'
+      // );
       // тут пока по двоеточию поделил чтобы чекнуть что работает, с доменами будет так же
       let domain = ctx.req ? ctx.req.headers.host.split(':', 1) : '';
       // console.log(domain, ' DOMAIN');
@@ -75,15 +68,34 @@ export default withRedux(makeStore, { debug: false })(
       const cityID = defaultCityData.result.cityId;
       // console.log(cityID, ' city');
 
-      const promises = stickyTabsWithMain.map(async (item) => {
-        const promResult = await fetcher(
-          `https://client-api.sushi-master.ru/api/v1/catalog/categories/${item.id}/products`,
+      let pathname = ctx.query.path;
+      let ProductForPathFiltered = stickyTabsWithMain.filter((item) => {
+        if (!pathname) {
+          return item.path === 'main';
+        }
+        return item.path === pathname;
+      });
+      // console.log(ProductForPathFiltered, ' ProductForPathFiltered');
+
+      let productsForPath;
+      if (ProductForPathFiltered[0]) {
+        productsForPath = await fetcher(
+          `https://client-api.sushi-master.ru/api/v1/catalog/categories/${ProductForPathFiltered[0].id}/products`,
           { cityId: cityID }
         );
-        const itemName = item.path;
-        return { ...promResult.result, itemName };
-      });
-      const allProducts = await Promise.all(promises);
+      } else {
+        productsForPath = [];
+      }
+      // Предыдущее рещение было не лучшим
+      // const promises = stickyTabsWithMain.map(async (item) => {
+      //   const promResult = await fetcher(
+      //     `https://client-api.sushi-master.ru/api/v1/catalog/categories/${item.id}/products`,
+      //     { cityId: cityID }
+      //   );
+      //   const itemName = item.path;
+      //   return { ...promResult.result, itemName };
+      // });
+      // const allProducts = await Promise.all(promises);
       ctx.store.dispatch(
         dispatchCategoriesWithMain(stickyTabsWithMain, stickyTabs)
       );
@@ -105,8 +117,10 @@ export default withRedux(makeStore, { debug: false })(
       });
       ctx.store.dispatch({
         type: 'INITIAL_PRODUCTS',
-        payload: [allProducts],
+        // payload: [allProducts],
+        payload: [productsForPath],
       });
+
       console.timeEnd('fetchstart');
 
       return {

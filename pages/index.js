@@ -27,7 +27,6 @@ import { renderBanners } from '../components/Banners/renderBanners';
  *
  */
 function Index(props) {
-  console.log(props, ' PROPS main');
   const { query } = useRouter();
   const [bannerCounter, setBannerCounter] = React.useState(0);
   // const products =

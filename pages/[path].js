@@ -13,8 +13,7 @@ import Error from '../pages/_error';
  */
 
 function subroute(props) {
-  console.log(props, ' subroute');
-
+  console.log(props.thisRouteProducts, ' props.thisRouteProducts');
   const products = filteredEntityByViewIntervals(props.thisRouteProducts.items);
   const bannerPath = props.tab.banners[0]
     ? `https://client-api.sushi-master.ru/pics/${props.thisRouteBanner.pictureId}?width=400`
@@ -26,9 +25,9 @@ function subroute(props) {
       <div className="subcategory-selector">
         <h1 className="subcategory-selector__selected">{props.tab.name}</h1>
       </div>
-      <div className={s['route-container']}>
-        <div className={s['route-banner']}>
-          <img className={s['route-banner-pic']} src={bannerPath} alt="" />
+      <div className={'route-container'}>
+        <div className={'route-banner'}>
+          <img className={'route-banner-pic'} src={bannerPath} alt="" />
         </div>
         {products.map((product, index) => (
           <Product key={index} product={product} />

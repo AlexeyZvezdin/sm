@@ -504,7 +504,7 @@ var Header = /*#__PURE__*/function (_React$Component) {
               LScounter = _context.sent;
               console.log(LScounter, ' LScounter');
 
-              if (!(LScounter === 0)) {
+              if (LScounter) {
                 _context.next = 8;
                 break;
               }
@@ -960,16 +960,17 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
 function Layout(props) {
+  // console.log(props, ' PROPS');
   // Не работает, бэд сетСтейт
   // props.dispatchCategoriesWithMain(stickyTabsWithMain);
-  var thisRouteProducts = props.products[0].find(function (item) {
-    // Если главная страница, то надо по-особому искать её имя
-    if (props.path === undefined) {
-      return item.itemName === 'main';
-    }
-
-    return item.itemName === props.path;
-  });
+  // const thisRouteProducts = props.products[0].find((item) => {
+  //   // Если главная страница, то надо по-особому искать её имя
+  //   if (props.path === undefined) {
+  //     return item.itemName === 'main';
+  //   }
+  //   return item.itemName === props.path;
+  // });
+  var thisRouteProducts = props.products[0].result;
   var thisRouteTab = props.stickyTabs.stickyTabs.find(function (item) {
     return item.path === props.path;
   }); // Если главная страница, то не искать, иначе страница упадет
@@ -991,7 +992,7 @@ function Layout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46,
+      lineNumber: 49,
       columnNumber: 7
     }
   }), __jsx(_components_Basic_StickyHeader__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -999,7 +1000,7 @@ function Layout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47,
+      lineNumber: 50,
       columnNumber: 7
     }
   }), __jsx("main", {
@@ -1007,7 +1008,7 @@ function Layout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 48,
+      lineNumber: 51,
       columnNumber: 7
     }
   }, __jsx("div", {
@@ -1015,21 +1016,21 @@ function Layout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50,
+      lineNumber: 53,
       columnNumber: 9
     }
   }, __jsx(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, children))), __jsx(_Basic_Footer__WEBPACK_IMPORTED_MODULE_7__["default"], {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 66,
+      lineNumber: 69,
       columnNumber: 7
     }
   }), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
     id: "2333614403",
     dynamic: [props.openModalBg === true ? 'hidden' : 'none'],
     __self: this
-  }, "body{overflow:".concat(props.openModalBg === true ? 'hidden' : 'none', ";}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkM6XFxVc2Vyc1xc0JDQu9C10LrRgdC10LlcXERlc2t0b3BcXEFsbCBXb3JrXFxuZXh0LW9mZmljaWFsLWd1aWRlXFxjb21wb25lbnRzXFxMYXlvdXQuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBa0V5QixBQUdpRCxzQ0FDeEMiLCJmaWxlIjoiQzpcXFVzZXJzXFzQkNC70LXQutGB0LXQuVxcRGVza3RvcFxcQWxsIFdvcmtcXG5leHQtb2ZmaWNpYWwtZ3VpZGVcXGNvbXBvbmVudHNcXExheW91dC5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBMaW5rIGZyb20gJ25leHQvbGluayc7XHJcbmltcG9ydCBSb3V0ZXIgZnJvbSAnbmV4dC9yb3V0ZXInO1xyXG5pbXBvcnQgc3R5bGVzIGZyb20gJy4vaW5kZXgubW9kdWxlLnNjc3MnO1xyXG4vLyBpbXBvcnQgbG9hZGVyIGZyb20gJy4uL3B1YmxpYy9pbWcvbG9hZGVyLmdpZic7XHJcbmltcG9ydCBIZWFkZXIgZnJvbSAnLi9CYXNpYy9IZWFkZXInO1xyXG5pbXBvcnQgU3RpY2t5SGVhZGVyIGZyb20gJy4uL2NvbXBvbmVudHMvQmFzaWMvU3RpY2t5SGVhZGVyJztcclxuaW1wb3J0IEZvb3RlciBmcm9tICcuL0Jhc2ljL0Zvb3Rlcic7XHJcbmltcG9ydCB7IGNvbm5lY3QgfSBmcm9tICdyZWFjdC1yZWR1eCc7XHJcbmltcG9ydCB7IHdpdGhSb3V0ZXIgfSBmcm9tICduZXh0L3JvdXRlcic7XHJcbmltcG9ydCBFcnJvciBmcm9tICcuLi9wYWdlcy9fZXJyb3InO1xyXG5mdW5jdGlvbiBMYXlvdXQocHJvcHMpIHtcclxuICAvLyDQndC1INGA0LDQsdC+0YLQsNC10YIsINCx0Y3QtCDRgdC10YLQodGC0LXQudGCXHJcbiAgLy8gcHJvcHMuZGlzcGF0Y2hDYXRlZ29yaWVzV2l0aE1haW4oc3RpY2t5VGFic1dpdGhNYWluKTtcclxuICBjb25zdCB0aGlzUm91dGVQcm9kdWN0cyA9IHByb3BzLnByb2R1Y3RzWzBdLmZpbmQoKGl0ZW0pID0+IHtcclxuICAgIC8vINCV0YHQu9C4INCz0LvQsNCy0L3QsNGPINGB0YLRgNCw0L3QuNGG0LAsINGC0L4g0L3QsNC00L4g0L/Qvi3QvtGB0L7QsdC+0LzRgyDQuNGB0LrQsNGC0Ywg0LXRkSDQuNC80Y9cclxuICAgIGlmIChwcm9wcy5wYXRoID09PSB1bmRlZmluZWQpIHtcclxuICAgICAgcmV0dXJuIGl0ZW0uaXRlbU5hbWUgPT09ICdtYWluJztcclxuICAgIH1cclxuICAgIHJldHVybiBpdGVtLml0ZW1OYW1lID09PSBwcm9wcy5wYXRoO1xyXG4gIH0pO1xyXG5cclxuICBjb25zdCB0aGlzUm91dGVUYWIgPSBwcm9wcy5zdGlja3lUYWJzLnN0aWNreVRhYnMuZmluZChcclxuICAgIChpdGVtKSA9PiBpdGVtLnBhdGggPT09IHByb3BzLnBhdGhcclxuICApO1xyXG4gIC8vINCV0YHQu9C4INCz0LvQsNCy0L3QsNGPINGB0YLRgNCw0L3QuNGG0LAsINGC0L4g0L3QtSDQuNGB0LrQsNGC0YwsINC40L3QsNGH0LUg0YHRgtGA0LDQvdC40YbQsCDRg9C/0LDQtNC10YJcclxuICBjb25zdCB0aGlzUm91dGVCYW5uZXIgPVxyXG4gICAgcHJvcHMucGF0aCA9PT0gdW5kZWZpbmVkXHJcbiAgICAgID8gZmFsc2VcclxuICAgICAgOiBwcm9wcy5iYW5uZXJzLml0ZW1zLmZpbmQoKGl0ZW0pID0+XHJcbiAgICAgICAgICB0aGlzUm91dGVUYWIuYmFubmVyc1swXVxyXG4gICAgICAgICAgICA/IHRoaXNSb3V0ZVRhYi5iYW5uZXJzWzBdLmlkID09PSBpdGVtLmlkXHJcbiAgICAgICAgICAgIDogZmFsc2VcclxuICAgICAgICApO1xyXG4gIC8vIGNvbnNvbGUubG9nKHRoaXNSb3V0ZUJhbm5lciwgJyB0aGlzUm91dGVCYW5uZXInKTtcclxuICBjb25zdCBjaGlsZHJlbiA9IFJlYWN0LkNoaWxkcmVuLm1hcChwcm9wcy5jaGlsZHJlbiwgKGNoaWxkLCBpbmRleCkgPT4ge1xyXG4gICAgcmV0dXJuIFJlYWN0LmNsb25lRWxlbWVudChjaGlsZCwge1xyXG4gICAgICB0YWI6IHRoaXNSb3V0ZVRhYixcclxuICAgICAgY3VycmVudFBhZ2VJbmRleDogaW5kZXgsXHJcbiAgICAgIHRoaXNSb3V0ZVByb2R1Y3RzLFxyXG4gICAgICB0aGlzUm91dGVCYW5uZXIsXHJcbiAgICAgIC8vIGNpdHk6IHByb3BzLmNpdHksXHJcbiAgICB9KTtcclxuICB9KTtcclxuICByZXR1cm4gKFxyXG4gICAgPD5cclxuICAgICAgPEhlYWRlciAvPlxyXG4gICAgICA8U3RpY2t5SGVhZGVyIHN0aWNreVRhYnM9e3Byb3BzLnN0aWNreVRhYnMuc3RpY2t5VGFic30gLz5cclxuICAgICAgPG1haW4+XHJcbiAgICAgICAgey8qINCy0L7Qt9C80L7QttC90L4g0LIg0LHRg9C00YPRidC10Lwg0YPQsdC10YDRgyDQvtGC0YHRjtC00LAgKi99XHJcbiAgICAgICAgPGRpdiBjbGFzc05hbWU9e3N0eWxlc1snY29udGFpbmVyX19mdWxsJ119PlxyXG4gICAgICAgICAgey8qIHt0aGlzLnN0YXRlLmxvYWRlZCA9PT0gJ25vJyA/IChcclxuICAgICAgICAgICAgICA8ZGl2XHJcbiAgICAgICAgICAgICAgICBzdHlsZT17e1xyXG4gICAgICAgICAgICAgICAgICBtYXJnaW46ICc1MHB4JyxcclxuICAgICAgICAgICAgICAgICAganVzdGlmeUNvbnRlbnQ6ICdjZW50ZXInLFxyXG4gICAgICAgICAgICAgICAgICBkaXNwbGF5OiAnZmxleCcsXHJcbiAgICAgICAgICAgICAgICB9fVxyXG4gICAgICAgICAgICAgID5cclxuICAgICAgICAgICAgICAgIDxpbWcgc3JjPVwiL2ltZy9sb2FkZXIuZ2lmXCIgYWx0PVwibG9hZGVyXCIgLz5cclxuICAgICAgICAgICAgICA8L2Rpdj5cclxuICAgICAgICAgICAgKSA6ICggKi99XHJcbiAgICAgICAgICA8PntjaGlsZHJlbn08Lz5cclxuICAgICAgICAgIHsvKiApfSAqL31cclxuICAgICAgICA8L2Rpdj5cclxuICAgICAgPC9tYWluPlxyXG4gICAgICA8Rm9vdGVyIC8+XHJcbiAgICAgIDxzdHlsZSBqc3ggZ2xvYmFsPntgXHJcbiAgICAgICAgYm9keSB7XHJcbiAgICAgICAgICBvdmVyZmxvdzogJHtwcm9wcy5vcGVuTW9kYWxCZyA9PT0gdHJ1ZSA/ICdoaWRkZW4nIDogJ25vbmUnfTtcclxuICAgICAgICB9XHJcbiAgICAgIGB9PC9zdHlsZT5cclxuICAgIDwvPlxyXG4gICk7XHJcbn1cclxuXHJcbmNvbnN0IG1hcFN0YXRlID0gKFxyXG4gIHtcclxuICAgIHN0b3JlOiB7XHJcbiAgICAgIGNpdHksXHJcbiAgICAgIHByb2R1Y3RzLFxyXG4gICAgICBiYW5uZXJzLFxyXG4gICAgICBjYXRlZ29yaWVzLFxyXG4gICAgICBjYXRhbG9nU3RydWN0dXJlLFxyXG4gICAgICBzdGlja3lUYWJzLFxyXG4gICAgfSxcclxuICAgIG1vZGFsOiB7IG9wZW5Nb2RhbEJnIH0sXHJcbiAgfSxcclxuICB7XHJcbiAgICByb3V0ZXI6IHtcclxuICAgICAgcXVlcnk6IHsgcGF0aCB9LFxyXG4gICAgfSxcclxuICB9XHJcbikgPT4ge1xyXG4gIHJldHVybiB7XHJcbiAgICBjYXRhbG9nU3RydWN0dXJlLFxyXG4gICAgY2F0ZWdvcmllcyxcclxuICAgIGNpdHksXHJcbiAgICBwcm9kdWN0cyxcclxuICAgIHBhdGgsXHJcbiAgICBiYW5uZXJzLFxyXG4gICAgc3RpY2t5VGFicyxcclxuICAgIG9wZW5Nb2RhbEJnLFxyXG4gIH07XHJcbn07XHJcblxyXG5leHBvcnQgZGVmYXVsdCB3aXRoUm91dGVyKGNvbm5lY3QobWFwU3RhdGUpKExheW91dCkpO1xyXG4iXX0= */\n/*@ sourceURL=C:\\\\Users\\\\\u0410\u043B\u0435\u043A\u0441\u0435\u0439\\\\Desktop\\\\All Work\\\\next-official-guide\\\\components\\\\Layout.js */")));
+  }, "body{overflow:".concat(props.openModalBg === true ? 'hidden' : 'none', ";}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkM6XFxVc2Vyc1xc0JDQu9C10LrRgdC10LlcXERlc2t0b3BcXEFsbCBXb3JrXFxuZXh0LW9mZmljaWFsLWd1aWRlXFxjb21wb25lbnRzXFxMYXlvdXQuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBcUV5QixBQUdpRCxzQ0FDeEMiLCJmaWxlIjoiQzpcXFVzZXJzXFzQkNC70LXQutGB0LXQuVxcRGVza3RvcFxcQWxsIFdvcmtcXG5leHQtb2ZmaWNpYWwtZ3VpZGVcXGNvbXBvbmVudHNcXExheW91dC5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBMaW5rIGZyb20gJ25leHQvbGluayc7XHJcbmltcG9ydCBSb3V0ZXIgZnJvbSAnbmV4dC9yb3V0ZXInO1xyXG5pbXBvcnQgc3R5bGVzIGZyb20gJy4vaW5kZXgubW9kdWxlLnNjc3MnO1xyXG4vLyBpbXBvcnQgbG9hZGVyIGZyb20gJy4uL3B1YmxpYy9pbWcvbG9hZGVyLmdpZic7XHJcbmltcG9ydCBIZWFkZXIgZnJvbSAnLi9CYXNpYy9IZWFkZXInO1xyXG5pbXBvcnQgU3RpY2t5SGVhZGVyIGZyb20gJy4uL2NvbXBvbmVudHMvQmFzaWMvU3RpY2t5SGVhZGVyJztcclxuaW1wb3J0IEZvb3RlciBmcm9tICcuL0Jhc2ljL0Zvb3Rlcic7XHJcbmltcG9ydCB7IGNvbm5lY3QgfSBmcm9tICdyZWFjdC1yZWR1eCc7XHJcbmltcG9ydCB7IHdpdGhSb3V0ZXIgfSBmcm9tICduZXh0L3JvdXRlcic7XHJcbmltcG9ydCBFcnJvciBmcm9tICcuLi9wYWdlcy9fZXJyb3InO1xyXG5mdW5jdGlvbiBMYXlvdXQocHJvcHMpIHtcclxuICAvLyBjb25zb2xlLmxvZyhwcm9wcywgJyBQUk9QUycpO1xyXG4gIC8vINCd0LUg0YDQsNCx0L7RgtCw0LXRgiwg0LHRjdC0INGB0LXRgtCh0YLQtdC50YJcclxuICAvLyBwcm9wcy5kaXNwYXRjaENhdGVnb3JpZXNXaXRoTWFpbihzdGlja3lUYWJzV2l0aE1haW4pO1xyXG4gIC8vIGNvbnN0IHRoaXNSb3V0ZVByb2R1Y3RzID0gcHJvcHMucHJvZHVjdHNbMF0uZmluZCgoaXRlbSkgPT4ge1xyXG4gIC8vICAgLy8g0JXRgdC70Lgg0LPQu9Cw0LLQvdCw0Y8g0YHRgtGA0LDQvdC40YbQsCwg0YLQviDQvdCw0LTQviDQv9C+LdC+0YHQvtCx0L7QvNGDINC40YHQutCw0YLRjCDQtdGRINC40LzRj1xyXG4gIC8vICAgaWYgKHByb3BzLnBhdGggPT09IHVuZGVmaW5lZCkge1xyXG4gIC8vICAgICByZXR1cm4gaXRlbS5pdGVtTmFtZSA9PT0gJ21haW4nO1xyXG4gIC8vICAgfVxyXG4gIC8vICAgcmV0dXJuIGl0ZW0uaXRlbU5hbWUgPT09IHByb3BzLnBhdGg7XHJcbiAgLy8gfSk7XHJcblxyXG4gIGNvbnN0IHRoaXNSb3V0ZVByb2R1Y3RzID0gcHJvcHMucHJvZHVjdHNbMF0ucmVzdWx0O1xyXG5cclxuICBjb25zdCB0aGlzUm91dGVUYWIgPSBwcm9wcy5zdGlja3lUYWJzLnN0aWNreVRhYnMuZmluZChcclxuICAgIChpdGVtKSA9PiBpdGVtLnBhdGggPT09IHByb3BzLnBhdGhcclxuICApO1xyXG4gIC8vINCV0YHQu9C4INCz0LvQsNCy0L3QsNGPINGB0YLRgNCw0L3QuNGG0LAsINGC0L4g0L3QtSDQuNGB0LrQsNGC0YwsINC40L3QsNGH0LUg0YHRgtGA0LDQvdC40YbQsCDRg9C/0LDQtNC10YJcclxuICBjb25zdCB0aGlzUm91dGVCYW5uZXIgPVxyXG4gICAgcHJvcHMucGF0aCA9PT0gdW5kZWZpbmVkXHJcbiAgICAgID8gZmFsc2VcclxuICAgICAgOiBwcm9wcy5iYW5uZXJzLml0ZW1zLmZpbmQoKGl0ZW0pID0+XHJcbiAgICAgICAgICB0aGlzUm91dGVUYWIuYmFubmVyc1swXVxyXG4gICAgICAgICAgICA/IHRoaXNSb3V0ZVRhYi5iYW5uZXJzWzBdLmlkID09PSBpdGVtLmlkXHJcbiAgICAgICAgICAgIDogZmFsc2VcclxuICAgICAgICApO1xyXG4gIC8vIGNvbnNvbGUubG9nKHRoaXNSb3V0ZUJhbm5lciwgJyB0aGlzUm91dGVCYW5uZXInKTtcclxuICBjb25zdCBjaGlsZHJlbiA9IFJlYWN0LkNoaWxkcmVuLm1hcChwcm9wcy5jaGlsZHJlbiwgKGNoaWxkLCBpbmRleCkgPT4ge1xyXG4gICAgcmV0dXJuIFJlYWN0LmNsb25lRWxlbWVudChjaGlsZCwge1xyXG4gICAgICB0YWI6IHRoaXNSb3V0ZVRhYixcclxuICAgICAgY3VycmVudFBhZ2VJbmRleDogaW5kZXgsXHJcbiAgICAgIHRoaXNSb3V0ZVByb2R1Y3RzLFxyXG4gICAgICB0aGlzUm91dGVCYW5uZXIsXHJcbiAgICAgIC8vIGNpdHk6IHByb3BzLmNpdHksXHJcbiAgICB9KTtcclxuICB9KTtcclxuICByZXR1cm4gKFxyXG4gICAgPD5cclxuICAgICAgPEhlYWRlciAvPlxyXG4gICAgICA8U3RpY2t5SGVhZGVyIHN0aWNreVRhYnM9e3Byb3BzLnN0aWNreVRhYnMuc3RpY2t5VGFic30gLz5cclxuICAgICAgPG1haW4+XHJcbiAgICAgICAgey8qINCy0L7Qt9C80L7QttC90L4g0LIg0LHRg9C00YPRidC10Lwg0YPQsdC10YDRgyDQvtGC0YHRjtC00LAgKi99XHJcbiAgICAgICAgPGRpdiBjbGFzc05hbWU9e3N0eWxlc1snY29udGFpbmVyX19mdWxsJ119PlxyXG4gICAgICAgICAgey8qIHt0aGlzLnN0YXRlLmxvYWRlZCA9PT0gJ25vJyA/IChcclxuICAgICAgICAgICAgICA8ZGl2XHJcbiAgICAgICAgICAgICAgICBzdHlsZT17e1xyXG4gICAgICAgICAgICAgICAgICBtYXJnaW46ICc1MHB4JyxcclxuICAgICAgICAgICAgICAgICAganVzdGlmeUNvbnRlbnQ6ICdjZW50ZXInLFxyXG4gICAgICAgICAgICAgICAgICBkaXNwbGF5OiAnZmxleCcsXHJcbiAgICAgICAgICAgICAgICB9fVxyXG4gICAgICAgICAgICAgID5cclxuICAgICAgICAgICAgICAgIDxpbWcgc3JjPVwiL2ltZy9sb2FkZXIuZ2lmXCIgYWx0PVwibG9hZGVyXCIgLz5cclxuICAgICAgICAgICAgICA8L2Rpdj5cclxuICAgICAgICAgICAgKSA6ICggKi99XHJcbiAgICAgICAgICA8PntjaGlsZHJlbn08Lz5cclxuICAgICAgICAgIHsvKiApfSAqL31cclxuICAgICAgICA8L2Rpdj5cclxuICAgICAgPC9tYWluPlxyXG4gICAgICA8Rm9vdGVyIC8+XHJcbiAgICAgIDxzdHlsZSBqc3ggZ2xvYmFsPntgXHJcbiAgICAgICAgYm9keSB7XHJcbiAgICAgICAgICBvdmVyZmxvdzogJHtwcm9wcy5vcGVuTW9kYWxCZyA9PT0gdHJ1ZSA/ICdoaWRkZW4nIDogJ25vbmUnfTtcclxuICAgICAgICB9XHJcbiAgICAgIGB9PC9zdHlsZT5cclxuICAgIDwvPlxyXG4gICk7XHJcbn1cclxuXHJcbmNvbnN0IG1hcFN0YXRlID0gKFxyXG4gIHtcclxuICAgIHN0b3JlOiB7XHJcbiAgICAgIGNpdHksXHJcbiAgICAgIHByb2R1Y3RzLFxyXG4gICAgICBiYW5uZXJzLFxyXG4gICAgICBjYXRlZ29yaWVzLFxyXG4gICAgICBjYXRhbG9nU3RydWN0dXJlLFxyXG4gICAgICBzdGlja3lUYWJzLFxyXG4gICAgICBwYXRobmFtZSxcclxuICAgIH0sXHJcbiAgICBtb2RhbDogeyBvcGVuTW9kYWxCZyB9LFxyXG4gIH0sXHJcbiAge1xyXG4gICAgcm91dGVyOiB7XHJcbiAgICAgIHF1ZXJ5OiB7IHBhdGggfSxcclxuICAgIH0sXHJcbiAgfVxyXG4pID0+IHtcclxuICByZXR1cm4ge1xyXG4gICAgY2F0YWxvZ1N0cnVjdHVyZSxcclxuICAgIGNhdGVnb3JpZXMsXHJcbiAgICBjaXR5LFxyXG4gICAgcHJvZHVjdHMsXHJcbiAgICBwYXRoLFxyXG4gICAgYmFubmVycyxcclxuICAgIHN0aWNreVRhYnMsXHJcbiAgICBvcGVuTW9kYWxCZyxcclxuICB9O1xyXG59O1xyXG5cclxuZXhwb3J0IGRlZmF1bHQgd2l0aFJvdXRlcihjb25uZWN0KG1hcFN0YXRlKShMYXlvdXQpKTtcclxuIl19 */\n/*@ sourceURL=C:\\\\Users\\\\\u0410\u043B\u0435\u043A\u0441\u0435\u0439\\\\Desktop\\\\All Work\\\\next-official-guide\\\\components\\\\Layout.js */")));
 }
 
 var mapState = function mapState(_ref, _ref2) {
@@ -1040,6 +1041,7 @@ var mapState = function mapState(_ref, _ref2) {
       categories = _ref$store.categories,
       catalogStructure = _ref$store.catalogStructure,
       stickyTabs = _ref$store.stickyTabs,
+      pathname = _ref$store.pathname,
       openModalBg = _ref.modal.openModalBg;
   var path = _ref2.router.query.path;
   return {
@@ -10038,28 +10040,28 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 124,
+          lineNumber: 138,
           columnNumber: 9
         }
       }, __jsx(_components_Modals_CityChoiceModal__WEBPACK_IMPORTED_MODULE_15__["default"], {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 125,
+          lineNumber: 139,
           columnNumber: 11
         }
       }), __jsx(_components_Layout__WEBPACK_IMPORTED_MODULE_11__["default"], {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 126,
+          lineNumber: 140,
           columnNumber: 11
         }
       }, __jsx(Component, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__["default"])({}, pageProps, {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 127,
+          lineNumber: 141,
           columnNumber: 13
         }
       }))));
@@ -10067,44 +10069,44 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
   }], [{
     key: "getInitialProps",
     value: function getInitialProps(_ref) {
-      var Component, ctx, allCities, domain, cityInsteadOfDomain, defaultCityData, thisCityCategoriesData, getAllBannersData, catalogStructure, stickyTabs, stickyTabsWithMain, cityID, promises, allProducts;
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function getInitialProps$(_context2) {
+      var Component, ctx, domain, cityInsteadOfDomain, defaultCityData, thisCityCategoriesData, getAllBannersData, catalogStructure, stickyTabs, stickyTabsWithMain, cityID, pathname, ProductForPathFiltered, productsForPath;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function getInitialProps$(_context) {
         while (1) {
-          switch (_context2.prev = _context2.next) {
+          switch (_context.prev = _context.next) {
             case 0:
               Component = _ref.Component, ctx = _ref.ctx;
-              _context2.next = 3;
-              return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(Object(_utils_fetcher__WEBPACK_IMPORTED_MODULE_9__["default"])('https://client-api.sushi-master.ru/api/v1/city'));
-
-            case 3:
-              allCities = _context2.sent;
-              // const allCities = await allCitiesReq.json();
+              //   const cityByIpOrDomain = await fetch(
+              //     'https://client-api.sushi-master.ru/api/v1/city/current?domain=abakan'
+              //   );
+              // const allCities = await fetcher(
+              //   'https://client-api.sushi-master.ru/api/v1/city'
+              // );
               // тут пока по двоеточию поделил чтобы чекнуть что работает, с доменами будет так же
               domain = ctx.req ? ctx.req.headers.host.split(':', 1) : ''; // console.log(domain, ' DOMAIN');
 
               cityInsteadOfDomain = 'abakan';
-              _context2.next = 8;
+              _context.next = 5;
               return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(Object(_utils_fetcher__WEBPACK_IMPORTED_MODULE_9__["default"])("https://client-api.sushi-master.ru/api/v1/city/current?domain=".concat(cityInsteadOfDomain)));
 
-            case 8:
-              defaultCityData = _context2.sent;
+            case 5:
+              defaultCityData = _context.sent;
               console.time('fetchstart'); // 5d3834ad59201a66b905d9e7 - id abakan
 
-              _context2.next = 12;
+              _context.next = 9;
               return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(Object(_utils_fetcher__WEBPACK_IMPORTED_MODULE_9__["default"])("https://client-api.sushi-master.ru/api/v1/catalog/categories/?cityId=".concat(defaultCityData.result.cityId)));
 
-            case 12:
-              thisCityCategoriesData = _context2.sent;
-              _context2.next = 15;
+            case 9:
+              thisCityCategoriesData = _context.sent;
+              _context.next = 12;
               return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(Object(_utils_fetcher__WEBPACK_IMPORTED_MODULE_9__["default"])("https://client-api.sushi-master.ru/api/v1/catalog/banners?".concat(defaultCityData.result.cityId)));
 
-            case 15:
-              getAllBannersData = _context2.sent;
-              _context2.next = 18;
+            case 12:
+              getAllBannersData = _context.sent;
+              _context.next = 15;
               return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(Object(_utils_fetcher__WEBPACK_IMPORTED_MODULE_9__["default"])("https://client-api.sushi-master.ru/api/v1/catalog/structure?".concat(defaultCityData.result.cityId)));
 
-            case 18:
-              catalogStructure = _context2.sent;
+            case 15:
+              catalogStructure = _context.sent;
               // const getAllBannersData = await getAllBanners.json();
               // console.log(getAllBannersData, ' getAllBannersData');
               // console.log(defaultCityData, 'defaultCityData');
@@ -10120,36 +10122,44 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
               })[0]]);
               cityID = defaultCityData.result.cityId; // console.log(cityID, ' city');
 
-              promises = stickyTabsWithMain.map(function _callee(item) {
-                var promResult, itemName;
-                return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function _callee$(_context) {
-                  while (1) {
-                    switch (_context.prev = _context.next) {
-                      case 0:
-                        _context.next = 2;
-                        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(Object(_utils_fetcher__WEBPACK_IMPORTED_MODULE_9__["default"])("https://client-api.sushi-master.ru/api/v1/catalog/categories/".concat(item.id, "/products"), {
-                          cityId: cityID
-                        }));
+              pathname = ctx.query.path;
+              ProductForPathFiltered = stickyTabsWithMain.filter(function (item) {
+                if (!pathname) {
+                  return item.path === 'main';
+                }
 
-                      case 2:
-                        promResult = _context.sent;
-                        itemName = item.path;
-                        return _context.abrupt("return", _objectSpread({}, promResult.result, {
-                          itemName: itemName
-                        }));
+                return item.path === pathname;
+              }); // console.log(ProductForPathFiltered, ' ProductForPathFiltered');
 
-                      case 5:
-                      case "end":
-                        return _context.stop();
-                    }
-                  }
-                }, null, null, null, Promise);
-              });
-              _context2.next = 26;
-              return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(Promise.all(promises));
+              if (!ProductForPathFiltered[0]) {
+                _context.next = 28;
+                break;
+              }
 
-            case 26:
-              allProducts = _context2.sent;
+              _context.next = 25;
+              return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(Object(_utils_fetcher__WEBPACK_IMPORTED_MODULE_9__["default"])("https://client-api.sushi-master.ru/api/v1/catalog/categories/".concat(ProductForPathFiltered[0].id, "/products"), {
+                cityId: cityID
+              }));
+
+            case 25:
+              productsForPath = _context.sent;
+              _context.next = 29;
+              break;
+
+            case 28:
+              productsForPath = [];
+
+            case 29:
+              // Предыдущее рещение было не лучшим
+              // const promises = stickyTabsWithMain.map(async (item) => {
+              //   const promResult = await fetcher(
+              //     `https://client-api.sushi-master.ru/api/v1/catalog/categories/${item.id}/products`,
+              //     { cityId: cityID }
+              //   );
+              //   const itemName = item.path;
+              //   return { ...promResult.result, itemName };
+              // });
+              // const allProducts = await Promise.all(promises);
               ctx.store.dispatch(Object(_redux_actions_dispatchStickyTabsWithMain__WEBPACK_IMPORTED_MODULE_16__["dispatchCategoriesWithMain"])(stickyTabsWithMain, stickyTabs));
               ctx.store.dispatch({
                 type: 'INITIAL_CITY_STATE',
@@ -10169,38 +10179,39 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
               });
               ctx.store.dispatch({
                 type: 'INITIAL_PRODUCTS',
-                payload: [allProducts]
+                // payload: [allProducts],
+                payload: [productsForPath]
               });
               console.timeEnd('fetchstart');
-              _context2.t0 = _objectSpread;
-              _context2.t1 = {};
+              _context.t0 = _objectSpread;
+              _context.t1 = {};
 
               if (!Component.getInitialProps) {
-                _context2.next = 42;
+                _context.next = 44;
                 break;
               }
 
-              _context2.next = 39;
+              _context.next = 41;
               return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(Component.getInitialProps(ctx));
 
-            case 39:
-              _context2.t2 = _context2.sent;
-              _context2.next = 43;
+            case 41:
+              _context.t2 = _context.sent;
+              _context.next = 45;
               break;
 
-            case 42:
-              _context2.t2 = {};
+            case 44:
+              _context.t2 = {};
 
-            case 43:
-              _context2.t3 = _context2.t2;
-              _context2.t4 = (0, _context2.t0)(_context2.t1, _context2.t3);
-              return _context2.abrupt("return", {
-                pageProps: _context2.t4
+            case 45:
+              _context.t3 = _context.t2;
+              _context.t4 = (0, _context.t0)(_context.t1, _context.t3);
+              return _context.abrupt("return", {
+                pageProps: _context.t4
               });
 
-            case 46:
+            case 48:
             case "end":
-              return _context2.stop();
+              return _context.stop();
           }
         }
       }, null, null, null, Promise);
@@ -10326,8 +10337,8 @@ var cardCounter = function cardCounter() {
     counter: 0
   };
   var action = arguments.length > 1 ? arguments[1] : undefined;
-  console.log(action, ' ACTION cardReducer');
 
+  // console.log(action, ' ACTION cardReducer');
   switch (action.type) {
     case 'INCREMENT':
       // console.log(action, ' ACTION');
@@ -10648,9 +10659,9 @@ var options = {
 function fetcher(url, otherOpts) {
   if (otherOpts) {
     options = _objectSpread({}, options, {}, otherOpts);
-  }
+  } // console.log(url, ' url');
 
-  console.log(url, ' url');
+
   return isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1___default()(url, options).then(function (r) {
     return r.json();
   })["catch"](function (err) {

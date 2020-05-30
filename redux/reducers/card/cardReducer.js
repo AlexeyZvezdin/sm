@@ -11,7 +11,7 @@ const cardReducer = (state = { cardProducts: [] }, action) => {
 };
 
 export const cardCounter = (state = { counter: 0 }, action) => {
-  console.log(action, ' ACTION cardReducer');
+  // console.log(action, ' ACTION cardReducer');
 
   switch (action.type) {
     case 'INCREMENT':
