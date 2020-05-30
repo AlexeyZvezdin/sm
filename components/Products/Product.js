@@ -78,6 +78,22 @@ function Product({ product, store, ...props }) {
       await setCartButtonCounter(1);
     }
   };
+
+  const getCounterFromLS = () => {
+    if (window === undefined) {
+      return 0;
+    }
+
+    const LSobject = JSON.parse(
+      localStorage.getItem(`inCardProduct:${product.id}`)
+    );
+
+    console.log(LSobject, ' LSOBJECT');
+    if (!LSobject) {
+      return 0;
+    }
+    return LSobject.quantity;
+  };
   // Количество для каждого продукта
   const returnEachProductFromStorage = async () => {
     // localy there is no localstorage
@@ -88,46 +104,11 @@ function Product({ product, store, ...props }) {
     if (!preResult) {
       return false;
     } else {
-      return JSON.parse(preResult);
+      const result = JSON.parse(preResult);
+      // не работает как надо, на других страницах сохраняются цены на товарах
+      await setCartButtonCounter(result.quantity);
+      return result;
     }
-  };
-
-  const renderCounter = () => {
-    return CheckCounter() === 0 ? (
-      <div
-        className="product-bottom_right-buy"
-        onClick={async () => {
-          setCartButtonCounter(cartButtonCounter + 1);
-          await handleCounterClick('inc');
-        }}
-      >
-        <div className="product-bottom_right-buy-collapsed">
-          <span>Хочу</span> <img src="/img/icons/icon-cart.svg" alt="" />
-        </div>
-      </div>
-    ) : (
-      <div className="cart-button cart-button-border">
-        <div className="cart-button__expanded">
-          <div
-            className="cart-button__expanded__minus"
-            onClick={() => {
-              setCartButtonCounter(cartButtonCounter - 1);
-              handleCounterClick('dec');
-            }}
-          ></div>
-          <div className="cart-button__expanded__count">
-            {cartButtonCounter}
-          </div>
-          <div
-            className="cart-button__expanded__plus"
-            onClick={() => {
-              setCartButtonCounter(cartButtonCounter + 1);
-              handleCounterClick('inc');
-            }}
-          ></div>
-        </div>
-      </div>
-    );
   };
 
   return (
@@ -193,8 +174,41 @@ function Product({ product, store, ...props }) {
             <img src="/img/icons/icon-info-white.svg" alt="Инфо" />
           </div>
           {/* тут */}
-          {renderCounter()}
-          {/* тут было */}
+          {getCounterFromLS() === 0 ? (
+            <div
+              className="product-bottom_right-buy"
+              onClick={async () => {
+                setCartButtonCounter(cartButtonCounter + 1);
+                await handleCounterClick('inc');
+              }}
+            >
+              <div className="product-bottom_right-buy-collapsed">
+                <span>Хочу</span> <img src="/img/icons/icon-cart.svg" alt="" />
+              </div>
+            </div>
+          ) : (
+            <div className="cart-button cart-button-border">
+              <div className="cart-button__expanded">
+                <div
+                  className="cart-button__expanded__minus"
+                  onClick={() => {
+                    setCartButtonCounter(cartButtonCounter - 1);
+                    handleCounterClick('dec');
+                  }}
+                ></div>
+                <div className="cart-button__expanded__count">
+                  {getCounterFromLS()}
+                </div>
+                <div
+                  className="cart-button__expanded__plus"
+                  onClick={() => {
+                    setCartButtonCounter(cartButtonCounter + 1);
+                    handleCounterClick('inc');
+                  }}
+                ></div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
