@@ -10,7 +10,7 @@ function Product({ product, store, ...props }) {
   // console.log(props, ' props');
   // console.log(store, ' store');
   const [cartButtonCounter, setCartButtonCounter] = React.useState(0);
-  const [thisProductQuantity, setThisProductQuantity] = React.useState(0);
+  const [localProductCounter, setlocalProductCounter] = React.useState(0);
   const [productInfo, setProductInfo] = React.useState(true);
 
   const handleCounterClick = async (action) => {
@@ -39,13 +39,43 @@ function Product({ product, store, ...props }) {
     returnEachProductFromStorage();
   }, [`${product.id}`]);
 
+  const CheckCounter = () => {
+    return cartButtonCounter;
+  };
   // обработка каждого продукта, его счетчик и объект, который будет передаваться в корзину
   const handleEachProduct = async (action) => {
     const isProductAlreadyInStorage = await returnEachProductFromStorage();
-
+    console.log(isProductAlreadyInStorage, ' isProductAlreadyInStorage');
     if (isProductAlreadyInStorage) {
       const quantity = isProductAlreadyInStorage.quantity;
-      console.log(quantity, ' QUANTITY FROM handleEach');
+      if (action === 'inc') {
+        await localStorage.setItem(
+          `inCardProduct:${product.id}`,
+          JSON.stringify({
+            product,
+            quantity: quantity + 1,
+          })
+        );
+        await setCartButtonCounter(quantity + 1);
+      } else if (action === 'dec') {
+        await localStorage.setItem(
+          `inCardProduct:${product.id}`,
+          JSON.stringify({
+            product,
+            quantity: quantity - 1,
+          })
+        );
+        await setCartButtonCounter(quantity - 1);
+      }
+    } else {
+      await localStorage.setItem(
+        `inCardProduct:${product.id}`,
+        JSON.stringify({
+          product,
+          quantity: 1,
+        })
+      );
+      await setCartButtonCounter(1);
     }
   };
   // Количество для каждого продукта
@@ -60,20 +90,51 @@ function Product({ product, store, ...props }) {
     } else {
       return JSON.parse(preResult);
     }
-    // let r = preResult != null ? JSON.parse(preResult) : '';
+  };
+
+  const renderCounter = () => {
+    return CheckCounter() === 0 ? (
+      <div
+        className="product-bottom_right-buy"
+        onClick={async () => {
+          setCartButtonCounter(cartButtonCounter + 1);
+          await handleCounterClick('inc');
+        }}
+      >
+        <div className="product-bottom_right-buy-collapsed">
+          <span>Хочу</span> <img src="/img/icons/icon-cart.svg" alt="" />
+        </div>
+      </div>
+    ) : (
+      <div className="cart-button cart-button-border">
+        <div className="cart-button__expanded">
+          <div
+            className="cart-button__expanded__minus"
+            onClick={() => {
+              setCartButtonCounter(cartButtonCounter - 1);
+              handleCounterClick('dec');
+            }}
+          ></div>
+          <div className="cart-button__expanded__count">
+            {cartButtonCounter}
+          </div>
+          <div
+            className="cart-button__expanded__plus"
+            onClick={() => {
+              setCartButtonCounter(cartButtonCounter + 1);
+              handleCounterClick('inc');
+            }}
+          ></div>
+        </div>
+      </div>
+    );
   };
 
   return (
     <div className={p_s['product']} key={product.id}>
       <div
         // Забавное поведение, если сделать так, то будет убираться ТОЛЬКО обертка, нижние отобразятся
-        // className={
-        //   p_s[
-        //     `${
-        //   //    !productInfo ? 'product-info product-info-display' : 'product-info'
-        //     }`
-        //   ]
-        // }
+        // className={p_s[`${!productInfo ? 'product-info product-info-display' : 'product-info'}`]}
         className={p_s['product-info']}
         hidden={productInfo}
         onClick={() => setProductInfo(!productInfo)}
@@ -132,42 +193,8 @@ function Product({ product, store, ...props }) {
             <img src="/img/icons/icon-info-white.svg" alt="Инфо" />
           </div>
           {/* тут */}
-          {cartButtonCounter === 0 ? (
-            <div
-              className="product-bottom_right-buy"
-              onClick={() => {
-                setCartButtonCounter(cartButtonCounter + 1);
-                handleCounterClick('inc');
-                handleEachProduct();
-              }}
-            >
-              <div className="product-bottom_right-buy-collapsed">
-                <span>Хочу</span> <img src="/img/icons/icon-cart.svg" alt="" />
-              </div>
-            </div>
-          ) : (
-            <div className="cart-button cart-button-border">
-              <div className="cart-button__expanded">
-                <div
-                  className="cart-button__expanded__minus"
-                  onClick={() => {
-                    setCartButtonCounter(cartButtonCounter - 1);
-                    handleCounterClick('dec');
-                  }}
-                ></div>
-                <div className="cart-button__expanded__count">
-                  {cartButtonCounter}
-                </div>
-                <div
-                  className="cart-button__expanded__plus"
-                  onClick={() => {
-                    setCartButtonCounter(cartButtonCounter + 1);
-                    handleCounterClick('inc');
-                  }}
-                ></div>
-              </div>
-            </div>
-          )}
+          {renderCounter()}
+          {/* тут было */}
         </div>
       </div>
     </div>

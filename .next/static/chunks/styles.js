@@ -30,7 +30,7 @@ module.exports = {"footer":"footer","footer-box":"footer-box","footer-col":"foot
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590839031608");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590840432492");
           });
       }
     }
@@ -68,7 +68,7 @@ module.exports = {"main_header":"main_header","header-logo":"header-logo","menu"
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590839031572");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590840432459");
           });
       }
     }
@@ -106,7 +106,7 @@ module.exports = {"sticky-header":"sticky-header","sticky-header__categories__it
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590839031849");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590840432693");
           });
       }
     }
@@ -144,7 +144,7 @@ module.exports = {"modal-backdrop":"modal-backdrop","city_modal":"city_modal","c
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590839031311");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590840432284");
           });
       }
     }
@@ -182,7 +182,7 @@ module.exports = {"products":"products","product":"product","product-name":"prod
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590839035419");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590840437662");
           });
       }
     }
@@ -220,7 +220,7 @@ module.exports = {"container__full":"container__full"};;
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590839031304");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590840432281");
           });
       }
     }
@@ -258,7 +258,7 @@ module.exports = {"box":"box","menu":"menu"};;
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590839031299");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590840432276");
           });
       }
     }
@@ -296,7 +296,7 @@ module.exports = {"route-container":"route-container","route-banner":"route-bann
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590839035208");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590840437521");
           });
       }
     }

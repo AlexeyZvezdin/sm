@@ -10040,28 +10040,28 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 138,
+          lineNumber: 130,
           columnNumber: 9
         }
       }, __jsx(_components_Modals_CityChoiceModal__WEBPACK_IMPORTED_MODULE_15__["default"], {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 139,
+          lineNumber: 131,
           columnNumber: 11
         }
       }), __jsx(_components_Layout__WEBPACK_IMPORTED_MODULE_11__["default"], {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 140,
+          lineNumber: 132,
           columnNumber: 11
         }
       }, __jsx(Component, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__["default"])({}, pageProps, {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 141,
+          lineNumber: 133,
           columnNumber: 13
         }
       }))));
@@ -10078,9 +10078,6 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
               //   const cityByIpOrDomain = await fetch(
               //     'https://client-api.sushi-master.ru/api/v1/city/current?domain=abakan'
               //   );
-              // const allCities = await fetcher(
-              //   'https://client-api.sushi-master.ru/api/v1/city'
-              // );
               // тут пока по двоеточию поделил чтобы чекнуть что работает, с доменами будет так же
               domain = ctx.req ? ctx.req.headers.host.split(':', 1) : ''; // console.log(domain, ' DOMAIN');
 
@@ -10107,9 +10104,6 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
             case 15:
               catalogStructure = _context.sent;
-              // const getAllBannersData = await getAllBanners.json();
-              // console.log(getAllBannersData, ' getAllBannersData');
-              // console.log(defaultCityData, 'defaultCityData');
               stickyTabs = []; // console.log(catalogStructure, ' catalogStructure');
 
               catalogStructure.result.update.categories.map(function (item) {
@@ -10120,8 +10114,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
               stickyTabsWithMain = [].concat(stickyTabs, [thisCityCategoriesData.result.update.items.filter(function (item) {
                 return item.path === 'main';
               })[0]]);
-              cityID = defaultCityData.result.cityId; // console.log(cityID, ' city');
-
+              cityID = defaultCityData.result.cityId;
               pathname = ctx.query.path;
               ProductForPathFiltered = stickyTabsWithMain.filter(function (item) {
                 if (!pathname) {

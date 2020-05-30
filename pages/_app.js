@@ -15,9 +15,7 @@ export default withRedux(makeStore, { debug: false })(
       //   const cityByIpOrDomain = await fetch(
       //     'https://client-api.sushi-master.ru/api/v1/city/current?domain=abakan'
       //   );
-      // const allCities = await fetcher(
-      //   'https://client-api.sushi-master.ru/api/v1/city'
-      // );
+
       // тут пока по двоеточию поделил чтобы чекнуть что работает, с доменами будет так же
       let domain = ctx.req ? ctx.req.headers.host.split(':', 1) : '';
       // console.log(domain, ' DOMAIN');
@@ -45,11 +43,6 @@ export default withRedux(makeStore, { debug: false })(
         `https://client-api.sushi-master.ru/api/v1/catalog/structure?${defaultCityData.result.cityId}`
       );
 
-      // const getAllBannersData = await getAllBanners.json();
-      // console.log(getAllBannersData, ' getAllBannersData');
-
-      // console.log(defaultCityData, 'defaultCityData');
-
       let stickyTabs = [];
       // console.log(catalogStructure, ' catalogStructure');
       catalogStructure.result.update.categories.map((item) =>
@@ -66,7 +59,6 @@ export default withRedux(makeStore, { debug: false })(
       ];
 
       const cityID = defaultCityData.result.cityId;
-      // console.log(cityID, ' city');
 
       let pathname = ctx.query.path;
       let ProductForPathFiltered = stickyTabsWithMain.filter((item) => {

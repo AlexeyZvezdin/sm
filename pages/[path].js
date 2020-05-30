@@ -13,7 +13,6 @@ import Error from '../pages/_error';
  */
 
 function subroute(props) {
-  console.log(props.thisRouteProducts, ' props.thisRouteProducts');
   const products = filteredEntityByViewIntervals(props.thisRouteProducts.items);
   const bannerPath = props.tab.banners[0]
     ? `https://client-api.sushi-master.ru/pics/${props.thisRouteBanner.pictureId}?width=400`
