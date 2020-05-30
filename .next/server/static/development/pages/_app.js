@@ -538,7 +538,8 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       sticky: false,
       headerOffset: 0,
       showCitySelector: false,
-      cardCounter: 0
+      cardCounter: 0,
+      totalPrice: 0
     });
 
     _defineProperty(this, "handleCityModal", () => {
@@ -574,7 +575,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 66,
+        lineNumber: 67,
         columnNumber: 7
       }
     }, __jsx("a", {
@@ -582,7 +583,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 67,
+        lineNumber: 68,
         columnNumber: 9
       }
     }, el.name)));
@@ -593,7 +594,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 72,
+        lineNumber: 73,
         columnNumber: 7
       }
     }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
@@ -601,7 +602,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 73,
+        lineNumber: 74,
         columnNumber: 9
       }
     }, __jsx("a", {
@@ -609,7 +610,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 74,
+        lineNumber: 75,
         columnNumber: 11
       }
     }, __jsx("img", {
@@ -619,7 +620,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 75,
+        lineNumber: 76,
         columnNumber: 13
       }
     }), "\u0421\u0443\u0448\u0438 \u043C\u0430\u0441\u0442\u0435\u0440 \u2014 \u0437\u0430\u043A\u0430\u0437 \u0438 \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0430 \u0435\u0434\u044B \u043D\u0430 \u0434\u043E\u043C \u0432 \u0413\u043E\u0440\u043E\u0434\u041D\u0435\u0439\u043C")), __jsx("div", {
@@ -627,7 +628,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 84,
+        lineNumber: 85,
         columnNumber: 9
       }
     }, __jsx("button", {
@@ -636,7 +637,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 85,
+        lineNumber: 86,
         columnNumber: 11
       }
     }, __jsx("img", {
@@ -645,7 +646,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 89,
+        lineNumber: 90,
         columnNumber: 13
       }
     }), __jsx("span", {
@@ -653,14 +654,14 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 90,
+        lineNumber: 91,
         columnNumber: 13
       }
     }, this.props.city.name)), __jsx("a", {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 102,
+        lineNumber: 103,
         columnNumber: 11
       }
     }, "No phone")), __jsx("nav", {
@@ -668,14 +669,14 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 104,
+        lineNumber: 105,
         columnNumber: 9
       }
     }, __jsx("ul", {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 105,
+        lineNumber: 106,
         columnNumber: 11
       }
     }, menu)), __jsx("div", {
@@ -683,7 +684,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 107,
+        lineNumber: 108,
         columnNumber: 9
       }
     }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
@@ -691,7 +692,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 108,
+        lineNumber: 109,
         columnNumber: 11
       }
     }, __jsx("a", {
@@ -699,7 +700,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 109,
+        lineNumber: 110,
         columnNumber: 13
       }
     }, __jsx("div", {
@@ -707,22 +708,22 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 110,
+        lineNumber: 111,
         columnNumber: 15
       }
-    }, "Price", __jsx("span", {
-      __self: this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 111,
-        columnNumber: 22
-      }
-    }, "\u20BD")), __jsx("div", {
-      className: _header_module_scss__WEBPACK_IMPORTED_MODULE_4___default.a['header-cart_n_login-card_icon'],
+    }, this.state.totalPrice, __jsx("span", {
       __self: this,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 113,
+        columnNumber: 17
+      }
+    }, " \u20BD")), __jsx("div", {
+      className: _header_module_scss__WEBPACK_IMPORTED_MODULE_4___default.a['header-cart_n_login-card_icon'],
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 115,
         columnNumber: 15
       }
     }, __jsx("div", {
@@ -730,7 +731,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 114,
+        lineNumber: 116,
         columnNumber: 17
       }
     }, __jsx("div", {
@@ -738,7 +739,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 115,
+        lineNumber: 117,
         columnNumber: 19
       }
     }, this.props.cardCounter.counter ? Number(this.props.cardCounter.counter) + Number(this.state.cardCounter) : Number(this.state.cardCounter) + Number(this.props.cardCounter.counter))))))), __jsx("div", {
@@ -746,7 +747,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 133,
+        lineNumber: 135,
         columnNumber: 9
       }
     }, __jsx("div", {
@@ -754,7 +755,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 134,
+        lineNumber: 136,
         columnNumber: 11
       }
     }, "\u0412\u043E\u0439\u0442\u0438")));

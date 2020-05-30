@@ -1,5 +1,43 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["styles"],{
 
+/***/ "./components/Banners/banners.module.scss":
+/*!************************************************!*\
+  !*** ./components/Banners/banners.module.scss ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+module.exports = {"banner":"banner","banners__swiper-container":"banners__swiper-container","swiper-pagination-bullets":"swiper-pagination-bullets","swiper-pagination-bullets-dynamic":"swiper-pagination-bullets-dynamic","swiper-pagination-bullet":"swiper-pagination-bullet","swiper-pagination-bullet-active-next":"swiper-pagination-bullet-active-next","swiper-pagination-bullet-active-next-next":"swiper-pagination-bullet-active-next-next","swiper-pagination-bullet-active-prev":"swiper-pagination-bullet-active-prev","swiper-pagination-bullet-active-prev-prev":"swiper-pagination-bullet-active-prev-prev","banners__products":"banners__products"};;
+    if (true) {
+      var injectCss = function injectCss(prev, href) {
+        var link = prev.cloneNode();
+        link.href = href;
+        link.onload = function() {
+          prev.parentNode.removeChild(prev);
+        };
+        prev.stale = true;
+        prev.parentNode.insertBefore(link, prev);
+      };
+      module.hot.dispose(function() {
+        window.__webpack_reload_css__ = true;
+      });
+      if (window.__webpack_reload_css__) {
+        module.hot.__webpack_reload_css__ = false;
+        console.log("[HMR] Reloading stylesheets...");
+        var prefix = document.location.protocol + '//' + document.location.host;
+        document
+          .querySelectorAll("link[href][rel=stylesheet]")
+          .forEach(function(link) {
+            if (!link.href.match(prefix) || link.stale) return;
+            injectCss(link, link.href.split("?")[0] + "?unix=1590861560322");
+          });
+      }
+    }
+  
+
+/***/ }),
+
 /***/ "./components/Basic/footer.module.scss":
 /*!*********************************************!*\
   !*** ./components/Basic/footer.module.scss ***!
@@ -30,7 +68,7 @@ module.exports = {"footer":"footer","footer-box":"footer-box","footer-col":"foot
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590857351627");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590861554516");
           });
       }
     }
@@ -68,7 +106,7 @@ module.exports = {"main_header":"main_header","header-logo":"header-logo","menu"
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590857351596");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590861554477");
           });
       }
     }
@@ -106,7 +144,7 @@ module.exports = {"sticky-header":"sticky-header","sticky-header__categories__it
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590857351902");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590861554814");
           });
       }
     }
@@ -144,7 +182,7 @@ module.exports = {"modal-backdrop":"modal-backdrop","city_modal":"city_modal","c
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590857351446");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590861554301");
           });
       }
     }
@@ -182,7 +220,7 @@ module.exports = {"products":"products","product":"product","product-name":"prod
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590857358079");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590861560386");
           });
       }
     }
@@ -220,7 +258,7 @@ module.exports = {"container__full":"container__full"};;
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590857351443");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590861554297");
           });
       }
     }
@@ -258,45 +296,7 @@ module.exports = {"box":"box","menu":"menu"};;
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590857351439");
-          });
-      }
-    }
-  
-
-/***/ }),
-
-/***/ "./pages/subroutes.module.scss":
-/*!*************************************!*\
-  !*** ./pages/subroutes.module.scss ***!
-  \*************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-module.exports = {"route-container":"route-container","route-banner":"route-banner","route-banner-pic":"route-banner-pic"};;
-    if (true) {
-      var injectCss = function injectCss(prev, href) {
-        var link = prev.cloneNode();
-        link.href = href;
-        link.onload = function() {
-          prev.parentNode.removeChild(prev);
-        };
-        prev.stale = true;
-        prev.parentNode.insertBefore(link, prev);
-      };
-      module.hot.dispose(function() {
-        window.__webpack_reload_css__ = true;
-      });
-      if (window.__webpack_reload_css__) {
-        module.hot.__webpack_reload_css__ = false;
-        console.log("[HMR] Reloading stylesheets...");
-        var prefix = document.location.protocol + '//' + document.location.host;
-        document
-          .querySelectorAll("link[href][rel=stylesheet]")
-          .forEach(function(link) {
-            if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590857357998");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590861554292");
           });
       }
     }
