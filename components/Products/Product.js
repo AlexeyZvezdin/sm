@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { concatCardProductsWhenStorageIsEmpty } from '../../utils/Product/concatCardProductsWhenStorageIsEmpty';
 import p_s from './products.module.scss';
 
 import {
@@ -43,52 +44,20 @@ function Product({ product, store, ...props }) {
     return cartButtonCounter;
   };
 
-  const concatCardProductsWhenStorageIsEmpty = async (product) => {
-    // Мне нужно создать Объект продукта
-    let cardProduct = {};
-    cardProduct[`inCardProduct:${product.id}`] = {
-      product: product,
-      quantity: 1,
-    };
-    console.log(cardProduct, ' HOW cardProduct LOOKS');
-    // сделано
-    // мне нужно проверять есть ли в локалсторадже уже объект
-    // мне нужно записывать в объект стораджа через деструктуризацию объекты чтобы перезаписывать имеющиеся на новые данные
-    let cardProductsFromStorage = await JSON.parse(
-      localStorage.getItem('cardProducts')
-    );
-    if (cardProductsFromStorage == null) {
-      // если продукты в сторадже не равны нулю, то мне надо вытащить их и склеить с новым продуктом и при совпадении заменить
-      let cardProductsFromStorageWhenNull = cardProduct;
-      await localStorage.setItem(
-        'cardProducts',
-        JSON.stringify(cardProductsFromStorageWhenNull)
-      );
-      console.log(
-        cardProductsFromStorageWhenNull,
-        ' cardProductsFromStorageWhenNull'
-      );
-    } else {
-      let cardProductsFromStorage = await JSON.parse(
-        localStorage.getItem('cardProducts')
-      );
-      let newObject = Object.assign(cardProductsFromStorage, cardProduct);
-      console.log(
-        cardProductsFromStorage,
-        ' cardProductsFromStorage in global else if there is any products'
-      );
-      console.log(newObject, ' newObject');
-      await localStorage.setItem('cardProducts', JSON.stringify(newObject));
-    }
-  };
-
   // обработка каждого продукта, его счетчик и объект, который будет передаваться в корзину
   const handleEachProduct = async (action) => {
+    // проверка есть ли этот продукт в корзине
     const isProductAlreadyInStorage = await returnEachProductFromStorage();
-    console.log(isProductAlreadyInStorage, ' isProductAlreadyInStorage');
     if (isProductAlreadyInStorage) {
-      const quantity = isProductAlreadyInStorage.quantity;
+      const quantity = isProductAlreadyInStorage;
+      console.log(quantity, ' quantity');
       if (action === 'inc') {
+        let cardProduct = {};
+        cardProduct[`inCardProduct:${product.id}`] = {
+          product: product,
+          quantity: quantity + 1,
+        };
+        // данный продукт прибавляет плюс 1 к своему количеству
         await localStorage.setItem(
           `inCardProduct:${product.id}`,
           JSON.stringify({
@@ -96,22 +65,23 @@ function Product({ product, store, ...props }) {
             quantity: quantity + 1,
           })
         );
-
+        // Попробуй потом вынести выше чтобы не повторялось в функциях вынесеных
+        let cardProductsFromStorage = await JSON.parse(
+          localStorage.getItem('cardProducts')
+        );
         console.log(
           cardProductsFromStorage,
           ' HOW cardProductsFromStorage LOOKS'
         );
-        cardProductsFromStorage = cardProductsFromStorage.cardProduct[
-          `inCardProduct:${product.id}`
-        ] = {
-          product: product,
-          quantity: 1,
-        };
+        let newCardProductsFromStorage = Object.assign(
+          cardProductsFromStorage,
+          cardProduct
+        );
         await localStorage.setItem(
           'cardProducts',
-          JSON.stringify(cardProductsFromStorage)
+          JSON.stringify(newCardProductsFromStorage)
         );
-
+        // конец заеба
         // await localStorage.setItem('cardProducts', cardProductsReadyToPush);
         await setCartButtonCounter(quantity + 1);
         // Вот это ниже обязательно надо, асинхронность на рендере на сср не работает как надо
@@ -131,6 +101,7 @@ function Product({ product, store, ...props }) {
       }
     } else {
       console.log('shit is false');
+      // тут вся магия
       await concatCardProductsWhenStorageIsEmpty(product);
       localStorage.setItem(
         `inCardProduct:${product.id}`,

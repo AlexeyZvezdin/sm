@@ -30,7 +30,7 @@ module.exports = {"banner":"banner","banners__swiper-container":"banners__swiper
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590878455107");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590878711185");
           });
       }
     }
@@ -68,7 +68,7 @@ module.exports = {"footer":"footer","footer-box":"footer-box","footer-col":"foot
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590871268649");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590878675165");
           });
       }
     }
@@ -106,7 +106,7 @@ module.exports = {"main_header":"main_header","header-logo":"header-logo","menu"
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590871268481");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590878675127");
           });
       }
     }
@@ -144,7 +144,7 @@ module.exports = {"sticky-header":"sticky-header","sticky-header__categories__it
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590871268736");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590878675372");
           });
       }
     }
@@ -182,7 +182,7 @@ module.exports = {"modal-backdrop":"modal-backdrop","city_modal":"city_modal","c
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590871268275");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590878674962");
           });
       }
     }
@@ -220,7 +220,7 @@ module.exports = {"products":"products","product":"product","product-name":"prod
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590871504867");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590878676535");
           });
       }
     }
@@ -258,7 +258,7 @@ module.exports = {"container__full":"container__full"};;
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590871268271");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590878674960");
           });
       }
     }
@@ -296,7 +296,7 @@ module.exports = {"box":"box","menu":"menu"};;
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590871268266");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590878674954");
           });
       }
     }
@@ -334,7 +334,7 @@ module.exports = {"route-container":"route-container","route-banner":"route-bann
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590871279702");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590878676394");
           });
       }
     }
