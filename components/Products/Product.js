@@ -57,6 +57,9 @@ function Product({ product, store, ...props }) {
           })
         );
         await setCartButtonCounter(quantity + 1);
+        // Вот это ниже обязательно надо, асинхронность на рендере на сср не работает как надо
+        let res = await getCounterFromLS();
+        setlocalProductCounter(res);
       } else if (action === 'dec') {
         await localStorage.setItem(
           `inCardProduct:${product.id}`,
@@ -66,9 +69,12 @@ function Product({ product, store, ...props }) {
           })
         );
         await setCartButtonCounter(quantity - 1);
+        let res = await getCounterFromLS();
+        setlocalProductCounter(res);
       }
     } else {
-      await localStorage.setItem(
+      console.log('shit is false');
+      localStorage.setItem(
         `inCardProduct:${product.id}`,
         JSON.stringify({
           product,
@@ -76,23 +82,30 @@ function Product({ product, store, ...props }) {
         })
       );
       await setCartButtonCounter(1);
+      let res = await getCounterFromLS();
+      setlocalProductCounter(res);
     }
   };
+  // const getlsItem = async () => {
+  //   const res = await
+
+  //   return res;
+  // };
 
   const getCounterFromLS = () => {
-    if (window === undefined) {
+    if (typeof window == 'undefined') {
       return 0;
+    } else if (typeof window == 'object') {
+      const LSobject = JSON.parse(
+        localStorage.getItem(`inCardProduct:${product.id}`)
+      );
+      // await
+      console.log(LSobject, ' LSobject');
+      if (!LSobject) {
+        return 0;
+      }
+      return LSobject.quantity;
     }
-
-    const LSobject = JSON.parse(
-      localStorage.getItem(`inCardProduct:${product.id}`)
-    );
-
-    console.log(LSobject, ' LSOBJECT');
-    if (!LSobject) {
-      return 0;
-    }
-    return LSobject.quantity;
   };
   // Количество для каждого продукта
   const returnEachProductFromStorage = async () => {
@@ -105,8 +118,10 @@ function Product({ product, store, ...props }) {
       return false;
     } else {
       const result = JSON.parse(preResult);
-      // не работает как надо, на других страницах сохраняются цены на товарах
+      // Потом отрефакторить немного
       await setCartButtonCounter(result.quantity);
+      let res = await getCounterFromLS();
+      setlocalProductCounter(res);
       return result;
     }
   };
@@ -174,7 +189,7 @@ function Product({ product, store, ...props }) {
             <img src="/img/icons/icon-info-white.svg" alt="Инфо" />
           </div>
           {/* тут */}
-          {getCounterFromLS() === 0 ? (
+          {localProductCounter === 0 ? (
             <div
               className="product-bottom_right-buy"
               onClick={async () => {
@@ -197,7 +212,8 @@ function Product({ product, store, ...props }) {
                   }}
                 ></div>
                 <div className="cart-button__expanded__count">
-                  {getCounterFromLS()}
+                  {/* {getCounterFromLS()} */}
+                  {localProductCounter}
                 </div>
                 <div
                   className="cart-button__expanded__plus"

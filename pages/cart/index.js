@@ -1,6 +1,14 @@
 import s from './cart.module.scss';
 import Link from 'next/link';
 export default class cart extends React.Component {
+  // state = {
+  //   products
+  // }
+
+  componentDidMount() {
+    // getAllCardProducts()
+  }
+
   render() {
     return (
       <div className="cart-container">
