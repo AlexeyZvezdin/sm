@@ -20,13 +20,22 @@ export default class cart extends React.Component {
       let values = Object.values(this.state.products);
       return values.map((item, index) => (
         <div className="card_product" key={index}>
+          {/* picture */}
           <div className="card_product-img">
             <img
               src={`https://client-api.sushi-master.ru/pics/${item.product.mainPictureId}?width=400`}
               alt=""
             />
-            <h1></h1>
           </div>
+          {/* info block */}
+          <div className="card_product-text">
+            <p className="card_product-name">Set</p>
+            <p className="card_product-info">32 styki</p>
+          </div>
+          {/* counter */}
+          {/* price */}
+          <p className="card_product-price">₽</p>
+          <button className="card_product-trash"></button>
         </div>
       ));
     }

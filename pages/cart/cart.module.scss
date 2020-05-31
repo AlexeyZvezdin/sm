@@ -63,7 +63,7 @@
   border-radius: 10px;
   padding: 40px;
   min-width: 400px;
-  min-height: 380px;
+  min-height: 360px;
   margin-left: 80px;
   margin-top: 50px;
 }
@@ -139,7 +139,7 @@
 // информация о товарах итого и т д
 
 .cart-content-info {
-  margin-top: 80px;
+  margin-top: 50px;
 }
 
 .cart-content-info-products_price_bold {
@@ -148,7 +148,7 @@
   justify-content: space-between;
   font-weight: 400;
   line-height: 1.71;
-  padding: 0 10%;
+  padding: 0 2%;
 }
 
 .products_price_bold {
@@ -165,7 +165,7 @@
   font-weight: 400;
   line-height: 1.71;
   color: #1d1d1d;
-  padding: 0 10%;
+  padding: 0 2%;
 }
 
 //  кнопка оформить заказ
@@ -203,15 +203,39 @@
   flex-direction: column;
   width: 100%;
   background-color: lightgray;
-  margin: 10px;
 }
 
 .card_product {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin: 10px;
 }
 
 .card_product-img img {
-  width: 200px;
+  width: 180px;
+}
+
+.card_product-name {
+  font-size: 16px;
+  line-height: 1.2;
+  font-family: Pusia;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.75);
+}
+.card_product-info {
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.76);
+}
+
+.card_product-trash {
+  background: transparent url('/img/icons/icon-delete.svg') no-repeat 50%;
+  background-size: contain;
+  cursor: pointer;
+  margin-top: 9px;
+  width: 21px;
+  height: 23px;
 }
