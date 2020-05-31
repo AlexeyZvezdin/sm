@@ -13,7 +13,7 @@ import s from './delivery.module.scss';
 import { msToTime } from '../../utils/msToTime';
 
 // let map;
-let timer;
+// let timer;
 
 import fetcher from '../../utils/fetcher';
 
