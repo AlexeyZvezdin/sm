@@ -10080,6 +10080,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
               //   );
               // тут пока по двоеточию поделил чтобы чекнуть что работает, с доменами будет так же
               domain = ctx.req ? ctx.req.headers.host.split(':', 1) : ''; // console.log(domain, ' DOMAIN');
+              // console.log(process.env.BASE_API, ' process.env.BASE_API');
 
               cityInsteadOfDomain = 'abakan';
               _context.next = 5;
@@ -10304,24 +10305,31 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 var cardReducer = function cardReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
-    cardProducts: []
+    cardProducts: {}
   };
   var action = arguments.length > 1 ? arguments[1] : undefined;
+  console.log(action, ' ADCTION DISPATCH');
+  var cardProducts;
+
+  if (action.payload) {
+    console.log('action.payload.cardProducts when they are not null ?');
+    cardProducts = action.payload.cardProducts;
+  } else {
+    console.log(action.payload, 'action.payload.cardProducts when they are  null ?');
+
+    if (typeof localStorage != 'undefined') {
+      cardProducts = JSON.parse(localStorage.getItem('cardProducts'));
+    }
+  }
 
   switch (action.type) {
-    case 'ADD':
-      // localStorage.setItem()
-      return _objectSpread({}, state, {
-        cardProducts: []
-      });
-
-    case 'REMOVE':
-      return _objectSpread({}, state, {
-        cardProducts: []
-      });
+    case 'CARD_PRODUCTS':
+      return {
+        cardProducts: cardProducts
+      };
 
     default:
-      return _objectSpread({}, state);
+      return state;
   }
 };
 

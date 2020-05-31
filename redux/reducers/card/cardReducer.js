@@ -1,12 +1,26 @@
-const cardReducer = (state = { cardProducts: [] }, action) => {
+const cardReducer = (state = { cardProducts: {} }, action) => {
+  console.log(action, ' ADCTION DISPATCH');
+  let cardProducts;
+  if (action.payload) {
+    console.log('action.payload.cardProducts when they are not null ?');
+    cardProducts = action.payload.cardProducts;
+  } else {
+    console.log(
+      action.payload,
+      'action.payload.cardProducts when they are  null ?'
+    );
+    if (typeof localStorage != 'undefined') {
+      cardProducts = JSON.parse(localStorage.getItem('cardProducts'));
+    }
+  }
   switch (action.type) {
-    case 'ADD':
-      // localStorage.setItem()
-      return { ...state, cardProducts: [] };
-    case 'REMOVE':
-      return { ...state, cardProducts: [] };
+    case 'CARD_PRODUCTS':
+      return {
+        cardProducts: cardProducts,
+      };
+
     default:
-      return { ...state };
+      return state;
   }
 };
 

@@ -3271,6 +3271,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     //   );
     // тут пока по двоеточию поделил чтобы чекнуть что работает, с доменами будет так же
     let domain = ctx.req ? ctx.req.headers.host.split(':', 1) : ''; // console.log(domain, ' DOMAIN');
+    // console.log(process.env.BASE_API, ' process.env.BASE_API');
 
     let cityInsteadOfDomain = 'abakan';
     const defaultCityData = await Object(_utils_fetcher__WEBPACK_IMPORTED_MODULE_1__["default"])(`https://client-api.sushi-master.ru/api/v1/city/current?domain=${cityInsteadOfDomain}`);
@@ -3485,22 +3486,30 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 const cardReducer = (state = {
-  cardProducts: []
+  cardProducts: {}
 }, action) => {
-  switch (action.type) {
-    case 'ADD':
-      // localStorage.setItem()
-      return _objectSpread({}, state, {
-        cardProducts: []
-      });
+  console.log(action, ' ADCTION DISPATCH');
+  let cardProducts;
 
-    case 'REMOVE':
-      return _objectSpread({}, state, {
-        cardProducts: []
-      });
+  if (action.payload) {
+    console.log('action.payload.cardProducts when they are not null ?');
+    cardProducts = action.payload.cardProducts;
+  } else {
+    console.log(action.payload, 'action.payload.cardProducts when they are  null ?');
+
+    if (typeof localStorage != 'undefined') {
+      cardProducts = JSON.parse(localStorage.getItem('cardProducts'));
+    }
+  }
+
+  switch (action.type) {
+    case 'CARD_PRODUCTS':
+      return {
+        cardProducts: cardProducts
+      };
 
     default:
-      return _objectSpread({}, state);
+      return state;
   }
 };
 

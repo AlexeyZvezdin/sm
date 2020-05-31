@@ -19,6 +19,7 @@ export const concatCardProductsWhenStorageIsEmpty = async (product) => {
       'cardProducts',
       JSON.stringify(cardProductsFromStorageWhenNull)
     );
+    return cardProductsFromStorageWhenNull;
   } else {
     let cardProductsFromStorage = await JSON.parse(
       localStorage.getItem('cardProducts')
@@ -26,6 +27,7 @@ export const concatCardProductsWhenStorageIsEmpty = async (product) => {
     let newObject = Object.assign(cardProductsFromStorage, cardProduct);
     // console.log(newObject, ' newObject');
     await localStorage.setItem('cardProducts', JSON.stringify(newObject));
+    return newObject;
   }
 };
 
@@ -60,4 +62,6 @@ export const concatCardProductsWhenStorageHasProducts = async (
     'cardProducts',
     JSON.stringify(newCardProductsFromStorage)
   );
+
+  return newCardProductsFromStorage;
 };

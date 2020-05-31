@@ -64,6 +64,7 @@
   padding: 40px;
   min-width: 400px;
   min-height: 360px;
+  max-height: 370px;
   margin-left: 80px;
   margin-top: 50px;
 }
@@ -238,4 +239,53 @@
   margin-top: 9px;
   width: 21px;
   height: 23px;
+}
+
+// no products
+
+.card_noproducts {
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.card_noproducts-centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 700px;
+  height: 400px;
+}
+
+.card__placeholder__section {
+  font-size: 1rem;
+  margin-bottom: 36px;
+  text-align: center;
+  font-family: Gotham Pro;
+  font-weight: 500;
+  white-space: nowrap;
+  color: rgba(29, 29, 29, 0.38);
+}
+
+.card_noproducts-button {
+  padding: 10px 18px;
+  outline: none;
+  background-color: #e30613;
+  color: #fff;
+  border: none;
+  height: 40px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.71;
+  letter-spacing: normal;
+  border-radius: 20px;
+  transition: 0.3s transform ease-out;
+}
+
+.card_noproducts-button:hover {
+  transform: scale(1.08);
 }

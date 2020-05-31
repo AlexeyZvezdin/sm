@@ -29,27 +29,27 @@ class MyDocument extends Document {
           <meta name="apple-itunes-app" content="app-id=1119016991" />
           <meta name="google-play-app" content="app-id=com.ub.sushimaster" />
 
-          <link rel="icon" href="%PUBLIC_URL%/favicons/favicon.ico" />
+          <link rel="icon" href="./favicons/favicon.ico" />
           <link
             rel="apple-touch-icon"
             sizes="180x180"
-            href="%PUBLIC_URL%/favicons/apple-touch-icon.png"
+            href="./favicons/apple-touch-icon.png"
           />
           <link
             rel="icon"
             type="image/png"
             sizes="32x32"
-            href="%PUBLIC_URL%/favicons/favicon-32x32.png"
+            href="./favicons/favicon-32x32.png"
           />
           <link
             rel="icon"
             type="image/png"
             sizes="16x16"
-            href="%PUBLIC_URL%/favicons/favicon-16x16.png"
+            href="./favicons/favicon-16x16.png"
           />
           <link
             rel="mask-icon"
-            href="%PUBLIC_URL%/favicons/safari-pinned-tab.svg"
+            href="./favicons/safari-pinned-tab.svg"
             color="#da532c"
           />
           <meta name="msapplication-TileColor" content="#da532c" />

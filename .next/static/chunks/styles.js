@@ -30,7 +30,7 @@ module.exports = {"banner":"banner","banners__swiper-container":"banners__swiper
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590949393113");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590961222203");
           });
       }
     }
@@ -68,7 +68,7 @@ module.exports = {"footer":"footer","footer-box":"footer-box","footer-col":"foot
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590948643081");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590958879081");
           });
       }
     }
@@ -106,7 +106,7 @@ module.exports = {"main_header":"main_header","header-logo":"header-logo","menu"
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590948643128");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590958879080");
           });
       }
     }
@@ -144,7 +144,7 @@ module.exports = {"sticky-header":"sticky-header","sticky-header__categories__it
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590948643264");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590958879084");
           });
       }
     }
@@ -182,7 +182,7 @@ module.exports = {"modal-backdrop":"modal-backdrop","city_modal":"city_modal","c
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590948642841");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590958879078");
           });
       }
     }
@@ -220,7 +220,7 @@ module.exports = {"products":"products","product":"product","product-name":"prod
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590949373438");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590959154329");
           });
       }
     }
@@ -258,7 +258,7 @@ module.exports = {"container__full":"container__full"};;
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590948642838");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590958879076");
           });
       }
     }
@@ -274,7 +274,7 @@ module.exports = {"container__full":"container__full"};;
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"cart-container":"cart-container","cart-container-back":"cart-container-back","cart-container-back-text":"cart-container-back-text","cart-container-back-button":"cart-container-back-button","cart-content":"cart-content","cart-products-box":"cart-products-box","cart-products-box-label":"cart-products-box-label","cart-order-widget":"cart-order-widget","cart-order-widget-promocode":"cart-order-widget-promocode","order-inner-container_input":"order-inner-container_input","inner-container__promocode_enter":"inner-container__promocode_enter","inner-container__promocode_arrow":"inner-container__promocode_arrow","cart-content-info":"cart-content-info","cart-content-info-products_price_bold":"cart-content-info-products_price_bold","products_price_bold":"products_price_bold","cart-content-info-products_price":"cart-content-info-products_price","order-inner-container__submit-button":"order-inner-container__submit-button","card_products":"card_products","card_product":"card_product","card_product-img":"card_product-img","card_product-name":"card_product-name","card_product-info":"card_product-info","card_product-trash":"card_product-trash"};;
+module.exports = {"cart-container":"cart-container","cart-container-back":"cart-container-back","cart-container-back-text":"cart-container-back-text","cart-container-back-button":"cart-container-back-button","cart-content":"cart-content","cart-products-box":"cart-products-box","cart-products-box-label":"cart-products-box-label","cart-order-widget":"cart-order-widget","cart-order-widget-promocode":"cart-order-widget-promocode","order-inner-container_input":"order-inner-container_input","inner-container__promocode_enter":"inner-container__promocode_enter","inner-container__promocode_arrow":"inner-container__promocode_arrow","cart-content-info":"cart-content-info","cart-content-info-products_price_bold":"cart-content-info-products_price_bold","products_price_bold":"products_price_bold","cart-content-info-products_price":"cart-content-info-products_price","order-inner-container__submit-button":"order-inner-container__submit-button","card_products":"card_products","card_product":"card_product","card_product-img":"card_product-img","card_product-name":"card_product-name","card_product-info":"card_product-info","card_product-trash":"card_product-trash","card_noproducts":"card_noproducts","card_noproducts-centered":"card_noproducts-centered","card__placeholder__section":"card__placeholder__section","card_noproducts-button":"card_noproducts-button"};;
     if (true) {
       var injectCss = function injectCss(prev, href) {
         var link = prev.cloneNode();
@@ -296,7 +296,7 @@ module.exports = {"cart-container":"cart-container","cart-container-back":"cart-
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590948646575");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590959042795");
           });
       }
     }
@@ -334,7 +334,7 @@ module.exports = {"box":"box","menu":"menu"};;
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590948642834");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590958879073");
           });
       }
     }

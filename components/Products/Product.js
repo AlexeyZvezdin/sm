@@ -10,6 +10,8 @@ import {
   cardCounterDecrement,
 } from '../../redux/actions/cardCounter';
 
+import { cardProductsDispatch } from '../../redux/actions/cardProducts';
+
 function Product({ product, store, ...props }) {
   // console.log(props, ' props');
   // console.log(store, ' store');
@@ -60,11 +62,13 @@ function Product({ product, store, ...props }) {
           })
         );
         // Попробуй потом вынести выше чтобы не повторялось в функциях вынесеных
-        await concatCardProductsWhenStorageHasProducts(
+        const toDispatchResult = await concatCardProductsWhenStorageHasProducts(
           action,
           product,
           quantity
         );
+
+        props.cardProductsDispatch(toDispatchResult);
         // конец заеба
         await setCartButtonCounter(quantity + 1);
         // Вот это ниже обязательно надо, асинхронность на рендере на сср не работает как надо
@@ -80,11 +84,13 @@ function Product({ product, store, ...props }) {
         );
         // Попробуй потом вынести выше чтобы не повторялось в функциях вынесеных
 
-        await concatCardProductsWhenStorageHasProducts(
+        const toDispatchResult = await concatCardProductsWhenStorageHasProducts(
           action,
           product,
           quantity
         );
+
+        props.cardProductsDispatch(toDispatchResult);
         // конец заеба
         await setCartButtonCounter(quantity - 1);
         let res = await getCounterFromLS();
@@ -93,7 +99,9 @@ function Product({ product, store, ...props }) {
     } else {
       console.log('shit is false');
       // тут вся магия
-      await concatCardProductsWhenStorageIsEmpty(product);
+      const toDispatchResult = await concatCardProductsWhenStorageIsEmpty(
+        product
+      );
       localStorage.setItem(
         `inCardProduct:${product.id}`,
         JSON.stringify({
@@ -101,16 +109,12 @@ function Product({ product, store, ...props }) {
           quantity: 1,
         })
       );
+      props.cardProductsDispatch(toDispatchResult);
       await setCartButtonCounter(1);
       let res = await getCounterFromLS();
       setlocalProductCounter(res);
     }
   };
-  // const getlsItem = async () => {
-  //   const res = await
-
-  //   return res;
-  // };
 
   const getCounterFromLS = () => {
     if (typeof window == 'undefined') {
@@ -264,6 +268,8 @@ function Product({ product, store, ...props }) {
 const mapState = (state) => state;
 const mapDispatch = (dispatch) => {
   return {
+    cardProductsDispatch: (products) =>
+      dispatch(cardProductsDispatch(products)),
     cardCounterDecrement: () => dispatch(cardCounterDecrement()),
     cardCounterIncrement: () => dispatch(cardCounterIncrement()),
   };

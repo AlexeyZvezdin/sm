@@ -1159,7 +1159,7 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
       }
     }), __jsx("link", {
       rel: "icon",
-      href: "%PUBLIC_URL%/favicons/favicon.ico",
+      href: "./favicons/favicon.ico",
       __self: this,
       __source: {
         fileName: _jsxFileName,
@@ -1169,7 +1169,7 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
     }), __jsx("link", {
       rel: "apple-touch-icon",
       sizes: "180x180",
-      href: "%PUBLIC_URL%/favicons/apple-touch-icon.png",
+      href: "./favicons/apple-touch-icon.png",
       __self: this,
       __source: {
         fileName: _jsxFileName,
@@ -1180,7 +1180,7 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
       rel: "icon",
       type: "image/png",
       sizes: "32x32",
-      href: "%PUBLIC_URL%/favicons/favicon-32x32.png",
+      href: "./favicons/favicon-32x32.png",
       __self: this,
       __source: {
         fileName: _jsxFileName,
@@ -1191,7 +1191,7 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
       rel: "icon",
       type: "image/png",
       sizes: "16x16",
-      href: "%PUBLIC_URL%/favicons/favicon-16x16.png",
+      href: "./favicons/favicon-16x16.png",
       __self: this,
       __source: {
         fileName: _jsxFileName,
@@ -1200,7 +1200,7 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
       }
     }), __jsx("link", {
       rel: "mask-icon",
-      href: "%PUBLIC_URL%/favicons/safari-pinned-tab.svg",
+      href: "./favicons/safari-pinned-tab.svg",
       color: "#da532c",
       __self: this,
       __source: {

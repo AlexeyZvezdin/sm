@@ -1,20 +1,60 @@
 import s from './cart.module.scss';
 import Link from 'next/link';
-export default class cart extends React.Component {
+// import Cookie from 'js-cookie';
+import { connect } from 'react-redux';
+import { parseCookies } from '../../utils/parseCookies';
+class cart extends React.Component {
+  static async getInitialProps(ctx) {
+    // const cookies = parseCookies(req);
+    let shit = 'ujdyj';
+    console.log(ctx, ' cardProducts STORE');
+    return { shit };
+  }
   state = {
     products: [],
   };
 
   async componentDidMount() {
-    const cardProducts = await JSON.parse(localStorage.getItem('cardProducts'));
-    this.setState({
-      products: cardProducts,
-    });
+    if (this.props.cardProducts) {
+      console.log(
+        this.props.cardProducts,
+        ' this.props.cardProducts from didmount'
+      );
+      let cardProducts = await JSON.parse(localStorage.getItem('cardProducts'));
+      this.setState({
+        products: cardProducts,
+      });
+      console.log(this.state, ' THIS STATE');
+      console.log(cardProducts, ' cardProducts');
+    } else {
+      this.setState({
+        products: this.props.cardProducts,
+      });
+    }
+    // Cookie.set(JSON.stringify(this.props.cardProducts), 'cardProducts');
+    console.log(this.props, ' THIS PROPS SHIT');
+  }
+
+  renderIfNoProducts() {
+    return (
+      <div className="card_noproducts">
+        <div className="card_noproducts-centered">
+          <div className="card__placeholder__section">
+            Добавьте что-нибудь из меню
+          </div>
+          <Link href="/">
+            <a className="card_noproducts-link">
+              <button className="card_noproducts-button">В каталог</button>
+            </a>
+          </Link>
+        </div>
+      </div>
+    );
   }
 
   renderCardProducts() {
-    if (this.state.products || this.state.products[0] === null) {
-      return <h1>Wait</h1>;
+    if (this.state.products === null) {
+      return <h1>Добавьте что-нибудь в корзину</h1>;
     } else if (typeof window !== undefined) {
       console.log(Object.values(this.state.products), ' this.state.products');
       let values = Object.values(this.state.products);
@@ -42,6 +82,18 @@ export default class cart extends React.Component {
   }
 
   render() {
+    // if (typeof localStorage != 'undefined') {
+    //   let cardProducts = JSON.parse(localStorage.getItem('cardProducts'));
+    //   console.log('эты работаешь ваще');
+
+    //   if (cardProducts != this.state.products) {
+    //     console.log('эты работаешь ваще тру RENDER ');
+    //     this.setState({
+    //       products: cardProducts,
+    //     });
+    //   }
+    // }
+
     return (
       <div className="cart-container">
         <div className="cart-container-back">
@@ -54,21 +106,11 @@ export default class cart extends React.Component {
               <span>Товары</span>
             </div>
             {/* products */}
-            <div className="card_products">{this.renderCardProducts()}</div>
-            {/* <div className="card_products">
-              {this.state.products[0]
-                ? this.state.products.map((item, index) => (
-                    <div className="card_product" key={index}>
-                      <div className="card_product-img">
-                        <img
-                          src={`https://client-api.sushi-master.ru/pics/${item.mainPictureId}`}
-                          alt=""
-                        />
-                      </div>
-                    </div>
-                  ))
-                : ''}
-            </div> */}
+            {this.state.products ? (
+              <div className="card_products">{this.renderCardProducts()}</div>
+            ) : (
+              this.renderIfNoProducts()
+            )}
           </div>
 
           {/* widget */}
@@ -117,3 +159,14 @@ export default class cart extends React.Component {
     );
   }
 }
+
+const mapState = ({
+  card: {
+    cardReducer: { cardProducts },
+  },
+}) => {
+  console.log(cardProducts, '  cardProducts in mapState');
+  return { cardProducts };
+};
+
+export default connect(mapState)(cart);
