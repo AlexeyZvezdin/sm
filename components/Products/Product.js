@@ -1,5 +1,8 @@
 import { connect } from 'react-redux';
-import { concatCardProductsWhenStorageIsEmpty } from '../../utils/Product/concatCardProductsWhenStorageIsEmpty';
+import {
+  concatCardProductsWhenStorageIsEmpty,
+  concatCardProductsWhenStorageHasProducts,
+} from '../../utils/Product/concatCardProductsWhenStorageIsEmpty';
 import p_s from './products.module.scss';
 
 import {
@@ -40,10 +43,6 @@ function Product({ product, store, ...props }) {
     returnEachProductFromStorage();
   }, [`${product.id}`]);
 
-  const CheckCounter = () => {
-    return cartButtonCounter;
-  };
-
   // обработка каждого продукта, его счетчик и объект, который будет передаваться в корзину
   const handleEachProduct = async (action) => {
     // проверка есть ли этот продукт в корзине
@@ -52,11 +51,6 @@ function Product({ product, store, ...props }) {
       const quantity = isProductAlreadyInStorage;
       console.log(quantity, ' quantity');
       if (action === 'inc') {
-        let cardProduct = {};
-        cardProduct[`inCardProduct:${product.id}`] = {
-          product: product,
-          quantity: quantity + 1,
-        };
         // данный продукт прибавляет плюс 1 к своему количеству
         await localStorage.setItem(
           `inCardProduct:${product.id}`,
@@ -66,23 +60,12 @@ function Product({ product, store, ...props }) {
           })
         );
         // Попробуй потом вынести выше чтобы не повторялось в функциях вынесеных
-        let cardProductsFromStorage = await JSON.parse(
-          localStorage.getItem('cardProducts')
-        );
-        console.log(
-          cardProductsFromStorage,
-          ' HOW cardProductsFromStorage LOOKS'
-        );
-        let newCardProductsFromStorage = Object.assign(
-          cardProductsFromStorage,
-          cardProduct
-        );
-        await localStorage.setItem(
-          'cardProducts',
-          JSON.stringify(newCardProductsFromStorage)
+        await concatCardProductsWhenStorageHasProducts(
+          action,
+          product,
+          quantity
         );
         // конец заеба
-        // await localStorage.setItem('cardProducts', cardProductsReadyToPush);
         await setCartButtonCounter(quantity + 1);
         // Вот это ниже обязательно надо, асинхронность на рендере на сср не работает как надо
         let res = await getCounterFromLS();
@@ -95,6 +78,14 @@ function Product({ product, store, ...props }) {
             quantity: quantity - 1,
           })
         );
+        // Попробуй потом вынести выше чтобы не повторялось в функциях вынесеных
+
+        await concatCardProductsWhenStorageHasProducts(
+          action,
+          product,
+          quantity
+        );
+        // конец заеба
         await setCartButtonCounter(quantity - 1);
         let res = await getCounterFromLS();
         setlocalProductCounter(res);

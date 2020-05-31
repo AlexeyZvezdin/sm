@@ -36,3 +36,36 @@ export const concatCardProductsWhenStorageIsEmpty = async (product) => {
     await localStorage.setItem('cardProducts', JSON.stringify(newObject));
   }
 };
+
+export const concatCardProductsWhenStorageHasProducts = async (
+  action,
+  product,
+  quantity
+) => {
+  let localQuantity;
+
+  if (action === 'dec') {
+    localQuantity = quantity - 1;
+  } else if (action === 'inc') {
+    localQuantity = quantity + 1;
+  }
+
+  let cardProduct = {};
+  cardProduct[`inCardProduct:${product.id}`] = {
+    product: product,
+    quantity: localQuantity,
+  };
+  // Попробуй потом вынести выше чтобы не повторялось в функциях вынесеных
+  let cardProductsFromStorage = await JSON.parse(
+    localStorage.getItem('cardProducts')
+  );
+  console.log(cardProductsFromStorage, ' HOW cardProductsFromStorage LOOKS');
+  let newCardProductsFromStorage = Object.assign(
+    cardProductsFromStorage,
+    cardProduct
+  );
+  await localStorage.setItem(
+    'cardProducts',
+    JSON.stringify(newCardProductsFromStorage)
+  );
+};
