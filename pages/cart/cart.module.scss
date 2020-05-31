@@ -195,3 +195,23 @@
 .order-inner-container__submit-button:hover {
   transform: scale(1.05);
 }
+
+// card products
+
+.card_products {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: lightgray;
+  margin: 10px;
+}
+
+.card_product {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.card_product-img img {
+  width: 200px;
+}

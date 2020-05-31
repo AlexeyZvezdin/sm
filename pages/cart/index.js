@@ -1,12 +1,35 @@
 import s from './cart.module.scss';
 import Link from 'next/link';
 export default class cart extends React.Component {
-  // state = {
-  //   products
-  // }
+  state = {
+    products: [],
+  };
 
-  componentDidMount() {
-    // getAllCardProducts()
+  async componentDidMount() {
+    const cardProducts = await JSON.parse(localStorage.getItem('cardProducts'));
+    this.setState({
+      products: cardProducts,
+    });
+  }
+
+  renderCardProducts() {
+    if (this.state.products[0]) {
+      return <h1>Wait</h1>;
+    } else if (typeof window !== undefined) {
+      console.log(Object.values(this.state.products), ' this.state.products');
+      let values = Object.values(this.state.products);
+      return values.map((item, index) => (
+        <div className="card_product" key={index}>
+          <div className="card_product-img">
+            <img
+              src={`https://client-api.sushi-master.ru/pics/${item.product.mainPictureId}?width=400`}
+              alt=""
+            />
+            <h1></h1>
+          </div>
+        </div>
+      ));
+    }
   }
 
   render() {
@@ -21,7 +44,25 @@ export default class cart extends React.Component {
             <div className="cart-products-box-label">
               <span>Товары</span>
             </div>
+            {/* products */}
+            <div className="card_products">{this.renderCardProducts()}</div>
+            {/* <div className="card_products">
+              {this.state.products[0]
+                ? this.state.products.map((item, index) => (
+                    <div className="card_product" key={index}>
+                      <div className="card_product-img">
+                        <img
+                          src={`https://client-api.sushi-master.ru/pics/${item.mainPictureId}`}
+                          alt=""
+                        />
+                      </div>
+                    </div>
+                  ))
+                : ''}
+            </div> */}
           </div>
+
+          {/* widget */}
           <div className="cart-order-widget">
             {/* промокод */}
             <div className="cart-order-widget-promocode">

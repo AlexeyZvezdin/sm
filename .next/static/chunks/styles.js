@@ -1,43 +1,5 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["styles"],{
 
-/***/ "./components/Banners/banners.module.scss":
-/*!************************************************!*\
-  !*** ./components/Banners/banners.module.scss ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-module.exports = {"banner":"banner","banners__swiper-container":"banners__swiper-container","swiper-pagination-bullets":"swiper-pagination-bullets","swiper-pagination-bullets-dynamic":"swiper-pagination-bullets-dynamic","swiper-pagination-bullet":"swiper-pagination-bullet","swiper-pagination-bullet-active-next":"swiper-pagination-bullet-active-next","swiper-pagination-bullet-active-next-next":"swiper-pagination-bullet-active-next-next","swiper-pagination-bullet-active-prev":"swiper-pagination-bullet-active-prev","swiper-pagination-bullet-active-prev-prev":"swiper-pagination-bullet-active-prev-prev","banners__products":"banners__products"};;
-    if (true) {
-      var injectCss = function injectCss(prev, href) {
-        var link = prev.cloneNode();
-        link.href = href;
-        link.onload = function() {
-          prev.parentNode.removeChild(prev);
-        };
-        prev.stale = true;
-        prev.parentNode.insertBefore(link, prev);
-      };
-      module.hot.dispose(function() {
-        window.__webpack_reload_css__ = true;
-      });
-      if (window.__webpack_reload_css__) {
-        module.hot.__webpack_reload_css__ = false;
-        console.log("[HMR] Reloading stylesheets...");
-        var prefix = document.location.protocol + '//' + document.location.host;
-        document
-          .querySelectorAll("link[href][rel=stylesheet]")
-          .forEach(function(link) {
-            if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590880520666");
-          });
-      }
-    }
-  
-
-/***/ }),
-
 /***/ "./components/Basic/footer.module.scss":
 /*!*********************************************!*\
   !*** ./components/Basic/footer.module.scss ***!
@@ -68,7 +30,7 @@ module.exports = {"footer":"footer","footer-box":"footer-box","footer-col":"foot
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590880513722");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590891120806");
           });
       }
     }
@@ -106,7 +68,7 @@ module.exports = {"main_header":"main_header","header-logo":"header-logo","menu"
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590880513835");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590891120772");
           });
       }
     }
@@ -144,7 +106,7 @@ module.exports = {"sticky-header":"sticky-header","sticky-header__categories__it
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590880514257");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590891120935");
           });
       }
     }
@@ -182,45 +144,7 @@ module.exports = {"modal-backdrop":"modal-backdrop","city_modal":"city_modal","c
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590880513596");
-          });
-      }
-    }
-  
-
-/***/ }),
-
-/***/ "./components/Products/products.module.scss":
-/*!**************************************************!*\
-  !*** ./components/Products/products.module.scss ***!
-  \**************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-module.exports = {"products":"products","product":"product","product-name":"product-name","product-description":"product-description","product-weight":"product-weight","product-bottom":"product-bottom","product-prices":"product-prices","price-prev":"price-prev","price-current":"price-current","product-bottom_right":"product-bottom_right","product-bottom_right-info":"product-bottom_right-info","product-bottom_right-buy":"product-bottom_right-buy","product-bottom_right-buy-collapsed":"product-bottom_right-buy-collapsed","cart-button":"cart-button","cart-button-border":"cart-button-border","cart-button__expanded":"cart-button__expanded","cart-button__expanded__minus":"cart-button__expanded__minus","cart-button__expanded__plus":"cart-button__expanded__plus","cart-button__expanded__count":"cart-button__expanded__count","product-info":"product-info","product-info-block-nutrients":"product-info-block-nutrients","product-info__close":"product-info__close","product-info-display":"product-info-display","banners":"banners","banner":"banner"};;
-    if (true) {
-      var injectCss = function injectCss(prev, href) {
-        var link = prev.cloneNode();
-        link.href = href;
-        link.onload = function() {
-          prev.parentNode.removeChild(prev);
-        };
-        prev.stale = true;
-        prev.parentNode.insertBefore(link, prev);
-      };
-      module.hot.dispose(function() {
-        window.__webpack_reload_css__ = true;
-      });
-      if (window.__webpack_reload_css__) {
-        module.hot.__webpack_reload_css__ = false;
-        console.log("[HMR] Reloading stylesheets...");
-        var prefix = document.location.protocol + '//' + document.location.host;
-        document
-          .querySelectorAll("link[href][rel=stylesheet]")
-          .forEach(function(link) {
-            if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590880520722");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590891120577");
           });
       }
     }
@@ -258,7 +182,45 @@ module.exports = {"container__full":"container__full"};;
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590880513590");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590891120574");
+          });
+      }
+    }
+  
+
+/***/ }),
+
+/***/ "./pages/cart/cart.module.scss":
+/*!*************************************!*\
+  !*** ./pages/cart/cart.module.scss ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+module.exports = {"cart-container":"cart-container","cart-container-back":"cart-container-back","cart-container-back-text":"cart-container-back-text","cart-container-back-button":"cart-container-back-button","cart-content":"cart-content","cart-products-box":"cart-products-box","cart-products-box-label":"cart-products-box-label","cart-order-widget":"cart-order-widget","cart-order-widget-promocode":"cart-order-widget-promocode","order-inner-container_input":"order-inner-container_input","inner-container__promocode_enter":"inner-container__promocode_enter","inner-container__promocode_arrow":"inner-container__promocode_arrow","cart-content-info":"cart-content-info","cart-content-info-products_price_bold":"cart-content-info-products_price_bold","products_price_bold":"products_price_bold","cart-content-info-products_price":"cart-content-info-products_price","order-inner-container__submit-button":"order-inner-container__submit-button","card_products":"card_products","card_product":"card_product"};;
+    if (true) {
+      var injectCss = function injectCss(prev, href) {
+        var link = prev.cloneNode();
+        link.href = href;
+        link.onload = function() {
+          prev.parentNode.removeChild(prev);
+        };
+        prev.stale = true;
+        prev.parentNode.insertBefore(link, prev);
+      };
+      module.hot.dispose(function() {
+        window.__webpack_reload_css__ = true;
+      });
+      if (window.__webpack_reload_css__) {
+        module.hot.__webpack_reload_css__ = false;
+        console.log("[HMR] Reloading stylesheets...");
+        var prefix = document.location.protocol + '//' + document.location.host;
+        document
+          .querySelectorAll("link[href][rel=stylesheet]")
+          .forEach(function(link) {
+            if (!link.href.match(prefix) || link.stale) return;
+            injectCss(link, link.href.split("?")[0] + "?unix=1590891126665");
           });
       }
     }
@@ -296,7 +258,7 @@ module.exports = {"box":"box","menu":"menu"};;
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590880513584");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590891120570");
           });
       }
     }
@@ -334,45 +296,7 @@ module.exports = {"prom_container":"prom_container","prom_box":"prom_box","prom_
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590884215588");
-          });
-      }
-    }
-  
-
-/***/ }),
-
-/***/ "./pages/subroutes.module.scss":
-/*!*************************************!*\
-  !*** ./pages/subroutes.module.scss ***!
-  \*************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-module.exports = {"route-container":"route-container","route-banner":"route-banner","route-banner-pic":"route-banner-pic"};;
-    if (true) {
-      var injectCss = function injectCss(prev, href) {
-        var link = prev.cloneNode();
-        link.href = href;
-        link.onload = function() {
-          prev.parentNode.removeChild(prev);
-        };
-        prev.stale = true;
-        prev.parentNode.insertBefore(link, prev);
-      };
-      module.hot.dispose(function() {
-        window.__webpack_reload_css__ = true;
-      });
-      if (window.__webpack_reload_css__) {
-        module.hot.__webpack_reload_css__ = false;
-        console.log("[HMR] Reloading stylesheets...");
-        var prefix = document.location.protocol + '//' + document.location.host;
-        document
-          .querySelectorAll("link[href][rel=stylesheet]")
-          .forEach(function(link) {
-            if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590880526359");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590892038031");
           });
       }
     }

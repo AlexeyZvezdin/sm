@@ -123,7 +123,7 @@ function Product({ product, store, ...props }) {
         localStorage.getItem(`inCardProduct:${product.id}`)
       );
       // await
-      console.log(LSobject, ' LSobject');
+      // console.log(LSobject, ' LSobject');
       if (!LSobject) {
         return 0;
       }
