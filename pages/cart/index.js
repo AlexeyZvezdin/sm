@@ -13,7 +13,7 @@ export default class cart extends React.Component {
   }
 
   renderCardProducts() {
-    if (this.state.products[0]) {
+    if (this.state.products || this.state.products[0] === null) {
       return <h1>Wait</h1>;
     } else if (typeof window !== undefined) {
       console.log(Object.values(this.state.products), ' this.state.products');

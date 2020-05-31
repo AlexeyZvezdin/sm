@@ -1139,13 +1139,100 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
         lineNumber: 25,
         columnNumber: 11
       }
+    }), __jsx("meta", {
+      name: "apple-itunes-app",
+      content: "app-id=1119016991",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 29,
+        columnNumber: 11
+      }
+    }), __jsx("meta", {
+      name: "google-play-app",
+      content: "app-id=com.ub.sushimaster",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 30,
+        columnNumber: 11
+      }
+    }), __jsx("link", {
+      rel: "icon",
+      href: "%PUBLIC_URL%/favicons/favicon.ico",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 32,
+        columnNumber: 11
+      }
+    }), __jsx("link", {
+      rel: "apple-touch-icon",
+      sizes: "180x180",
+      href: "%PUBLIC_URL%/favicons/apple-touch-icon.png",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 33,
+        columnNumber: 11
+      }
+    }), __jsx("link", {
+      rel: "icon",
+      type: "image/png",
+      sizes: "32x32",
+      href: "%PUBLIC_URL%/favicons/favicon-32x32.png",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 38,
+        columnNumber: 11
+      }
+    }), __jsx("link", {
+      rel: "icon",
+      type: "image/png",
+      sizes: "16x16",
+      href: "%PUBLIC_URL%/favicons/favicon-16x16.png",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 44,
+        columnNumber: 11
+      }
+    }), __jsx("link", {
+      rel: "mask-icon",
+      href: "%PUBLIC_URL%/favicons/safari-pinned-tab.svg",
+      color: "#da532c",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 50,
+        columnNumber: 11
+      }
+    }), __jsx("meta", {
+      name: "msapplication-TileColor",
+      content: "#da532c",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 55,
+        columnNumber: 11
+      }
+    }), __jsx("meta", {
+      name: "theme-color",
+      content: "#ffffff",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 56,
+        columnNumber: 11
+      }
     }), __jsx("link", {
       rel: "stylesheet",
       href: "/css/index.css",
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 29,
+        lineNumber: 58,
         columnNumber: 11
       }
     }), __jsx("link", {
@@ -1154,28 +1241,28 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 30,
+        lineNumber: 59,
         columnNumber: 11
       }
     })), __jsx("body", {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 75,
+        lineNumber: 104,
         columnNumber: 9
       }
     }, __jsx(next_document__WEBPACK_IMPORTED_MODULE_1__["Main"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 76,
+        lineNumber: 105,
         columnNumber: 11
       }
     }), __jsx(next_document__WEBPACK_IMPORTED_MODULE_1__["NextScript"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 77,
+        lineNumber: 106,
         columnNumber: 11
       }
     }), __jsx("script", {
@@ -1184,7 +1271,7 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 78,
+        lineNumber: 107,
         columnNumber: 11
       }
     })));
