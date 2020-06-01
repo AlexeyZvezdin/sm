@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import s from './footer.module.scss';
+import  './footer.module.scss';
 
-const Footer = (props) => {
+const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-box">
@@ -54,14 +54,14 @@ const Footer = (props) => {
               rel="noopener noreferrer"
               href="https://apps.apple.com/ru/app/%D1%81%D1%83%D1%88%D0%B8-%D0%BC%D0%B0%D1%81%D1%82%D0%B5%D1%80/id1119016991"
             >
-              <div className="footer__apps__badge app-store"></div>
+              <div className="footer__apps__badge app-store"/>
             </a>
             <a
               target="_blank"
               rel="noopener noreferrer"
               href="https://play.google.com/store/apps/details?id=com.ub.sushimaster"
             >
-              <div className="footer__apps__badge google-play"></div>
+              <div className="footer__apps__badge google-play"/>
             </a>
             <div
               className="footer__socials-block"
@@ -72,21 +72,21 @@ const Footer = (props) => {
                 rel="noopener noreferrer"
                 href="https://www.facebook.com/sushimastershop/"
               >
-                <div className="footer__socials__icon fb"></div>
+                <div className="footer__socials__icon fb"/>
               </a>
               <a
                 target="_blank"
                 rel="noopener noreferrer"
                 href="https://vk.com/sushi_takeaway"
               >
-                <div className="footer__socials__icon vk"></div>
+                <div className="footer__socials__icon vk"/>
               </a>
               <a
                 target="_blank"
                 rel="noopener noreferrer"
                 href="https://www.instagram.com/sushimaster_shop"
               >
-                <div className="footer__socials__icon ig"></div>
+                <div className="footer__socials__icon ig"/>
               </a>
               <a
                 target="_blank"

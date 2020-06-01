@@ -1,8 +1,10 @@
+@import "../../public/css/style";
+
 .footer {
   padding-top: 24px;
   color: hsla(0, 0%, 100%, 0.7);
   background-color: #1d1d1d;
-  font-family: Gotham Pro;
+  font-family: Gotham Pro, serif;
   font-size: 11px;
   font-weight: 500;
   line-height: 1.71;
@@ -54,21 +56,20 @@
 .footer__quiz {
   background-color: #eb673d;
   padding: 22px 16px;
-  padding: 22px 16px;
   height: 240px;
   color: white;
 }
 
 a.footer__quiz-link {
   text-decoration: underline;
-  font-size: 1.4rem;
+  font-size: 1rem;
   color: white;
   margin-top: 14px;
 }
 
 .footer__quiz-text-bot {
   font-size: 1rem;
-  margin-top: 30px;
+  margin-top: 14px;
 }
 
 .footer__quiz-text {
@@ -138,7 +139,13 @@ a.footer__quiz-link {
   background-image: url('/img/yandex_dzen.png');
 }
 
-@media (max-width: 1330px) {
+@include max-width(md) {
+  .footer {
+    display: none;
+  }
+}
+
+@include max-width(xlg) {
   .footer-box {
     flex-wrap: wrap;
   }
@@ -148,3 +155,4 @@ a.footer__quiz-link {
     padding: 24px;
   }
 }
+
