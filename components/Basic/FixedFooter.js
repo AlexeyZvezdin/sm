@@ -6,6 +6,7 @@ import React, { Component } from "react";
 // import CartIcon from '../../Cart/CartIcon'
 //import Login from '../../Modals/Login'
 import "./fixedFooter.module.scss";
+import ProfileBadge from './ProfileBadge'
 //import ProfileBadge from '../../Profile/ProfileBadge'
 //import { SideMenu } from './SideMenu'
 
@@ -18,6 +19,8 @@ export default class FixedFooter extends Component {
   constructor(props) {
     super(props);
     this.state = { menuOpen: false };
+    this.toggleMenu = this.toggleMenu.bind(this);
+    this.resizeWindow = this.resizeWindow.bind(this);
   }
 
   toggleMenu() {
@@ -47,7 +50,7 @@ export default class FixedFooter extends Component {
               onClick={this.toggleMenu}
             />
             <div>
-              {/*<ProfileBadge />*/}
+              <ProfileBadge />
               {/*<CartIcon />*/}
             </div>
           </div>

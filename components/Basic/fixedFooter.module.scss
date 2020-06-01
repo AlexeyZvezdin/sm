@@ -1,3 +1,4 @@
+@import '../../public/css/style';
 
 .fixed_footer_container {
   height: 56px;
@@ -37,7 +38,7 @@
 //  background-image: url("../../public/img/icons/icon-profile.svg");
 //}
 
-@media (min-width: 992px) {
+@include min-width(md) {
   .fixed_footer_container {
     display: none;
   }
