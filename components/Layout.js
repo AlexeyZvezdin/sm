@@ -1,13 +1,14 @@
-import Link from 'next/link';
-import Router from 'next/router';
-import styles from './index.module.scss';
+import Link from "next/link";
+import Router from "next/router";
+import styles from "./index.module.scss";
 // import loader from '../public/img/loader.gif';
-import Header from './Basic/Header';
-import StickyHeader from '../components/Basic/StickyHeader';
-import Footer from './Basic/Footer';
-import { connect } from 'react-redux';
-import { withRouter } from 'next/router';
-import Error from '../pages/_error';
+import Header from "./Basic/Header";
+import StickyHeader from "../components/Basic/StickyHeader";
+import Footer from "./Basic/Footer";
+import { connect } from "react-redux";
+import { withRouter } from "next/router";
+import Error from "../pages/_error";
+import FixedFooter from "./Basic/FixedFooter";
 function Layout(props) {
   // console.log(props, ' PROPS');
   // Не работает, бэд сетСтейт
@@ -50,7 +51,7 @@ function Layout(props) {
       <StickyHeader stickyTabs={props.stickyTabs.stickyTabs} />
       <main>
         {/* возможно в будущем уберу отсюда */}
-        <div className={styles['container__full']}>
+        <div className={styles["container__full"]}>
           {/* {this.state.loaded === 'no' ? (
               <div
                 style={{
@@ -67,9 +68,10 @@ function Layout(props) {
         </div>
       </main>
       <Footer />
+      <FixedFooter />
       <style jsx global>{`
         body {
-          overflow: ${props.openModalBg === true ? 'hidden' : 'none'};
+          overflow: ${props.openModalBg === true ? "hidden" : "none"};
         }
       `}</style>
     </>
