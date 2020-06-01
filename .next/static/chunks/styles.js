@@ -30,7 +30,7 @@ module.exports = {"footer":"footer","footer-box":"footer-box","footer-col":"foot
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590981337240");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590990691394");
           });
       }
     }
@@ -68,7 +68,7 @@ module.exports = {"main_header":"main_header","header-logo":"header-logo","menu"
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590981337203");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590990691470");
           });
       }
     }
@@ -106,7 +106,7 @@ module.exports = {"sticky-header":"sticky-header","sticky-header__categories__it
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590981337622");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590990691537");
           });
       }
     }
@@ -144,45 +144,7 @@ module.exports = {"modal-backdrop":"modal-backdrop","city_modal":"city_modal","c
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590981337109");
-          });
-      }
-    }
-  
-
-/***/ }),
-
-/***/ "./components/Products/products.module.scss":
-/*!**************************************************!*\
-  !*** ./components/Products/products.module.scss ***!
-  \**************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-module.exports = {"products":"products","product":"product","product-name":"product-name","product-description":"product-description","product-weight":"product-weight","product-bottom":"product-bottom","product-prices":"product-prices","price-prev":"price-prev","price-current":"price-current","product-bottom_right":"product-bottom_right","product-bottom_right-info":"product-bottom_right-info","product-bottom_right-buy":"product-bottom_right-buy","product-bottom_right-buy-collapsed":"product-bottom_right-buy-collapsed","cart-button":"cart-button","cart-button-border":"cart-button-border","cart-button__expanded":"cart-button__expanded","cart-button__expanded__minus":"cart-button__expanded__minus","cart-button__expanded__plus":"cart-button__expanded__plus","cart-button__expanded__count":"cart-button__expanded__count","product-info":"product-info","product-info-block-nutrients":"product-info-block-nutrients","product-info__close":"product-info__close","product-info-display":"product-info-display","banners":"banners","banner":"banner"};;
-    if (true) {
-      var injectCss = function injectCss(prev, href) {
-        var link = prev.cloneNode();
-        link.href = href;
-        link.onload = function() {
-          prev.parentNode.removeChild(prev);
-        };
-        prev.stale = true;
-        prev.parentNode.insertBefore(link, prev);
-      };
-      module.hot.dispose(function() {
-        window.__webpack_reload_css__ = true;
-      });
-      if (window.__webpack_reload_css__) {
-        module.hot.__webpack_reload_css__ = false;
-        console.log("[HMR] Reloading stylesheets...");
-        var prefix = document.location.protocol + '//' + document.location.host;
-        document
-          .querySelectorAll("link[href][rel=stylesheet]")
-          .forEach(function(link) {
-            if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590981704399");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590990691195");
           });
       }
     }
@@ -220,7 +182,7 @@ module.exports = {"container__full":"container__full"};;
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590981337106");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590990691193");
           });
       }
     }
@@ -228,15 +190,15 @@ module.exports = {"container__full":"container__full"};;
 
 /***/ }),
 
-/***/ "./pages/cart/cart.module.scss":
-/*!*************************************!*\
-  !*** ./pages/cart/cart.module.scss ***!
-  \*************************************/
+/***/ "./pages/delivery/delivery.module.scss":
+/*!*********************************************!*\
+  !*** ./pages/delivery/delivery.module.scss ***!
+  \*********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"cart-container":"cart-container","cart-container-back":"cart-container-back","cart-container-back-text":"cart-container-back-text","cart-container-back-button":"cart-container-back-button","cart-content":"cart-content","cart-products-box":"cart-products-box","cart-products-box-label":"cart-products-box-label","cart-order-widget":"cart-order-widget","cart-order-widget-promocode":"cart-order-widget-promocode","order-inner-container_input":"order-inner-container_input","inner-container__promocode_enter":"inner-container__promocode_enter","inner-container__promocode_arrow":"inner-container__promocode_arrow","cart-content-info":"cart-content-info","cart-content-info-products_price_bold":"cart-content-info-products_price_bold","products_price_bold":"products_price_bold","cart-content-info-products_price":"cart-content-info-products_price","order-inner-container__submit-button":"order-inner-container__submit-button","card_products":"card_products","card_product":"card_product","card_product-img":"card_product-img","card_product-text":"card_product-text","card_product-name":"card_product-name","card_product-info":"card_product-info","card_product-right":"card_product-right","card_product-price":"card_product-price","card_product-trash":"card_product-trash","card_noproducts":"card_noproducts","card_noproducts-centered":"card_noproducts-centered","card__placeholder__section":"card__placeholder__section","card_noproducts-button":"card_noproducts-button"};;
+module.exports = {"delivery-scene__main-container":"delivery-scene__main-container","delivery-scene":"delivery-scene","header-absolute-container":"header-absolute-container","header-info":"header-info","sub-header":"sub-header","city-name":"city-name","header-info-link":"header-info-link","sub-header-delivery":"sub-header-delivery","zone-info":"zone-info","zone-info-item":"zone-info-item","active":"active","zone-title-list":"zone-title-list","zone-price-title":"zone-price-title","prices":"prices","delivery-info":"delivery-info","time-range":"time-range","sale-info":"sale-info","about-link":"about-link","delivery-payments-block":"delivery-payments-block","payment-type":"payment-type","info-item":"info-item","info-item-icon":"info-item-icon","info-item-description":"info-item-description","title":"title","text":"text","restaurants-block":"restaurants-block","restaurants-block-title":"restaurants-block-title","address-item":"address-item","how-make-order-block":"how-make-order-block","how-make-order-block-title":"how-make-order-block-title","how-make-order-block__loyalty-table-wrapping":"how-make-order-block__loyalty-table-wrapping","how-make-order-block__loyalty-table":"how-make-order-block__loyalty-table","how-make-order-block__loyalty-row":"how-make-order-block__loyalty-row","how-make-order-block__loyalty-cell":"how-make-order-block__loyalty-cell","how-make-order-block__loyalty-cell-footer":"how-make-order-block__loyalty-cell-footer","how-make-order-block__loyalty-cell-heading":"how-make-order-block__loyalty-cell-heading","how-make-order-block__loyalty-cell-percent":"how-make-order-block__loyalty-cell-percent","how-make-order-block__loyalty-cell-price":"how-make-order-block__loyalty-cell-price","how-make-order-block__loyalty-cell-rank":"how-make-order-block__loyalty-cell-rank","how-make-order-block-text":"how-make-order-block-text","adaptive-padding":"adaptive-padding","delivery-payments-item":"delivery-payments-item","map":"map"};;
     if (true) {
       var injectCss = function injectCss(prev, href) {
         var link = prev.cloneNode();
@@ -258,7 +220,7 @@ module.exports = {"cart-container":"cart-container","cart-container-back":"cart-
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590981709634");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590990891928");
           });
       }
     }
@@ -296,7 +258,7 @@ module.exports = {"box":"box","menu":"menu"};;
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590981337100");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590990691190");
           });
       }
     }

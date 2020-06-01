@@ -687,19 +687,19 @@ var Header = /*#__PURE__*/function (_React$Component) {
           lineNumber: 110,
           columnNumber: 15
         }
-      }, "Price", __jsx("span", {
+      }, this.props.sum, __jsx("span", {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 111,
-          columnNumber: 22
+          lineNumber: 112,
+          columnNumber: 17
         }
-      }, "\u20BD")), __jsx("div", {
+      }, " \u20BD")), __jsx("div", {
         className: _header_module_scss__WEBPACK_IMPORTED_MODULE_12___default.a['header-cart_n_login-card_icon'],
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 113,
+          lineNumber: 114,
           columnNumber: 15
         }
       }, __jsx("div", {
@@ -707,7 +707,7 @@ var Header = /*#__PURE__*/function (_React$Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 114,
+          lineNumber: 115,
           columnNumber: 17
         }
       }, __jsx("div", {
@@ -715,7 +715,7 @@ var Header = /*#__PURE__*/function (_React$Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 115,
+          lineNumber: 116,
           columnNumber: 19
         }
       }, this.props.cardCounter.counter ? Number(this.props.cardCounter.counter) + Number(this.state.cardCounter) : Number(this.state.cardCounter) + Number(this.props.cardCounter.counter))))))), __jsx("div", {
@@ -723,7 +723,7 @@ var Header = /*#__PURE__*/function (_React$Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 133,
+          lineNumber: 134,
           columnNumber: 9
         }
       }, __jsx("div", {
@@ -731,7 +731,7 @@ var Header = /*#__PURE__*/function (_React$Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 134,
+          lineNumber: 135,
           columnNumber: 11
         }
       }, "\u0412\u043E\u0439\u0442\u0438")));
@@ -744,13 +744,15 @@ var Header = /*#__PURE__*/function (_React$Component) {
 var mapStateToProps = function mapStateToProps(_ref) {
   var modal = _ref.modal,
       city = _ref.store.city,
-      cardCounter = _ref.card.cardCounter;
-  // console.log(modal.openModalBg, ' STATE modal');
+      _ref$card = _ref.card,
+      cardCounter = _ref$card.cardCounter,
+      sum = _ref$card.sumCounter.sum;
   var modalBg = modal.openModalBg;
   return {
     modalBg: modalBg,
     city: city,
-    cardCounter: cardCounter
+    cardCounter: cardCounter,
+    sum: sum
   };
 };
 
@@ -10356,6 +10358,49 @@ var cardCounter = function cardCounter() {
 
 /***/ }),
 
+/***/ "./redux/reducers/card/sumCounter.js":
+/*!*******************************************!*\
+  !*** ./redux/reducers/card/sumCounter.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
+
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { Object(_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+var sumCounter = function sumCounter() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
+    sum: 0
+  };
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  console.log(state.sum, ' state YEAH'); // Не надежный счет, проверку на то что ниже нуля быть ен может
+
+  switch (action.type) {
+    case 'ADD':
+      return {
+        sum: state.sum + Number(action.payload)
+      };
+
+    case 'SUB':
+      return {
+        sum: state.sum - Number(action.payload)
+      };
+
+    default:
+      return _objectSpread({}, state);
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (sumCounter);
+
+/***/ }),
+
 /***/ "./redux/reducers/initialReducer.js":
 /*!******************************************!*\
   !*** ./redux/reducers/initialReducer.js ***!
@@ -10479,6 +10524,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _initialReducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./initialReducer */ "./redux/reducers/initialReducer.js");
 /* harmony import */ var _modals_modalReducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modals/modalReducer */ "./redux/reducers/modals/modalReducer.js");
 /* harmony import */ var _card_cardReducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./card/cardReducer */ "./redux/reducers/card/cardReducer.js");
+/* harmony import */ var _reducers_card_sumCounter__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../reducers/card/sumCounter */ "./redux/reducers/card/sumCounter.js");
+
 
 
 
@@ -10489,7 +10536,8 @@ var rootReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])(
   modal: _modals_modalReducer__WEBPACK_IMPORTED_MODULE_2__["default"],
   card: Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
     cardReducer: _card_cardReducer__WEBPACK_IMPORTED_MODULE_3__["default"],
-    cardCounter: _card_cardReducer__WEBPACK_IMPORTED_MODULE_3__["cardCounter"]
+    cardCounter: _card_cardReducer__WEBPACK_IMPORTED_MODULE_3__["cardCounter"],
+    sumCounter: _reducers_card_sumCounter__WEBPACK_IMPORTED_MODULE_4__["default"]
   })
 });
 /* harmony default export */ __webpack_exports__["default"] = (rootReducer);

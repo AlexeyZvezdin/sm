@@ -1244,25 +1244,34 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
         lineNumber: 59,
         columnNumber: 11
       }
-    })), __jsx("body", {
+    }), __jsx("script", {
+      src: "https://api-maps.yandex.ru/2.1/?apikey=78245263-55a3-404a-b40b-4470b2b76b9c&lang=ru_RU&coordorder=longlat",
+      type: "text/javascript",
       __self: this,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 104,
+        columnNumber: 11
+      }
+    })), __jsx("body", {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 109,
         columnNumber: 9
       }
     }, __jsx(next_document__WEBPACK_IMPORTED_MODULE_1__["Main"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 105,
+        lineNumber: 110,
         columnNumber: 11
       }
     }), __jsx(next_document__WEBPACK_IMPORTED_MODULE_1__["NextScript"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 106,
+        lineNumber: 111,
         columnNumber: 11
       }
     }), __jsx("script", {
@@ -1271,7 +1280,7 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 107,
+        lineNumber: 112,
         columnNumber: 11
       }
     })));

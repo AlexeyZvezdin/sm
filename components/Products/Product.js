@@ -12,7 +12,6 @@ import {
 import { cardProductsDispatch } from '../../redux/actions/cardProducts';
 
 function Product({ product, store, ...props }) {
-  // console.log(props, ' props');
   // console.log(store, ' store');
   const [cartButtonCounter, setCartButtonCounter] = React.useState(0);
   const [localProductCounter, setlocalProductCounter] = React.useState(0);

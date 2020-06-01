@@ -90,7 +90,7 @@ export default class Index extends React.Component {
   initMap = () => {
     console.log('is trying? ');
 
-    const map = new window.ymaps.Map(
+    let map = new window.ymaps.Map(
       'map',
       {
         center: [this.state.location.longitude, this.state.location.latitude],
@@ -103,7 +103,7 @@ export default class Index extends React.Component {
     );
     this.addZonesOnMap(map);
     this.addMarkersOnMap(map);
-    window.clearTimeout(timer);
+    // window.clearTimeout(timer);
     // timer = window.setTimeout(() => this.initMap(), 1000);
     // }
   };
@@ -177,11 +177,10 @@ export default class Index extends React.Component {
     return (
       <>
         <Head>
-          <script
-            defer
+          {/* <script
             src="https://api-maps.yandex.ru/2.1/?apikey=78245263-55a3-404a-b40b-4470b2b76b9c&lang=ru_RU&coordorder=longlat"
             type="text/javascript"
-          ></script>
+          ></script> */}
         </Head>
         <div className={'delivery-scene'}>
           {/* <Header showStickyHeader={true} onlyInfo={true}>

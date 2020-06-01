@@ -20,8 +20,7 @@ class cart extends React.Component {
       this.setState({
         products: cardProducts,
       });
-      console.log(this.state, ' THIS STATE');
-      console.log(cardProducts, ' cardProducts');
+      // console.log(cardProducts, ' cardProducts');
     } else {
       this.setState({
         products: this.props.cardProducts,
@@ -51,7 +50,6 @@ class cart extends React.Component {
     if (this.state.products === null) {
       return <h1>Добавьте что-нибудь в корзину</h1>;
     } else if (typeof window !== undefined) {
-      console.log(Object.values(this.state.products), ' this.state.products');
       let values = Object.values(this.state.products);
       return values.map((item, index) =>
         item.quantity === 0 ? (

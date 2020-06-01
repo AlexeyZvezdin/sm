@@ -108,7 +108,8 @@ class Header extends React.Component {
           <Link href="/cart">
             <a className={s['header-cart_n_login']}>
               <div className={s['header-cart_n_login-price']}>
-                Price<span>₽</span>
+                {this.props.sum}
+                <span> ₽</span>
               </div>
               <div className={s['header-cart_n_login-card_icon']}>
                 <div className={s['header-cart_n_login__icon']}>
@@ -138,10 +139,16 @@ class Header extends React.Component {
   }
 }
 
-const mapStateToProps = ({ modal, store: { city }, card: { cardCounter } }) => {
-  // console.log(modal.openModalBg, ' STATE modal');
+const mapStateToProps = ({
+  modal,
+  store: { city },
+  card: {
+    cardCounter,
+    sumCounter: { sum },
+  },
+}) => {
   const modalBg = modal.openModalBg;
-  return { modalBg, city, cardCounter };
+  return { modalBg, city, cardCounter, sum };
 };
 const dispatchToProps = (dispatch) => ({
   dispatchModalStatus: (status) => dispatch({ type: 'OPEN_MODAL' }),

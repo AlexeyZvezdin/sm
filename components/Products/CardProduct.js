@@ -3,6 +3,7 @@ import {
   cardCounterDecrement,
 } from '../../redux/actions/cardCounter';
 import { cardProductsDispatch } from '../../redux/actions/cardProducts';
+import { totalSumCounter } from '../../redux/actions/totalSumCounter';
 import { connect } from 'react-redux';
 
 import {
@@ -18,6 +19,7 @@ const mapDispatch = (dispatch) => {
       dispatch(cardProductsDispatch(products)),
     cardCounterDecrement: () => dispatch(cardCounterDecrement()),
     cardCounterIncrement: () => dispatch(cardCounterIncrement()),
+    totalSumCounter: (type, sum) => dispatch(totalSumCounter(type, sum)),
   };
 };
 
@@ -117,6 +119,7 @@ export default connect(
         );
 
         props.cardProductsDispatch(toDispatchResult);
+        props.totalSumCounter('ADD', product.priceVariants[0].price);
         // конец заеба
         await setCartButtonCounter(quantity + 1);
         // Вот это ниже обязательно надо, асинхронность на рендере на сср не работает как надо
@@ -141,6 +144,7 @@ export default connect(
         );
 
         props.cardProductsDispatch(toDispatchResult);
+        props.totalSumCounter('SUB', product.priceVariants[0].price);
         // конец заеба
         await setCartButtonCounter(quantity - 1);
         let res = await getCounterFromLS();
@@ -161,38 +165,13 @@ export default connect(
         })
       );
       props.cardProductsDispatch(toDispatchResult);
+      props.totalSumCounter('ADD', product.priceVariants[0].price);
       await setCartButtonCounter(1);
       let res = await getCounterFromLS();
       setlocalProductCounter(res);
     }
   };
 
-  //   const Counter = () => {
-  //     return (
-  //       <div className="cart-button cart-button-border">
-  //         <div className="cart-button__expanded">
-  //           <div
-  //             className="cart-button__expanded__minus"
-  //             onClick={() => {
-  //               setCartButtonCounter(cartButtonCounter - 1);
-  //               handleCounterClick('dec');
-  //             }}
-  //           ></div>
-  //           <div className="cart-button__expanded__count">
-  //             {/* {getCounterFromLS()} */}
-  //             {getCounterFromLS()}
-  //           </div>
-  //           <div
-  //             className="cart-button__expanded__plus"
-  //             onClick={() => {
-  //               setCartButtonCounter(cartButtonCounter + 1);
-  //               handleCounterClick('inc');
-  //             }}
-  //           ></div>
-  //         </div>
-  //       </div>
-  //     );
-  //   };
   if (getCounterFromLS() === 0) return '';
   else
     return (
