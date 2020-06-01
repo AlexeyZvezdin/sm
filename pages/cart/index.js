@@ -3,6 +3,8 @@ import Link from 'next/link';
 // import Cookie from 'js-cookie';
 import { connect } from 'react-redux';
 import { parseCookies } from '../../utils/parseCookies';
+import CardProduct from '../../components/Products/CardProduct';
+
 class cart extends React.Component {
   // static async getInitialProps(ctx) {
   // const cookies = parseCookies(req);
@@ -55,34 +57,8 @@ class cart extends React.Component {
         item.quantity === 0 ? (
           ''
         ) : (
-          <div className="card_product" key={index}>
-            {/* picture */}
-            <div className="card_product-img">
-              <img
-                src={`https://client-api.sushi-master.ru/pics/${item.product.mainPictureId}?width=400`}
-                alt=""
-              />
-            </div>
-            {/* info block */}
-            <div className="card_product-text">
-              <p className="card_product-name">{item.product.name}</p>
-              <p className="card_product-info">{item.quantity} шт.</p>
-              <p className="card_product-info">
-                {Number(item.quantity) *
-                  Number(item.product.nutritionalElement.weight)}{' '}
-                гр.
-              </p>
-            </div>
-            {/* counter */}
-            {/* price */}
-            <div className="card_product-right">
-              <p className="card_product-price">
-                {Number(item.product.priceVariants[0].price) *
-                  Number(item.quantity)}{' '}
-                ₽
-              </p>
-              <button className="card_product-trash"></button>
-            </div>
+          <div key={index}>
+            <CardProduct item={item} quantity={item.quantity} />
           </div>
         )
       );

@@ -9,7 +9,6 @@ import {
   cardCounterIncrement,
   cardCounterDecrement,
 } from '../../redux/actions/cardCounter';
-
 import { cardProductsDispatch } from '../../redux/actions/cardProducts';
 
 function Product({ product, store, ...props }) {
