@@ -1,14 +1,8 @@
 const cardReducer = (state = { cardProducts: {} }, action) => {
-  console.log(action, ' ADCTION DISPATCH');
   let cardProducts;
   if (action.payload) {
-    console.log('action.payload.cardProducts when they are not null ?');
     cardProducts = action.payload.cardProducts;
   } else {
-    console.log(
-      action.payload,
-      'action.payload.cardProducts when they are  null ?'
-    );
     if (typeof localStorage != 'undefined') {
       cardProducts = JSON.parse(localStorage.getItem('cardProducts'));
     }
@@ -25,8 +19,6 @@ const cardReducer = (state = { cardProducts: {} }, action) => {
 };
 
 export const cardCounter = (state = { counter: 0 }, action) => {
-  // console.log(action, ' ACTION cardReducer');
-
   switch (action.type) {
     case 'INCREMENT':
       // console.log(action, ' ACTION');

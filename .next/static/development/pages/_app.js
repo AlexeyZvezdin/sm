@@ -10308,15 +10308,11 @@ var cardReducer = function cardReducer() {
     cardProducts: {}
   };
   var action = arguments.length > 1 ? arguments[1] : undefined;
-  console.log(action, ' ADCTION DISPATCH');
   var cardProducts;
 
   if (action.payload) {
-    console.log('action.payload.cardProducts when they are not null ?');
     cardProducts = action.payload.cardProducts;
   } else {
-    console.log(action.payload, 'action.payload.cardProducts when they are  null ?');
-
     if (typeof localStorage != 'undefined') {
       cardProducts = JSON.parse(localStorage.getItem('cardProducts'));
     }
@@ -10339,7 +10335,6 @@ var cardCounter = function cardCounter() {
   };
   var action = arguments.length > 1 ? arguments[1] : undefined;
 
-  // console.log(action, ' ACTION cardReducer');
   switch (action.type) {
     case 'INCREMENT':
       // console.log(action, ' ACTION');

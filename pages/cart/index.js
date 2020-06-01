@@ -4,22 +4,16 @@ import Link from 'next/link';
 import { connect } from 'react-redux';
 import { parseCookies } from '../../utils/parseCookies';
 class cart extends React.Component {
-  static async getInitialProps(ctx) {
-    // const cookies = parseCookies(req);
-    let shit = 'ujdyj';
-    console.log(ctx, ' cardProducts STORE');
-    return { shit };
-  }
+  // static async getInitialProps(ctx) {
+  // const cookies = parseCookies(req);
+  // }
   state = {
     products: [],
   };
 
   async componentDidMount() {
+    // Из редакса если есть то берем их, если нет то триггерим локалстор
     if (this.props.cardProducts) {
-      console.log(
-        this.props.cardProducts,
-        ' this.props.cardProducts from didmount'
-      );
       let cardProducts = await JSON.parse(localStorage.getItem('cardProducts'));
       this.setState({
         products: cardProducts,
@@ -32,7 +26,6 @@ class cart extends React.Component {
       });
     }
     // Cookie.set(JSON.stringify(this.props.cardProducts), 'cardProducts');
-    console.log(this.props, ' THIS PROPS SHIT');
   }
 
   renderIfNoProducts() {
@@ -58,26 +51,41 @@ class cart extends React.Component {
     } else if (typeof window !== undefined) {
       console.log(Object.values(this.state.products), ' this.state.products');
       let values = Object.values(this.state.products);
-      return values.map((item, index) => (
-        <div className="card_product" key={index}>
-          {/* picture */}
-          <div className="card_product-img">
-            <img
-              src={`https://client-api.sushi-master.ru/pics/${item.product.mainPictureId}?width=400`}
-              alt=""
-            />
+      return values.map((item, index) =>
+        item.quantity === 0 ? (
+          ''
+        ) : (
+          <div className="card_product" key={index}>
+            {/* picture */}
+            <div className="card_product-img">
+              <img
+                src={`https://client-api.sushi-master.ru/pics/${item.product.mainPictureId}?width=400`}
+                alt=""
+              />
+            </div>
+            {/* info block */}
+            <div className="card_product-text">
+              <p className="card_product-name">{item.product.name}</p>
+              <p className="card_product-info">{item.quantity} шт.</p>
+              <p className="card_product-info">
+                {Number(item.quantity) *
+                  Number(item.product.nutritionalElement.weight)}{' '}
+                гр.
+              </p>
+            </div>
+            {/* counter */}
+            {/* price */}
+            <div className="card_product-right">
+              <p className="card_product-price">
+                {Number(item.product.priceVariants[0].price) *
+                  Number(item.quantity)}{' '}
+                ₽
+              </p>
+              <button className="card_product-trash"></button>
+            </div>
           </div>
-          {/* info block */}
-          <div className="card_product-text">
-            <p className="card_product-name">Set</p>
-            <p className="card_product-info">32 styki</p>
-          </div>
-          {/* counter */}
-          {/* price */}
-          <p className="card_product-price">₽</p>
-          <button className="card_product-trash"></button>
-        </div>
-      ));
+        )
+      );
     }
   }
 

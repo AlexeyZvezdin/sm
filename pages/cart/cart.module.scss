@@ -4,6 +4,9 @@
   margin-right: 10%;
   position: relative;
   min-height: 900px;
+  @media (max-width: 768px) {
+    margin-right: 0px;
+  }
 }
 
 .cart-container-back {
@@ -37,10 +40,18 @@
 // главная часть
 .cart-content {
   display: flex;
+  @media (max-width: 992px) {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
 }
 
 .cart-products-box {
   flex: 0 0 75%;
+  @media (max-width: 768px) {
+    flex: 0 0 100%;
+  }
 }
 
 .cart-products-box-label {
@@ -203,18 +214,31 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  background-color: lightgray;
 }
 
 .card_product {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 10px;
+  margin: 20px 10px;
+
+  @media (max-width: 545px) {
+    flex-wrap: wrap;
+  }
+}
+.card_product-img {
+  width: 20%;
+
+  @media (max-width: 545px) {
+    width: 190px;
+  }
+}
+.card_product-img img {
+  width: 190px;
 }
 
-.card_product-img img {
-  width: 180px;
+.card_product-text {
+  width: 20%;
 }
 
 .card_product-name {
@@ -232,13 +256,36 @@
   color: rgba(0, 0, 0, 0.76);
 }
 
+.card_product-right {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  @media (max-width: 545px) {
+    font-size: 1.2rem;
+    padding-left: 40px;
+    padding-top: 20px;
+  }
+}
+
+.card_product-price {
+  font-family: Pusia;
+  font-weight: 700;
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.75);
+}
+
 .card_product-trash {
   background: transparent url('/img/icons/icon-delete.svg') no-repeat 50%;
   background-size: contain;
   cursor: pointer;
-  margin-top: 9px;
   width: 21px;
   height: 23px;
+  margin-left: 10px;
+  @media (max-width: 545px) {
+    width: 36px;
+    height: 40px;
+    margin-left: 36px;
+  }
 }
 
 // no products
