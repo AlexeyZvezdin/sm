@@ -68,6 +68,10 @@ export default connect(
     }
   };
 
+  const calcProductTotalPrice = () => {
+    return Number(item.product.priceVariants[0].price) * Number(item.quantity);
+  };
+
   const getCounterFromLS = () => {
     if (typeof window == 'undefined') {
       return 0;
@@ -189,60 +193,62 @@ export default connect(
   //       </div>
   //     );
   //   };
-
-  return (
-    <div className="card_product">
-      {/* picture */}
-      <div className="card_product-img">
-        <img
-          src={`https://client-api.sushi-master.ru/pics/${item.product.mainPictureId}?width=400`}
-          alt=""
-        />
-      </div>
-      {/* info block */}
-      <div className="card_product-text">
-        <p className="card_product-name">{item.product.name}</p>
-        <p className="card_product-info">
-          {item.product.priceVariants[0].pieces} шт.
-        </p>
-        <p className="card_product-info">
-          {Number(item.quantity) *
-            Number(item.product.nutritionalElement.weight)}{' '}
-          гр.
-        </p>
-      </div>
-      {/* counter */}
-      {/* {Counter()} */}
-      <div className="cart-button cart-button-border">
-        <div className="cart-button__expanded">
-          <div
-            className="cart-button__expanded__minus"
-            onClick={() => {
-              setCartButtonCounter(cartButtonCounter - 1);
-              handleCounterClick('dec');
-            }}
-          ></div>
-          <div className="cart-button__expanded__count">
-            {/* {getCounterFromLS()} */}
-            {getCounterFromLS()}
+  if (getCounterFromLS() === 0) return '';
+  else
+    return (
+      <div className="card_product">
+        {/* picture */}
+        <div className="card_product-img">
+          <img
+            src={`https://client-api.sushi-master.ru/pics/${item.product.mainPictureId}?width=400`}
+            alt=""
+          />
+        </div>
+        {/* info block */}
+        <div className="card_product-text">
+          <p className="card_product-name">{item.product.name}</p>
+          <p className="card_product-info">
+            {item.product.priceVariants[0].pieces} шт.
+          </p>
+          <p className="card_product-info">
+            {Number(item.quantity) *
+              Number(item.product.nutritionalElement.weight)}{' '}
+            гр.
+          </p>
+        </div>
+        {/* counter */}
+        {/* {Counter()} */}
+        <div className="cart-button cart-button-border">
+          <div className="cart-button__expanded">
+            <div
+              className="cart-button__expanded__minus"
+              onClick={() => {
+                setCartButtonCounter(cartButtonCounter - 1);
+                handleCounterClick('dec');
+              }}
+            ></div>
+            <div className="cart-button__expanded__count">
+              {/* {getCounterFromLS()} */}
+              {getCounterFromLS()}
+            </div>
+            <div
+              className="cart-button__expanded__plus"
+              onClick={() => {
+                setCartButtonCounter(cartButtonCounter + 1);
+                handleCounterClick('inc');
+              }}
+            ></div>
           </div>
-          <div
-            className="cart-button__expanded__plus"
-            onClick={() => {
-              setCartButtonCounter(cartButtonCounter + 1);
-              handleCounterClick('inc');
-            }}
-          ></div>
+        </div>
+        {/* price */}
+        <div className="card_product-right">
+          <p className="card_product-price">
+            {Number(item.product.priceVariants[0].price) *
+              Number(getCounterFromLS())}{' '}
+            ₽
+          </p>
+          <button className="card_product-trash"></button>
         </div>
       </div>
-      {/* price */}
-      <div className="card_product-right">
-        <p className="card_product-price">
-          {Number(item.product.priceVariants[0].price) * Number(item.quantity)}{' '}
-          ₽
-        </p>
-        <button className="card_product-trash"></button>
-      </div>
-    </div>
-  );
+    );
 });

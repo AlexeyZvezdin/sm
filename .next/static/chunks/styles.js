@@ -1,43 +1,5 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["styles"],{
 
-/***/ "./components/Banners/banners.module.scss":
-/*!************************************************!*\
-  !*** ./components/Banners/banners.module.scss ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-module.exports = {"banner":"banner","banners__swiper-container":"banners__swiper-container","swiper-pagination-bullets":"swiper-pagination-bullets","swiper-pagination-bullets-dynamic":"swiper-pagination-bullets-dynamic","swiper-pagination-bullet":"swiper-pagination-bullet","swiper-pagination-bullet-active-next":"swiper-pagination-bullet-active-next","swiper-pagination-bullet-active-next-next":"swiper-pagination-bullet-active-next-next","swiper-pagination-bullet-active-prev":"swiper-pagination-bullet-active-prev","swiper-pagination-bullet-active-prev-prev":"swiper-pagination-bullet-active-prev-prev","banners__products":"banners__products"};;
-    if (true) {
-      var injectCss = function injectCss(prev, href) {
-        var link = prev.cloneNode();
-        link.href = href;
-        link.onload = function() {
-          prev.parentNode.removeChild(prev);
-        };
-        prev.stale = true;
-        prev.parentNode.insertBefore(link, prev);
-      };
-      module.hot.dispose(function() {
-        window.__webpack_reload_css__ = true;
-      });
-      if (window.__webpack_reload_css__) {
-        module.hot.__webpack_reload_css__ = false;
-        console.log("[HMR] Reloading stylesheets...");
-        var prefix = document.location.protocol + '//' + document.location.host;
-        document
-          .querySelectorAll("link[href][rel=stylesheet]")
-          .forEach(function(link) {
-            if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590975573230");
-          });
-      }
-    }
-  
-
-/***/ }),
-
 /***/ "./components/Basic/footer.module.scss":
 /*!*********************************************!*\
   !*** ./components/Basic/footer.module.scss ***!
@@ -68,7 +30,7 @@ module.exports = {"footer":"footer","footer-box":"footer-box","footer-col":"foot
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590972912522");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590981337240");
           });
       }
     }
@@ -106,7 +68,7 @@ module.exports = {"main_header":"main_header","header-logo":"header-logo","menu"
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590972731599");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590981337203");
           });
       }
     }
@@ -144,7 +106,7 @@ module.exports = {"sticky-header":"sticky-header","sticky-header__categories__it
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590972731798");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590981337622");
           });
       }
     }
@@ -182,7 +144,7 @@ module.exports = {"modal-backdrop":"modal-backdrop","city_modal":"city_modal","c
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590972731385");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590981337109");
           });
       }
     }
@@ -220,7 +182,7 @@ module.exports = {"products":"products","product":"product","product-name":"prod
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590972924880");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590981704399");
           });
       }
     }
@@ -258,7 +220,7 @@ module.exports = {"container__full":"container__full"};;
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590972731382");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590981337106");
           });
       }
     }
@@ -296,7 +258,7 @@ module.exports = {"cart-container":"cart-container","cart-container-back":"cart-
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590973069204");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590981709634");
           });
       }
     }
@@ -334,7 +296,7 @@ module.exports = {"box":"box","menu":"menu"};;
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1590972731377");
+            injectCss(link, link.href.split("?")[0] + "?unix=1590981337100");
           });
       }
     }
