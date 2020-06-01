@@ -6,7 +6,7 @@ import './profileBadge.scss'
 // import { toggleProfilePanel } from '../../redux/actions/ui/profilePanel'
 // import { getImageUrl } from '../../api/image'
 // import { tokenModelIsActive } from '../../utils/User'
-// import DefaultProfileImage from '../../img/icons/ic-profile-placeholder.svg'
+import DefaultProfileImage from '../../public/img/icons/ic-profile-placeholder.svg'
 
 // const mapStateToProps = state => {
 //   return {
@@ -44,14 +44,13 @@ export default class ProfileBadge extends Component {
         {/*{authorized && (*/}
           <img
             alt="Аватар"
-            src={''}
+            src={DefaultProfileImage}
               // this.props.pictureId
               //   ? getImageUrl(this.props.pictureId)
               //   : DefaultProfileImage
            // }
             // onClick={this.props.toggleProfilePanel}
           />
-        )}
       </div>
     )
   }
