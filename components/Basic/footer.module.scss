@@ -1,7 +1,7 @@
 @import "../../public/css/style";
 
 .footer {
-  padding-top: 24px;
+  padding: 24px 0;
   color: hsla(0, 0%, 100%, 0.7);
   background-color: #1d1d1d;
   font-family: Gotham Pro, serif;
@@ -62,14 +62,14 @@
 
 a.footer__quiz-link {
   text-decoration: underline;
-  font-size: 1.4rem;
+  font-size: 1rem;
   color: white;
   margin-top: 14px;
 }
 
 .footer__quiz-text-bot {
   font-size: 1rem;
-  margin-top: 30px;
+  margin-top: 14px;
 }
 
 .footer__quiz-text {
@@ -96,19 +96,19 @@ a.footer__quiz-link {
 }
 
 .app-store {
-  background-image: url('/public/img/appstore.png');
+  background-image: url('/img/appstore.png');
 }
 
 .viber {
-  background-image: url('/public/img/viber.svg');
+  background-image: url('/img/viber.svg');
 }
 
 .telegram {
-  background-image: url('/public/img/telegram.svg');
+  background-image: url('/img/telegram.svg');
 }
 
 .google-play {
-  background-image: url('/public/img/google-play.png');
+  background-image: url('/img/google-play.png');
 }
 
 .footer__socials__icon {
@@ -120,23 +120,23 @@ a.footer__quiz-link {
 }
 
 .fb {
-  background-image: url('/public/img/icons/icon-fb.svg');
+  background-image: url('/img/icons/icon-fb.svg');
 }
 
 .vk {
-  background-image: url('/public/img/icons/icon-vk.svg');
+  background-image: url('/img/icons/icon-vk.svg');
 }
 
 .ok {
-  background-image: url('/public/img/icons/icon-ok.svg');
+  background-image: url('/img/icons/icon-ok.svg');
 }
 
 .ig {
-  background-image: url('/public/img/icons/icon-ig.svg');
+  background-image: url('/img/icons/icon-ig.svg');
 }
 
 .yandex-dzen {
-  background-image: url('/public/img/yandex_dzen.png');
+  background-image: url('/img/yandex_dzen.png');
 }
 
 @include max-width(md) {

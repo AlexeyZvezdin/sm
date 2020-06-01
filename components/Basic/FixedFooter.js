@@ -7,6 +7,7 @@ import React, { Component } from "react";
 //import Login from '../../Modals/Login'
 import "./fixedFooter.module.scss";
 import ProfileBadge from './ProfileBadge'
+import CartIcon from './CartIcon'
 //import ProfileBadge from '../../Profile/ProfileBadge'
 //import { SideMenu } from './SideMenu'
 
@@ -31,10 +32,10 @@ export default class FixedFooter extends Component {
     this.setState({ menuOpen: false });
   };
 
-  componentDidUpdate(prevProps, prevState) {
-    if (prevProps.location.pathname !== this.props.location.pathname)
-      this.setState({ menuOpen: false });
-  }
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (prevProps.location.pathname !== this.props.location.pathname)
+  //     this.setState({ menuOpen: false });
+  // }
 
 
   render() {
@@ -51,7 +52,7 @@ export default class FixedFooter extends Component {
             />
             <div>
               <ProfileBadge />
-              {/*<CartIcon />*/}
+              <CartIcon />
             </div>
           </div>
           {/*<Login />*/}

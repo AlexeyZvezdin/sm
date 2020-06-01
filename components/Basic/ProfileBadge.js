@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
-import './profileBadge.scss'
+import "./profileBadge.scss";
 // import { toggleLoginForm } from '../../redux/actions/ui/login'
 // import { toggleProfilePanel } from '../../redux/actions/ui/profilePanel'
 // import { getImageUrl } from '../../api/image'
 // import { tokenModelIsActive } from '../../utils/User'
-import DefaultProfileImage from '../../public/img/icons/ic-profile-placeholder.svg'
+import DefaultProfileImage from "../../public/img/icons/ic-profile-placeholder.svg";
 
 // const mapStateToProps = state => {
 //   return {
@@ -23,36 +23,41 @@ import DefaultProfileImage from '../../public/img/icons/ic-profile-placeholder.s
 // }
 
 export default class ProfileBadge extends Component {
+  constructor(props) {
+    super(props);
+    this.authorized = false; //! temporary
+  }
   render() {
     // const authorized = tokenModelIsActive(this.props.accessToken)
     return (
       <div className="profile-badge-block">
-        {/*{!authorized && (*/}
+        {this.authorized && (
           <div
             className="profile-badge-block__login"
             // onClick={this.props.toggleLoginForm}
           >
             Войти
           </div>
-        {/*)}*/}
-        {/*{!authorized && (*/}
+        )}
+        {!this.authorized && (
           <div
             className="profile-badge-block__login-footer"
             // onClick={this.props.toggleLoginForm}
           />
-        {/*)}*/}
-        {/*{authorized && (*/}
+        )}
+        {this.authorized && (
           <img
             alt="Аватар"
             src={DefaultProfileImage}
-              // this.props.pictureId
-              //   ? getImageUrl(this.props.pictureId)
-              //   : DefaultProfileImage
-           // }
+            // this.props.pictureId
+            //   ? getImageUrl(this.props.pictureId)
+            //   : DefaultProfileImage
+            // }
             // onClick={this.props.toggleProfilePanel}
           />
+        )}
       </div>
-    )
+    );
   }
 }
 

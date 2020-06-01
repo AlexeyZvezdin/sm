@@ -24,19 +24,19 @@
   background: transparent no-repeat center;
 }
 
-//.fixed_footer__icon-open-menu {
-//  background-image: url("../../public/img/icons/icon-menu.svg");
-//}
-//
-//.fixed_footer__icon-close-menu {
-//  background-image: url("../../public/img/icons/icon-menu-close.svg");
-//}
-//
-//.fixed_footer__icon-profile {
-//  margin-right: 24px;
-//  display: inline-block;
-//  background-image: url("../../public/img/icons/icon-profile.svg");
-//}
+.fixed_footer__icon-open-menu {
+  background-image: url("/img/icons/icon-menu.svg");
+}
+
+.fixed_footer__icon-close-menu {
+  background-image: url("/img/icons/icon-menu-close.svg");
+}
+
+.fixed_footer__icon-profile {
+  margin-right: 24px;
+  display: inline-block;
+  background-image: url("/img/icons/icon-profile.svg");
+}
 
 @include min-width(md) {
   .fixed_footer_container {
