@@ -6,3 +6,6 @@ bash.exe.stackdump
 .env
 public/css/fonts.scss
 public/css/index.scss
+.idea
+!/.next/
+.vscode
