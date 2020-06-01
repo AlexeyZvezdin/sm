@@ -27,11 +27,11 @@ export default class CartIcon extends Component {
 
   // animationTimer
   componentDidUpdate(prevProps) {
-    // if (prevProps.cart !== this.props.cart) {
-    this.setState({ animateIcon: true });
-    clearTimeout(this.animationTimer);
-    this.animationTimer = setTimeout(this.stopAnimation, 500);
-    // }
+    // // if (prevProps.cart !== this.props.cart) {
+    // this.setState({ animateIcon: true });
+    // clearTimeout(this.animationTimer);
+    // this.animationTimer = setTimeout(this.stopAnimation, 500);
+    // // }
   }
 
   componentWillUnmount() {
