@@ -9,7 +9,7 @@ import { connect } from "react-redux";
 import "./cartIcon.scss";
 import React, { Component } from "react";
 //import { CurrencySymbol } from '../Basic/CurrencySymbol'
-
+//s
 // const mapStateToProps = state => {
 //   return {
 //     cart: state.cart.info
