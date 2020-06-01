@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import s from './footer.module.scss';
+import './footer.module.scss';
 
-const Footer = (props) => {
+const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-box">

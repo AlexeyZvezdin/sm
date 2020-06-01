@@ -1,0 +1,71 @@
+@import '../../public/css/style';
+
+.profile-badge-block {
+  // margin-right: 24px;
+  display: inline-block;
+}
+
+.profile-badge-block img {
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.profile-badge-block__login-footer {
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+  background-image: url('/img/icons/icon-profile.svg');
+  cursor: pointer;
+}
+
+.profile-badge-block__login {
+  cursor: pointer;
+  display: none;
+  margin-left: 36px;
+  border-radius: 16px;
+  border: 1px solid rgba(29, 29, 29, 0.2);
+  padding: 4px 16px 3px;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.71;
+  letter-spacing: normal;
+}
+
+@include min-width(md) {
+  .profile-badge-block img {
+    height: 36px;
+    width: 36px;
+    margin-right: 0;
+    margin-left: 36px;
+  }
+  .profile-badge-block__login-footer {
+    display: none;
+  }
+  .profile-badge-block__login {
+    display: inline-block;
+    margin-left: 4px;
+  }
+}
+
+@include min-width(fhd) {
+  .profile-badge-block img {
+    height: 40px;
+    width: 40px;
+  }
+}
+
+@include min-width(lg) {
+  .profile-badge-block__login {
+    margin-left: 22px;
+  }
+}
+
+@include min-width(fhd) {
+  .profile-badge-block__login {
+    margin-left: 36px;
+  }
+}

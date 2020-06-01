@@ -2,7 +2,7 @@
   padding-top: 24px;
   color: hsla(0, 0%, 100%, 0.7);
   background-color: #1d1d1d;
-  font-family: Gotham Pro;
+  font-family: Gotham Pro, serif;
   font-size: 11px;
   font-weight: 500;
   line-height: 1.71;
@@ -146,5 +146,11 @@ a.footer__quiz-link {
     flex: 0 0 100%;
     max-width: 100%;
     padding: 24px;
+  }
+}
+
+@media (max-width: 992px) {
+  .footer {
+    display: none;
   }
 }
