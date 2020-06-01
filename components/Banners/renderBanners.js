@@ -24,8 +24,8 @@ export let renderBanners = (banners, index, products) => {
       }}
       className="banners"
     >
-      <div className={'banner'}>
-        <div className={'banners__swiper-container'}>
+      <div className="banner">
+        <div className="banners__swiper-container">
           <Swiper
             shouldSwiperUpdate={true}
             rebuildOnUpdate={true}

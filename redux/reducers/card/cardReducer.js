@@ -1,18 +1,24 @@
-const cardReducer = (state = { cardProducts: [] }, action) => {
+const cardReducer = (state = { cardProducts: {} }, action) => {
+  let cardProducts;
+  if (action.payload) {
+    cardProducts = action.payload.cardProducts;
+  } else {
+    if (typeof localStorage != 'undefined') {
+      cardProducts = JSON.parse(localStorage.getItem('cardProducts'));
+    }
+  }
   switch (action.type) {
-    case 'ADD':
-      // localStorage.setItem()
-      return { ...state, cardProducts: [] };
-    case 'REMOVE':
-      return { ...state, cardProducts: [] };
+    case 'CARD_PRODUCTS':
+      return {
+        cardProducts: cardProducts,
+      };
+
     default:
-      return { ...state };
+      return state;
   }
 };
 
 export const cardCounter = (state = { counter: 0 }, action) => {
-  // console.log(action, ' ACTION cardReducer');
-
   switch (action.type) {
     case 'INCREMENT':
       // console.log(action, ' ACTION');

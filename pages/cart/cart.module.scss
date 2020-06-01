@@ -4,6 +4,9 @@
   margin-right: 10%;
   position: relative;
   min-height: 900px;
+  @media (max-width: 768px) {
+    margin-right: 0px;
+  }
 }
 
 .cart-container-back {
@@ -37,10 +40,18 @@
 // главная часть
 .cart-content {
   display: flex;
+  @media (max-width: 992px) {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
 }
 
 .cart-products-box {
   flex: 0 0 75%;
+  @media (max-width: 768px) {
+    flex: 0 0 100%;
+  }
 }
 
 .cart-products-box-label {
@@ -63,7 +74,8 @@
   border-radius: 10px;
   padding: 40px;
   min-width: 400px;
-  min-height: 380px;
+  min-height: 360px;
+  max-height: 370px;
   margin-left: 80px;
   margin-top: 50px;
 }
@@ -139,7 +151,7 @@
 // информация о товарах итого и т д
 
 .cart-content-info {
-  margin-top: 80px;
+  margin-top: 50px;
 }
 
 .cart-content-info-products_price_bold {
@@ -148,7 +160,7 @@
   justify-content: space-between;
   font-weight: 400;
   line-height: 1.71;
-  padding: 0 10%;
+  padding: 0 2%;
 }
 
 .products_price_bold {
@@ -165,7 +177,7 @@
   font-weight: 400;
   line-height: 1.71;
   color: #1d1d1d;
-  padding: 0 10%;
+  padding: 0 2%;
 }
 
 //  кнопка оформить заказ
@@ -194,4 +206,134 @@
 
 .order-inner-container__submit-button:hover {
   transform: scale(1.05);
+}
+
+// card products
+
+.card_products {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.card_product {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 20px 10px;
+  margin-left: 110px;
+
+  @media (max-width: 545px) {
+    flex-wrap: wrap;
+  }
+}
+.card_product-img {
+  width: 20%;
+
+  @media (max-width: 545px) {
+    width: 190px;
+  }
+}
+.card_product-img img {
+  width: 190px;
+}
+
+.card_product-text {
+  width: 20%;
+}
+
+.card_product-name {
+  font-size: 16px;
+  line-height: 1.2;
+  font-family: Pusia;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.75);
+}
+.card_product-info {
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.76);
+}
+
+.card_product-right {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  @media (max-width: 545px) {
+    font-size: 1.2rem;
+    padding-left: 40px;
+    padding-top: 20px;
+  }
+}
+
+.card_product-price {
+  font-family: Pusia;
+  font-weight: 700;
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.card_product-trash {
+  background: transparent url('/img/icons/icon-delete.svg') no-repeat 50%;
+  background-size: contain;
+  cursor: pointer;
+  width: 21px;
+  height: 23px;
+  margin-left: 10px;
+  @media (max-width: 545px) {
+    width: 36px;
+    height: 40px;
+    margin-left: 36px;
+  }
+}
+
+// no products
+
+.card_noproducts {
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.card_noproducts-centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 700px;
+  height: 400px;
+}
+
+.card__placeholder__section {
+  font-size: 1rem;
+  margin-bottom: 36px;
+  text-align: center;
+  font-family: Gotham Pro;
+  font-weight: 500;
+  white-space: nowrap;
+  color: rgba(29, 29, 29, 0.38);
+}
+
+.card_noproducts-button {
+  padding: 10px 18px;
+  outline: none;
+  background-color: #e30613;
+  color: #fff;
+  border: none;
+  height: 40px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.71;
+  letter-spacing: normal;
+  border-radius: 20px;
+  transition: 0.3s transform ease-out;
+}
+
+.card_noproducts-button:hover {
+  transform: scale(1.08);
 }

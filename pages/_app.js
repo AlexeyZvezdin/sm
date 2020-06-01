@@ -19,7 +19,7 @@ export default withRedux(makeStore, { debug: false })(
       // тут пока по двоеточию поделил чтобы чекнуть что работает, с доменами будет так же
       let domain = ctx.req ? ctx.req.headers.host.split(':', 1) : '';
       // console.log(domain, ' DOMAIN');
-
+      // console.log(process.env.BASE_API, ' process.env.BASE_API');
       let cityInsteadOfDomain = 'abakan';
 
       const defaultCityData = await fetcher(

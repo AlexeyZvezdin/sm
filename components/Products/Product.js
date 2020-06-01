@@ -1,13 +1,17 @@
 import { connect } from 'react-redux';
+import {
+  concatCardProductsWhenStorageIsEmpty,
+  concatCardProductsWhenStorageHasProducts,
+} from '../../utils/Product/concatCardProductsWhenStorageIsEmpty';
 import p_s from './products.module.scss';
 
 import {
   cardCounterIncrement,
   cardCounterDecrement,
 } from '../../redux/actions/cardCounter';
+import { cardProductsDispatch } from '../../redux/actions/cardProducts';
 
 function Product({ product, store, ...props }) {
-  // console.log(props, ' props');
   // console.log(store, ' store');
   const [cartButtonCounter, setCartButtonCounter] = React.useState(0);
   const [localProductCounter, setlocalProductCounter] = React.useState(0);
@@ -40,16 +44,15 @@ function Product({ product, store, ...props }) {
     returnEachProductFromStorage();
   }, [`${product.id}`]);
 
-  const CheckCounter = () => {
-    return cartButtonCounter;
-  };
   // обработка каждого продукта, его счетчик и объект, который будет передаваться в корзину
   const handleEachProduct = async (action) => {
+    // проверка есть ли этот продукт в корзине
     const isProductAlreadyInStorage = await returnEachProductFromStorage();
-    console.log(isProductAlreadyInStorage, ' isProductAlreadyInStorage');
     if (isProductAlreadyInStorage) {
-      const quantity = isProductAlreadyInStorage.quantity;
+      const quantity = isProductAlreadyInStorage;
+      console.log(quantity, ' quantity');
       if (action === 'inc') {
+        // данный продукт прибавляет плюс 1 к своему количеству
         await localStorage.setItem(
           `inCardProduct:${product.id}`,
           JSON.stringify({
@@ -57,7 +60,19 @@ function Product({ product, store, ...props }) {
             quantity: quantity + 1,
           })
         );
+        // Попробуй потом вынести выше чтобы не повторялось в функциях вынесеных
+        const toDispatchResult = await concatCardProductsWhenStorageHasProducts(
+          action,
+          product,
+          quantity
+        );
+
+        props.cardProductsDispatch(toDispatchResult);
+        // конец заеба
         await setCartButtonCounter(quantity + 1);
+        // Вот это ниже обязательно надо, асинхронность на рендере на сср не работает как надо
+        let res = await getCounterFromLS();
+        setlocalProductCounter(res);
       } else if (action === 'dec') {
         await localStorage.setItem(
           `inCardProduct:${product.id}`,
@@ -66,21 +81,44 @@ function Product({ product, store, ...props }) {
             quantity: quantity - 1,
           })
         );
+        // Попробуй потом вынести выше чтобы не повторялось в функциях вынесеных
+
+        const toDispatchResult = await concatCardProductsWhenStorageHasProducts(
+          action,
+          product,
+          quantity
+        );
+
+        props.cardProductsDispatch(toDispatchResult);
+        // конец заеба
         await setCartButtonCounter(quantity - 1);
+        let res = await getCounterFromLS();
+        setlocalProductCounter(res);
       }
     } else {
-      await localStorage.setItem(
+      console.log('shit is false');
+      // тут вся магия
+      const toDispatchResult = await concatCardProductsWhenStorageIsEmpty(
+        product
+      );
+      localStorage.setItem(
         `inCardProduct:${product.id}`,
         JSON.stringify({
           product,
           quantity: 1,
         })
       );
+      props.cardProductsDispatch(toDispatchResult);
       await setCartButtonCounter(1);
+      let res = await getCounterFromLS();
+      setlocalProductCounter(res);
     }
   };
 
   const getCounterFromLS = () => {
+<<<<<<< HEAD
+    if (typeof window == 'undefined') {
+=======
     if (typeof window === 'undefined') {
       return 0;
     }
@@ -91,24 +129,44 @@ function Product({ product, store, ...props }) {
 
     console.log(LSobject, ' LSOBJECT');
     if (!LSobject) {
+>>>>>>> mobile_footer
       return 0;
+    } else if (
+      typeof window === 'object' ||
+      typeof localStorage != 'undefined'
+    ) {
+      const LSobject = JSON.parse(
+        localStorage.getItem(`inCardProduct:${product.id}`)
+      );
+      // await
+      // console.log(LSobject, ' LSobject');
+      if (!LSobject) {
+        return 0;
+      }
+      return LSobject.quantity;
     }
-    return LSobject.quantity;
   };
   // Количество для каждого продукта
-  const returnEachProductFromStorage = async () => {
+  const returnEachProductFromStorage = () => {
     // localy there is no localstorage
+<<<<<<< HEAD
+    if (typeof window === undefined) {
+=======
     if (typeof window !== 'undefined') {
+>>>>>>> mobile_footer
       return 'window is undefined';
     }
-    const preResult = await localStorage.getItem(`inCardProduct:${product.id}`);
+    const preResult = localStorage.getItem(`inCardProduct:${product.id}`);
     if (!preResult) {
       return false;
     } else {
       const result = JSON.parse(preResult);
-      // не работает как надо, на других страницах сохраняются цены на товарах
-      await setCartButtonCounter(result.quantity);
-      return result;
+      // Потом отрефакторить немного
+      setCartButtonCounter(result.quantity);
+
+      let res = getCounterFromLS();
+      setlocalProductCounter(res);
+      return res;
     }
   };
 
@@ -206,6 +264,7 @@ function Product({ product, store, ...props }) {
                   }}
                 ></div>
                 <div className="cart-button__expanded__count">
+                  {/* {getCounterFromLS()} */}
                   {getCounterFromLS()}
                 </div>
                 <div
@@ -233,6 +292,8 @@ function Product({ product, store, ...props }) {
 const mapState = (state) => state;
 const mapDispatch = (dispatch) => {
   return {
+    cardProductsDispatch: (products) =>
+      dispatch(cardProductsDispatch(products)),
     cardCounterDecrement: () => dispatch(cardCounterDecrement()),
     cardCounterIncrement: () => dispatch(cardCounterIncrement()),
   };

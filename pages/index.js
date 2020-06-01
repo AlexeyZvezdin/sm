@@ -9,7 +9,7 @@ import { withRouter } from 'next/router';
 import { connect } from 'react-redux';
 import fetch from 'isomorphic-unfetch';
 // import fetch from 'unfetch';
-import useSWR from 'swr';
+// import useSWR from 'swr';
 import { useRouter } from 'next/router';
 import Cookies from 'js-cookie';
 import styles from './index.module.scss';

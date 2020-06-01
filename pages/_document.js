@@ -26,6 +26,35 @@ class MyDocument extends Document {
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css"
           ></link>
+          <meta name="apple-itunes-app" content="app-id=1119016991" />
+          <meta name="google-play-app" content="app-id=com.ub.sushimaster" />
+
+          <link rel="icon" href="./favicons/favicon.ico" />
+          <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="./favicons/apple-touch-icon.png"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./favicons/favicon-32x32.png"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="./favicons/favicon-16x16.png"
+          />
+          <link
+            rel="mask-icon"
+            href="./favicons/safari-pinned-tab.svg"
+            color="#da532c"
+          />
+          <meta name="msapplication-TileColor" content="#da532c" />
+          <meta name="theme-color" content="#ffffff" />
+
           <link rel="stylesheet" href="/css/index.css" />
           <link rel="stylesheet" href="/css/fonts.css" />
           {/* <script
@@ -71,6 +100,11 @@ class MyDocument extends Document {
               `,
             }}
           /> */}
+          {/* лучше так не делать но хед не работает чето в деливери */}
+          <script
+            src="https://api-maps.yandex.ru/2.1/?apikey=78245263-55a3-404a-b40b-4470b2b76b9c&lang=ru_RU&coordorder=longlat"
+            type="text/javascript"
+          ></script>
         </Head>
         <body>
           <Main />
