@@ -206,21 +206,20 @@ export default class Index extends React.Component {
               </div>
               <div className={'delivery-info sale-info'}>
                 <div
-                  style={{
-                    width: '50%',
-                    padding: '0 15px'
-                  }}
+
                 >
                   <span>{this.state.deliveryTitle}</span>
                 </div>
                 <div style={{
-                  padding: '0 15px',
+                  width: '57%',
                   fontSize: '10px',
                   fontFamily: 'Gotham Pro',
                   color: 'rgba(255, 255, 255, 0.7)',
-                  lineHeight: '1.5',
                 }}>
-                  <span>
+                  <span style={{
+                    width: '5px',
+                    overflow: 'display'
+                  }}>
                     Время доставки может быть увеличено в зависимости от
                     загруженности ресторанов, дорожной обстановки, погодных
                     условий и других факторов.
