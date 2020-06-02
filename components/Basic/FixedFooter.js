@@ -16,7 +16,7 @@ import CartIcon from './CartIcon';
 //     toggleLoginForm: () => dispatch(toggleLoginForm()),
 //   }
 // }
-export default class FixedFooter extends Component {
+export default class FixedFooter extends React.Component {
   constructor(props) {
     super(props);
     this.state = { menuOpen: false };

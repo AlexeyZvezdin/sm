@@ -21,7 +21,7 @@ import DefaultProfileImage from '../../public/img/icons/ic-profile-placeholder.s
 //   }
 // }
 
-export default class ProfileBadge extends Component {
+export default class ProfileBadge extends React.Component {
   constructor(props) {
     super(props);
     this.authorized = false; //! temporary
