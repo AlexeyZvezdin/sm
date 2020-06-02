@@ -1,3 +1,5 @@
+@import '../../public/css/style';
+
 $placeholder-base: rgba(217, 217, 217, 0.8);
 $placeholder-highlight: lighten($placeholder-base, 7%);
 
@@ -5,90 +7,211 @@ $placeholder-highlight: lighten($placeholder-base, 7%);
   display: flex;
   align-items: center;
   height: 48px;
-  width: calc(100vw - 18px);
+  width: 100vw;
   top: 56px;
   box-shadow: inset 0 -1px 0 0 rgba(29, 29, 29, 0.07);
   padding-left: 16px;
+  padding-right: 16px;
   background-color: #ffffff;
   overflow-y: hidden;
   white-space: nowrap;
-}
-
-.sticky-header__categories__item {
-  padding-left: 24px;
-  cursor: pointer;
-  display: inline-block;
-  margin-right: 24px;
-  font-family: Gotham Pro;
-  position: relative;
-  height: 100%;
-  padding-top: 14px;
-  padding-bottom: 10px;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 1.5;
-  letter-spacing: normal;
-  color: #1d1d1d;
-
-  a {
-    color: #1d1d1d;
-    text-decoration: none;
-  }
-
-  &-monopizza {
-    padding-left: 36px;
-    // margin-left: 36px;
-    position: relative;
-    &:before {
-      position: absolute;
-      content: '';
-      background-image: url('/img/icons/ic-monopizza.png');
-      width: 25px;
-      height: 25px;
-      bottom: -5px;
-      left: 0px;
-    }
-  }
-  &.selected {
-    position: relative;
-
-    a {
-      color: #e30613;
+  &_order-mobile {
+    @include max-width(xs) {
+      display: none;
     }
   }
 
-  &__sub-menu {
-    display: none;
-  }
-}
-
-.sticky-header__categories__placeholder {
-  cursor: default;
-  position: relative;
-  background: $placeholder-base;
-  overflow: hidden;
-  border-radius: 26px;
-  height: 18px;
-  margin-bottom: 5px;
-
-  &:after {
-    content: '';
-    position: absolute;
+  @include min-width(xs) {
+    // padding-left: 0;
+    // padding-right: 22px;
+    position: relative;
     top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      90deg,
-      $placeholder-base,
-      $placeholder-highlight,
-      $placeholder-base
-    );
-    animation: progress 1s ease-in-out infinite;
+    // overflow-x: hidden;
+    height: 56px;
+  }
+
+  @include min-width(fhd) {
+    padding-right: 24px;
+    height: 72px;
+  }
+
+  &__categories {
+    flex-grow: 2;
+
+    &__placeholder {
+      cursor: default;
+      position: relative;
+      background: $placeholder-base;
+      overflow: hidden;
+      border-radius: 26px;
+      height: 18px;
+      margin-bottom: 5px;
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+                        90deg,
+                        $placeholder-base,
+                        $placeholder-highlight,
+                        $placeholder-base
+        );
+        animation: progress 1s ease-in-out infinite;
+      }
+    }
+
+    &__item {
+      cursor: pointer;
+      display: inline-block;
+      margin-right: 24px;
+      font-family: Gotham Pro;
+      position: relative;
+      height: 100%;
+      padding-top: 14px;
+      padding-bottom: 10px;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 1.5;
+      letter-spacing: normal;
+      color: #1d1d1d;
+
+      a {
+        color: #1d1d1d;
+        text-decoration: none;
+      }
+
+      &-monopizza {
+        padding-left: 36px;
+        // margin-left: 36px;
+        position: relative;
+        &:before {
+          position: absolute;
+          content: '';
+          background-image: url('/img/icons/ic-monopizza.png');
+          width: 25px;
+          height: 25px;
+          bottom: -5px;
+          left: 0px;
+        }
+      }
+
+      &.selected {
+        position: relative;
+
+        a {
+          color: #e30613;
+        }
+      }
+
+      &__sub-menu {
+        display: none;
+      }
+      &:hover {
+        .sticky-header__categories__item__sub-menu {
+          position: fixed;
+          background: #f0ecec;
+          width: 100vw;
+          left: 0px;
+          height: 80px;
+          min-height: 80px;
+          z-index: 500;
+          margin-top: 10px;
+          color: black;
+          padding-top: 31px;
+          padding-left: 22px;
+          font-size: 16px;
+          font-weight: 500;
+          display: block;
+
+          @include max-width(xs) {
+            display: none;
+          }
+
+          @include min-width(md) {
+            display: block;
+          }
+
+          .sticky-header__categories__item__sub-menu__item {
+            display: inline-block;
+            margin-right: 20px;
+
+            a {
+              color: black;
+              text-decoration: none;
+              &:hover {
+                color: rgba(29, 29, 29, 0.54);
+              }
+              &.selected {
+                color: #e30613;
+              }
+            }
+          }
+        }
+      }
+
+      @include min-width(md) {
+        margin-right: 0;
+        padding-left: 22px;
+        padding-top: 16px;
+        padding-bottom: 12px;
+        font-size: 14px;
+      }
+
+      @include min-width(xlg) {
+        padding-left: 24px;
+        font-size: 15px;
+      }
+
+      @include min-width(fhd) {
+        padding-left: 36px;
+      }
+    }
   }
 }
 
-// animations
+.header__logo {
+  height: 1px;
+  width: 1px;
+  position: absolute;
+  overflow: hidden;
+  top: -10px;
+
+  // display: none;
+  // flex-shrink: 0;
+  // margin-right: 16px;
+  // margin-top: 0px;
+  // width: 28px;
+  // height: 28px;
+  // background-size: contain;
+  // background: url('../../../img/icons/icon-logo-small.svg') no-repeat center;
+
+  @include min-width(md) {
+    // margin-right: 2px;
+    // margin-left: 30px;
+    // height: 40px;
+    // width: 41px;
+  }
+
+  @include min-width(fhd) {
+    // background-size: cover;
+    // margin-left: 38px;
+  }
+}
+
+.sticky {
+  position: fixed;
+  z-index: 400;
+  top: 0px;
+  overflow-x: auto;
+  .header__logo {
+    display: inline-block;
+    background-size: contain;
+  }
+}
 
 @keyframes progress {
   0% {
@@ -97,4 +220,14 @@ $placeholder-highlight: lighten($placeholder-base, 7%);
   100% {
     transform: translate3d(100%, 0, 0);
   }
+}
+
+.sticky-header__categories::-webkit-scrollbar {
+  display: none;
+}
+
+.sticky-header::-webkit-scrollbar {
+  display: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
