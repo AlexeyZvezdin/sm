@@ -1,10 +1,10 @@
 //Components
 // import Header from '../../components/Basic/Header';
 import Head from 'next/head';
-import SubHeader from '../../components/Delivery/SubHeader';
-import DeliveryZoneItem from '../../components/Delivery/DeliveryZoneItem';
-import InfoItem from '../../components/Delivery/InfoItem';
-import AddressItem from '../../components/Delivery/AddressItem.js';
+import SubHeader from '../../components/delivery/SubHeader';
+import DeliveryZoneItem from '../../components/delivery/DeliveryZoneItem';
+import InfoItem from '../../components/delivery/InfoItem';
+import AddressItem from '../../components/delivery/AddressItem.js';
 
 import s from './delivery.module.scss';
 //API
