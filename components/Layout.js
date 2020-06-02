@@ -68,6 +68,7 @@ function Layout(props) {
         </div>
       </main>
       <Footer />
+      <FixedFooter />
       <style jsx global>{`
         body {
           overflow: ${props.openModalBg === true ? 'hidden' : 'none'};
