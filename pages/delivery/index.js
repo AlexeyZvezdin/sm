@@ -6,7 +6,7 @@ import DeliveryZoneItem from '../../components/delivery/DeliveryZoneItem';
 import InfoItem from '../../components/delivery/InfoItem';
 import AddressItem from '../../components/delivery/AddressItem.js';
 
-import s from './delivery.module.scss';
+import './delivery.module.scss';
 //API
 // import Head from '../../components/Head';
 // import PropTypes from 'prop-types'
@@ -187,42 +187,33 @@ export default class Index extends React.Component {
           <SubHeader goBack={this.goBack} city={this.props.city.cityName} />
         </Header> */}
           <div className="delivery-scene__main-container">
-            <div>
-              <div className={'zone-info'} id={'zone_info'}>
-                {this.state.area.features.map((area, idx) => {
-                  return (
-                    <DeliveryZoneItem
-                      idx={idx}
-                      {...area.deliveryInfo}
-                      selectZoneColor={this.state.selectZoneColor}
-                    />
-                  );
-                })}
-              </div>
-              <div
-                xs={{ order: 1, span: 12 }}
-                md={{ span: 6, order: 2 }}
-                style={{ padding: '0px' }}
-              >
-                <div id="map" style={{ width: '600px', height: '400px' }} />
-              </div>
-              <div
-                xs={{ order: 2, span: 12 }}
-                md={{ order: 2, span: 6 }}
-                className={'delivery-info time-range'}
-              >
+            <div className={'zone-info'} id={'zone_info'}>
+              {this.state.area.features.map((area, idx) => {
+                return (
+                  <DeliveryZoneItem
+                    idx={idx}
+                    {...area.deliveryInfo}
+                    selectZoneColor={this.state.selectZoneColor}
+                  />
+                );
+              })}
+            </div>
+              <div id="map" className={'map'} />
+            <div className={'delivery-info'}>
+              <div className={'delivery-info time-range'}>
                 <span>{this.state.deliveryTimeRangeTitle}</span>
               </div>
-              <div
-                xs={{ order: 1, span: 12 }}
-                md={{ order: 2, span: 6 }}
-                className={'delivery-info sale-info'}
-              >
-                <div className="align-items-center">
-                  <div xs="5">
+              <div className={'delivery-info sale-info'}>
+                <div
+                  className={
+                    'delivery-scene__main-container__delivery-time delivery-scene__main-container__delivery-time_center'
+                  }
+                >
+                  <div>
                     <span>{this.state.deliveryTitle}</span>
                   </div>
-                  <div xs="7">
+                </div>
+                  <div>
                     <span
                       style={{
                         display: 'block',
@@ -230,6 +221,7 @@ export default class Index extends React.Component {
                         fontFamily: 'Gotham Pro',
                         color: 'rgba(255, 255, 255, 0.7)',
                         fontWeight: 'normal',
+                        width: "50%",
                       }}
                     >
                       Время доставки может быть увеличено в зависимости от
@@ -240,14 +232,12 @@ export default class Index extends React.Component {
                       *В первую зону.
                     </span>
                   </div>
-                </div>
                 {/*<Link to="/about-link" className={"about-link"}>*/}
                 {/*<span>ПОДРОБНЕЕ</span>*/}
                 {/*<img src={about} alt=""/>*/}
                 {/*</Link>*/}
               </div>
             </div>
-
             <div className={'delivery-payments-block'}>
               <div className={'adaptive-padding'}>
                 <div>Способы оплаты</div>
@@ -276,84 +266,80 @@ export default class Index extends React.Component {
                   }
                 />
               </div>
-
-              <div className={'adaptive-padding'}>
-                <div xs={12}>Типы заказов</div>
+            </div>
+            <div className={'adaptive-padding'}>
+              <div>Типы заказов</div>
+              <InfoItem
+                src="/img/delivery.svg"
+                title={'Доставка'}
+                text={`Заказывайте любым удобным способом, получайте заказ на указанный вами адрес.`}
+                deliveryType
+                // contentTitle="Служба доставки: "
+                // content={`${this.props.city.supportPhone} ${this.props.city.phoneFooter}`}
+              />
+              {this.state.thisIsKogalim === false ? (
                 <InfoItem
-                  src="/img/delivery.svg"
-                  title={'Доставка'}
-                  text={`Заказывайте любым удобным способом, получайте заказ на указанный вами адрес.`}
-                  deliveryType
-                  // contentTitle="Служба доставки: "
-                  // content={`${this.props.city.supportPhone} ${this.props.city.phoneFooter}`}
-                />
-                {this.state.thisIsKogalim === false ? (
-                  <InfoItem
-                    src="img/store.svg"
-                    title={'Забрать из ресторана'}
-                    text={
-                      'Получайте заказ в выбранном ресторане в удобное для вас время (заказ может быть оформлен не менее чем за 30 минут до получения).'
-                    }
-                  />
-                ) : (
-                  false
-                )}
-                <InfoItem
-                  src="/img/time.svg"
-                  title={'Доставка к определенному времени'}
+                  src="img/store.svg"
+                  title={'Забрать из ресторана'}
                   text={
-                    'Выбирайте к “определенному времени”, получайте заказ минута в минуту. Заказ можно оформить не менее чем за 60 мин. до времени доставки'
+                    'Получайте заказ в выбранном ресторане в удобное для вас время (заказ может быть оформлен не менее чем за 30 минут до получения).'
                   }
                 />
-              </div>
+              ) : (
+                false
+              )}
+              <InfoItem
+                src="/img/time.svg"
+                title={'Доставка к определенному времени'}
+                text={
+                  'Выбирайте к “определенному времени”, получайте заказ минута в минуту. Заказ можно оформить не менее чем за 60 мин. до времени доставки'
+                }
+              />
             </div>
-
-            <div className={'restaurants-block'}>
-              <div className={'adaptive-padding'}>
-                <div className={'restaurants-block-title'}>
-                  {this.state.thisIsKogalim === false
-                    ? this.state.pickUpTimeRangeTitle
-                    : ''}
-                </div>
-                {this.state.restaurants.length > 0 && (
-                  <div fluid>
-                    <div>
-                      {this.state.restaurants.map((restaurant, idx) => (
-                        <AddressItem
-                          key={idx}
-                          // city={this.props.city.cityName}
-                          street={restaurant.address}
-                          phone={null}
-                          workHours={`${msToTime(
-                            restaurant.workInterval.begin
-                          )} - ${msToTime(restaurant.workInterval.end)}`}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                )}
+          </div>{' '}
+          {/* delivery scene main container*/}
+          <div className={'restaurants-block'}>
+            <div className={'adaptive-padding'}>
+              <div className={'restaurants-block-title'}>
+                {this.state.thisIsKogalim === false
+                  ? this.state.pickUpTimeRangeTitle
+                  : ''}
               </div>
-            </div>
-
-            <div className={'how-make-order-block'}>
-              <div className={'adaptive-padding'}>
-                <div className={'how-make-order-block-title'}>Как заказать</div>
-
-                <div className={'how-make-order-block-text'}>
-                  Заказывайте доставку суши и роллов удобным Вам способом: по
-                  телефону или через сайт. Чтобы сделать заказ через сайт,
-                  добавьте понравившийся товар в корзину, затем перейдите в
-                  соответствующую вкладку и нажмите «Оформить». В появившемся
-                  окне введите Ваши данные и выберите способ оплаты (банковская
-                  карта/наличные) и способ получения заказа. Вы можете забрать
-                  заказ сами либо выбрать доставку курьером к определенному
-                  времени. Поставив галочку напротив «Как можно быстрее», Вы
-                  получите свой заказ так быстро, как это возможно. После
-                  оформления заказа вам поступит звонок с подтверждением. Если у
-                  вас нет возможности совершить заказ через интернет, звоните на
-                  нашу горячую линию или воспользуйтесь функцией «Обратный
-                  звонок» - и наш оператор сам с вами свяжется.
+              {this.state.restaurants.length > 0 && (
+                <div fluid>
+                  {this.state.restaurants.map((restaurant, idx) => (
+                    <AddressItem
+                      key={idx}
+                      // city={this.props.city.cityName}
+                      street={restaurant.address}
+                      phone={null}
+                      workHours={`${msToTime(
+                        restaurant.workInterval.begin
+                      )} - ${msToTime(restaurant.workInterval.end)}`}
+                    />
+                  ))}
                 </div>
+              )}
+            </div>
+          </div>
+          <div className={'how-make-order-block'}>
+            <div className={'adaptive-padding'}>
+              <div className={'how-make-order-block-title'}>Как заказать</div>
+
+              <div className={'how-make-order-block-text'}>
+                Заказывайте доставку суши и роллов удобным Вам способом: по
+                телефону или через сайт. Чтобы сделать заказ через сайт,
+                добавьте понравившийся товар в корзину, затем перейдите в
+                соответствующую вкладку и нажмите «Оформить». В появившемся окне
+                введите Ваши данные и выберите способ оплаты (банковская
+                карта/наличные) и способ получения заказа. Вы можете забрать
+                заказ сами либо выбрать доставку курьером к определенному
+                времени. Поставив галочку напротив «Как можно быстрее», Вы
+                получите свой заказ так быстро, как это возможно. После
+                оформления заказа вам поступит звонок с подтверждением. Если у
+                вас нет возможности совершить заказ через интернет, звоните на
+                нашу горячую линию или воспользуйтесь функцией «Обратный звонок»
+                - и наш оператор сам с вами свяжется.
               </div>
             </div>
           </div>

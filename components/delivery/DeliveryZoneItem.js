@@ -38,7 +38,6 @@ class DeliveryZoneItem extends React.Component {
     return (
       <div
         id={this.props.color.replace('#', '')}
-        xs={12}
         className={`zone-info-item ${
           this.props.selectZoneColor === this.props.color ? 'active' : ''
         }`}
@@ -47,7 +46,7 @@ class DeliveryZoneItem extends React.Component {
         <div>
           <div>
             <ul className={'zone-title-list'}>
-              <li style={{ backgroundColor: this.props.color }}>
+              <li style={{ backgroundColor: this.props.color}}>
                 {this.props.title}
               </li>
             </ul>
