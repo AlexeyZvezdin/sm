@@ -198,40 +198,37 @@ export default class Index extends React.Component {
                 );
               })}
             </div>
-              <div id="map" className={'map'} />
+            <div id="map" className={'map'} />
             <div className={'delivery-info'}>
               <div className={'delivery-info time-range'}>
                 <span>{this.state.deliveryTimeRangeTitle}</span>
+                <br />
               </div>
               <div className={'delivery-info sale-info'}>
                 <div
-                  className={
-                    'delivery-scene__main-container__delivery-time delivery-scene__main-container__delivery-time_center'
-                  }
+                  style={{
+                    width: '50%',
+                    padding: '0 15px'
+                  }}
                 >
-                  <div>
-                    <span>{this.state.deliveryTitle}</span>
-                  </div>
+                  <span>{this.state.deliveryTitle}</span>
                 </div>
-                  <div>
-                    <span
-                      style={{
-                        display: 'block',
-                        fontSize: '10px',
-                        fontFamily: 'Gotham Pro',
-                        color: 'rgba(255, 255, 255, 0.7)',
-                        fontWeight: 'normal',
-                        width: "50%",
-                      }}
-                    >
-                      Время доставки может быть увеличено в зависимости от
-                      загруженности ресторанов, дорожной обстановки, погодных
-                      условий и других факторов.
-                      <br />
-                      <br />
-                      *В первую зону.
-                    </span>
-                  </div>
+                <div style={{
+                  padding: '0 15px',
+                  fontSize: '10px',
+                  fontFamily: 'Gotham Pro',
+                  color: 'rgba(255, 255, 255, 0.7)',
+                  lineHeight: '1.5',
+                }}>
+                  <span>
+                    Время доставки может быть увеличено в зависимости от
+                    загруженности ресторанов, дорожной обстановки, погодных
+                    условий и других факторов.
+                    <br />
+                    <br />
+                    *В первую зону.
+                  </span>
+                </div>
                 {/*<Link to="/about-link" className={"about-link"}>*/}
                 {/*<span>ПОДРОБНЕЕ</span>*/}
                 {/*<img src={about} alt=""/>*/}

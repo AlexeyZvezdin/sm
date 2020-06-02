@@ -143,7 +143,9 @@
 
   .delivery-info {
     display: flex;
+    align-items: center;
     width: 100%;
+    height: auto;
     font-family: Gotham Pro;
     font-size: 24px;
     font-weight: 500;
@@ -152,11 +154,17 @@
     line-height: 1.33;
     letter-spacing: normal;
     color: #ffffff;
-    padding: 20px 10px;
     &.time-range {
+      display: flex;
+      height: 100%;
+      padding: 20px 30px;
       background-color: #e9724c;
     }
     &.sale-info {
+      display: flex;
+      justify-content: space-between;
+      height: 100%;
+      padding: 20px 30px;
       background-color: #1d1d1d;
       .about-link {
         float: right;
@@ -410,50 +418,50 @@
 }
 
 @media screen and (max-width: 768px) {
-  .delivery-scene {
-    .delivery-info {
-      padding: 20px 15px;
-      font-size: 14px;
-      span {
-        width: 159px;
-        word-wrap: break-word;
-      }
-
-      &.sale-info {
-        .about-link {
-          font-size: 10px;
-          span {
-            display: none;
-          }
-          img {
-          }
-        }
-      }
-    }
-
-    .delivery-payments-item {
-      padding: 0;
-    }
-
-    .zone-info {
-      padding: 15px 15px 0 15px;
-    }
-
-    .header-info {
-      .header-info-link {
-        font-size: 0 !important;
-      }
-
-      &.sub-header {
-        height: auto;
-      }
-      .sub-header-delivery {
-        font-size: 24px;
-        margin-left: 0;
-        margin-top: 50px;
-      }
-    }
-  }
+  //.delivery-scene {
+  //  .delivery-info {
+  //    //padding: 20px 15px;
+  //    font-size: 14px;
+  //    span {
+  //      width: 159px;
+  //      word-wrap: break-word;
+  //    }
+  //
+  //    &.sale-info {
+  //      .about-link {
+  //        font-size: 10px;
+  //        span {
+  //          display: none;
+  //        }
+  //        img {
+  //        }
+  //      }
+  //    }
+  //  }
+  //
+  //  .delivery-payments-item {
+  //    padding: 0;
+  //  }
+  //
+  //  .zone-info {
+  //    padding: 15px 15px 0 15px;
+  //  }
+  //
+  //  .header-info {
+  //    .header-info-link {
+  //      font-size: 0 !important;
+  //    }
+  //
+  //    &.sub-header {
+  //      height: auto;
+  //    }
+  //    .sub-header-delivery {
+  //      font-size: 24px;
+  //      margin-left: 0;
+  //      margin-top: 50px;
+  //    }
+  //  }
+  //}
 }
 
 @media screen and (max-width: 990px) {
