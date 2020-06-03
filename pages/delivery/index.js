@@ -1,26 +1,24 @@
 //Components
 // import Header from '../../components/Basic/Header';
-import Head from 'next/head';
-import SubHeader from '../../components/delivery/SubHeader';
-import DeliveryZoneItem from '../../components/delivery/DeliveryZoneItem';
-import InfoItem from '../../components/delivery/InfoItem';
-import AddressItem from '../../components/delivery/AddressItem.js';
-import SubHeaderBackButton from '../../components/Basic/SubHeaderBackButton';
+import Head from "next/head";
+import SubHeader from "../../components/delivery/SubHeader";
+import DeliveryZoneItem from "../../components/delivery/DeliveryZoneItem";
+import InfoItem from "../../components/delivery/InfoItem";
+import AddressItem from "../../components/delivery/AddressItem.js";
+import SubHeaderBackButton from "../../components/Basic/SubHeaderBackButton";
 
-import SubHeader from '../../components/Basic/SubHeader'
+import { connect } from "react-redux";
 
-import { connect } from 'react-redux';
-
-import s from './delivery.module.scss';
+import s from "./delivery.module.scss";
 //API
 // import Head from '../../components/Head';
 // import PropTypes from 'prop-types'
-import { msToTime } from '../../utils/msToTime';
+import { msToTime } from "../../utils/msToTime";
 
 // let map;
 // let timer;
 
-import fetcher from '../../utils/fetcher';
+import fetcher from "../../utils/fetcher";
 
 class Index extends React.Component {
   constructor(props) {
@@ -40,7 +38,7 @@ class Index extends React.Component {
     area: {
       features: [],
     },
-    deliveryTitle: '',
+    deliveryTitle: "",
     selectZoneColor: null,
     restaurants: [],
     deliveryTimeRangeTitle: null,
@@ -63,13 +61,13 @@ class Index extends React.Component {
   updateInfo = async () => {
     //Пока Тюмень
     //let cityId = '5d3834ad59201a66b905d9e7';// тюмень
-    let cityId = '5d3834ad59201a66b905d9e7';
+    let cityId = "5d3834ad59201a66b905d9e7";
     if (cityId) {
       const result = await fetcher(
         `https://client-api.sushi-master.ru/api/v1/delivery/zones/full-info?cityId=${cityId}`
       );
       // console.log(result, ' RESULT');
-      if (typeof result !== 'undefined') {
+      if (typeof result !== "undefined") {
         this.setState({ ...result.result });
         const restaurants = await fetcher(
           `https://client-api.sushi-master.ru/api/v1/restaurants?cityId=${cityId}`
@@ -94,10 +92,10 @@ class Index extends React.Component {
   };
 
   initMap = () => {
-    console.log('is trying to render map? ');
+    console.log("is trying to render map? ");
 
     let map = new window.ymaps.Map(
-      'map',
+      "map",
       {
         center: [this.state.location.longitude, this.state.location.latitude],
         zoom: 10,
@@ -115,16 +113,16 @@ class Index extends React.Component {
   };
 
   handleZoneClick = (e) => {
-    let target = e.get('target');
+    let target = e.get("target");
     if (!target) return;
     let color = target.options._options.fillColor;
     this.setState({ selectZoneColor: color }, () => this.scrollToZone(color));
   };
 
   scrollToZone = (color) => {
-    let scrollValue = document.getElementById(`${color.replace('#', '')}`)
+    let scrollValue = document.getElementById(`${color.replace("#", "")}`)
       .offsetTop;
-    document.getElementById('zone_info').scrollTo(0, scrollValue - 30);
+    document.getElementById("zone_info").scrollTo(0, scrollValue - 30);
     // this.refs.zoneInfoRef.scrollTo(0, scrollValue - 30);
   };
 
@@ -145,7 +143,7 @@ class Index extends React.Component {
             strokeWidth: zone.properties.stroke_width,
           }
         );
-        myPolygon.events.add('click', this.handleZoneClick);
+        myPolygon.events.add("click", this.handleZoneClick);
         map.geoObjects.add(myPolygon);
       });
     }
@@ -157,7 +155,7 @@ class Index extends React.Component {
       const myGeoObject = new window.ymaps.GeoObject(
         {
           geometry: {
-            type: 'Point',
+            type: "Point",
             coordinates: [
               restaurant.location.longitude,
               restaurant.location.latitude,
@@ -168,7 +166,7 @@ class Index extends React.Component {
           },
         },
         {
-          preset: 'islands#redDotIconWithCaption',
+          preset: "islands#redDotIconWithCaption",
         }
       );
       map.geoObjects.add(myGeoObject);
@@ -176,7 +174,7 @@ class Index extends React.Component {
   };
 
   goBack = () => {
-    this.props.history.push('/');
+    this.props.history.push("/");
   };
 
   render() {
@@ -200,7 +198,7 @@ class Index extends React.Component {
           </div>
           <SubHeader>
             <h1>{this.props.name} — зоны и стоимость доставки</h1>
-            <SubHeader />
+          </SubHeader>
           <div className="delivery-scene__main-container">
             <div className="delivery-scene__cart_and_zone">
               <div className="zone-info" id="zone_info">
@@ -218,10 +216,10 @@ class Index extends React.Component {
               <div className="y_map">
                 <div id="map" />
               </div>
-              <div className={'delivery-info time-range'}>
+              <div className={"delivery-info time-range"}>
                 <span>{this.state.deliveryTimeRangeTitle}</span>
               </div>
-              <div className={'delivery-info sale-info'}>
+              <div className={"delivery-info sale-info"}>
                 <div className="align-items-center">
                   <div xs="5">
                     <span>{this.state.deliveryTitle}</span>
@@ -229,11 +227,11 @@ class Index extends React.Component {
                   <div xs="7">
                     <span
                       style={{
-                        display: 'block',
-                        fontSize: '10px',
-                        fontFamily: 'Gotham Pro',
-                        color: 'rgba(255, 255, 255, 0.7)',
-                        fontWeight: 'normal',
+                        display: "block",
+                        fontSize: "10px",
+                        fontFamily: "Gotham Pro",
+                        color: "rgba(255, 255, 255, 0.7)",
+                        fontWeight: "normal",
                       }}
                     >
                       Время доставки может быть увеличено в зависимости от
@@ -257,12 +255,12 @@ class Index extends React.Component {
                 <div>Способы оплаты</div>
                 <InfoItem
                   src="/img/money.svg"
-                  title={'Наличными'}
+                  title={"Наличными"}
                   text={
                     this.state.thisIsKogalim === false
-                      ? 'Оплата наличными курьеру или в ресторане\n' +
-                        'при получении заказа.'
-                      : 'Оплата наличными курьеру'
+                      ? "Оплата наличными курьеру или в ресторане\n" +
+                        "при получении заказа."
+                      : "Оплата наличными курьеру"
                   }
                 />
                 <InfoItem
@@ -272,20 +270,20 @@ class Index extends React.Component {
                 />
                 <InfoItem
                   src="/img/wallet.svg"
-                  title={'Банковской картой при получении'}
+                  title={"Банковской картой при получении"}
                   text={
                     this.state.thisIsKogalim === false
-                      ? 'Оплата заказа банковской картой при получении курьеру или в ресторане. Принимаются банковские карты MasterCard, Visa, МИР.'
-                      : 'Оплата заказа банковской картой при получении курьеру. Принимаются банковские карты MasterCard, Visa, МИР.'
+                      ? "Оплата заказа банковской картой при получении курьеру или в ресторане. Принимаются банковские карты MasterCard, Visa, МИР."
+                      : "Оплата заказа банковской картой при получении курьеру. Принимаются банковские карты MasterCard, Visa, МИР."
                   }
                 />
               </div>
 
-              <div className={'adaptive-padding'}>
+              <div className={"adaptive-padding"}>
                 <div xs={12}>Типы заказов</div>
                 <InfoItem
                   src="/img/delivery.svg"
-                  title={'Доставка'}
+                  title={"Доставка"}
                   text={`Заказывайте любым удобным способом, получайте заказ на указанный вами адрес.`}
                   deliveryType
                   // contentTitle="Служба доставки: "
@@ -294,9 +292,9 @@ class Index extends React.Component {
                 {this.state.thisIsKogalim === false ? (
                   <InfoItem
                     src="img/store.svg"
-                    title={'Забрать из ресторана'}
+                    title={"Забрать из ресторана"}
                     text={
-                      'Получайте заказ в выбранном ресторане в удобное для вас время (заказ может быть оформлен не менее чем за 30 минут до получения).'
+                      "Получайте заказ в выбранном ресторане в удобное для вас время (заказ может быть оформлен не менее чем за 30 минут до получения)."
                     }
                   />
                 ) : (
@@ -304,20 +302,20 @@ class Index extends React.Component {
                 )}
                 <InfoItem
                   src="/img/time.svg"
-                  title={'Доставка к определенному времени'}
+                  title={"Доставка к определенному времени"}
                   text={
-                    'Выбирайте к “определенному времени”, получайте заказ минута в минуту. Заказ можно оформить не менее чем за 60 мин. до времени доставки'
+                    "Выбирайте к “определенному времени”, получайте заказ минута в минуту. Заказ можно оформить не менее чем за 60 мин. до времени доставки"
                   }
                 />
               </div>
             </div>
 
-            <div className={'restaurants-block'}>
-              <div className={'adaptive-padding'}>
-                <div className={'restaurants-block-title'}>
+            <div className={"restaurants-block"}>
+              <div className={"adaptive-padding"}>
+                <div className={"restaurants-block-title"}>
                   {this.state.thisIsKogalim === false
                     ? this.state.pickUpTimeRangeTitle
-                    : ''}
+                    : ""}
                 </div>
                 {this.state.restaurants.length > 0 && (
                   <div>
@@ -339,11 +337,11 @@ class Index extends React.Component {
               </div>
             </div>
 
-            <div className={'how-make-order-block'}>
-              <div className={'adaptive-padding'}>
-                <div className={'how-make-order-block-title'}>Как заказать</div>
+            <div className={"how-make-order-block"}>
+              <div className={"adaptive-padding"}>
+                <div className={"how-make-order-block-title"}>Как заказать</div>
 
-                <div className={'how-make-order-block-text'}>
+                <div className={"how-make-order-block-text"}>
                   Заказывайте доставку суши и роллов удобным Вам способом: по
                   телефону или через сайт. Чтобы сделать заказ через сайт,
                   добавьте понравившийся товар в корзину, затем перейдите в
