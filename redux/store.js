@@ -1,4 +1,4 @@
-import { createStore } from 'redux';
+import { applyMiddleware, compose, createStore } from 'redux';
 import fetch from 'isomorphic-unfetch';
 import rootReducer from './reducers/rootReducer';
 import { createWrapper } from 'next-redux-wrapper';
@@ -14,9 +14,23 @@ import { createWrapper } from 'next-redux-wrapper';
 // create a makeStore function
 // const makeStore = (context) => createStore(rootReducer);
 
+const composeEnhancers =
+  typeof window === 'object' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
+        // Specify extension’s options like name, actionsBlacklist, actionsCreators, serialize...
+      })
+    : compose;
+
+const enhancer = composeEnhancers(applyMiddleware());
+
 const makeStore = (initialState = {}, options) => {
-  return createStore(rootReducer, initialState);
+  return createStore(
+    rootReducer,
+    initialState,
+    enhancer
+  );
 };
+
 
 // export an assembled wrapper
 // убирая дебаг на фолс можно контролировать высеры в консоль

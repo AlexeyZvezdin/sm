@@ -50,7 +50,7 @@ function Layout(props) {
   });
   return (
     <>
-      <City ><AddressCheck/></City>
+      <City />
       <Header />
       <StickyHeader stickyTabs={props.stickyTabs.stickyTabs} />
       <main>
