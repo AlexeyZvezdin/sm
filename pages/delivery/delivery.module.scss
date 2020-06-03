@@ -528,3 +528,38 @@
     width: 100%;
   }
 }
+
+// subheader
+
+.subheader_wrapper {
+  display: flex;
+  position: relative;
+  padding: 6px 36px 0;
+  box-shadow: inset 0 -1px 0 0 rgba(29, 29, 29, 0.07);
+}
+
+.sub-header-delivery {
+  display: flex;
+  align-items: center;
+}
+
+.sub-header-delivery h1 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1.33;
+  letter-spacing: 0.9px;
+  color: #1d1d1d;
+  font-family: Pusia;
+}
+
+.back-button-container__button {
+  padding-top: 6px;
+  height: 48px;
+  width: 48px;
+  background-size: contain;
+  border-radius: 50%;
+  background: hsla(0, 0%, 100%, 0.7) url('/img/icons/icon-arrow-in-circle.svg')
+    no-repeat 50%;
+  margin-right: 24px;
+  cursor: pointer;
+}

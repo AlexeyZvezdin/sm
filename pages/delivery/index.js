@@ -5,6 +5,9 @@ import SubHeader from '../../components/delivery/SubHeader';
 import DeliveryZoneItem from '../../components/delivery/DeliveryZoneItem';
 import InfoItem from '../../components/delivery/InfoItem';
 import AddressItem from '../../components/delivery/AddressItem.js';
+import SubHedaerBackButton from '../../components/Basic/SubHeaderBackButton';
+
+import { connect } from 'react-redux';
 
 import s from './delivery.module.scss';
 //API
@@ -17,7 +20,7 @@ import { msToTime } from '../../utils/msToTime';
 
 import fetcher from '../../utils/fetcher';
 
-export default class Index extends React.Component {
+class Index extends React.Component {
   constructor(props) {
     super(props);
 
@@ -52,6 +55,7 @@ export default class Index extends React.Component {
   componentDidMount() {
     this.updateInfo();
     // this.props.showHeader(false);
+    // console.log(this.props, ' DELIVERY PROPS');
   }
 
   updateInfo = async () => {
@@ -62,13 +66,13 @@ export default class Index extends React.Component {
       const result = await fetcher(
         `https://client-api.sushi-master.ru/api/v1/delivery/zones/full-info?cityId=${cityId}`
       );
-      console.log(result, ' RESULT');
+      // console.log(result, ' RESULT');
       if (typeof result !== 'undefined') {
         this.setState({ ...result.result });
         const restaurants = await fetcher(
           `https://client-api.sushi-master.ru/api/v1/restaurants?cityId=${cityId}`
         );
-        console.log(restaurants, ' restaurants');
+        // console.log(restaurants, ' restaurants');
         await this.setState({
           restaurants: restaurants.result.items,
         });
@@ -186,6 +190,12 @@ export default class Index extends React.Component {
           {/* <Header showStickyHeader={true} onlyInfo={true}>
           <SubHeader goBack={this.goBack} city={this.props.city.cityName} />
         </Header> */}
+          <div className="subheader_wrapper">
+            <div className="sub-header-delivery">
+              <SubHedaerBackButton />
+              <h1>{this.props.name} — зоны и стоимость доставки</h1>
+            </div>
+          </div>
           <div className="delivery-scene__main-container">
             <div className="delivery-scene__cart_and_zone">
               <div className="zone-info" id="zone_info">
@@ -350,3 +360,7 @@ export default class Index extends React.Component {
     );
   }
 }
+
+const mapState = ({ store: { city } }) => city;
+
+export default connect(mapState)(Index);
