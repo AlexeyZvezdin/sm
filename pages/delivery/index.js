@@ -5,7 +5,7 @@ import SubHeader from '../../components/delivery/SubHeader';
 import DeliveryZoneItem from '../../components/delivery/DeliveryZoneItem';
 import InfoItem from '../../components/delivery/InfoItem';
 import AddressItem from '../../components/delivery/AddressItem.js';
-import SubHedaerBackButton from '../../components/Basic/SubHeaderBackButton';
+import SubHeaderBackButton from '../../components/Basic/SubHeaderBackButton';
 
 import { connect } from 'react-redux';
 
@@ -92,7 +92,7 @@ class Index extends React.Component {
   };
 
   initMap = () => {
-    console.log('is trying? ');
+    console.log('is trying to render map? ');
 
     let map = new window.ymaps.Map(
       'map',
@@ -127,7 +127,7 @@ class Index extends React.Component {
   };
 
   addZonesOnMap = (map) => {
-    console.log(this.state.area, ' this.state.area');
+    // console.log(this.state.area, ' this.state.area');
     if (this.state.area) {
       let features = this.state.area.features;
       if (!features) return null;
@@ -192,7 +192,7 @@ class Index extends React.Component {
         </Header> */}
           <div className="subheader_wrapper">
             <div className="sub-header-delivery">
-              <SubHedaerBackButton />
+              <SubHeaderBackButton />
               <h1>{this.props.name} — зоны и стоимость доставки</h1>
             </div>
           </div>
@@ -202,6 +202,7 @@ class Index extends React.Component {
                 {this.state.area.features.map((area, idx) => {
                   return (
                     <DeliveryZoneItem
+                      key={idx}
                       idx={idx}
                       {...area.deliveryInfo}
                       selectZoneColor={this.state.selectZoneColor}
@@ -314,7 +315,7 @@ class Index extends React.Component {
                     : ''}
                 </div>
                 {this.state.restaurants.length > 0 && (
-                  <div fluid>
+                  <div>
                     <div>
                       {this.state.restaurants.map((restaurant, idx) => (
                         <AddressItem

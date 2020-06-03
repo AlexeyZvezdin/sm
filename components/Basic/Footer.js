@@ -1,9 +1,11 @@
 import Link from 'next/link';
+import BreadCrumbs from './BreadCrumbs';
 import './footer.module.scss';
 
 const Footer = () => {
   return (
     <footer className="footer">
+      <BreadCrumbs />
       <div className="footer-box">
         <div className="footer-col">
           <p className="footer__bold">@ {new Date().getFullYear()}</p>

@@ -50,6 +50,7 @@ const about = () => {
         title={`О компании | Сеть ресторанов доставки еды Суши Мастер, ${props.cityName} `}
         description={`Суши Мастер ${props.cityName}: сеть ресторанов доставки готовой японской еды (суши, роллы, сеты): О компании`}
       /> */}
+
       <div className="about__4k_container">
         <nav>
           <ul className="about__navigation" id="navigation">
