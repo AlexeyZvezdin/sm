@@ -11,9 +11,11 @@ export default class AddressCheck extends Component {
         <div onClick={() => {}} className={'address-check__window'}>
           <h1>Проверим адрес?</h1>
           <p>Мы хотим убедиться, что Ваш адрес входит в зону доставки.</p>
+          <button>Доставка</button>
+          <button>Заберу Сам</button>
           <span>
             После проверки вы вернетесь к выбору блюд
-            <img src="/public/img/ic-smile-emoji.svg" alt=":)" />
+            <img src="/img/ic-smile-emoji.svg" alt=":)" />
           </span>
         </div>
       </div>
