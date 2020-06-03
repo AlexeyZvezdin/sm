@@ -10,12 +10,15 @@ import {
   cardCounterDecrement,
 } from '../../redux/actions/cardCounter';
 import { cardProductsDispatch } from '../../redux/actions/cardProducts';
+import { openModalCity } from '../../redux/actions/modalActions'
 
 function Product({ product, store, ...props }) {
   // console.log(store, ' store');
   const [cartButtonCounter, setCartButtonCounter] = React.useState(0);
   const [localProductCounter, setlocalProductCounter] = React.useState(0);
   const [productInfo, setProductInfo] = React.useState(true);
+
+
 
   const handleCounterClick = async (action) => {
     if (action === 'inc') {
@@ -34,6 +37,13 @@ function Product({ product, store, ...props }) {
       await handleEachProduct('dec');
     }
   };
+
+  const handleAdressCheckClicl = (action, login = false) => { //!remove default
+    if(!login) {
+      props.openModalCity();
+    }
+    handleCounterClick(action);
+  }
   // console.log(product, ' PROPS PRODUCTs');
   // console.log(store, ' PROPS store');
   // console.log(props, ' PROPS props');
@@ -219,8 +229,9 @@ function Product({ product, store, ...props }) {
             <div
               className="product-bottom_right-buy"
               onClick={async () => {
+                console.log('Я тута!') //!
                 setCartButtonCounter(cartButtonCounter + 1);
-                await handleCounterClick('inc');
+                await handleAdressCheckClicl('inc');
               }}
             >
               <div className="product-bottom_right-buy-collapsed">
@@ -270,6 +281,7 @@ const mapDispatch = (dispatch) => {
       dispatch(cardProductsDispatch(products)),
     cardCounterDecrement: () => dispatch(cardCounterDecrement()),
     cardCounterIncrement: () => dispatch(cardCounterIncrement()),
+    openModalCity: () => dispatch(openModalCity())
   };
 };
 
