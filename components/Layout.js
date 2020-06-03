@@ -10,7 +10,7 @@ import { withRouter } from 'next/router';
 import Error from '../pages/_error';
 import FixedFooter from './Basic/FixedFooter';
 
-import City from './Modals/City';
+import City from './Modals/Modal';
 import AddressCheck from './Basic/AddressCheck';
 import BaseModal from './Modals/BaseModal';
 import React from 'react';
