@@ -11,6 +11,7 @@ import Error from '../pages/_error';
 import FixedFooter from './Basic/FixedFooter';
 
 import City from './Modals/City'
+import AddressCheck from './Basic/AddressCheck'
 function Layout(props) {
   // console.log(props, ' PROPS');
   // Не работает, бэд сетСтейт
@@ -49,7 +50,7 @@ function Layout(props) {
   });
   return (
     <>
-      <City className={'modal-window'}/>
+      <City ><AddressCheck/></City>
       <Header />
       <StickyHeader stickyTabs={props.stickyTabs.stickyTabs} />
       <main>
