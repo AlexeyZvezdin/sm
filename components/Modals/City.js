@@ -16,7 +16,7 @@ class City extends Component {
             onClick={() => this.props.closeModalCity()}
             className={'modal-window'}
           />
-          <AddressCheck />
+          {this.props.children}
         </div>
       )
     );
