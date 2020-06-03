@@ -234,8 +234,8 @@ export default class Index extends React.Component {
                 {/*</Link>*/}
               </div>
             </div>
-            <div className={'delivery-payments-block'}>
-              <div className={'adaptive-padding'}>
+            <div className={'delivery-payments-block'}>  {/* I am styling this block right now!*/}
+              <div className={'adaptive-padding type-block'}>
                 <div>Способы оплаты</div>
                 <InfoItem
                   src="/img/money.svg"
@@ -262,8 +262,7 @@ export default class Index extends React.Component {
                   }
                 />
               </div>
-            </div>
-            <div className={'adaptive-padding'}>
+            <div className={'adaptive-padding type-block'}>
               <div>Типы заказов</div>
               <InfoItem
                 src="/img/delivery.svg"
@@ -292,7 +291,8 @@ export default class Index extends React.Component {
                 }
               />
             </div>
-          </div>{' '}
+            </div>
+          </div>
           {/* delivery scene main container*/}
           <div className={'restaurants-block'}>
             <div className={'adaptive-padding'}>

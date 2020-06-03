@@ -1,3 +1,5 @@
+import '../../pages/delivery/delivery.module.scss'
+
 export default class InfoItem extends React.Component {
   //   static propTypes = {
   //     src: PropTypes.any,
