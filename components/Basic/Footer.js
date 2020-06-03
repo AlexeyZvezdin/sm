@@ -94,6 +94,7 @@ const Footer = () => {
                 href="https://zen.yandex.ru/sushi_master"
               >
                 <img
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAJtSURBVHgBxVexUttAEF15UrjDqXCHUkEHHe6iLunCH4SOknSU5lPyCfmE0MUd7kSndE4Vp3OnvCe/Aw1I1u2NGd7MQzf4bndvd+92L7NI1HU9xucEzMFDcAKO9fMGXIN/wAossyzbxMjNhiZAMRXNwGMpeZCSdVAi46ZirrlL8CfmrJMMkNACPAV/gYvYXcnoM619kCFRax8FgNfgJxmSBMn5IlmT2EVTLTi3PQGyZpI5HZoYdn5mewZl7vQEXe3dOebm4JFjfvDEY1hHrd8LsEKyLOyVANlM5lK6ngyQW3h07syHHHxvPlDHaQhF8EAB3g+d2R5Eh4DQcaSXm1CPFA+e16X5kdv2RvSCoTihbnqA12uZuHsa7j4x8sI/6qYBOfjb0nABXloamIw5DWBhWZkTcN+tKQQYfzM/qkY3Ft94r1sqrF/i1imD987NO4zHXYWCl4yGTLJcX8b80roTb441X/H9YduErvT/5gsdVXsydYYk7DVSPAD/akzFu5J10lp7oLlBTo+WtBDMO0Jw7ZTRhICDq8Eq1S2gnQdzc0J15CrDHx6lle5prxCGhp3RB3OChQmfQyZhZU9djxffLR05WDIJeSFM6rTOh9l+b060il850hFk35bSATHLK/OD1zeL3yYcQ7p/luCFypzQ7hnypvQ3BqgQ0ZWF+ZDigcJaxa99EdGiY2Xnq0Cyj6yv8XnTprQ1MbTle/NEdFveWhA8cVHHPii65fC6/bxr50NPs4+27ZiYoMvYrklr6cFzrb3re5rFPk5pCPMiPEzZwKyePU5D2abBrIS84BbJj9MOQ8LznFk8tT09z/8DgE+9QR4LG/MAAAAASUVORK5CYII="
                   className="yandex-dzen"
                   alt=""
                   style={{ height: '28px', width: '28px' }}

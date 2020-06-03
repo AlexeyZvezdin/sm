@@ -8,9 +8,9 @@ export default class InfoItem extends React.Component {
 
   render() {
     return (
-      <div className={'info-item'}>
+      <div className="info-item">
         <div>
-          <div>
+          <div className="info-item-pic">
             <img src={this.props.src} alt="" />
           </div>
           <div>

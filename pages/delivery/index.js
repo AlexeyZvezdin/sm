@@ -182,13 +182,13 @@ export default class Index extends React.Component {
             type="text/javascript"
           ></script> */}
         </Head>
-        <div className={'delivery-scene'}>
+        <div className="delivery-scene">
           {/* <Header showStickyHeader={true} onlyInfo={true}>
           <SubHeader goBack={this.goBack} city={this.props.city.cityName} />
         </Header> */}
           <div className="delivery-scene__main-container">
-            <div>
-              <div className={'zone-info'} id={'zone_info'}>
+            <div className="delivery-scene__cart_and_zone">
+              <div className="zone-info" id="zone_info">
                 {this.state.area.features.map((area, idx) => {
                   return (
                     <DeliveryZoneItem
@@ -199,25 +199,13 @@ export default class Index extends React.Component {
                   );
                 })}
               </div>
-              <div
-                xs={{ order: 1, span: 12 }}
-                md={{ span: 6, order: 2 }}
-                style={{ padding: '0px' }}
-              >
-                <div id="map" style={{ width: '600px', height: '400px' }} />
+              <div className="y_map">
+                <div id="map" />
               </div>
-              <div
-                xs={{ order: 2, span: 12 }}
-                md={{ order: 2, span: 6 }}
-                className={'delivery-info time-range'}
-              >
+              <div className={'delivery-info time-range'}>
                 <span>{this.state.deliveryTimeRangeTitle}</span>
               </div>
-              <div
-                xs={{ order: 1, span: 12 }}
-                md={{ order: 2, span: 6 }}
-                className={'delivery-info sale-info'}
-              >
+              <div className={'delivery-info sale-info'}>
                 <div className="align-items-center">
                   <div xs="5">
                     <span>{this.state.deliveryTitle}</span>
@@ -248,8 +236,8 @@ export default class Index extends React.Component {
               </div>
             </div>
 
-            <div className={'delivery-payments-block'}>
-              <div className={'adaptive-padding'}>
+            <div className="delivery-payments-block">
+              <div className="adaptive-padding">
                 <div>Способы оплаты</div>
                 <InfoItem
                   src="/img/money.svg"
