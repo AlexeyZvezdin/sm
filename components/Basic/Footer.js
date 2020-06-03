@@ -9,13 +9,13 @@ const Footer = () => {
       <div className="footer-box">
         <div className="footer-col">
           <p className="footer__bold">@ {new Date().getFullYear()}</p>
-          <Link href="#">
+          <Link href="/public-offert">
             <a className="side-menu__link">Публичная оферта</a>
           </Link>
-          <Link href="#">
+          <Link href="/privacy-policy">
             <a className="side-menu__link">Политика конфиденциальности</a>
           </Link>
-          <Link href="#">
+          <Link href="/public-offert#urdata">
             <a className="side-menu__link">Полные реквизиты</a>
           </Link>
         </div>

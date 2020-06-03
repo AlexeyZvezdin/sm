@@ -97,6 +97,20 @@ export default class index extends React.Component {
             </p>
           </div>
         </div>
+        <style jsx>
+          {`
+            h2 {
+              margin: 25px 0px;
+              font-size: 2rem;
+            }
+            h3 {
+              font-size: 1.75rem;
+            }
+            p {
+              margin-bottom: 1rem;
+            }
+          `}
+        </style>
       </div>
     );
   }

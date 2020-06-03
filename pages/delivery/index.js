@@ -7,6 +7,8 @@ import InfoItem from '../../components/delivery/InfoItem';
 import AddressItem from '../../components/delivery/AddressItem.js';
 import SubHeaderBackButton from '../../components/Basic/SubHeaderBackButton';
 
+import SubHeader from '../../components/Basic/SubHeader'
+
 import { connect } from 'react-redux';
 
 import s from './delivery.module.scss';
@@ -196,6 +198,9 @@ class Index extends React.Component {
               <h1>{this.props.name} — зоны и стоимость доставки</h1>
             </div>
           </div>
+          <SubHeader>
+            <h1>{this.props.name} — зоны и стоимость доставки</h1>
+            <SubHeader />
           <div className="delivery-scene__main-container">
             <div className="delivery-scene__cart_and_zone">
               <div className="zone-info" id="zone_info">
