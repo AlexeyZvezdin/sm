@@ -22,26 +22,30 @@ export default withRedux(makeStore, { debug: false })(
       // console.log(process.env.BASE_API, ' process.env.BASE_API');
       let cityInsteadOfDomain = 'abakan';
 
+      console.time('fetchstart');
       const defaultCityData = await fetcher(
         `https://client-api.sushi-master.ru/api/v1/city/current?domain=${cityInsteadOfDomain}`
       );
-      console.time('fetchstart');
+      const cityID = defaultCityData.result.cityId;
 
+      let [
+        thisCityCategoriesData,
+        getAllBannersData,
+        catalogStructure,
+      ] = await Promise.all([
+        fetcher(
+          `https://client-api.sushi-master.ru/api/v1/catalog/categories/?cityId=${cityID}`
+        ),
+        fetcher(
+          `https://client-api.sushi-master.ru/api/v1/catalog/banners?${cityID}`
+        ),
+        fetcher(
+          `https://client-api.sushi-master.ru/api/v1/catalog/structure?${cityID}`
+        ),
+      ]);
       // 5d3834ad59201a66b905d9e7 - id abakan
-      const thisCityCategoriesData = await fetcher(
-        `https://client-api.sushi-master.ru/api/v1/catalog/categories/?cityId=${defaultCityData.result.cityId}`
-      );
+
       // debugger;
-      // const category_id = thisCityCategoriesData.result.update.items[0].id;
-      // const thisCategoryProductsData = await fetcher(
-      //   `https://client-api.sushi-master.ru/api/v1/catalog/categories/${category_id}/products`
-      // );
-      const getAllBannersData = await fetcher(
-        `https://client-api.sushi-master.ru/api/v1/catalog/banners?${defaultCityData.result.cityId}`
-      );
-      const catalogStructure = await fetcher(
-        `https://client-api.sushi-master.ru/api/v1/catalog/structure?${defaultCityData.result.cityId}`
-      );
 
       let stickyTabs = [];
       // console.log(catalogStructure, ' catalogStructure');
@@ -57,8 +61,6 @@ export default withRedux(makeStore, { debug: false })(
           (item) => item.path === 'main'
         )[0],
       ];
-
-      const cityID = defaultCityData.result.cityId;
 
       let pathname = ctx.query.path;
       let ProductForPathFiltered = stickyTabsWithMain.filter((item) => {

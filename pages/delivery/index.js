@@ -1,13 +1,13 @@
 //Components
 // import Header from '../../components/Basic/Header';
 import Head from 'next/head';
-import SubHeader from '../../components/delivery/SubHeader';
+// import SubHeader from '../../components/delivery/SubHeader';
 import DeliveryZoneItem from '../../components/delivery/DeliveryZoneItem';
 import InfoItem from '../../components/delivery/InfoItem';
 import AddressItem from '../../components/delivery/AddressItem.js';
 import SubHeaderBackButton from '../../components/Basic/SubHeaderBackButton';
 
-import SubHeader from '../../components/Basic/SubHeader'
+import SubHeader from '../../components/Basic/SubHeader';
 
 import { connect } from 'react-redux';
 
@@ -192,15 +192,15 @@ class Index extends React.Component {
           {/* <Header showStickyHeader={true} onlyInfo={true}>
           <SubHeader goBack={this.goBack} city={this.props.city.cityName} />
         </Header> */}
-          <div className="subheader_wrapper">
+          {/* <div className="subheader_wrapper">
             <div className="sub-header-delivery">
               <SubHeaderBackButton />
               <h1>{this.props.name} — зоны и стоимость доставки</h1>
             </div>
-          </div>
+          </div> */}
           <SubHeader>
             <h1>{this.props.name} — зоны и стоимость доставки</h1>
-            <SubHeader />
+          </SubHeader>
           <div className="delivery-scene__main-container">
             <div className="delivery-scene__cart_and_zone">
               <div className="zone-info" id="zone_info">
