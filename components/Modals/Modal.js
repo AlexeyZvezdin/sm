@@ -16,6 +16,11 @@ class Modal extends Component {
             className={'modal-window'}
           />
           {this.props.children}
+          <style jsx global>{`
+        body {
+          overflow: ${this.props.showModalCity === true ? 'hidden' : 'none'};
+        }
+      `}</style>
         </div>
       )
     );
