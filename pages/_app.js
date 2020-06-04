@@ -27,7 +27,6 @@ export default withRedux(makeStore, { debug: false })(
         `https://client-api.sushi-master.ru/api/v1/city/current?domain=${cityInsteadOfDomain}`
       );
       const cityID = defaultCityData.result.cityId;
-
       let [
         thisCityCategoriesData,
         getAllBannersData,
@@ -44,14 +43,13 @@ export default withRedux(makeStore, { debug: false })(
         ),
       ]);
       // 5d3834ad59201a66b905d9e7 - id abakan
-
       // debugger;
 
       let stickyTabs = [];
 
       // console.log(catalogStructure, ' catalogStructure');
       // If catalog structure is not exists than you can get errors on _error page or others
-      await catalogStructure.result.update.categories.map((item) =>
+      catalogStructure.result.update.categories.map((item) =>
         thisCityCategoriesData.result.update.items.filter((categoryItem) =>
           categoryItem.id === item.id ? stickyTabs.push(categoryItem) : ''
         )

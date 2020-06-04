@@ -4,7 +4,7 @@ export default ({ statusCode }) => (
     {statusCode
       ? `Could not load your user data: Status code ${statusCode}`
       : ''}
-    <img src="/img/pic-404.svg" alt="404" />
+    <img src="/img/404/pic-404.svg" alt="404" />
     <p>Страница не найдена, либо еще не создана</p>
     <style jsx>{`
       ._error {

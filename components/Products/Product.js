@@ -10,13 +10,15 @@ import {
   cardCounterDecrement,
 } from '../../redux/actions/cardCounter';
 import { cardProductsDispatch } from '../../redux/actions/cardProducts';
+import { useRouter } from 'next/router';
 
 function Product({ product, store, ...props }) {
   // console.log(store, ' store');
   const [cartButtonCounter, setCartButtonCounter] = React.useState(0);
   const [localProductCounter, setlocalProductCounter] = React.useState(0);
   const [productInfo, setProductInfo] = React.useState(true);
-
+  const router = useRouter();
+  console.log(router, ' ROUTER');
   const handleCounterClick = async (action) => {
     if (action === 'inc') {
       await localStorage.setItem(
@@ -183,13 +185,13 @@ function Product({ product, store, ...props }) {
         </div>
       </div>
       {/* delimeter */}
-      <a href="#">
+      <a href={`/menu/${router.query.path}/${product.url}`}>
         <img
           src={`https://client-api.sushi-master.ru/pics/${product.mainPictureId}?width=400`}
           alt=""
         />
       </a>
-      <a href="#">
+      <a href={`/menu/${router.query.path}/${product.url}`}>
         <h3 className={p_s['product-name']}>{product.name}</h3>
       </a>
       <p className={p_s['product-description']}>
