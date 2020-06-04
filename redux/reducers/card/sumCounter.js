@@ -7,6 +7,10 @@ const sumCounter = (state = { sum: 0 }, action) => {
         sum: state.sum + Number(action.payload),
       };
     case 'SUB':
+      if (state.sum - Number(action.payload) < 0)
+        return {
+          sum: 0,
+        };
       return {
         sum: state.sum - Number(action.payload),
       };

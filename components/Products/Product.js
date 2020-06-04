@@ -4,7 +4,7 @@ import {
   concatCardProductsWhenStorageHasProducts,
 } from '../../utils/Product/concatCardProductsWhenStorageIsEmpty';
 import p_s from './products.module.scss';
-
+import { totalSumCounter } from '../../redux/actions/totalSumCounter';
 import {
   cardCounterIncrement,
   cardCounterDecrement,
@@ -67,6 +67,7 @@ function Product({ product, store, ...props }) {
         );
 
         props.cardProductsDispatch(toDispatchResult);
+        props.totalSumCounter('ADD', product.priceVariants[0].price);
         // конец заеба
         await setCartButtonCounter(quantity + 1);
         // Вот это ниже обязательно надо, асинхронность на рендере на сср не работает как надо
@@ -89,6 +90,7 @@ function Product({ product, store, ...props }) {
         );
 
         props.cardProductsDispatch(toDispatchResult);
+        props.totalSumCounter('SUB', product.priceVariants[0].price);
         // конец заеба
         await setCartButtonCounter(quantity - 1);
         let res = await getCounterFromLS();
@@ -108,6 +110,7 @@ function Product({ product, store, ...props }) {
         })
       );
       props.cardProductsDispatch(toDispatchResult);
+      props.totalSumCounter('ADD', product.priceVariants[0].price);
       await setCartButtonCounter(1);
       let res = await getCounterFromLS();
       setlocalProductCounter(res);
@@ -270,6 +273,7 @@ const mapDispatch = (dispatch) => {
       dispatch(cardProductsDispatch(products)),
     cardCounterDecrement: () => dispatch(cardCounterDecrement()),
     cardCounterIncrement: () => dispatch(cardCounterIncrement()),
+    totalSumCounter: (type, sum) => dispatch(totalSumCounter(type, sum)),
   };
 };
 
