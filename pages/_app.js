@@ -69,7 +69,7 @@ export default withRedux(makeStore, { debug: false })(
         }
         return item.path === pathname;
       });
-      // console.log(ProductForPathFiltered, ' ProductForPathFiltered');
+      console.log(ProductForPathFiltered, ' ProductForPathFiltered');
 
       let productsForPath;
       if (ProductForPathFiltered[0]) {
@@ -78,7 +78,10 @@ export default withRedux(makeStore, { debug: false })(
           { cityId: cityID }
         );
       } else {
-        productsForPath = [];
+        productsForPath = await fetcher(
+          `https://client-api.sushi-master.ru/api/v1/catalog/categories/5d144d2059201a2c326effbc/products`,
+          { cityId: cityID }
+        );
       }
       // Предыдущее рещение было не лучшим
       // const promises = stickyTabsWithMain.map(async (item) => {

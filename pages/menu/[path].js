@@ -119,7 +119,7 @@ function subroute(props) {
 export default withRouter(
   connect(({ store }) => ({
     catalogStructure: store.catalogStructure.update.categories,
-  }))(React.memo(subroute))
+  }))(subroute)
 );
 
 // Я сам лучше сделаю

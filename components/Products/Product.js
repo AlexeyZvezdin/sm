@@ -18,7 +18,6 @@ function Product({ product, store, ...props }) {
   const [localProductCounter, setlocalProductCounter] = React.useState(0);
   const [productInfo, setProductInfo] = React.useState(true);
   const router = useRouter();
-  console.log(router, ' ROUTER');
   const handleCounterClick = async (action) => {
     if (action === 'inc') {
       await localStorage.setItem(

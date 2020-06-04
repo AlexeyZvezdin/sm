@@ -5,7 +5,6 @@ import './breadcrumbs.module.scss';
 export default function () {
   const router = useRouter();
   const crumbPath = router.pathname.slice(1);
-  console.log(crumbPath, ' crumbPath FOOTER');
   const normalizeBreadcrumb = (name) => {
     switch (name) {
       case 'actions':
