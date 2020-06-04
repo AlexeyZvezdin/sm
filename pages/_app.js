@@ -48,8 +48,10 @@ export default withRedux(makeStore, { debug: false })(
       // debugger;
 
       let stickyTabs = [];
+
       // console.log(catalogStructure, ' catalogStructure');
-      catalogStructure.result.update.categories.map((item) =>
+      // If catalog structure is not exists than you can get errors on _error page or others
+      await catalogStructure.result.update.categories.map((item) =>
         thisCityCategoriesData.result.update.items.filter((categoryItem) =>
           categoryItem.id === item.id ? stickyTabs.push(categoryItem) : ''
         )
@@ -90,9 +92,7 @@ export default withRedux(makeStore, { debug: false })(
       //   return { ...promResult.result, itemName };
       // });
       // const allProducts = await Promise.all(promises);
-      ctx.store.dispatch(
-        dispatchCategoriesWithMain(stickyTabsWithMain, stickyTabs)
-      );
+
       ctx.store.dispatch({
         type: 'INITIAL_CITY_STATE',
         payload: defaultCityData,
@@ -114,6 +114,9 @@ export default withRedux(makeStore, { debug: false })(
         // payload: [allProducts],
         payload: [productsForPath],
       });
+      ctx.store.dispatch(
+        dispatchCategoriesWithMain(stickyTabsWithMain, stickyTabs)
+      );
 
       console.timeEnd('fetchstart');
 

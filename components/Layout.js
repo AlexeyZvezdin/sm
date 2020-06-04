@@ -10,7 +10,6 @@ import { withRouter } from 'next/router';
 import Error from '../pages/_error';
 import FixedFooter from './Basic/FixedFooter';
 function Layout(props) {
-  // console.log(props, ' PROPS');
   // Не работает, бэд сетСтейт
   // props.dispatchCategoriesWithMain(stickyTabsWithMain);
   // const thisRouteProducts = props.products[0].find((item) => {
@@ -20,7 +19,7 @@ function Layout(props) {
   //   }
   //   return item.itemName === props.path;
   // });
-
+  if (props == 'undefined') return <Error />;
   const thisRouteProducts = props.products[0].result;
 
   const thisRouteTab = props.stickyTabs.stickyTabs.find(
@@ -30,11 +29,21 @@ function Layout(props) {
   const thisRouteBanner =
     props.path === undefined
       ? false
-      : props.banners.items.find((item) =>
+      : props == undefined
+      ? props.banners.items.find((item) =>
           thisRouteTab.banners[0]
             ? thisRouteTab.banners[0].id === item.id
             : false
-        );
+        )
+      : false;
+  // const thisRouteBanner =
+  //   props.path === undefined
+  //     ? false
+  //     : props.banners.items.find((item) =>
+  //         thisRouteTab.banners[0]
+  //           ? thisRouteTab.banners[0].id === item.id
+  //           : false
+  //       );
   // console.log(thisRouteBanner, ' thisRouteBanner');
   const children = React.Children.map(props.children, (child, index) => {
     return React.cloneElement(child, {

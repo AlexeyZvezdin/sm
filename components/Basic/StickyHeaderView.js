@@ -8,7 +8,7 @@ export default function StickyHeaderView(props) {
         <div key={item.id} className={s['sticky-header__categories__item']}>
           {/* Warning: You're using a string directly inside <Link>.
            This usage has been deprecated. Please add an <a> tag as child of <Link> */}
-          <Link href="/[path]" as={`/${item.path}`}>
+          <Link href="/menu/[path]" as={`/menu/${item.path}`}>
             <a>{item.name}</a>
           </Link>
         </div>

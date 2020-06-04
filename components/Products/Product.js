@@ -97,7 +97,6 @@ function Product({ product, store, ...props }) {
         setlocalProductCounter(res);
       }
     } else {
-      console.log('shit is false');
       // тут вся магия
       const toDispatchResult = await concatCardProductsWhenStorageIsEmpty(
         product
