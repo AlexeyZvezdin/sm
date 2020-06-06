@@ -60,6 +60,7 @@ class CityChoiceModal extends React.Component {
           role="dialog"
           onClick={(e) => this.handleModalBG(e)}
         ></div>
+        {/* ref */}
         <div className={s['city_modal-center_container']}>
           {/* main modal */}
           <div className={s['m_m-box']}>

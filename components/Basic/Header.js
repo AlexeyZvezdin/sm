@@ -61,7 +61,11 @@ class Header extends React.Component {
   handleCityModal = () => {
     // fetch cities
     // show city modal
-    this.props.dispatchModalStatus();
+    this.props.dispatchCityModalStatus();
+  };
+
+  handleAddressModal = () => {
+    this.props.dispatchAddressModalStatus();
   };
 
   returnTotalProducts() {
@@ -105,7 +109,7 @@ class Header extends React.Component {
           ) : (
             <a>No phone</a>
           )} */}
-          <a>No phone</a>
+          <a onClick={this.handleAddressModal}>No phone</a>
         </div>
         <nav className={s['menu']}>
           <ul>{menu}</ul>
@@ -148,17 +152,21 @@ class Header extends React.Component {
 }
 
 const mapStateToProps = ({
-  modal,
+  cityModal,
+  addressModal,
   store: { city },
   card: {
     cardCounter,
     sumCounter: { sum },
   },
 }) => {
-  const modalBg = modal.openModalBg;
-  return { modalBg, city, cardCounter, sum };
+  const cityModalBg = cityModal.openModalBg;
+  const addressModalBg = addressModal.openModalBg;
+  return { addressModalBg, cityModalBg, city, cardCounter, sum };
 };
 const dispatchToProps = (dispatch) => ({
-  dispatchModalStatus: (status) => dispatch({ type: 'OPEN_MODAL' }),
+  dispatchCityModalStatus: (status) => dispatch({ type: 'OPEN_MODAL' }),
+  dispatchAddressModalStatus: (status) =>
+    dispatch({ type: 'OPEN_ADDRESS_MODAL' }),
 });
 export default connect(mapStateToProps, dispatchToProps)(Header);

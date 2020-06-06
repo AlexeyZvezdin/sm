@@ -89,7 +89,7 @@ const mapState = (
       stickyTabs,
       pathname,
     },
-    modal: { openModalBg },
+    cityModal: { openModalBg },
   },
   {
     router: {
