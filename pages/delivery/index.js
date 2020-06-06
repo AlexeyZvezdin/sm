@@ -64,11 +64,12 @@ class Index extends React.Component {
     //Пока Тюмень
     //let cityId = '5d3834ad59201a66b905d9e7';// тюмень
     let cityId = this.props.cityId;
-    if (cityId) {
+    if (cityId && typeof window != undefined) {
       const result = await fetcher(
         `https://client-api.sushi-master.ru/api/v1/delivery/zones/full-info?cityId=${cityId}`
       );
       // console.log(result, ' RESULT');
+      // Тупая проверка, могут бы ть проблемы
       if (typeof result !== 'undefined') {
         this.setState({ ...result.result });
         const restaurants = await fetcher(
