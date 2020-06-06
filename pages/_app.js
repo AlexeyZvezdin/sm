@@ -6,45 +6,63 @@ import makeStore from '../redux/store';
 import withRedux from 'next-redux-wrapper';
 import CityChoiceModal from '../components/Modals/CityChoiceModal';
 import { dispatchCategoriesWithMain } from '../redux/actions/dispatchStickyTabsWithMain';
+import { parseCookies } from '../utils/parseCookies';
 import './index.module.scss';
 // import { wrapper } from '../redux/store';
 // убирая дебаг на фолс можно контролировать высеры в консоль
 export default withRedux(makeStore, { debug: false })(
   class SushiMaster extends App {
     static async getInitialProps({ Component, ctx }) {
+      let cookies;
+      let defaultCityId = '5d3834ac59201a66b905d832';
+      if (ctx.req) {
+        cookies = parseCookies(ctx.req);
+        console.log(cookies, ' COOKIES');
+        defaultCityId = cookies.cityId
+          ? cookies.cityId
+          : '5d3834ac59201a66b905d832';
+      }
       //   const cityByIpOrDomain = await fetch(
       //     'https://client-api.sushi-master.ru/api/v1/city/current?domain=abakan'
       //   );
-
       // тут пока по двоеточию поделил чтобы чекнуть что работает, с доменами будет так же
       let domain = ctx.req ? ctx.req.headers.host.split(':', 1) : '';
-      // console.log(domain, ' DOMAIN');
       // console.log(process.env.BASE_API, ' process.env.BASE_API');
-      let cityInsteadOfDomain = 'abakan';
+      // let newCity = ctx.store.getState().city;
+      // let cityId = '5d3834ad59201a66b905d9e7';
 
-      const defaultCityData = await fetcher(
-        `https://client-api.sushi-master.ru/api/v1/city/current?domain=${cityInsteadOfDomain}`
-      );
+      console.log(defaultCityId, ' newCity domainname');
+
       console.time('fetchstart');
-
-      // 5d3834ad59201a66b905d9e7 - id abakan
-      const thisCityCategoriesData = await fetcher(
-        `https://client-api.sushi-master.ru/api/v1/catalog/categories/?cityId=${defaultCityData.result.cityId}`
+      const defaultCityData = await fetcher(
+        `https://client-api.sushi-master.ru/api/v1/city/${defaultCityId}`
+        // `https://client-api.sushi-master.ru/api/v1/city/current?domain=${cityInsteadOfDomain}`
       );
+      const cityID = defaultCityData.result.cityId;
+      console.log(cityID, ' CITYID');
+      let [
+        thisCityCategoriesData,
+        getAllBannersData,
+        catalogStructure,
+      ] = await Promise.all([
+        fetcher(
+          `https://client-api.sushi-master.ru/api/v1/catalog/categories/?cityId=${cityID}`
+        ),
+        fetcher(
+          `https://client-api.sushi-master.ru/api/v1/catalog/banners?${cityID}`
+        ),
+        fetcher(
+          `https://client-api.sushi-master.ru/api/v1/catalog/structure?${cityID}`
+        ),
+      ]);
+      // 5d3834ac59201a66b905d832 - id abakan
+      // 5d3834ad59201a66b905d9e7 - id tyumen
       // debugger;
-      // const category_id = thisCityCategoriesData.result.update.items[0].id;
-      // const thisCategoryProductsData = await fetcher(
-      //   `https://client-api.sushi-master.ru/api/v1/catalog/categories/${category_id}/products`
-      // );
-      const getAllBannersData = await fetcher(
-        `https://client-api.sushi-master.ru/api/v1/catalog/banners?${defaultCityData.result.cityId}`
-      );
-      const catalogStructure = await fetcher(
-        `https://client-api.sushi-master.ru/api/v1/catalog/structure?${defaultCityData.result.cityId}`
-      );
 
       let stickyTabs = [];
+
       // console.log(catalogStructure, ' catalogStructure');
+      // If catalog structure is not exists than you can get errors on _error page or others
       catalogStructure.result.update.categories.map((item) =>
         thisCityCategoriesData.result.update.items.filter((categoryItem) =>
           categoryItem.id === item.id ? stickyTabs.push(categoryItem) : ''
@@ -57,8 +75,6 @@ export default withRedux(makeStore, { debug: false })(
           (item) => item.path === 'main'
         )[0],
       ];
-
-      const cityID = defaultCityData.result.cityId;
 
       let pathname = ctx.query.path;
       let ProductForPathFiltered = stickyTabsWithMain.filter((item) => {
@@ -76,7 +92,10 @@ export default withRedux(makeStore, { debug: false })(
           { cityId: cityID }
         );
       } else {
-        productsForPath = [];
+        productsForPath = await fetcher(
+          `https://client-api.sushi-master.ru/api/v1/catalog/categories/5d144d2059201a2c326effbc/products`,
+          { cityId: cityID }
+        );
       }
       // Предыдущее рещение было не лучшим
       // const promises = stickyTabsWithMain.map(async (item) => {
@@ -88,9 +107,7 @@ export default withRedux(makeStore, { debug: false })(
       //   return { ...promResult.result, itemName };
       // });
       // const allProducts = await Promise.all(promises);
-      ctx.store.dispatch(
-        dispatchCategoriesWithMain(stickyTabsWithMain, stickyTabs)
-      );
+
       ctx.store.dispatch({
         type: 'INITIAL_CITY_STATE',
         payload: defaultCityData,
@@ -112,6 +129,9 @@ export default withRedux(makeStore, { debug: false })(
         // payload: [allProducts],
         payload: [productsForPath],
       });
+      ctx.store.dispatch(
+        dispatchCategoriesWithMain(stickyTabsWithMain, stickyTabs)
+      );
 
       console.timeEnd('fetchstart');
 
@@ -124,6 +144,7 @@ export default withRedux(makeStore, { debug: false })(
         },
       };
     }
+
     render() {
       const { Component, pageProps, store } = this.props;
       return (

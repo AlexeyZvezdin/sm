@@ -2,6 +2,9 @@ import { connect } from 'react-redux';
 import fetcher from '../../utils/fetcher';
 
 import s from './css/city_choice.module.scss';
+import { selectCity } from '../../redux/actions/selectCity';
+
+import { dispatchCategoriesWithMain } from '../../redux/actions/dispatchStickyTabsWithMain';
 
 class CityChoiceModal extends React.Component {
   constructor(props) {
@@ -17,7 +20,6 @@ class CityChoiceModal extends React.Component {
       let cities = await fetcher(
         'https://client-api.sushi-master.ru/api/v1/city'
       );
-      console.log(cities, 'CITIES');
       this.setState({
         cities,
       });
@@ -26,9 +28,15 @@ class CityChoiceModal extends React.Component {
     }
   }
 
-  handleModalBG = (e) => {
+  handleModalBG = async (e) => {
     e.stopPropagation();
-    this.props.dispatchModalStatus();
+    await this.props.dispatchModalStatus();
+    console.log(this.props.city, ' THIS PROPS SCI');
+  };
+
+  // handleCityChange
+  handleCityChange = () => {
+    console.log(this.props.city, ' THIS PROPS SCI');
   };
 
   render() {
@@ -39,7 +47,7 @@ class CityChoiceModal extends React.Component {
     );
     const modalFooter = () => (
       <div className={s['m_m-footer']}>
-        <button>продолжить</button>
+        <button onClick={this.handleCityChange()}>продолжить</button>
       </div>
     );
 
@@ -59,7 +67,12 @@ class CityChoiceModal extends React.Component {
             <div className={s['m_m-body']}>
               {this.props.modalBg && this.state.cities
                 ? this.state.cities.result.items.map((item, index) => (
-                    <button key={index}>{item.name}</button>
+                    <button
+                      key={index}
+                      onClick={() => this.props.selectCity(item)}
+                    >
+                      {item.name}
+                    </button>
                   ))
                 : ''}
             </div>
@@ -81,12 +94,39 @@ class CityChoiceModal extends React.Component {
     );
   }
 }
-const mapStateToProps = ({ modal }) => {
+const mapStateToProps = ({ modal, city }) => {
   // console.log(modal.openModalBg, ' STATE modal');
   const modalBg = modal.openModalBg;
-  return { modalBg };
+  return { modalBg, city };
 };
 const dispatchToProps = (dispatch) => ({
   dispatchModalStatus: (status) => dispatch({ type: 'CLOSE_MODAL' }),
+  selectCity: (city) => dispatch(selectCity(city)),
+  initialCityData: (defaultCityData) => ({
+    type: 'INITIAL_CITY_STATE',
+    payload: defaultCityData,
+  }),
+  catalogStructure: (catalogStructure) => ({
+    type: 'CATALOG_STRUCTURE',
+    payload: catalogStructure,
+  }),
+  initialCategories: (initialCategories) =>
+    dispatch({
+      type: 'INITIAL_CATEGORIES',
+      payload: thisCityCategoriesData,
+    }),
+  initialBanners: (initialBanners) =>
+    dispatch({
+      type: 'INITIAL_BANNERS',
+      payload: getAllBannersData.result.update,
+    }),
+  initialProducts: (initialProducts) =>
+    dispatch({
+      type: 'INITIAL_PRODUCTS',
+      // payload: [allProducts],
+      payload: [productsForPath],
+    }),
+  categoriesWithMain: (stickyTabsWithMain, stickyTabs) =>
+    dispatch(dispatchCategoriesWithMain(stickyTabsWithMain, stickyTabs)),
 });
 export default connect(mapStateToProps, dispatchToProps)(CityChoiceModal);

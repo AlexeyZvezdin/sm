@@ -1,6 +1,6 @@
 // import { createWrapper, HYDRATE } from 'next-redux-wrapper';
 
-const counterReducer = (
+const initialReducer = (
   state = { value: 0, city: {}, categories: {} },
   action
 ) => {
@@ -24,4 +24,4 @@ const counterReducer = (
   }
 };
 
-export default counterReducer;
+export default initialReducer;

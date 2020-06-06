@@ -4,19 +4,20 @@ import {
   concatCardProductsWhenStorageHasProducts,
 } from '../../utils/Product/concatCardProductsWhenStorageIsEmpty';
 import p_s from './products.module.scss';
-
+import { totalSumCounter } from '../../redux/actions/totalSumCounter';
 import {
   cardCounterIncrement,
   cardCounterDecrement,
 } from '../../redux/actions/cardCounter';
 import { cardProductsDispatch } from '../../redux/actions/cardProducts';
+import { useRouter } from 'next/router';
 
 function Product({ product, store, ...props }) {
   // console.log(store, ' store');
   const [cartButtonCounter, setCartButtonCounter] = React.useState(0);
   const [localProductCounter, setlocalProductCounter] = React.useState(0);
   const [productInfo, setProductInfo] = React.useState(true);
-
+  const router = useRouter();
   const handleCounterClick = async (action) => {
     if (action === 'inc') {
       await localStorage.setItem(
@@ -67,6 +68,7 @@ function Product({ product, store, ...props }) {
         );
 
         props.cardProductsDispatch(toDispatchResult);
+        props.totalSumCounter('ADD', product.priceVariants[0].price);
         // конец заеба
         await setCartButtonCounter(quantity + 1);
         // Вот это ниже обязательно надо, асинхронность на рендере на сср не работает как надо
@@ -89,13 +91,13 @@ function Product({ product, store, ...props }) {
         );
 
         props.cardProductsDispatch(toDispatchResult);
+        props.totalSumCounter('SUB', product.priceVariants[0].price);
         // конец заеба
         await setCartButtonCounter(quantity - 1);
         let res = await getCounterFromLS();
         setlocalProductCounter(res);
       }
     } else {
-      console.log('shit is false');
       // тут вся магия
       const toDispatchResult = await concatCardProductsWhenStorageIsEmpty(
         product
@@ -108,6 +110,7 @@ function Product({ product, store, ...props }) {
         })
       );
       props.cardProductsDispatch(toDispatchResult);
+      props.totalSumCounter('ADD', product.priceVariants[0].price);
       await setCartButtonCounter(1);
       let res = await getCounterFromLS();
       setlocalProductCounter(res);
@@ -181,13 +184,13 @@ function Product({ product, store, ...props }) {
         </div>
       </div>
       {/* delimeter */}
-      <a href="#">
+      <a href={`/menu/${router.query.path}/${product.url}`}>
         <img
           src={`https://client-api.sushi-master.ru/pics/${product.mainPictureId}?width=400`}
           alt=""
         />
       </a>
-      <a href="#">
+      <a href={`/menu/${router.query.path}/${product.url}`}>
         <h3 className={p_s['product-name']}>{product.name}</h3>
       </a>
       <p className={p_s['product-description']}>
@@ -270,6 +273,7 @@ const mapDispatch = (dispatch) => {
       dispatch(cardProductsDispatch(products)),
     cardCounterDecrement: () => dispatch(cardCounterDecrement()),
     cardCounterIncrement: () => dispatch(cardCounterIncrement()),
+    totalSumCounter: (type, sum) => dispatch(totalSumCounter(type, sum)),
   };
 };
 

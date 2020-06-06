@@ -1,13 +1,13 @@
 //Components
 // import Header from '../../components/Basic/Header';
 import Head from 'next/head';
-import SubHeader from '../../components/delivery/SubHeader';
+// import SubHeader from '../../components/delivery/SubHeader';
 import DeliveryZoneItem from '../../components/delivery/DeliveryZoneItem';
 import InfoItem from '../../components/delivery/InfoItem';
 import AddressItem from '../../components/delivery/AddressItem.js';
 import SubHeaderBackButton from '../../components/Basic/SubHeaderBackButton';
 
-import SubHeader from '../../components/Basic/SubHeader'
+import SubHeader from '../../components/Basic/SubHeader';
 
 import { connect } from 'react-redux';
 
@@ -63,12 +63,13 @@ class Index extends React.Component {
   updateInfo = async () => {
     //Пока Тюмень
     //let cityId = '5d3834ad59201a66b905d9e7';// тюмень
-    let cityId = '5d3834ad59201a66b905d9e7';
-    if (cityId) {
+    let cityId = this.props.cityId;
+    if (cityId && typeof window != undefined) {
       const result = await fetcher(
         `https://client-api.sushi-master.ru/api/v1/delivery/zones/full-info?cityId=${cityId}`
       );
       // console.log(result, ' RESULT');
+      // Тупая проверка, могут бы ть проблемы
       if (typeof result !== 'undefined') {
         this.setState({ ...result.result });
         const restaurants = await fetcher(
@@ -94,7 +95,7 @@ class Index extends React.Component {
   };
 
   initMap = () => {
-    console.log('is trying to render map? ');
+    console.log(this.props.cityId, 'is trying to render map? ');
 
     let map = new window.ymaps.Map(
       'map',
@@ -192,15 +193,15 @@ class Index extends React.Component {
           {/* <Header showStickyHeader={true} onlyInfo={true}>
           <SubHeader goBack={this.goBack} city={this.props.city.cityName} />
         </Header> */}
-          <div className="subheader_wrapper">
+          {/* <div className="subheader_wrapper">
             <div className="sub-header-delivery">
               <SubHeaderBackButton />
               <h1>{this.props.name} — зоны и стоимость доставки</h1>
             </div>
-          </div>
+          </div> */}
           <SubHeader>
             <h1>{this.props.name} — зоны и стоимость доставки</h1>
-            <SubHeader />
+          </SubHeader>
           <div className="delivery-scene__main-container">
             <div className="delivery-scene__cart_and_zone">
               <div className="zone-info" id="zone_info">
@@ -321,7 +322,13 @@ class Index extends React.Component {
                 </div>
                 {this.state.restaurants.length > 0 && (
                   <div>
-                    <div>
+                    <div
+                      style={{
+                        display: 'flex',
+                        flexWrap: 'wrap',
+                        justifyContent: 'space-between',
+                      }}
+                    >
                       {this.state.restaurants.map((restaurant, idx) => (
                         <AddressItem
                           key={idx}

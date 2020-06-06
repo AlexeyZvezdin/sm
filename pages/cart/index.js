@@ -1,4 +1,4 @@
-import s from './cart.module.scss';
+import './cart.module.scss';
 import Link from 'next/link';
 // import Cookie from 'js-cookie';
 import { connect } from 'react-redux';
@@ -11,6 +11,7 @@ class cart extends React.Component {
   // }
   state = {
     products: [],
+    cardSum: 0,
   };
 
   async componentDidMount() {
@@ -27,6 +28,11 @@ class cart extends React.Component {
       });
     }
     // Cookie.set(JSON.stringify(this.props.cardProducts), 'cardProducts');
+    let sumCounter = await localStorage.getItem('sumCounter');
+    // console.log(LScounter, ' LScounter');
+    if (this.props.sum === 0 && sumCounter) {
+      this.setState({ ...this.state, cardSum: sumCounter });
+    }
   }
 
   renderIfNoProducts() {
@@ -116,7 +122,10 @@ class cart extends React.Component {
               <div className="cart-content-info-products_price">
                 <p>Товары</p>
                 <div className="cart-content-info-products_price-sum">
-                  639 ₽
+                  {this.props.sum
+                    ? Number(this.state.cardSum) + Number(this.props.sum)
+                    : this.state.cardSum}{' '}
+                  ₽
                 </div>
               </div>
               {/* Итого */}
@@ -124,7 +133,12 @@ class cart extends React.Component {
               <div className="cart-content-info-products_price_bold">
                 <p className="products_price_bold">Итого</p>
 
-                <div className="products_price_bold">639 ₽</div>
+                <div className="products_price_bold">
+                  {this.props.sum
+                    ? Number(this.state.cardSum) + Number(this.props.sum)
+                    : this.state.cardSum}{' '}
+                  ₽
+                </div>
               </div>
               {/* Кнопка оформить заказ */}
               <Link href="/cart/order">
@@ -145,10 +159,11 @@ class cart extends React.Component {
 const mapState = ({
   card: {
     cardReducer: { cardProducts },
+    sumCounter: { sum },
   },
 }) => {
-  console.log(cardProducts, '  cardProducts in mapState');
-  return { cardProducts };
+  // console.log(cardProducts, '  cardProducts in mapState');
+  return { cardProducts, sum };
 };
 
 export default connect(mapState)(cart);

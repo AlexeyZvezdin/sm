@@ -35,11 +35,19 @@ class Header extends React.Component {
     headerOffset: 0,
     showCitySelector: false,
     cardCounter: 0,
+    cardSum: 0,
   };
 
   async componentDidMount() {
     const LScounter = await localStorage.getItem('cardCounter');
-    console.log(LScounter, ' LScounter');
+    let sumCounter = await localStorage.getItem('sumCounter');
+    // console.log(LScounter, ' LScounter');
+    console.log(sumCounter, ' sumCounter');
+    console.log(this.props.sum, ' this.props.sum');
+    if (this.props.sum === 0 && sumCounter) {
+      console.log('yeah its workig nwhen is tri');
+      this.setState({ ...this.state, cardSum: sumCounter });
+    }
     if (!LScounter) {
       return;
     } else if (LScounter > 0) {
@@ -70,17 +78,15 @@ class Header extends React.Component {
     let re = /\D/gi; // Убирает всесимволы для номера
     return (
       <header className={s['main_header']}>
-        <Link href="/">
-          <a className={s['header-logo']}>
-            <img
-              src="/img/icons/icon-logo.svg"
-              alt="Суши мастер — заказ и доставка японской еды на дом"
-              className={s['header-info__logo']}
-            />
-            Суши мастер — заказ и доставка еды на дом в ГородНейм
-            {/* props.cityName + 'e' */}
-          </a>
-        </Link>
+        <a href="/" className={s['header-logo']}>
+          <img
+            src="/img/icons/icon-logo.svg"
+            alt="Суши мастер — заказ и доставка японской еды на дом"
+            className={s['header-info__logo']}
+          />
+          Суши мастер — заказ и доставка еды на дом в ГородНейм
+          {/* props.cityName + 'e' */}
+        </a>
         <div className={s['header-city_and_phone']}>
           <button
             className={s['header-city_choice']}
@@ -104,11 +110,13 @@ class Header extends React.Component {
         <nav className={s['menu']}>
           <ul>{menu}</ul>
         </nav>
-        <div className={s['header-cart_n_login']}>
-          <Link href="/cart">
-            <a className={s['header-cart_n_login']}>
+        <div className={s['header-right_section']}>
+          <div className={s['header-cart_n_login']}>
+            <a href="/cart" className={s['header-cart_n_login']}>
               <div className={s['header-cart_n_login-price']}>
-                {this.props.sum}
+                {this.props.sum
+                  ? Number(this.state.cardSum) + Number(this.props.sum)
+                  : this.state.cardSum}
                 <span> ₽</span>
               </div>
               <div className={s['header-cart_n_login-card_icon']}>
@@ -129,10 +137,10 @@ class Header extends React.Component {
                 </div>
               </div>
             </a>
-          </Link>
-        </div>
-        <div className={s['profile-badge-block']}>
-          <div className={s['profile-badge-block__login']}>Войти</div>
+          </div>
+          <div className={s['profile-badge-block']}>
+            <div className={s['profile-badge-block__login']}>Войти</div>
+          </div>
         </div>
       </header>
     );
