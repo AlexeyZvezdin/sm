@@ -1,7 +1,7 @@
 .main_header {
   display: flex;
-  justify-content: space-around;
-  padding: 20px;
+  justify-content: space-between;
+  padding: 24px;
   align-items: center;
   flex-wrap: wrap;
 }
@@ -70,6 +70,10 @@
   color: #e30613;
   text-decoration: underline;
   text-decoration-style: dashed;
+}
+
+.header-right_section {
+  display: flex;
 }
 
 a.header-cart_n_login,

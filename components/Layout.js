@@ -36,22 +36,13 @@ function Layout(props) {
             : false
         )
       : false;
-  // const thisRouteBanner =
-  //   props.path === undefined
-  //     ? false
-  //     : props.banners.items.find((item) =>
-  //         thisRouteTab.banners[0]
-  //           ? thisRouteTab.banners[0].id === item.id
-  //           : false
-  //       );
-  // console.log(thisRouteBanner, ' thisRouteBanner');
+
   const children = React.Children.map(props.children, (child, index) => {
     return React.cloneElement(child, {
       tab: thisRouteTab,
       currentPageIndex: index,
       thisRouteProducts,
       thisRouteBanner,
-      // city: props.city,
     });
   });
   return (

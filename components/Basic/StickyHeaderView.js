@@ -1,4 +1,4 @@
-import Link from 'next/link';
+// import Link from 'next/link';
 import s from './sticky.module.scss';
 
 export default function StickyHeaderView(props) {
@@ -8,9 +8,11 @@ export default function StickyHeaderView(props) {
         <div key={item.id} className={s['sticky-header__categories__item']}>
           {/* Warning: You're using a string directly inside <Link>.
            This usage has been deprecated. Please add an <a> tag as child of <Link> */}
-          <Link href="/menu/[path]" as={`/menu/${item.path}`}>
-            <a>{item.name}</a>
-          </Link>
+          {/* <a href="/menu/[path]" as={`/menu/${item.path}`}> */}
+          <a href={`/menu/${item.path}`}>
+            {/* <a>{item.name}</a> */}
+            {item.name}
+          </a>
         </div>
       ))}
     </div>

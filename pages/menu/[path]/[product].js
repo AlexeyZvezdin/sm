@@ -23,7 +23,7 @@ export default function (props) {
     (item) => routerProductPath === item.url
   );
   if (!product[0]) return '';
-  console.log(product, ' THIS PRODUCT');
+  // console.log(product, ' THIS PRODUCT');
   return (
     <div className="single_product">
       <div className="single_product-left">
@@ -41,7 +41,9 @@ export default function (props) {
         {/* price and quantity */}
         <div className="single_product-price_box">
           <span className="single_product-previous_price">
-            {product[0].priceVariants[0].previousPrice}
+            {product[0].priceVariants[0].previousPrice == 0
+              ? ''
+              : product[0].priceVariants[0].previousPrice}
           </span>
           <span>{product[0].priceVariants[0].price}</span>
           <span> ₽ — </span>

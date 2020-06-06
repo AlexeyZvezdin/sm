@@ -506,7 +506,7 @@
 }
 
 .y_map {
-  width: 50vw;
+  width: 50%;
   overflow: hidden;
   @media (max-width: 1024px) {
     width: 100%;
@@ -550,6 +550,7 @@
   letter-spacing: 0.9px;
   color: #1d1d1d;
   font-family: Pusia;
+  padding-bottom: 14px;
 }
 
 .back-button-container__button {

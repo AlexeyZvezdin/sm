@@ -6,27 +6,40 @@ import makeStore from '../redux/store';
 import withRedux from 'next-redux-wrapper';
 import CityChoiceModal from '../components/Modals/CityChoiceModal';
 import { dispatchCategoriesWithMain } from '../redux/actions/dispatchStickyTabsWithMain';
+import { parseCookies } from '../utils/parseCookies';
 import './index.module.scss';
 // import { wrapper } from '../redux/store';
 // убирая дебаг на фолс можно контролировать высеры в консоль
 export default withRedux(makeStore, { debug: false })(
   class SushiMaster extends App {
     static async getInitialProps({ Component, ctx }) {
+      let cookies;
+      let defaultCityId = '5d3834ac59201a66b905d832';
+      if (ctx.req) {
+        cookies = parseCookies(ctx.req);
+        console.log(cookies, ' COOKIES');
+        defaultCityId = cookies.cityId
+          ? cookies.cityId
+          : '5d3834ac59201a66b905d832';
+      }
       //   const cityByIpOrDomain = await fetch(
       //     'https://client-api.sushi-master.ru/api/v1/city/current?domain=abakan'
       //   );
-
       // тут пока по двоеточию поделил чтобы чекнуть что работает, с доменами будет так же
       let domain = ctx.req ? ctx.req.headers.host.split(':', 1) : '';
-      // console.log(domain, ' DOMAIN');
       // console.log(process.env.BASE_API, ' process.env.BASE_API');
-      let cityInsteadOfDomain = 'abakan';
+      // let newCity = ctx.store.getState().city;
+      // let cityId = '5d3834ad59201a66b905d9e7';
+
+      console.log(defaultCityId, ' newCity domainname');
 
       console.time('fetchstart');
       const defaultCityData = await fetcher(
-        `https://client-api.sushi-master.ru/api/v1/city/current?domain=${cityInsteadOfDomain}`
+        `https://client-api.sushi-master.ru/api/v1/city/${defaultCityId}`
+        // `https://client-api.sushi-master.ru/api/v1/city/current?domain=${cityInsteadOfDomain}`
       );
       const cityID = defaultCityData.result.cityId;
+      console.log(cityID, ' CITYID');
       let [
         thisCityCategoriesData,
         getAllBannersData,
@@ -42,7 +55,8 @@ export default withRedux(makeStore, { debug: false })(
           `https://client-api.sushi-master.ru/api/v1/catalog/structure?${cityID}`
         ),
       ]);
-      // 5d3834ad59201a66b905d9e7 - id abakan
+      // 5d3834ac59201a66b905d832 - id abakan
+      // 5d3834ad59201a66b905d9e7 - id tyumen
       // debugger;
 
       let stickyTabs = [];
@@ -69,7 +83,7 @@ export default withRedux(makeStore, { debug: false })(
         }
         return item.path === pathname;
       });
-      console.log(ProductForPathFiltered, ' ProductForPathFiltered');
+      // console.log(ProductForPathFiltered, ' ProductForPathFiltered');
 
       let productsForPath;
       if (ProductForPathFiltered[0]) {
@@ -130,6 +144,7 @@ export default withRedux(makeStore, { debug: false })(
         },
       };
     }
+
     render() {
       const { Component, pageProps, store } = this.props;
       return (

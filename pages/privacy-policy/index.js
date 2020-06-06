@@ -30,14 +30,21 @@ export default connect(({ store: { city } }) => city)(function (props) {
           dangerouslySetInnerHTML={{ __html: state.privacyPolicy }}
         />
         <style jsx>{`
+          .privacy-policy {
+            max-width: 992px;
+            margin: 0 auto;
+            margin-top: 34px;
+          }
           p {
             margin: auto;
-          }
-          .privacy-policy {
-            margin-top: 24px;
+            padding: 10px;
           }
           .privacy-policy > p {
             margin-bottom: 1rem;
+            padding: 14px;
+          }
+          a {
+            padding: 10px;
           }
         `}</style>
       </div>

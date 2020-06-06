@@ -63,7 +63,7 @@ class Index extends React.Component {
   updateInfo = async () => {
     //Пока Тюмень
     //let cityId = '5d3834ad59201a66b905d9e7';// тюмень
-    let cityId = '5d3834ad59201a66b905d9e7';
+    let cityId = this.props.cityId;
     if (cityId) {
       const result = await fetcher(
         `https://client-api.sushi-master.ru/api/v1/delivery/zones/full-info?cityId=${cityId}`
@@ -94,7 +94,7 @@ class Index extends React.Component {
   };
 
   initMap = () => {
-    console.log('is trying to render map? ');
+    console.log(this.props.cityId, 'is trying to render map? ');
 
     let map = new window.ymaps.Map(
       'map',
@@ -321,7 +321,13 @@ class Index extends React.Component {
                 </div>
                 {this.state.restaurants.length > 0 && (
                   <div>
-                    <div>
+                    <div
+                      style={{
+                        display: 'flex',
+                        flexWrap: 'wrap',
+                        justifyContent: 'space-between',
+                      }}
+                    >
                       {this.state.restaurants.map((restaurant, idx) => (
                         <AddressItem
                           key={idx}

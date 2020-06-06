@@ -4,7 +4,7 @@ import fetcher from '../../utils/fetcher';
 import Product from '../../components/Products/Product';
 import { filteredEntityByViewIntervals } from '../../utils/filteredEntityByViewIntervals';
 import sortWithSortIndex from '../../utils/sortWithSortIndex';
-import s from '../subroutes.module.scss';
+import '../subroutes.module.scss';
 import Error from '../_error';
 
 /**
@@ -25,9 +25,9 @@ function subroute(props) {
       <div className="subcategory-selector">
         <h1 className="subcategory-selector__selected">{props.tab.name}</h1>
       </div>
-      <div className={'route-container'}>
-        <div className={'route-banner'}>
-          <img className={'route-banner-pic'} src={bannerPath} alt="" />
+      <div className="route-container">
+        <div className="route-banner">
+          <img className="route-banner-pic" src={bannerPath} alt="" />
         </div>
         {products.map((product, index) => (
           <Product key={index} product={product} />

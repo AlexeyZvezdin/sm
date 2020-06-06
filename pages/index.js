@@ -11,7 +11,7 @@ import fetch from 'isomorphic-unfetch';
 // import fetch from 'unfetch';
 // import useSWR from 'swr';
 import { useRouter } from 'next/router';
-import Cookies from 'js-cookie';
+// import Cookies from 'js-cookie';
 import styles from './index.module.scss';
 import { filteredEntityByViewIntervals } from '../utils/filteredEntityByViewIntervals';
 import { splittedBanners } from '../components/Banners/splittedBanners';
@@ -51,6 +51,11 @@ function Index(props) {
       currentPageIndex: index,
     });
   });
+
+  // React.useEffect(() => {
+  //   Cookies.set('rememberMe', ' rememberMe');
+  //   Cookies.set('secondOne', ' check if works');
+  // }, []);
 
   return (
     <div className="main_box">
