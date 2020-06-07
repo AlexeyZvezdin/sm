@@ -6,6 +6,8 @@ import { selectCity } from '../../redux/actions/selectCity';
 
 import { dispatchCategoriesWithMain } from '../../redux/actions/dispatchStickyTabsWithMain';
 
+import ModalTemplate from './ModalTemplate';
+
 class CityChoiceModal extends React.Component {
   constructor(props) {
     super(props);
@@ -28,12 +30,6 @@ class CityChoiceModal extends React.Component {
     }
   }
 
-  handleModalBG = async (e) => {
-    e.stopPropagation();
-    await this.props.dispatchModalStatus();
-    console.log(this.props.city, ' THIS PROPS SCI');
-  };
-
   // handleCityChange
   handleCityChange = () => {
     console.log(this.props.city, ' THIS PROPS SCI');
@@ -47,60 +43,39 @@ class CityChoiceModal extends React.Component {
     );
     const modalFooter = () => (
       <div className={s['m_m-footer']}>
-        <button onClick={this.handleCityChange()}>продолжить</button>
+        <button onClick={this.handleCityChange()}>продолжить asd</button>
       </div>
     );
 
     this.props.modalBg ? this.fetchCities() : '';
     return (
-      <>
-        <div className={s['modal-backdrop']}></div>
-        <div
-          className={s['city_modal']}
-          role="dialog"
-          onClick={(e) => this.handleModalBG(e)}
-        ></div>
-        <div className={s['city_modal-center_container']}>
-          {/* main modal */}
-          <div className={s['m_m-box']}>
-            {modalHeader()}
-            <div className={s['m_m-body']}>
-              {this.props.modalBg && this.state.cities
-                ? this.state.cities.result.items.map((item, index) => (
-                    <button
-                      key={index}
-                      onClick={() => this.props.selectCity(item)}
-                    >
-                      {item.name}
-                    </button>
-                  ))
-                : ''}
-            </div>
-            {modalFooter()}
+      <ModalTemplate>
+        {/* main modal */}
+        <div className={s['m_m-box']}>
+          {modalHeader()}
+          <div className={s['m_m-body']}>
+            {this.props.modalBg && this.state.cities
+              ? this.state.cities.result.items.map((item, index) => (
+                  <button
+                    key={index}
+                    onClick={() => this.props.selectCity(item)}
+                  >
+                    {item.name}
+                  </button>
+                ))
+              : ''}
           </div>
+          {modalFooter()}
         </div>
-        <style jsx>{`
-          .modal-backdrop {
-            display: ${this.props.modalBg ? 'block' : 'none'};
-          }
-          .city_modal {
-            display: ${this.props.modalBg ? 'block' : 'none'};
-          }
-          .city_modal-center_container {
-            display: ${this.props.modalBg ? 'block' : 'none'};
-          }
-        `}</style>
-      </>
+      </ModalTemplate>
     );
   }
 }
-const mapStateToProps = ({ cityModal, city }) => {
-  // console.log(modal.openModalBg, ' STATE modal');
-  const modalBg = cityModal.openModalBg;
+const mapStateToProps = ({ modalReducer, city }) => {
+  let modalBg = modalReducer.openModalBg;
   return { modalBg, city };
 };
 const dispatchToProps = (dispatch) => ({
-  dispatchModalStatus: (status) => dispatch({ type: 'CLOSE_MODAL' }),
   selectCity: (city) => dispatch(selectCity(city)),
 });
 export default connect(mapStateToProps, dispatchToProps)(CityChoiceModal);

@@ -4,23 +4,12 @@ import s from './css/city_choice.module.scss';
 import './css/address_modal.module.scss';
 import { addressModal } from '../../redux/actions/addressModal';
 
+import ModalTemplate from './ModalTemplate';
+
 class AddressModal extends React.Component {
   constructor(props) {
     super(props);
   }
-
-  state = {
-    cities: null,
-  };
-
-  handleCityChange = () => {
-    console.log('lcokc');
-  };
-
-  handleModalBG = async (e) => {
-    e.stopPropagation();
-    await this.props.dispatchModalStatus();
-  };
 
   handleInputChange = async (e) => {
     console.log(this.props, ' CITY ID');
@@ -86,10 +75,10 @@ class AddressModal extends React.Component {
     );
   }
 }
-const mapStateToProps = ({ addressModal, store: { city } }) => {
-  const modalBg = addressModal.openModalBg;
-  console.log(modalBg, ' MODAL BG');
-  return { modalBg, city };
+const mapStateToProps = ({ store: { city } }) => {
+  // const modalBg = addressModal.openModalBg;
+  // console.log(modalBg, ' MODAL BG');
+  return { city };
 };
 const dispatchToProps = (dispatch) => ({
   dispatchModalStatus: (status) => dispatch({ type: 'CLOSE_ADDRESS_MODAL' }),

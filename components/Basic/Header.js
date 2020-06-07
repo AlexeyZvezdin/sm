@@ -61,7 +61,7 @@ class Header extends React.Component {
   handleCityModal = () => {
     // fetch cities
     // show city modal
-    this.props.dispatchCityModalStatus();
+    this.props.dispatchModalStatus();
   };
 
   handleAddressModal = () => {
@@ -152,20 +152,17 @@ class Header extends React.Component {
 }
 
 const mapStateToProps = ({
-  cityModal,
-  addressModal,
+  modalReducer: { openModalBg },
   store: { city },
   card: {
     cardCounter,
     sumCounter: { sum },
   },
 }) => {
-  const cityModalBg = cityModal.openModalBg;
-  const addressModalBg = addressModal.openModalBg;
-  return { addressModalBg, cityModalBg, city, cardCounter, sum };
+  return { city, cardCounter, sum, openModalBg };
 };
 const dispatchToProps = (dispatch) => ({
-  dispatchCityModalStatus: (status) => dispatch({ type: 'OPEN_MODAL' }),
+  dispatchModalStatus: (status) => dispatch({ type: 'OPEN_MODAL' }),
   dispatchAddressModalStatus: (status) =>
     dispatch({ type: 'OPEN_ADDRESS_MODAL' }),
 });

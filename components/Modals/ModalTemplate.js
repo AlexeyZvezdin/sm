@@ -1,93 +1,41 @@
 import { connect } from 'react-redux';
-import fetcher from '../../utils/fetcher';
+// import fetcher from '../../utils/fetcher';
 
-import s from './css/city_choice.module.scss';
-import { selectCity } from '../../redux/actions/selectCity';
+import s from './css/modal_template.module.scss';
+// import { selectCity } from '../../redux/actions/selectCity';
 
-import { dispatchCategoriesWithMain } from '../../redux/actions/dispatchStickyTabsWithMain';
-
-class CityChoiceModal extends React.Component {
+class ModalTemplate extends React.Component {
   constructor(props) {
     super(props);
-  }
-
-  state = {
-    cities: null,
-  };
-
-  async fetchCities() {
-    if (this.state.cities == null) {
-      let cities = await fetcher(
-        'https://client-api.sushi-master.ru/api/v1/city'
-      );
-      this.setState({
-        cities,
-      });
-    } else {
-      return;
-    }
   }
 
   handleModalBG = async (e) => {
     e.stopPropagation();
     await this.props.dispatchModalStatus();
-    console.log(this.props.city, ' THIS PROPS SCI');
-  };
-
-  // handleCityChange
-  handleCityChange = () => {
-    console.log(this.props.city, ' THIS PROPS SCI');
   };
 
   render() {
-    const modalHeader = () => (
-      <div className={s['m_m-header']}>
-        <h1>Выберите город</h1>
-      </div>
-    );
-    const modalFooter = () => (
-      <div className={s['m_m-footer']}>
-        <button onClick={this.handleCityChange()}>продолжить</button>
-      </div>
-    );
-
-    this.props.modalBg ? this.fetchCities() : '';
     return (
       <>
         <div className={s['modal-backdrop']}></div>
         <div
-          className={s['city_modal']}
+          className={s['template_modal']}
           role="dialog"
           onClick={(e) => this.handleModalBG(e)}
         ></div>
         {/* ref */}
-        <div className={s['city_modal-center_container']}>
+        <div className={s['template_modal-center_container']}>
           {/* main modal */}
-          <div className={s['m_m-box']}>
-            {modalHeader()}
-            <div className={s['m_m-body']}>
-              {this.props.modalBg && this.state.cities
-                ? this.state.cities.result.items.map((item, index) => (
-                    <button
-                      key={index}
-                      onClick={() => this.props.selectCity(item)}
-                    >
-                      {item.name}
-                    </button>
-                  ))
-                : ''}
-            </div>
-            {modalFooter()}
-          </div>
+          {this.props.children}
         </div>
         <style jsx>{`
           .modal-backdrop {
             display: ${this.props.modalBg ? 'block' : 'none'};
           }
-          .city_modal {
+          .template_modal {
             display: ${this.props.modalBg ? 'block' : 'none'};
           }
-          .city_modal-center_container {
+          .template_modal-center_container {
             display: ${this.props.modalBg ? 'block' : 'none'};
           }
         `}</style>
@@ -95,13 +43,12 @@ class CityChoiceModal extends React.Component {
     );
   }
 }
-const mapStateToProps = ({ cityModal, city }) => {
+const mapStateToProps = ({ modalReducer }) => {
   // console.log(modal.openModalBg, ' STATE modal');
-  const modalBg = cityModal.openModalBg;
-  return { modalBg, city };
+  const modalBg = modalReducer.openModalBg;
+  return { modalBg };
 };
 const dispatchToProps = (dispatch) => ({
   dispatchModalStatus: (status) => dispatch({ type: 'CLOSE_MODAL' }),
-  selectCity: (city) => dispatch(selectCity(city)),
 });
-export default connect(mapStateToProps, dispatchToProps)(CityChoiceModal);
+export default connect(mapStateToProps, dispatchToProps)(ModalTemplate);
