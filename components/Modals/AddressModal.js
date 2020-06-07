@@ -12,6 +12,7 @@ class AddressModal extends React.Component {
     showDelivery: false,
     showPickup: false,
     restaurants: {},
+    addresses: {},
   };
 
   async componentDidMount() {
@@ -77,7 +78,11 @@ class AddressModal extends React.Component {
       `https://client-api.sushi-master.ru/api/v2/address/search?countryId=${options.countryId}&cityId=${options.cityId}&query=${options.query}`,
       options
     );
-    console.log(res, ' RESULT');
+    this.setState({
+      ...this.state,
+      addresses: res,
+    });
+    console.log(this.state.addresses, ' RESULT this.state.addresses');
   };
 
   render() {

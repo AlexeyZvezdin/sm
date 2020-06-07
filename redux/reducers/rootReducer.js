@@ -7,11 +7,13 @@ import { cardCounter } from './card/cardReducer';
 import sumCounter from './card/sumCounter';
 import cityReducer from './city/cityReducer';
 import addressReducer from './address/addressReducer';
+import loginToggleReducer from './modals/login';
 // Сделать общее решение для модалок
 const rootReducer = combineReducers({
   store: initialReducer,
   cityModal: modalReducer,
   addressModal: addressModalReducer,
+  loginModal: loginToggleReducer,
   city: cityReducer,
   address: addressReducer,
   card: combineReducers({ cardReducer, cardCounter, sumCounter }),

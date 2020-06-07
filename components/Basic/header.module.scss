@@ -50,6 +50,14 @@
   align-items: center;
 }
 
+.header_phone_n_address {
+  display: flex;
+  flex-direction: column;
+}
+.header_phone_n_address-prompt {
+  font-size: 12px;
+}
+
 .header-city_and_phone a img {
   margin-left: 6px;
 }
@@ -135,6 +143,7 @@ a.header-cart_n_login,
   line-height: 1.71;
   letter-spacing: normal;
   transition: transform 0.4s ease;
+  background-color: transparent;
 }
 
 .profile-badge-block__login:hover {
