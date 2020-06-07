@@ -43,10 +43,21 @@
 
 .m_m-header {
   display: flex;
-
+  flex-direction: column;
   > h1 {
     font-family: 'Pusia';
-    margin: 26px auto;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0px;
+    font-size: 2.3rem;
+  }
+
+  > p {
+    font-size: 20px;
+    color: rgba(29, 29, 29, 0.9);
+    text-align: center;
+    margin: 24px 0px 0px;
   }
 }
 
@@ -88,7 +99,7 @@
 .m_m-footer button {
   box-sizing: border-box;
   width: 95%;
-  margin-bottom: 18px;
+  margin-bottom: 8px;
   margin-left: 18px;
   margin-right: 18px;
   border-radius: 28px;
@@ -107,4 +118,114 @@
   font-stretch: normal;
   line-height: 1.71;
   text-transform: capitalize;
+}
+
+.m_m-footer_box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.m_m-footer_box > div {
+  transition: transform 0.3s ease;
+}
+
+.address_input {
+  display: flex;
+  margin: 40px auto;
+  font-size: 24px;
+  text-align: center;
+  border: 1px solid lightgray;
+  padding: 8px 164px;
+  border-radius: 8px;
+}
+
+.m_m-short button {
+  width: 450px;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-family: 'Gotham Pro';
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.m_m-trans_button > button {
+  height: 56px;
+  align-items: center;
+  text-transform: uppercase;
+  color: rgb(227, 6, 19);
+  background: transparent;
+  border-radius: 28px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: rgb(227, 6, 19);
+  border-image: initial;
+}
+
+.m_m-footer_box > div:hover {
+  transform: scale(1.08);
+}
+
+.m_m-prompt {
+  padding-top: 16px;
+  padding-bottom: 30px;
+  color: rgba(29, 29, 29, 0.54);
+  text-align: center;
+  font-size: 16px;
+}
+
+.m_m-prompt img {
+  vertical-align: middle;
+}
+
+// address delivery and pickup
+
+.m_m-pickup-form {
+  overflow-y: auto;
+}
+
+.m_m-pickup {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0 auto;
+  padding: 10px;
+  margin-top: 10px;
+  max-height: 300px;
+  max-width: 900px;
+  overflow-y: scroll;
+  box-shadow: 0px 0px 2px 2px rgba(173, 173, 173, 0.45);
+  border-radius: 4px;
+}
+
+.m_m-pickup-item {
+  padding: 25px;
+  width: 360px;
+  cursor: pointer;
+}
+
+input:checked + .m_m-pickup-item {
+  border-radius: 6px;
+  box-shadow: 0px 0px 2px 2px rgba(173, 173, 173, 0.45);
+}
+
+.m_m-pickup input {
+  display: none;
+}
+
+.time_range {
+  display: block;
+
+  margin-top: 12px;
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: rgba(0, 0, 0, 0.54);
 }
