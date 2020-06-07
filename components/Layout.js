@@ -89,7 +89,8 @@ const mapState = (
       stickyTabs,
       pathname,
     },
-    cityModal: { openModalBg },
+    cityModal,
+    addressModal,
   },
   {
     router: {
@@ -97,6 +98,7 @@ const mapState = (
     },
   }
 ) => {
+  const openModalBg = cityModal.openModalBg || addressModal.openModalBg;
   return {
     catalogStructure,
     categories,
