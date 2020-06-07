@@ -4,6 +4,8 @@ import Layout from '../components/Layout';
 import { Provider } from 'react-redux';
 import makeStore from '../redux/store';
 import withRedux from 'next-redux-wrapper';
+import AddressModal from '../components/Modals/AddressModal';
+import LoginModal from '../components/Modals/Login';
 import CityChoiceModal from '../components/Modals/CityChoiceModal';
 import { dispatchCategoriesWithMain } from '../redux/actions/dispatchStickyTabsWithMain';
 import { parseCookies } from '../utils/parseCookies';
@@ -150,6 +152,8 @@ export default withRedux(makeStore, { debug: false })(
       return (
         <Provider store={store}>
           <CityChoiceModal />
+          <AddressModal />
+          <LoginModal />
           <Layout>
             <Component {...pageProps}></Component>
           </Layout>

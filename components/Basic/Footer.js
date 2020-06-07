@@ -1,8 +1,9 @@
 import Link from 'next/link';
+import { connect } from 'react-redux';
 import BreadCrumbs from './BreadCrumbs';
 import './footer.module.scss';
 
-const Footer = () => {
+const Footer = (props) => {
   return (
     <footer className="footer">
       <BreadCrumbs />
@@ -20,12 +21,13 @@ const Footer = () => {
           </Link>
         </div>
         <div className="footer-col">
-          <div className="footer__inn footer__bold">ИП Мереуцэ В.В.</div>
+          {/* <div className="footer__inn footer__bold">ИП Мереуцэ В.В.</div> */}
+          <div className="footer__inn footer__bold">{props.legalEntity}</div>
         </div>
         <div className="footer-col">
           <div className="footer__bold">Служба доставки</div>
           <div className="footer__phone">
-            <a href="tel:+‎7(3452)57-90-50">+‎7 (3452) 57-90-50</a>
+            <a href="tel:+‎7(3452)57-90-50">{props.phoneFooter}</a>
           </div>
         </div>
         <div
@@ -122,4 +124,6 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+const mapState = ({ store: { city } }) => city;
+
+export default connect(mapState)(Footer);

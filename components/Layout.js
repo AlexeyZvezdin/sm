@@ -52,19 +52,7 @@ function Layout(props) {
       <main>
         {/* возможно в будущем уберу отсюда */}
         <div className={styles['container__full']}>
-          {/* {this.state.loaded === 'no' ? (
-              <div
-                style={{
-                  margin: '50px',
-                  justifyContent: 'center',
-                  display: 'flex',
-                }}
-              >
-                <img src="/img/loader.gif" alt="loader" />
-              </div>
-            ) : ( */}
           <>{children}</>
-          {/* )} */}
         </div>
       </main>
       <Footer />
@@ -89,7 +77,8 @@ const mapState = (
       stickyTabs,
       pathname,
     },
-    modal: { openModalBg },
+    cityModal,
+    addressModal,
   },
   {
     router: {
@@ -97,6 +86,7 @@ const mapState = (
     },
   }
 ) => {
+  const openModalBg = cityModal.openModalBg || addressModal.openModalBg;
   return {
     catalogStructure,
     categories,

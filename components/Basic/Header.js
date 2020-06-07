@@ -61,12 +61,20 @@ class Header extends React.Component {
   handleCityModal = () => {
     // fetch cities
     // show city modal
-    this.props.dispatchModalStatus();
+    this.props.dispatchCityModalStatus();
+  };
+
+  handleAddressModal = () => {
+    this.props.dispatchAddressModalStatus();
   };
 
   returnTotalProducts() {
     // switch
   }
+
+  handleLogin = () => {
+    this.props.toggleLogin();
+  };
 
   render() {
     // console.log(this.props, ' HEADER PRPS');
@@ -105,7 +113,15 @@ class Header extends React.Component {
           ) : (
             <a>No phone</a>
           )} */}
-          <a>No phone</a>
+          <a
+            className="header_phone_n_address"
+            onClick={this.handleAddressModal}
+          >
+            <span>{this.props.city.supportPhone}</span>
+            <span className="header_phone_n_address-prompt">
+              с мобильного бесплатно
+            </span>
+          </a>
         </div>
         <nav className={s['menu']}>
           <ul>{menu}</ul>
@@ -139,7 +155,12 @@ class Header extends React.Component {
             </a>
           </div>
           <div className={s['profile-badge-block']}>
-            <div className={s['profile-badge-block__login']}>Войти</div>
+            <button
+              className={s['profile-badge-block__login']}
+              onClick={this.handleLogin}
+            >
+              Войти
+            </button>
           </div>
         </div>
       </header>
@@ -148,17 +169,23 @@ class Header extends React.Component {
 }
 
 const mapStateToProps = ({
-  modal,
+  cityModal,
+  addressModal,
+  loginModal,
   store: { city },
   card: {
     cardCounter,
     sumCounter: { sum },
   },
 }) => {
-  const modalBg = modal.openModalBg;
-  return { modalBg, city, cardCounter, sum };
+  const cityModalBg = cityModal.openModalBg;
+  const addressModalBg = addressModal.openModalBg;
+  return { addressModalBg, cityModalBg, loginModal, city, cardCounter, sum };
 };
 const dispatchToProps = (dispatch) => ({
-  dispatchModalStatus: (status) => dispatch({ type: 'OPEN_MODAL' }),
+  dispatchCityModalStatus: (status) => dispatch({ type: 'OPEN_MODAL' }),
+  dispatchAddressModalStatus: (status) =>
+    dispatch({ type: 'OPEN_ADDRESS_MODAL' }),
+  toggleLogin: () => dispatch({ type: 'OPEN_LOGIN' }),
 });
 export default connect(mapStateToProps, dispatchToProps)(Header);
