@@ -17,6 +17,7 @@ function fetcher(url, otherOpts) {
   if (otherOpts) {
     options = { ...options, ...otherOpts };
   }
+  // console.log(options, ' OPTIONS');
   // console.log(url, ' url');
   return fetch(url, options)
     .then((r) => r.json())

@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import fetcher from '../../utils/fetcher';
+import InputMask from 'react-input-mask';
 import s from './css/city_choice.module.scss';
 
 class LoginModal extends React.Component {
@@ -8,10 +9,8 @@ class LoginModal extends React.Component {
   }
 
   state = {
-    // showDelivery: false,
-    // showPickup: false,
-    // restaurants: {},
-    // addresses: {},
+    phone: '',
+    code: null,
   };
 
   async componentDidMount() {
@@ -57,18 +56,140 @@ class LoginModal extends React.Component {
     // });
   };
 
+  handlePhone = (e) => {
+    this.setState({
+      ...this.state,
+      phone: e.target.value,
+    });
+  };
+
+  submitPhone = async () => {
+    const phone = this.state.phone.replace(/\D/g, '');
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json;charset=UTF-8',
+      },
+      body: JSON.stringify({
+        countryId: '5e02173559201a0544e20b2d',
+        phone: phone,
+      }),
+    };
+    const res = await fetcher(
+      `https://client-api.sushi-master.ru/api/v2/auth/init`,
+      options
+    );
+    console.log(res, ' RESPONSE ');
+    if (res.result && res.result.timer) {
+      this.setState({
+        ...this.state,
+        timer: res.result.timer,
+        showNextScreen: true,
+      });
+    }
+  };
+
+  handleCode = (e) => {
+    this.setState({
+      ...this.state,
+      code: e.target.value,
+    });
+  };
+
+  submitCode = async () => {
+    const code = this.state.code.replace(/\D/g, '');
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json;charset=UTF-8',
+      },
+      body: JSON.stringify({
+        countryId: '5e02173559201a0544e20b2d',
+        phone: this.state.phone,
+        code: code,
+      }),
+    };
+    const res = await fetcher(
+      `https://client-api.sushi-master.ru/api/v2/auth/verify`,
+      options
+    );
+    console.log(res, ' res submitted code');
+    // Далее вставлю токены
+    // Если они приходят и все ок рендерю успех, и наоборот
+  };
+
   render() {
+    console.log(this.state, ' state in render');
+    const renderInitialBody = () => (
+      <>
+        <div className="input_group">
+          <label htmlFor="phone_input">Номер телефона</label>
+          <InputMask
+            id="phone_input"
+            name="phone"
+            alwaysShowMask
+            onChange={(e) => this.handlePhone(e)}
+            mask={'+7 \\999 999 99 99'}
+            type="text"
+            maskChar={null}
+            required
+          />
+          <div className="phone_highlight"></div>
+        </div>
+        <div className="login_modal-widgets">
+          <div className="login_modal-widget">
+            <img src="/img/icons/icon-bonus.svg" alt="" />
+            <p>Получайте бонусы за покупки</p>
+          </div>
+          <div className="login_modal-widget">
+            <img src="/img/icons/icon-history.svg" alt="" />
+            <p>Просматривайте историю заказов</p>
+          </div>
+          <div className="login_modal-widget">
+            <img src="/img/icons/icon-place.svg" alt="" />
+            <p>Храните любимые адреса</p>
+          </div>
+        </div>
+        {modalFooter()}
+      </>
+    );
+    const renderConfirmationScreen = () => (
+      <>
+        <div className="input_group">
+          <input
+            id="code_input"
+            name="code"
+            onChange={(e) => this.handleCode(e)}
+            type="number"
+            placeholder="Код из смс"
+            autoComplete="off"
+            max="10"
+            required
+          />
+          <div className="phone_highlight"></div>
+        </div>
+        {modalFooterSubmitCode()}
+      </>
+    );
+
     const modalHeader = () => (
       <div className={s['m_m-header']}>
-        <h1>Проверим адрес?</h1>
-        <p>Мы хотим убедиться, что Ваш адрес входит в зону доставки.</p>
+        <h1>Вход на сайт</h1>
       </div>
     );
     const modalFooter = () => (
       <div className="m_m-footer_box">
         <div className="m_m-footer m_m-short">
-          <button onClick={() => console.log('clicked')}>получить код</button>
+          <button onClick={() => this.submitPhone()}>получить код</button>
         </div>
+      </div>
+    );
+    const modalFooterSubmitCode = () => (
+      <div className="m_m-footer_box">
+        <div className="m_m-footer m_m-short">
+          <button onClick={() => this.submitCode()}>войти</button>
+        </div>
+        <button className="m_m-submit_code_btn">Отправить смс еще раз</button>
       </div>
     );
 
@@ -82,9 +203,11 @@ class LoginModal extends React.Component {
         ></div>
         <div className={s['city_modal-center_container']}>
           {/* main modal */}
-          <div className={s['m_m-box']}>
-            helo login
-            {modalFooter()}
+          <div className="m_m-box login_modal-box">
+            {modalHeader()}
+
+            {!this.state.showNextScreen && renderInitialBody()}
+            {this.state.showNextScreen && renderConfirmationScreen()}
           </div>
         </div>
         <style jsx>{`
