@@ -230,6 +230,25 @@ input:checked + .m_m-pickup-item {
   color: rgba(0, 0, 0, 0.54);
 }
 
+.m_m-delivery-prompts {
+  // border: 1px solid black;
+  margin: 0 auto;
+  padding: 0 6px;
+  margin-top: -40px;
+  width: 600px;
+  max-height: 200px;
+  overflow-y: scroll;
+  box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.34);
+}
+
+.m_m-delivery-prompt {
+  cursor: pointer;
+}
+
+.m_m-delivery-prompt:hover {
+  background-color: rgb(223, 223, 223);
+}
+
 // login modal
 
 .login_modal-box {

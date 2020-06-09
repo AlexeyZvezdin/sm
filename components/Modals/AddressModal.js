@@ -13,10 +13,14 @@ class AddressModal extends React.Component {
     showPickup: false,
     restaurants: {},
     addresses: {},
+    addressInValue: '',
+    currentPickUpAddress: '',
+    currentDeliveryAddress: '',
+    inputValue: '',
   };
 
   async componentDidMount() {
-    console.log(this.props.city, ' this.props.city');
+    // console.log(this.props.city, ' this.props.city');
     const { result } = await fetcher(
       `https://client-api.sushi-master.ru/api/v1/restaurants?cityId=${this.props.city.cityId}`
     );
@@ -25,6 +29,7 @@ class AddressModal extends React.Component {
       restaurants: result.items,
       currentPickUpAddress: '',
       currentDeliveryAddress: '',
+      addresses: [],
     });
   }
 
@@ -33,7 +38,7 @@ class AddressModal extends React.Component {
       ...this.state,
       currentPickUpAddress: item,
     });
-    console.log(this.state.currentPickUpAddress, ' currentPickUpAddress');
+    // console.log(this.state.currentPickUpAddress, ' currentPickUpAddress');
   };
 
   submitPickUp = (e) => {
@@ -41,10 +46,16 @@ class AddressModal extends React.Component {
     // let div_array = Array.prototype.slice.call(e.currentTarget.pickup_address);
     // const checkedValue = div_array.filter((item) => item.checked === true);
     // console.log(checkedValue.index, ' SUMITTTED checkedValue');
+    localStorage.setItem(
+      'currentPickUpAddress',
+      JSON.stringify(this.state.currentPickUpAddress)
+    );
+    this.props.dispatchModalStatus();
+    // console.log(this.state, ' THIS STATAE');
   };
 
   handlePickup = () => {
-    console.log('handlePickup');
+    // console.log('handlePickup');
     this.setState({
       ...this.state,
       showDelivery: false,
@@ -67,8 +78,8 @@ class AddressModal extends React.Component {
   };
 
   handleInputChange = async (e) => {
-    console.log(this.props, ' CITY ID');
-
+    // console.log(this.props, ' CITY ID');
+    let val = e.target.value;
     let options = {
       countryId: '5e02173559201a0544e20b2d',
       cityId: this.props.city.cityId,
@@ -80,9 +91,44 @@ class AddressModal extends React.Component {
     );
     this.setState({
       ...this.state,
-      addresses: res,
+      inputValue: val,
+      addresses: res.result.items,
     });
-    console.log(this.state.addresses, ' RESULT this.state.addresses');
+    // console.log(this.state.addresses, ' RESULT this.state.addresses');
+  };
+
+  chooseStreet = async (item) => {
+    console.log(item, ' formateer itemitemitem');
+    this.setState({
+      ...this.state,
+      addressInValue: item.formattedAddress,
+    });
+    let options = {
+      countryId: '5e02173559201a0544e20b2d',
+      cityId: this.props.city.cityId,
+      query: JSON.stringify(item.formattedAddress),
+      placeId: item.placeId,
+    };
+    const res = await fetcher(
+      `https://client-api.sushi-master.ru/api/v2/address/search?countryId=${options.countryId}&cityId=${options.cityId}&query=${options.query}`,
+      options
+    );
+    this.setState({
+      ...this.state,
+      currentDeliveryAddress: item,
+      addresses: res.result.items,
+    });
+    console.log(res, ' ITEM res');
+  };
+
+  submitDelivery = (e) => {
+    e.preventDefault();
+    localStorage.setItem(
+      'currentDeliveryAddress',
+      JSON.stringify(this.state.currentDeliveryAddress)
+    );
+    this.props.dispatchModalStatus();
+    // console.log(this.state, ' THIS SATATE');
   };
 
   render() {
@@ -146,14 +192,37 @@ class AddressModal extends React.Component {
 
     const renderDelivery = () => {
       return (
-        <div className="m_m-delivery">
-          <input
-            onChange={(e) => this.handleInputChange(e)}
-            className="address_input"
-            type="text"
-            placeholder="Введите адрес"
-          />
-        </div>
+        <form
+          id="address_form"
+          className="m_m-pickup-form"
+          onSubmit={(e) => this.submitDelivery(e)}
+        >
+          <div className="m_m-delivery">
+            <input
+              onChange={(e) => this.handleInputChange(e)}
+              className="address_input"
+              type="text"
+              placeholder="Введите адрес"
+              value={
+                this.state.addressInValue
+                  ? this.state.addressInValue
+                  : this.state.inputValue
+              }
+            />
+            <div className="m_m-delivery-prompts">
+              {this.state.addresses.map((item) => {
+                return (
+                  <p
+                    className="m_m-delivery-prompt"
+                    onClick={() => this.chooseStreet(item)}
+                  >
+                    {item.formattedAddress}
+                  </p>
+                );
+              })}
+            </div>
+          </div>
+        </form>
       );
     };
 

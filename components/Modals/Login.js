@@ -31,7 +31,7 @@ class LoginModal extends React.Component {
       ...this.state,
       currentPickUpAddress: item,
     });
-    console.log(this.state.currentPickUpAddress, ' currentPickUpAddress');
+    // console.log(this.state.currentPickUpAddress, ' currentPickUpAddress');
   };
 
   handleModalBG = async (e) => {
@@ -113,13 +113,13 @@ class LoginModal extends React.Component {
       `https://client-api.sushi-master.ru/api/v2/auth/verify`,
       options
     );
-    console.log(res, ' res submitted code');
+    // console.log(res, ' res submitted code');
     // Далее вставлю токены
     // Если они приходят и все ок рендерю успех, и наоборот
   };
 
   render() {
-    console.log(this.state, ' state in render');
+    // console.log(this.state, ' state in render');
     const renderInitialBody = () => (
       <>
         <div className="input_group">
@@ -226,7 +226,7 @@ class LoginModal extends React.Component {
   }
 }
 const mapStateToProps = ({ store: { city }, loginModal: { openModal } }) => {
-  console.log(openModal, ' loginModal');
+  // console.log(openModal, ' loginModal');
   return { city, openModal };
 };
 const dispatchToProps = (dispatch) => ({
