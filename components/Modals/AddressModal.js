@@ -90,13 +90,16 @@ class AddressModal extends React.Component {
       cityId: this.props.city.cityId,
       query: e.target.value,
     };
+    this.setState({
+      ...this.state,
+      inputValue: val,
+    });
     const res = await fetcher(
       `https://client-api.sushi-master.ru/api/v2/address/search?countryId=${options.countryId}&cityId=${options.cityId}&query=${options.query}`,
       options
     );
     this.setState({
       ...this.state,
-      inputValue: val,
       addresses: res.result.items,
     });
     // console.log(this.state.addresses, ' RESULT this.state.addresses');
@@ -107,6 +110,7 @@ class AddressModal extends React.Component {
     this.setState({
       ...this.state,
       addressInValue: item.formattedAddress,
+      inputValue: item.formattedAddress,
     });
     let options = {
       countryId: '5e02173559201a0544e20b2d',
@@ -212,11 +216,7 @@ class AddressModal extends React.Component {
               className="address_input"
               type="text"
               placeholder="Введите адрес"
-              value={
-                this.state.addressInValue
-                  ? this.state.addressInValue
-                  : this.state.inputValue
-              }
+              value={this.state.inputValue}
             />
             <div className="m_m-delivery-prompts">
               {this.state.addresses.map((item) => {

@@ -13,12 +13,15 @@ import { cardProductsDispatch } from '../../redux/actions/cardProducts';
 import { useRouter } from 'next/router';
 
 function Product({ product, store, ...props }) {
-  // console.log(store, ' store');
+  console.log(props, ' store');
   const [cartButtonCounter, setCartButtonCounter] = React.useState(0);
   const [localProductCounter, setlocalProductCounter] = React.useState(0);
   const [productInfo, setProductInfo] = React.useState(true);
   const router = useRouter();
   const handleCounterClick = async (action) => {
+    if (props.card.cardCounter.counter === 0) {
+      props.dispatchAddressModalStatus();
+    }
     if (action === 'inc') {
       await localStorage.setItem(
         'cardCounter',
@@ -274,6 +277,8 @@ const mapDispatch = (dispatch) => {
     cardCounterDecrement: () => dispatch(cardCounterDecrement()),
     cardCounterIncrement: () => dispatch(cardCounterIncrement()),
     totalSumCounter: (type, sum) => dispatch(totalSumCounter(type, sum)),
+    dispatchAddressModalStatus: (status) =>
+      dispatch({ type: 'OPEN_ADDRESS_MODAL' }),
   };
 };
 

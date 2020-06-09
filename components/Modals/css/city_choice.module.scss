@@ -138,7 +138,9 @@
   font-size: 24px;
   text-align: center;
   border: 1px solid lightgray;
-  padding: 8px 164px;
+  padding: 8px;
+  min-width: 600px;
+  max-width: 600px;
   border-radius: 8px;
 }
 

@@ -1,4 +1,4 @@
-const addressReducer = (state = { address: {} }, action) => {
+const addressReducer = (state = { address: '' }, action) => {
   // let address;
   // if (action.payload) {
   //   address = action.payload.address;
