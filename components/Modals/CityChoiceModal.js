@@ -13,6 +13,7 @@ class CityChoiceModal extends React.Component {
 
   state = {
     cities: null,
+    filteredCities: [],
   };
 
   async fetchCities() {
@@ -20,8 +21,10 @@ class CityChoiceModal extends React.Component {
       let cities = await fetcher(
         'https://client-api.sushi-master.ru/api/v1/city'
       );
+      let filterCities = cities.result.items;
       this.setState({
         cities,
+        filterCities,
       });
     } else {
       return;
@@ -31,23 +34,48 @@ class CityChoiceModal extends React.Component {
   handleModalBG = async (e) => {
     e.stopPropagation();
     await this.props.dispatchModalStatus();
-    console.log(this.props.city, ' THIS PROPS SCI');
+    // console.log(this.props.city, ' THIS PROPS SCI');
   };
 
   // handleCityChange
   handleCityChange = () => {
-    console.log(this.props.city, ' THIS PROPS SCI');
+    // console.log(this.props.city, ' THIS PROPS SCI');
+  };
+
+  filterCities = (e) => {
+    let filteredCities = this.state.cities.result.items.filter((item) =>
+      item.name.toLowerCase().includes(e.target.value.toLowerCase())
+    );
+    this.setState({
+      ...this.state,
+      filterCities: filteredCities,
+    });
   };
 
   render() {
     const modalHeader = () => (
       <div className={s['m_m-header']}>
         <h1>Выберите город</h1>
+        <div className="m_m-header-search_field">
+          <input
+            type="text"
+            name="city_name"
+            id="city_name"
+            onChange={(e) => this.filterCities(e)}
+            placeholder="Поиск по названию"
+          />
+          <div className="city_name-highlight"></div>
+        </div>
       </div>
     );
     const modalFooter = () => (
       <div className={s['m_m-footer']}>
-        <button onClick={this.handleCityChange()}>продолжить</button>
+        <button
+          className="m_m-footer-continue_button"
+          onClick={this.handleCityChange()}
+        >
+          продолжить
+        </button>
       </div>
     );
 
@@ -64,17 +92,20 @@ class CityChoiceModal extends React.Component {
           {/* main modal */}
           <div className={s['m_m-box']}>
             {modalHeader()}
-            <div className={s['m_m-body']}>
-              {this.props.modalBg && this.state.cities
-                ? this.state.cities.result.items.map((item, index) => (
-                    <button
-                      key={index}
-                      onClick={() => this.props.selectCity(item)}
-                    >
-                      {item.name}
-                    </button>
-                  ))
-                : ''}
+            <div className="m_m-body_box">
+              <div className={s['m_m-body']}>
+                {this.props.modalBg && this.state.filterCities
+                  ? this.state.filterCities.map((item, index) => (
+                      <button
+                        className="city_modal-city_button"
+                        key={index}
+                        onClick={() => this.props.selectCity(item)}
+                      >
+                        {item.name}
+                      </button>
+                    ))
+                  : ''}
+              </div>
             </div>
             {modalFooter()}
           </div>

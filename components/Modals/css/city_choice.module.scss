@@ -61,8 +61,35 @@
   }
 }
 
+.m_m-header-search_field {
+  margin: 40px;
+}
+
+.m_m-header-search_field input {
+  font-size: 1.4rem;
+  border-bottom: 1px solid lightgray;
+  width: 100%;
+  padding: 1.4rem;
+}
+
+.city_name-highlight {
+  height: 0px;
+  width: 0px;
+  background-color: black;
+  transition: all 0.2s ease-in;
+}
+
+#city_name:focus + .city_name-highlight {
+  height: 2px;
+  width: 100%;
+}
+
+.m_m-body_box {
+  max-height: 200px;
+}
+
 .m_m-body {
-  max-height: 400px;
+  max-height: 200px;
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
@@ -95,6 +122,9 @@
   color: rgba(0, 0, 0, 0.75);
   border-bottom: 1px solid rgba(29, 29, 29, 0.07);
 }
+.city_modal-city_button:hover {
+  color: #e30613;
+}
 
 .m_m-footer button {
   box-sizing: border-box;
@@ -118,6 +148,10 @@
   font-stretch: normal;
   line-height: 1.71;
   text-transform: capitalize;
+}
+
+.m_m-footer-continue_button {
+  margin-top: 2rem;
 }
 
 .m_m-footer_box {

@@ -13,7 +13,6 @@ import { cardProductsDispatch } from '../../redux/actions/cardProducts';
 import { useRouter } from 'next/router';
 
 function Product({ product, store, ...props }) {
-  console.log(props, ' store');
   const [cartButtonCounter, setCartButtonCounter] = React.useState(0);
   const [localProductCounter, setlocalProductCounter] = React.useState(0);
   const [productInfo, setProductInfo] = React.useState(true);
