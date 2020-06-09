@@ -1,4 +1,7 @@
-export const addressModal = (data) => ({
-  type: 'PUT_ADDRESS_DATA',
-  payload: data,
-});
+export const addressModal = (data) => {
+  console.log(data, ' DATA');
+  return {
+    type: 'PUT_ADDRESS_DATA',
+    payload: data,
+  };
+};

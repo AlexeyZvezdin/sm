@@ -50,6 +50,11 @@ class AddressModal extends React.Component {
       'currentPickUpAddress',
       JSON.stringify(this.state.currentPickUpAddress)
     );
+    const payload = this.state.currentPickUpAddress.address;
+    this.props.addressModal({
+      type: 'PICKUP_ADDRESS_DATA',
+      payload: payload,
+    });
     this.props.dispatchModalStatus();
     // console.log(this.state, ' THIS STATAE');
   };
@@ -127,6 +132,10 @@ class AddressModal extends React.Component {
       'currentDeliveryAddress',
       JSON.stringify(this.state.currentDeliveryAddress)
     );
+    this.props.addressModal({
+      type: 'DELIVERY_ADDRESS_DATA',
+      payload: this.state.currentDeliveryAddress.formattedAddress,
+    });
     this.props.dispatchModalStatus();
     // console.log(this.state, ' THIS SATATE');
   };
@@ -329,7 +338,7 @@ const mapStateToProps = ({ addressModal, store: { city } }) => {
 };
 const dispatchToProps = (dispatch) => ({
   dispatchModalStatus: (status) => dispatch({ type: 'CLOSE_ADDRESS_MODAL' }),
-  addressModal: (data) => dispatch(addressModal(data)),
+  addressModal: (data) => dispatch(data),
   dispatchAddress: (address) => dispatch({ type: 'SET_ADDRESS' }),
 });
 export default connect(mapStateToProps, dispatchToProps)(AddressModal);

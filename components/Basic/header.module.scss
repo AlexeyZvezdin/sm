@@ -24,6 +24,7 @@
 }
 
 .main_header .menu ul a {
+  font-size: 14px;
   padding: 10px;
   white-space: nowrap;
   transition: transform 0.4s ease;
@@ -38,11 +39,11 @@
 
 .header-city_and_phone {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .header-city_and_phone > * {
-  margin: 0 46px;
+  margin: 0 26px;
 }
 
 .header-city_and_phone a {
@@ -72,12 +73,22 @@
 }
 
 .header-city_choice-city_name {
-  font-size: 1rem;
   line-height: 1.71;
   letter-spacing: normal;
   color: #e30613;
   text-decoration: underline;
   text-decoration-style: dashed;
+  font-size: 14px;
+}
+
+.header-address {
+  line-height: 1.71;
+  letter-spacing: normal;
+  color: #e30613;
+  text-decoration: underline;
+  text-decoration-style: dashed;
+  cursor: pointer;
+  font-size: 14px;
 }
 
 .header-right_section {
