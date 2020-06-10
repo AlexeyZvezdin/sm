@@ -11,6 +11,7 @@ let options = {
   headers: {
     [HEADER_DEVICE_TYPE]: DEVICE_TYPE_WEB,
     [HEADER_DEVICE_TOKEN]: getDeviceToken(),
+    'Content-type': 'application/json;charset=UTF-8',
   },
 };
 function fetcher(url, otherOpts) {

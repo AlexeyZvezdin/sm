@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { connect } from 'react-redux';
 import { parseCookies } from '../../utils/parseCookies';
 import CardProduct from '../../components/Products/CardProduct';
+import fetcher from '../../utils/fetcher';
 
 class cart extends React.Component {
   // static async getInitialProps(ctx) {
@@ -21,7 +22,7 @@ class cart extends React.Component {
       this.setState({
         products: cardProducts,
       });
-      // console.log(cardProducts, ' cardProducts');
+      console.log(cardProducts, ' cardProducts');
     } else {
       this.setState({
         products: this.props.cardProducts,
@@ -33,6 +34,29 @@ class cart extends React.Component {
     if (this.props.sum === 0 && sumCounter) {
       this.setState({ ...this.state, cardSum: sumCounter });
     }
+    let products = Object.values(this.state.products);
+    let productsForReq = products.map((item) => {
+      return {
+        count: item.quantity,
+        priceVariantId: item.product.priceVariants[0].id,
+        productId: item.product.id,
+        type: 'DEFAULT',
+      };
+    });
+    const options = {
+      body: JSON.stringify({
+        cityId: this.props.city.cityId,
+        products: productsForReq,
+        promocode: '',
+      }),
+      method: 'POST',
+    };
+
+    const res = await fetcher(
+      `https://client-api.sushi-master.ru/api/v1/cart`,
+      options
+    );
+    console.log(res, ' RESULXT CARD');
   }
 
   renderIfNoProducts() {
@@ -68,6 +92,10 @@ class cart extends React.Component {
       );
     }
   }
+
+  handleOrder = () => {
+    // const res = fetcher(`https://client-api.sushi-master.ru/api/v1/cart`);
+  };
 
   render() {
     // if (typeof localStorage != 'undefined') {
@@ -141,13 +169,12 @@ class cart extends React.Component {
                 </div>
               </div>
               {/* Кнопка оформить заказ */}
-              <Link href="/cart/order">
-                <a>
-                  <button className="order-inner-container__submit-button">
-                    Оформить заказ
-                  </button>
-                </a>
-              </Link>
+              <button
+                onClick={this.handleOrder}
+                className="order-inner-container__submit-button"
+              >
+                Оформить заказ
+              </button>
             </div>
           </div>
         </section>
@@ -157,13 +184,14 @@ class cart extends React.Component {
 }
 
 const mapState = ({
+  store: { city },
   card: {
     cardReducer: { cardProducts },
     sumCounter: { sum },
   },
 }) => {
   // console.log(cardProducts, '  cardProducts in mapState');
-  return { cardProducts, sum };
+  return { cardProducts, sum, city };
 };
 
 export default connect(mapState)(cart);

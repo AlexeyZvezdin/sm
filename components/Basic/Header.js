@@ -49,6 +49,22 @@ class Header extends React.Component {
       localStorage.getItem('currentPickUpAddress')
     );
 
+    if (!this.props.address.address) {
+      let deliveryAddress = JSON.parse(
+        localStorage.getItem('currentDeliveryAddress')
+      );
+      let pickUpAddress = JSON.parse(
+        localStorage.getItem('currentPickUpAddress')
+      );
+      this.setState({
+        ...this.state,
+        address: deliveryAddress
+          ? deliveryAddress.formattedAddress
+          : pickUpAddress
+          ? pickUpAddress.address
+          : '',
+      });
+    }
     // if (currentDeliveryAddress) {
     //   this.setState({
     //     ...this.state,
@@ -97,7 +113,7 @@ class Header extends React.Component {
 
   render() {
     // console.log(this.props, ' HEADER PRPS');
-    console.log(this.props.address.address, ' ADRESSS');
+    console.log(this.state.address, ' ADRESSS');
 
     const menu = links.map((el, index) => (
       <li key={index}>
@@ -134,12 +150,12 @@ class Header extends React.Component {
           ) : (
             <a>No phone</a>
           )} */}
-          {this.props.address.address ? (
+          {this.props.address.address || this.state.address ? (
             <button
               className={s['header-address']}
               onClick={this.handleAddressModal}
             >
-              {this.props.address.address}
+              {this.props.address.address || this.state.address}
             </button>
           ) : (
             <a
