@@ -37,7 +37,7 @@ export let renderBanners = (banners, index, products) => {
                 style={{
                   padding: '1px',
                 }}
-                src={`https://client-api.sushi-master.ru/pics/${el.pictureId}`}
+                data-src={`https://client-api.sushi-master.ru/pics/${el.pictureId}`}
               />
             ))}
           </Swiper>

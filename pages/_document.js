@@ -101,10 +101,10 @@ class MyDocument extends Document {
             }}
           /> */}
           {/* лучше так не делать но хед не работает чето в деливери */}
-          <script
+          {/* <script
             src="https://api-maps.yandex.ru/2.1/?apikey=78245263-55a3-404a-b40b-4470b2b76b9c&lang=ru_RU&coordorder=longlat"
             type="text/javascript"
-          ></script>
+          ></script> */}
         </Head>
         <body>
           <Main />

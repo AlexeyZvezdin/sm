@@ -184,10 +184,11 @@ class Index extends React.Component {
     return (
       <>
         <Head>
-          {/* <script
+          <script
+            defer
             src="https://api-maps.yandex.ru/2.1/?apikey=78245263-55a3-404a-b40b-4470b2b76b9c&lang=ru_RU&coordorder=longlat"
             type="text/javascript"
-          ></script> */}
+          ></script>
         </Head>
         <div className="delivery-scene">
           {/* <Header showStickyHeader={true} onlyInfo={true}>

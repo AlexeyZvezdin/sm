@@ -188,7 +188,7 @@ function Product({ product, store, ...props }) {
       {/* delimeter */}
       <a href={`/menu/${router.query.path}/${product.url}`}>
         <img
-          src={`https://client-api.sushi-master.ru/pics/${product.mainPictureId}?width=400`}
+          data-src={`https://client-api.sushi-master.ru/pics/${product.mainPictureId}?width=400`}
           alt=""
         />
       </a>

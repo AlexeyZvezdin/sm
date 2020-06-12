@@ -34,29 +34,32 @@ class cart extends React.Component {
     if (this.props.sum === 0 && sumCounter) {
       this.setState({ ...this.state, cardSum: sumCounter });
     }
-    let products = Object.values(this.state.products);
-    let productsForReq = products.map((item) => {
-      return {
-        count: item.quantity,
-        priceVariantId: item.product.priceVariants[0].id,
-        productId: item.product.id,
-        type: 'DEFAULT',
-      };
-    });
-    const options = {
-      body: JSON.stringify({
-        cityId: this.props.city.cityId,
-        products: productsForReq,
-        promocode: '',
-      }),
-      method: 'POST',
-    };
 
-    const res = await fetcher(
-      `https://client-api.sushi-master.ru/api/v1/cart`,
-      options
-    );
-    console.log(res, ' RESULXT CARD');
+    if (this.state.products) {
+      let products = Object.values(this.state.products);
+      let productsForReq = products.map((item) => {
+        return {
+          count: item.quantity,
+          priceVariantId: item.product.priceVariants[0].id,
+          productId: item.product.id,
+          type: 'DEFAULT',
+        };
+      });
+      const options = {
+        body: JSON.stringify({
+          cityId: this.props.city.cityId,
+          products: productsForReq,
+          promocode: '',
+        }),
+        method: 'POST',
+      };
+
+      const res = await fetcher(
+        `https://client-api.sushi-master.ru/api/v1/cart`,
+        options
+      );
+      console.log(res, ' RESULXT CARD');
+    }
   }
 
   renderIfNoProducts() {
@@ -66,11 +69,9 @@ class cart extends React.Component {
           <div className="card__placeholder__section">
             Добавьте что-нибудь из меню
           </div>
-          <Link href="/">
-            <a className="card_noproducts-link">
-              <button className="card_noproducts-button">В каталог</button>
-            </a>
-          </Link>
+          <a href="/" className="card_noproducts-link">
+            <button className="card_noproducts-button">В каталог</button>
+          </a>
         </div>
       </div>
     );
