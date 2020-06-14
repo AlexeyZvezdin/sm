@@ -110,7 +110,7 @@ class cart extends React.Component {
     //     });
     //   }
     // }
-
+    console.log(this.state.cardSum, ' SUMCOUNTER');
     const renderWidget = () => {
       return (
         <div className="cart-order-widget">
@@ -175,7 +175,7 @@ class cart extends React.Component {
               <span>Товары</span>
             </div>
             {/* products */}
-            {this.state.cardSum ? (
+            {this.state.cardSum != 0 ? (
               <div className="card_products">{this.renderCardProducts()}</div>
             ) : (
               this.renderIfNoProducts()
@@ -183,7 +183,7 @@ class cart extends React.Component {
           </div>
 
           {/* widget */}
-          {this.state.cardSum && renderWidget()}
+          {this.state.cardSum != 0 && renderWidget()}
         </section>
       </div>
     );
