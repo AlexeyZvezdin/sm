@@ -3,7 +3,7 @@
   justify-content: space-between;
   padding: 24px;
   align-items: center;
-  flex-wrap: wrap;
+  // flex-wrap: wrap;
 }
 
 .main_header a {
@@ -97,6 +97,7 @@ a.header-cart_n_login,
   display: flex;
   align-items: center;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .header-cart_n_login__icon {
@@ -164,10 +165,33 @@ a.header-cart_n_login,
   border-color: #e30613;
 }
 
-@media (max-width: 1330px) {
+@media (max-width: 1330px) and (min-width: 988px) {
+  .main_header {
+    padding: 14px;
+  }
+  .header-city_choice {
+    margin: 0 10px;
+  }
+  .header-address {
+    margin: 0 10px;
+  }
+  .main_header .menu ul a {
+    padding: 6px;
+  }
+  .profile-badge-block__login {
+    margin-left: 6px;
+  }
 }
 
 @media (max-width: 988px) {
+  .main_header {
+    padding: 10px;
+  }
+
+  .header-city_and_phone {
+    flex-wrap: wrap;
+  }
+
   .main_header .menu {
     display: none;
   }

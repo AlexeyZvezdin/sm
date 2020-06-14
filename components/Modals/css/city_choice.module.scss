@@ -379,4 +379,28 @@ input:checked + .m_m-pickup-item {
   .m_m-header p {
     padding: 0 28px;
   }
+
+  .city_modal-width {
+    width: 95%;
+  }
+
+  .m_m-header > h1 {
+    font-size: 1.8rem;
+  }
+
+  .address_input {
+    min-width: 90%;
+    font-size: 18px;
+  }
+
+  .m_m-delivery-prompts {
+    width: 90%;
+  }
+  .m_m-delivery-prompt {
+    padding: 4px 12px;
+  }
+
+  .m_m-footer_box {
+    flex-wrap: wrap;
+  }
 }
