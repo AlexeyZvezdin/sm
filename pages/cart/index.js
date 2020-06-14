@@ -111,6 +111,58 @@ class cart extends React.Component {
     //   }
     // }
 
+    const renderWidget = () => {
+      return (
+        <div className="cart-order-widget">
+          {/* промокод */}
+          <div className="cart-order-widget-promocode">
+            <input
+              className="order-inner-container_input"
+              type="text"
+              name="promocode"
+              id="promocode"
+              placeholder="Промокод"
+            />
+            <span className="inner-container__promocode_enter">
+              <span className="inner-container__promocode_arrow"></span>
+            </span>
+          </div>
+          {/* информация */}
+          <div className="cart-content-info">
+            {/* Товары */}
+            <div className="cart-content-info-products_price">
+              <p>Товары</p>
+              <div className="cart-content-info-products_price-sum">
+                {this.props.sum
+                  ? Number(this.state.cardSum) + Number(this.props.sum)
+                  : this.state.cardSum}{' '}
+                ₽
+              </div>
+            </div>
+            {/* Итого */}
+            {/* забыл как два стиля импортировать, пздц */}
+            <div className="cart-content-info-products_price_bold">
+              <p className="products_price_bold">Итого</p>
+
+              <div className="products_price_bold">
+                {this.props.sum
+                  ? Number(this.state.cardSum) + Number(this.props.sum)
+                  : this.state.cardSum}{' '}
+                ₽
+              </div>
+            </div>
+            {/* Кнопка оформить заказ */}
+            <button
+              onClick={this.handleOrder}
+              className="order-inner-container__submit-button"
+            >
+              Оформить заказ
+            </button>
+          </div>
+        </div>
+      );
+    };
+
     return (
       <div className="cart-container">
         <div className="cart-container-back">
@@ -123,7 +175,7 @@ class cart extends React.Component {
               <span>Товары</span>
             </div>
             {/* products */}
-            {this.state.products ? (
+            {this.state.cardSum ? (
               <div className="card_products">{this.renderCardProducts()}</div>
             ) : (
               this.renderIfNoProducts()
@@ -131,53 +183,7 @@ class cart extends React.Component {
           </div>
 
           {/* widget */}
-          <div className="cart-order-widget">
-            {/* промокод */}
-            <div className="cart-order-widget-promocode">
-              <input
-                className="order-inner-container_input"
-                type="text"
-                name="promocode"
-                id="promocode"
-                placeholder="Промокод"
-              />
-              <span className="inner-container__promocode_enter">
-                <span className="inner-container__promocode_arrow"></span>
-              </span>
-            </div>
-            {/* информация */}
-            <div className="cart-content-info">
-              {/* Товары */}
-              <div className="cart-content-info-products_price">
-                <p>Товары</p>
-                <div className="cart-content-info-products_price-sum">
-                  {this.props.sum
-                    ? Number(this.state.cardSum) + Number(this.props.sum)
-                    : this.state.cardSum}{' '}
-                  ₽
-                </div>
-              </div>
-              {/* Итого */}
-              {/* забыл как два стиля импортировать, пздц */}
-              <div className="cart-content-info-products_price_bold">
-                <p className="products_price_bold">Итого</p>
-
-                <div className="products_price_bold">
-                  {this.props.sum
-                    ? Number(this.state.cardSum) + Number(this.props.sum)
-                    : this.state.cardSum}{' '}
-                  ₽
-                </div>
-              </div>
-              {/* Кнопка оформить заказ */}
-              <button
-                onClick={this.handleOrder}
-                className="order-inner-container__submit-button"
-              >
-                Оформить заказ
-              </button>
-            </div>
-          </div>
+          {this.state.cardSum && renderWidget()}
         </section>
       </div>
     );

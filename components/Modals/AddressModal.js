@@ -69,7 +69,7 @@ class AddressModal extends React.Component {
   };
 
   handleDelivery = () => {
-    console.log('handleDelivery');
+    // console.log('handleDelivery');
     this.setState({
       ...this.state,
       showDelivery: !this.state.showDelivery,
@@ -106,7 +106,7 @@ class AddressModal extends React.Component {
   };
 
   chooseStreet = async (item) => {
-    console.log(item, ' formateer itemitemitem');
+    // console.log(item, ' formateer itemitemitem');
     this.setState({
       ...this.state,
       addressInValue: item.formattedAddress,
@@ -127,7 +127,7 @@ class AddressModal extends React.Component {
       currentDeliveryAddress: item,
       addresses: res.result.items,
     });
-    console.log(res, ' ITEM res');
+    // console.log(res, ' ITEM res');
   };
 
   submitDelivery = (e) => {
