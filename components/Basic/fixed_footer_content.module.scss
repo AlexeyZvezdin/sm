@@ -1,0 +1,138 @@
+.fxd_content {
+  box-shadow: 0px 0px 2px 4px rgb(241, 231, 231);
+  max-height: 0px;
+  position: fixed;
+  bottom: 16px;
+  transition: max-height 0.7s ease;
+  z-index: 10;
+  overflow: hidden;
+  background-color: white;
+  width: 100%;
+  padding: 14px;
+}
+
+.fxd_content-opened {
+  max-height: 1000px;
+  bottom: 56px;
+}
+
+#search_footer {
+  position: relative;
+  width: 100%;
+  display: block;
+  font-size: 1rem;
+  font-weight: 500;
+  text-indent: 16px;
+  background-color: rgb(250, 249, 249);
+  color: rgb(29, 29, 29);
+  border-width: initial;
+  border-style: none none none;
+  border-radius: 18px;
+  padding: 12px 0px;
+  transition: width 0.3s ease 0s;
+  margin-bottom: 2rem;
+}
+.search-close {
+  display: block;
+  cursor: pointer;
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  background-image: url('/img/icons/icon-menu-close.svg');
+  background-color: transparent;
+  width: 24px;
+  height: 24px;
+  border-style: none;
+}
+.fxd_content-delivery_phone {
+  padding: 18px;
+  font-size: 1rem;
+}
+
+.fxd_content-delivery_phone p {
+  margin-bottom: 8px;
+}
+
+.fxd_content-menu {
+  padding: 18px;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  max-height: 150px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.fxd_content-menu a {
+  color: #1d1d1d;
+  display: block;
+  margin: 10px;
+}
+
+.fxd_content-quiz {
+  margin: 16px;
+  background-color: #eb673d;
+  border-radius: 8px;
+  padding: 20px 16px;
+}
+
+.fxd_content-quiz p {
+  color: white;
+  font-weight: 500;
+  font-size: 1.4rem;
+}
+
+.fxd_content-quiz-link {
+  display: block;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  text-decoration: underline;
+  color: white;
+  font-weight: 500;
+  font-size: 1.4rem;
+}
+
+.fxd_content-socials {
+  padding: 18px;
+  display: flex;
+  justify-content: space-around;
+}
+.fxd_content-social {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+  cursor: pointer;
+  background-size: contain;
+}
+
+.social_fb {
+  background-image: url('/img/icons/ic-fb-transparent.svg');
+}
+.social_vk {
+  background-image: url('/img/icons/ic-vk-transparent.svg');
+}
+.social_ig {
+  background-image: url('/img/icons/ic-ig-transparent.svg');
+}
+
+.fxd_content-mobile_apps {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 2rem;
+}
+
+.fxd_content-mobile_apps a {
+  display: block;
+  text-align: center;
+}
+
+.fxd_content-mobile_apps img {
+  width: 40%;
+}
+
+@media (max-width: 425px) {
+  .fxd_content-quiz-link,
+  .fxd_content-quiz p {
+    font-size: 0.8rem;
+  }
+}

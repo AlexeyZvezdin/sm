@@ -1,7 +1,9 @@
 @import '../../public/css/style';
 
 .fixed_footer_container {
-  height: 56px;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
 }
 
 .fixed_footer {

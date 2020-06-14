@@ -49,7 +49,7 @@ function Layout(props) {
     <>
       <Header />
       <StickyHeader stickyTabs={props.stickyTabs.stickyTabs} />
-      <main>
+      <main className={styles['main']}>
         {/* возможно в будущем уберу отсюда */}
         <div className={styles['container__full']}>
           <>{children}</>

@@ -1,6 +1,6 @@
 import './fixedFooter.module.scss';
 import s from './header.module.scss';
-
+import FixedFooterContent from './FixedFooterContent';
 import { connect } from 'react-redux';
 
 class FixedFooter extends React.Component {
@@ -66,6 +66,7 @@ class FixedFooter extends React.Component {
       <>
         {/*<SideMenu toggleMenu={this.toggleMenu} open={this.state.menuOpen} />*/}
         <div className="fixed_footer_container">
+          <FixedFooterContent open={this.state.menuOpen} />
           <div className="fixed_footer">
             <div
               className={`fixed_footer__button fixed_footer__${
