@@ -15,9 +15,6 @@
   font-size: 0;
 }
 
-// .main_header .menu {
-// }
-
 .main_header .menu ul {
   display: flex;
   flex-direction: row;
@@ -168,4 +165,14 @@ a.header-cart_n_login,
 }
 
 @media (max-width: 1330px) {
+}
+
+@media (max-width: 988px) {
+  .main_header .menu {
+    display: none;
+  }
+
+  .header-right_section {
+    display: none;
+  }
 }
