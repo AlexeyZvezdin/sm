@@ -94,9 +94,9 @@ class cart extends React.Component {
     }
   }
 
-  handleOrder = () => {
-    // const res = fetcher(`https://client-api.sushi-master.ru/api/v1/cart`);
-  };
+  // handleOrder = () => {
+  //   // const res = fetcher(`https://client-api.sushi-master.ru/api/v1/cart`);
+  // };
 
   render() {
     // if (typeof localStorage != 'undefined') {
@@ -110,7 +110,6 @@ class cart extends React.Component {
     //     });
     //   }
     // }
-    console.log(this.state.cardSum, ' SUMCOUNTER');
     const renderWidget = () => {
       return (
         <div className="cart-order-widget">
@@ -152,12 +151,14 @@ class cart extends React.Component {
               </div>
             </div>
             {/* Кнопка оформить заказ */}
-            <button
-              onClick={this.handleOrder}
-              className="order-inner-container__submit-button"
-            >
-              Оформить заказ
-            </button>
+            <a href="/cart/order">
+              <button
+                onClick={this.handleOrder}
+                className="order-inner-container__submit-button"
+              >
+                Оформить заказ
+              </button>
+            </a>
           </div>
         </div>
       );
