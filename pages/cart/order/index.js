@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import InputMask from 'react-input-mask';
 import fetcher from '../../../utils/fetcher';
 import { getDeviceToken } from '../../../config/device-token';
+import DPicker from '../../../components/DatePicker/DatePicker';
 import {
   BASE_URL,
   DEVICE_TYPE_WEB,
@@ -280,6 +281,11 @@ class index extends React.Component {
               {/* Условия доставки */}
               <div className="courier_form-delivery_opts">
                 <h2>Условия доставки</h2>
+              </div>
+              <div className="courier_form-date_section">
+                <div className="courier_form-date_picker">
+                  <DPicker />
+                </div>
               </div>
             </div>
           </div>
