@@ -72,19 +72,19 @@ class FixedFooterContent extends React.Component {
             target="_blank"
             rel="noopener noreferrer"
             href="https://www.facebook.com/sushimastershop/"
-            class="fxd_content-social social_fb"
+            className="fxd_content-social social_fb"
           ></a>
           <a
             target="_blank"
             rel="noopener noreferrer"
             href="https://vk.com/sushi_takeaway"
-            class="fxd_content-social social_vk"
+            className="fxd_content-social social_vk"
           ></a>
           <a
             target="_blank"
             rel="noopener noreferrer"
             href="https://www.instagram.com/sushimaster_shop"
-            class="fxd_content-social social_ig"
+            className="fxd_content-social social_ig"
           ></a>
         </div>
         <div className="fxd_content-mobile_apps">

@@ -5,6 +5,9 @@
 
 .banners__swiper-container {
   width: 100%;
+  @media (min-width: 1330px) {
+    max-height: 465px;
+  }
 }
 
 .banners__swiper-container img {

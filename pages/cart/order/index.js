@@ -277,6 +277,10 @@ class index extends React.Component {
                 />
                 <div className="house_info_highlight"></div>
               </div>
+              {/* Условия доставки */}
+              <div className="courier_form-delivery_opts">
+                <h2>Условия доставки</h2>
+              </div>
             </div>
           </div>
         </form>
