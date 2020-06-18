@@ -284,7 +284,7 @@ class index extends React.Component {
               </div>
               <div className="courier_form-date_section">
                 <div className="courier_form-date_picker">
-                  <DPicker />
+                  <DPicker method="courier" />
                 </div>
               </div>
             </div>

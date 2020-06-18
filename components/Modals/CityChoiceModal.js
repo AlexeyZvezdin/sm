@@ -38,8 +38,19 @@ class CityChoiceModal extends React.Component {
   };
 
   // handleCityChange
-  handleCityChange = () => {
-    // console.log(this.props.city, ' THIS PROPS SCI');
+  handleSubmit = () => {
+    // ТУТ
+    console.log(this.state.choosenCity, ' THIS PROPS SCI');
+    this.props.selectCity(this.state.choosenCity);
+  };
+
+  handleCityChange = (item, index) => {
+    console.log(item, ' ITEM');
+    this.setState({
+      ...this.state,
+      choosenCity: item,
+      choosenCityIndex: index,
+    });
   };
 
   filterCities = (e) => {
@@ -72,7 +83,7 @@ class CityChoiceModal extends React.Component {
       <div className={s['m_m-footer']}>
         <button
           className="m_m-footer-continue_button"
-          onClick={this.handleCityChange()}
+          onClick={() => this.handleSubmit()}
         >
           продолжить
         </button>
@@ -99,9 +110,18 @@ class CityChoiceModal extends React.Component {
                       <button
                         className="city_modal-city_button"
                         key={index}
-                        onClick={() => this.props.selectCity(item)}
+                        onClick={() => this.handleCityChange(item, index)}
                       >
                         {item.name}
+                        {this.state.choosenCityIndex === index ? (
+                          <img
+                            src="/img/icons/icon-done.svg"
+                            alt=""
+                            style={{ marginLeft: '20px' }}
+                          />
+                        ) : (
+                          ''
+                        )}
                       </button>
                     ))
                   : ''}

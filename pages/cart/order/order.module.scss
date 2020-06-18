@@ -122,6 +122,7 @@
   width: 100%;
   font-size: 20px;
   font-weight: 300;
+  padding-bottom: 4px;
 }
 
 #courier_form-name:focus + .name_highlight {
@@ -230,4 +231,18 @@
 .house_info-address_name {
   display: flex;
   flex-direction: column;
+}
+
+// date picker
+.date_picker {
+}
+
+.date_picker .date_picker-label {
+  display: block;
+  color: rgba(29, 29, 29, 0.38);
+  font-size: 12px;
+  font-weight: 400;
+  pointer-events: none;
+  margin-bottom: 6px;
+  transition: all 0.3s ease;
 }
