@@ -38,14 +38,14 @@ class CityChoiceModal extends React.Component {
   };
 
   // handleCityChange
-  handleSubmit = () => {
-    // ТУТ
-    console.log(this.state.choosenCity, ' THIS PROPS SCI');
+  handleSubmit = async () => {
+    // ТУТ возможно придется убирать и продукты
+    await localStorage.removeItem('currentPickUpAddress');
+    await localStorage.removeItem('currentDeliveryAddress');
     this.props.selectCity(this.state.choosenCity);
   };
 
   handleCityChange = (item, index) => {
-    console.log(item, ' ITEM');
     this.setState({
       ...this.state,
       choosenCity: item,

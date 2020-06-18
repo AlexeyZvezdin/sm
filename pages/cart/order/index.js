@@ -19,12 +19,17 @@ class index extends React.Component {
     pickupSwitcher: false,
     addresses: [],
   };
-
+  //  Object.values(productsFromStorage) Вот это надо переадресовывать если нет продуктов
   // fetcher method is unpredictable right here, it saves options to itself
   async componentDidMount() {
     const AddressId = JSON.parse(localStorage.getItem('currentPickUpAddress'));
+    const deliveryAddress = JSON.parse(
+      localStorage.getItem('currentDeliveryAddress')
+    );
 
-    const deliveryAddress = localStorage.getItem('currentDeliveryAddress');
+    if (!(AddressId || deliveryAddress)) {
+      await this.props.dispatchAddressModalStatus();
+    }
 
     const productsFromStorage = JSON.parse(
       localStorage.getItem('cardProducts')
@@ -330,4 +335,9 @@ const mapState = ({ store: { city } }) => ({
   city,
 });
 
-export default connect(mapState)(index);
+const mapDispatch = (dispatch) => ({
+  dispatchAddressModalStatus: (status) =>
+    dispatch({ type: 'OPEN_ADDRESS_MODAL' }),
+});
+
+export default connect(mapState, mapDispatch)(index);

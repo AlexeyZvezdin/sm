@@ -29,4 +29,5 @@ function DPicker(props) {
 }
 
 const mapState = ({ store: { city } }) => city;
+
 export default connect(mapState)(DPicker);
