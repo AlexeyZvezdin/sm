@@ -1,9 +1,7 @@
-import { Component } from "react";
 import "./labels.module.scss";
 
-export class Labels extends Component {
-  render() {
-    switch (this.props.label) {
+export const Labels = ({label}) => {
+    switch (label) {
       case "5d4bea412dd260249172e4d6":
         return <div className={"label label_chip"}>СТАЛО ДЕШЕВЛЕ</div>;
       case "5d63bb660f2a8608d3278666":
@@ -31,5 +29,4 @@ export class Labels extends Component {
       default:
         return null;
     }
-  }
 }
