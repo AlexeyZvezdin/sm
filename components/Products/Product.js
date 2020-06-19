@@ -159,6 +159,8 @@ function Product({ product, store, ...props }) {
     }
   };
 
+  const labels = product.tagIds.map((el, i) => <Labels label={el} key={i}/>)
+
   return (
     <div className={p_s['product']} key={product.id}>
       <div
@@ -198,19 +200,7 @@ function Product({ product, store, ...props }) {
       </a>
         <Quantity quantity={product.priceVariants[0].pieces}/>
         <div className={'product-img-container__label-container'}>
-          {/*product.priceVariants[0].previousPrice > product.priceVariants[0].price? <Labels label={'chip'}/> : null */}
-          {product.tagIds.includes('5d4bea412dd260249172e4d6') ? <Labels label={'chip'}/> : null}
-          {product.tagIds.includes('5d63bb660f2a8608d3278666') ? <Labels label={'tempura'}/> : null}
-          {product.tagIds.includes('5d4bebeb2dd260249172e4d9') ?<Labels label={'promotion'}/> : null}
-          {product.tagIds.includes('5dcaa4580f2a8604a657cf10') ?<Labels label={'recommended'}/> : null}
-          {product.tagIds.includes('5d63bce80f2a8608d3278861') ?<Labels label={'baked'}/> : null}
-          {product.tagIds.includes('5c8a4cbb59201a03f6ea4df5') ?<Labels label={'veg'}/> : null}
-          {product.tagIds.includes('5dc872880f2a86d4d9c3695c') ?<Labels label={'mini'}/> : null}
-          {product.tagIds.includes('5dcaa48a0f2a8604a657cf2c') ?<Labels label={'sushirrito'}/> : null}
-          {product.tagIds.includes('5c8a4ca259201a03f6ea4df4') ?<Labels label={'new'}/> : null}
-          {product.tagIds.includes('5ddd47320f2a8608859aaa80') ?<Labels label={'special'}/> : null}
-          {product.tagIds.includes('5dcaca7a0f2a8604a657fdce') ?<Labels label={'top'}/> : null}
-          {product.tagIds.includes('5d4beb0f2dd260249172e4d7') ?<Labels label={'spicy'}/> : null}
+          {labels}
         </div>
       </div>
       <a href={`/menu/${router.query.path}/${product.url}`}>
