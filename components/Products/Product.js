@@ -12,6 +12,7 @@ import {
 import { cardProductsDispatch } from '../../redux/actions/cardProducts';
 import { useRouter } from 'next/router';
 import { Labels } from '../Lables/Labels'
+import { Quantity } from '../Lables/Quantity'
 
 function Product({ product, store, ...props }) {
   const [cartButtonCounter, setCartButtonCounter] = React.useState(0);
@@ -195,8 +196,9 @@ function Product({ product, store, ...props }) {
           alt=""
         />
       </a>
+        <Quantity quantity={product.priceVariants[0].pieces}/>
         <div className={'product-img-container__label-container'}>
-          <Labels label={'chip'}/>
+          {product.priceVariants[0].previousPrice > product.priceVariants[0].price? <Labels label={'chip'}/> : null }
           <Labels label={'tempura'}/>
           <Labels label={'promotion'}/>
           <Labels label={'recommended'}/>
