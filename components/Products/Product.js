@@ -199,8 +199,8 @@ function Product({ product, store, ...props }) {
         <Quantity quantity={product.priceVariants[0].pieces}/>
         <div className={'product-img-container__label-container'}>
           {product.priceVariants[0].previousPrice > product.priceVariants[0].price? <Labels label={'chip'}/> : null }
-          <Labels label={'tempura'}/>
-          <Labels label={'promotion'}/>
+          {product.tagIds.includes('5d63bb660f2a8608d3278666') ? <Labels label={'tempura'}/> : null} {/*id для темпуры*/}
+          {product.tagIds.includes('5d67acb70f2a8608d3299961') ?<Labels label={'promotion'}/> : null}
           <Labels label={'recommended'}/>
         </div>
       </div>
