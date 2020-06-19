@@ -11,6 +11,7 @@ import {
 } from '../../redux/actions/cardCounter';
 import { cardProductsDispatch } from '../../redux/actions/cardProducts';
 import { useRouter } from 'next/router';
+import { Labels } from '../Lables/Labels'
 
 function Product({ product, store, ...props }) {
   const [cartButtonCounter, setCartButtonCounter] = React.useState(0);
@@ -186,13 +187,18 @@ function Product({ product, store, ...props }) {
         </div>
       </div>
       {/* delimeter */}
-      <a href={`/menu/${router.query.path}/${product.url}`}>
+      <div className={'product-img-container'}>
+      <a href={`/menu/${router.query.path}/${product.url}`} className={'product-img-container__img'}>
         <img
           src="/img/loader.gif"
           data-src={`https://client-api.sushi-master.ru/pics/${product.mainPictureId}?width=400`}
           alt=""
         />
       </a>
+        <div className={'product-img-container__label-container'}>
+          <Labels label={'chip'}/>
+        </div>
+      </div>
       <a href={`/menu/${router.query.path}/${product.url}`}>
         <h3 className={p_s['product-name']}>{product.name}</h3>
       </a>

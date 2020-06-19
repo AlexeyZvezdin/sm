@@ -91,6 +91,5 @@ export default function (props) {
           {/* </span> */}
         </div>
       </div>
-    </div>
   );
 }
