@@ -1,0 +1,33 @@
+.label {
+  min-width: 80px;
+ //float: right;
+  line-height: 1.24;
+  max-width: fit-content;
+  border-radius: 18px;
+  padding: 3px 8px;
+  text-align: center;
+  font-family: Pusia, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: normal;
+  margin-left: auto;
+  margin-top: 4px;
+  &_chip {
+    background-color: rgb(168, 36, 222);
+    color: rgb(255, 255, 255);
+  }
+  &_tempura {
+    background-color: rgb(178, 34, 34);
+    color: rgb(255, 255, 255);
+  }
+  &_promotion {
+    background-color: rgb(36, 82, 212);
+    color: rgb(255, 255, 255);
+  }
+  &_recommended {
+    background-color: rgb(255, 69, 0);
+    color: rgb(255, 255, 255);
+  }
+}

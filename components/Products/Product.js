@@ -197,6 +197,9 @@ function Product({ product, store, ...props }) {
       </a>
         <div className={'product-img-container__label-container'}>
           <Labels label={'chip'}/>
+          <Labels label={'tempura'}/>
+          <Labels label={'promotion'}/>
+          <Labels label={'recommended'}/>
         </div>
       </div>
       <a href={`/menu/${router.query.path}/${product.url}`}>
