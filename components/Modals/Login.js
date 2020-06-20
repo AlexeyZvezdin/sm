@@ -3,6 +3,7 @@ import fetcher from "../../utils/fetcher";
 import InputMask from "react-input-mask";
 import Cookies from "js-cookie";
 import s from "./css/city_choice.module.scss";
+import { loggedIn } from '../../redux/actions/login'
 
 class LoginModal extends React.Component {
   constructor(props) {
@@ -118,8 +119,9 @@ class LoginModal extends React.Component {
     if (res.result) {
       // Далее вставлю токены
       await Cookies.set("accessToken", res.result.accessToken.token);
+      // noinspection JSUnresolvedVariable
       await Cookies.set("refreshToken", res.result.refreshToken.token);
-      this.props.dispatchModalStatus();
+      this.props.loggedInSuccess();
     } else {
       alert('произошел взлом жопы')
     }
@@ -142,7 +144,7 @@ class LoginModal extends React.Component {
             maskChar={null}
             required
           />
-          <div className="phone_highlight"></div>
+          <div className="phone_highlight"/>
         </div>
         <div className="login_modal-widgets">
           <div className="login_modal-widget">
@@ -174,7 +176,7 @@ class LoginModal extends React.Component {
             max="10"
             required
           />
-          <div className="phone_highlight"></div>
+          <div className="phone_highlight"/>
         </div>
         {modalFooterSubmitCode()}
       </>
@@ -203,12 +205,12 @@ class LoginModal extends React.Component {
 
     return (
       <>
-        <div className={s["modal-backdrop"]}></div>
+        <div className={s['modal-backdrop']}/>
         <div
-          className={s["city_modal"]}
-          role="dialog"
-          onClick={(e) => this.handleModalBG(e)}
-        ></div>
+  className={s['city_modal']}
+  role="dialog"
+  onClick={(e) => this.handleModalBG(e)}
+  />
         <div className={s["city_modal-center_container"]}>
           {/* main modal */}
           <div className="m_m-box login_modal-box">
@@ -239,5 +241,6 @@ const mapStateToProps = ({ store: { city }, loginModal: { openModal } }) => {
 };
 const dispatchToProps = (dispatch) => ({
   dispatchModalStatus: (status) => dispatch({ type: "CLOSE_LOGIN" }),
+  loggedInSuccess: () => dispatch(loggedIn()),
 });
 export default connect(mapStateToProps, dispatchToProps)(LoginModal);

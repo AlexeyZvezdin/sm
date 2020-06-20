@@ -204,12 +204,16 @@ class Header extends React.Component {
             </a>
           </div>
           <div className={s['profile-badge-block']}>
-            <button
-              className={s['profile-badge-block__login']}
-              onClick={this.handleLogin}
-            >
-              Войти
-            </button>
+            {!this.props.loginModal.loggedIn ? (
+              <button
+                className={s['profile-badge-block__login']}
+                onClick={this.handleLogin}
+              >
+                Войти
+              </button>
+            ) : (
+              <h1>kek</h1>
+            )}
           </div>
         </div>
       </header>
