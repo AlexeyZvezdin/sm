@@ -1,7 +1,8 @@
-import { connect } from 'react-redux';
-import fetcher from '../../utils/fetcher';
-import InputMask from 'react-input-mask';
-import s from './css/city_choice.module.scss';
+import { connect } from "react-redux";
+import fetcher from "../../utils/fetcher";
+import InputMask from "react-input-mask";
+import Cookies from "js-cookie";
+import s from "./css/city_choice.module.scss";
 
 class LoginModal extends React.Component {
   constructor(props) {
@@ -9,7 +10,7 @@ class LoginModal extends React.Component {
   }
 
   state = {
-    phone: '',
+    phone: "",
     code: null,
   };
 
@@ -64,14 +65,14 @@ class LoginModal extends React.Component {
   };
 
   submitPhone = async () => {
-    const phone = this.state.phone.replace(/\D/g, '');
+    const phone = this.state.phone.replace(/\D/g, "");
     const options = {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-type': 'application/json;charset=UTF-8',
+        "Content-type": "application/json;charset=UTF-8",
       },
       body: JSON.stringify({
-        countryId: '5e02173559201a0544e20b2d',
+        countryId: "5e02173559201a0544e20b2d",
         phone: phone,
       }),
     };
@@ -79,7 +80,7 @@ class LoginModal extends React.Component {
       `https://client-api.sushi-master.ru/api/v2/auth/init`,
       options
     );
-    console.log(res, ' RESPONSE ');
+    console.log(res, " RESPONSE ");
     if (res.result && res.result.timer) {
       this.setState({
         ...this.state,
@@ -97,14 +98,14 @@ class LoginModal extends React.Component {
   };
 
   submitCode = async () => {
-    const code = this.state.code.replace(/\D/g, '');
+    const code = this.state.code.replace(/\D/g, "");
     const options = {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-type': 'application/json;charset=UTF-8',
+        "Content-type": "application/json;charset=UTF-8",
       },
       body: JSON.stringify({
-        countryId: '5e02173559201a0544e20b2d',
+        countryId: "5e02173559201a0544e20b2d",
         phone: this.state.phone,
         code: code,
       }),
@@ -113,8 +114,15 @@ class LoginModal extends React.Component {
       `https://client-api.sushi-master.ru/api/v2/auth/verify`,
       options
     );
-    // console.log(res, ' res submitted code');
-    // Далее вставлю токены
+    console.log(res, " res submitted code");
+    if (res.result) {
+      // Далее вставлю токены
+      await Cookies.set("accessToken", res.result.accessToken.token);
+      await Cookies.set("refreshToken", res.result.refreshToken.token);
+      this.props.dispatchModalStatus();
+    } else {
+      alert('произошел взлом жопы')
+    }
     // Если они приходят и все ок рендерю успех, и наоборот
   };
 
@@ -129,7 +137,7 @@ class LoginModal extends React.Component {
             name="phone"
             alwaysShowMask
             onChange={(e) => this.handlePhone(e)}
-            mask={'+7 \\999 999 99 99'}
+            mask={"+7 \\999 999 99 99"}
             type="text"
             maskChar={null}
             required
@@ -173,7 +181,7 @@ class LoginModal extends React.Component {
     );
 
     const modalHeader = () => (
-      <div className={s['m_m-header']}>
+      <div className={s["m_m-header"]}>
         <h1>Вход на сайт</h1>
       </div>
     );
@@ -195,13 +203,13 @@ class LoginModal extends React.Component {
 
     return (
       <>
-        <div className={s['modal-backdrop']}></div>
+        <div className={s["modal-backdrop"]}></div>
         <div
-          className={s['city_modal']}
+          className={s["city_modal"]}
           role="dialog"
           onClick={(e) => this.handleModalBG(e)}
         ></div>
-        <div className={s['city_modal-center_container']}>
+        <div className={s["city_modal-center_container"]}>
           {/* main modal */}
           <div className="m_m-box login_modal-box">
             {modalHeader()}
@@ -212,13 +220,13 @@ class LoginModal extends React.Component {
         </div>
         <style jsx>{`
           .modal-backdrop {
-            display: ${this.props.openModal ? 'block' : 'none'};
+            display: ${this.props.openModal ? "block" : "none"};
           }
           .city_modal {
-            display: ${this.props.openModal ? 'block' : 'none'};
+            display: ${this.props.openModal ? "block" : "none"};
           }
           .city_modal-center_container {
-            display: ${this.props.openModal ? 'block' : 'none'};
+            display: ${this.props.openModal ? "block" : "none"};
           }
         `}</style>
       </>
@@ -230,6 +238,6 @@ const mapStateToProps = ({ store: { city }, loginModal: { openModal } }) => {
   return { city, openModal };
 };
 const dispatchToProps = (dispatch) => ({
-  dispatchModalStatus: (status) => dispatch({ type: 'CLOSE_LOGIN' }),
+  dispatchModalStatus: (status) => dispatch({ type: "CLOSE_LOGIN" }),
 });
 export default connect(mapStateToProps, dispatchToProps)(LoginModal);
