@@ -250,3 +250,17 @@
   //   width: 50%;
   // }
 }
+
+
+.product-img-container {
+  position: relative;
+  &__img{
+
+  }
+  &__label-container {
+    position: absolute;
+    top: 0px;
+    right: 5px;
+    text-align: right;
+  }
+}

@@ -92,5 +92,5 @@ export default function (props) {
         </div>
       </div>
     </div>
-  );
-}
+  )}
+
