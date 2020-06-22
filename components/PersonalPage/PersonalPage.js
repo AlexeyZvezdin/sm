@@ -18,6 +18,7 @@ export default class PersonalPage extends Component {
           </div>
             <div  className={'personal-page__form'}>
               <Input>Имя</Input>
+              <Input Value={'+7-999-999-99-99'} ReadOnly={true}>Телефон</Input>
             </div>
         </div>
       </>

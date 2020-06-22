@@ -1,8 +1,14 @@
 import './input.scss';
-import { useState } from 'react'
+import { useState } from 'react';
 
 export const Input = (props) => {
-  const [value ,setInput] = useState('')
+  const init = props.Value ? props.Value : '';
+
+  const [state, setInput] = useState(init);
+
+  console.log(init, 'lol');
+  console.log(state, 'kek');
+
   return (
     <div className={'input-container'}>
       <lable htmlFor={'input-name'} className="input-container__input-label">
@@ -13,8 +19,9 @@ export const Input = (props) => {
         id={'input-name'}
         className="input-container__input"
         type="text"
-        value={value}
+        value={state}
         onChange={(e) => setInput(e.target.value)}
+        readOnly={props.ReadOnly}
       />
     </div>
   );
