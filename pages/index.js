@@ -1,6 +1,7 @@
 import Layout from '../components/Layout';
 import Link from 'next/link';
 import { withRouter } from 'next/router';
+import '../public/css/index.scss'
 /**  However, isomorphic-unfetch requires an absolute URL or it will fail.
  *  I’m assuming it has something to do with the different environments (client & server)
  *  on which your code can be executed.

@@ -1,5 +1,4 @@
 @import '../../public/css/style';
-@import '../../public/css/fonts';
 
 .personal-page-header{
   padding-top: 10px;
@@ -32,7 +31,7 @@
     vertical-align: top;
     margin-top: 4px;
     margin-left: 16px;
-    font-family: Pusia sans-serif;
+    font-family: Pusia, sans-serif;
     font-size: 20px;
     font-weight: 800;
     font-style: normal;
@@ -44,13 +43,8 @@
     @include min-width(md) {
       margin-top: 0;
       font-size: 30px;
-      font-weight: 800;
-      font-style: normal;
-      font-stretch: normal;
       line-height: 1.33;
       letter-spacing: 1.5px;
-      color: #1d1d1d;
-      font-family: Pusia sans-serif;
     }
   }
 }

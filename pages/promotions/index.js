@@ -20,11 +20,11 @@ class promotions extends React.Component {
                 />
                 <p className={s['prom_title']}>{item.title}</p>
                 <span
-                  className={s['prom_description']}
-                  dangerouslySetInnerHTML={{
-                    __html: trimString(item.description, 95),
-                  }}
-                ></span>
+  className={s['prom_description']}
+  dangerouslySetInnerHTML={{
+    __html: trimString(item.description, 95),
+  }}
+  />
               </div>
             </Link>
           </div>
