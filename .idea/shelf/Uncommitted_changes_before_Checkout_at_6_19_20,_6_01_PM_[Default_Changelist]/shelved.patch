@@ -1,0 +1,79 @@
+Index: components/Basic/addressCheck.scss
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>.address-check {\n  position: relative;\n  //margin: auto;\n  z-index: 60;\n  //transform: translate(-100%, -100%);\n\n  &__window {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: flex-start;\n    width: 800px;\n    padding: 36px;\n    //box-sizing: border-box;\n    border-radius: 10px;\n    background-color: #fff;\n  }\n\n  &__title {\n    font-family: Pusia, sans-serif;\n    font-size: 36px;\n    font-weight: 800;\n    color: rgb(29, 29, 29);\n    margin: 0;\n  }\n  &__text {\n    font-family: 'Gotham Pro', sans-serif;\n    font-size: 20px;\n    color: rgba(29, 29, 29, 0.9);\n    text-align: center;\n    margin: 24px 0px 0px;\n  }\n  &__button-container {\n    display: flex;\n    flex-direction: column;\n    margin-top: 42px;\n    width: 450px;\n    &__button {\n      display: flex;\n      -webkit-box-pack: center;\n      justify-content: center;\n      text-align: center;\n      height: 56px;\n      -webkit-box-align: center;\n      align-items: center;\n      text-transform: uppercase;\n      color: rgb(227, 6, 19);\n      background: rgb(255, 255, 255);\n      font-family: 'Gotham Pro', sans-serif;\n      font-weight: 500;\n      font-size: 14px;\n      cursor: pointer;\n      border-radius: 28px;\n      border-width: 2px;\n      border-style: solid;\n      border-color: rgb(227, 6, 19);\n      border-image: initial;\n      &_mb{\n        margin-bottom: .5rem;\n      }\n      &_inverse{\n        color: rgb(255, 255, 255);\n        background: rgb(227, 6, 19);\n      }\n    }\n  }\n  &__footer-text {\n    color: rgba(29, 29, 29, 0.54);\n    text-align: center;\n    font-size: 16px;\n    font-family: \"Gotham Pro\", sans-serif;\n    margin: 16px auto 0px;\n    padding: 0px 16px;\n  }\n  &__icon{\n    transform: translateY(5px);\n  }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- components/Basic/addressCheck.scss	(revision 58f4d7bce6d2505fd84857ffd5b1628ed92ff9b5)
++++ components/Basic/addressCheck.scss	(date 1591455902491)
+@@ -12,7 +12,7 @@
+     width: 800px;
+     padding: 36px;
+     //box-sizing: border-box;
+-    border-radius: 10px;
++    border-radius: 20px;
+     background-color: #fff;
+   }
+ 
+@@ -28,11 +28,10 @@
+     font-size: 20px;
+     color: rgba(29, 29, 29, 0.9);
+     text-align: center;
+-    margin: 24px 0px 0px;
++    margin: 24px 0 0;
+   }
+   &__button-container {
+     display: flex;
+-    flex-direction: column;
+     margin-top: 42px;
+     width: 450px;
+     &__button {
+Index: components/Basic/AddressCheck.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import { Component } from 'react';\nimport './addressCheck.scss';\n\nexport default class AddressCheck extends Component {\n  constructor(props) {\n    super(props);\n  }\n  render() {\n    return (\n      <div className={'address-check'}>\n        <div className={'address-check__window'}>\n          <h1 className={'address-check__title'}>Проверим адрес?</h1>\n          <p className={'address-check__text'}>\n            Мы хотим убедиться, что Ваш адрес входит в зону доставки.\n          </p>\n          <div className={'address-check__button-container'}>\n            <button className={'address-check__button-container__button address-check__button-container__button_mb'}>\n              Доставка\n            </button>\n            <button className={'address-check__button-container__button address-check__button-container__button_mb address-check__button-container__button_inverse'}>\n              Заберу Сам\n            </button>\n          </div>\n          <span className={'address-check__footer-text'}>\n            После проверки вы вернетесь к выбору блюд&nbsp;\n            <img src=\"/img/ic-smile-emoji.svg\" alt=\":)\"  className={'address-check__icon'}/>\n          </span>\n        </div>\n      </div>\n    );\n  }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- components/Basic/AddressCheck.js	(revision 58f4d7bce6d2505fd84857ffd5b1628ed92ff9b5)
++++ components/Basic/AddressCheck.js	(date 1591316170659)
+@@ -9,15 +9,17 @@
+     return (
+       <div className={'address-check'}>
+         <div className={'address-check__window'}>
++          <div>
+           <h1 className={'address-check__title'}>Проверим адрес?</h1>
++          </div>
+           <p className={'address-check__text'}>
+             Мы хотим убедиться, что Ваш адрес входит в зону доставки.
+           </p>
+           <div className={'address-check__button-container'}>
+-            <button className={'address-check__button-container__button address-check__button-container__button_mb'}>
++            <button className={'address-check__button-container__button address-check__button-container__button_mb address-check__button-container__button_inverse'}>
+               Доставка
+             </button>
+-            <button className={'address-check__button-container__button address-check__button-container__button_mb address-check__button-container__button_inverse'}>
++            <button className={'address-check__button-container__button address-check__button-container__button_mb'}>
+               Заберу Сам
+             </button>
+           </div>
+Index: components/Modals/css/city.module.scss
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>.modal-window{\n  position: absolute;\n  z-index: 10;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  width: 100%;\n  height: 100%;\n  backdrop-filter: blur(5px);\n  background-color: rgba(0, 0, 0, 0.5);\n  &__root {\n    position: fixed;\n    z-index: 10;\n    top: 0;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n  }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- components/Modals/css/city.module.scss	(revision 58f4d7bce6d2505fd84857ffd5b1628ed92ff9b5)
++++ components/Modals/css/city.module.scss	(date 1591316170663)
+@@ -8,7 +8,8 @@
+   width: 100%;
+   height: 100%;
+   backdrop-filter: blur(5px);
+-  background-color: rgba(0, 0, 0, 0.5);
++  backdrop-filter: blur(5px);
++  background-color: rgba(29, 29, 29, 0.7);
+   &__root {
+     position: fixed;
+     z-index: 10;

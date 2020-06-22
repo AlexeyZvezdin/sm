@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ec9ea75b-e88a-478f-8a49-7a8584c7fd8c" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="optimizations" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1chwzL0kXHkc3B7TG3NQYClIMnk" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="add_unversioned_files" value="$PROJECT_DIR$/.next/server/static/development/pages/delivery.js" />
+    <property name="nodejs_interpreter_path" value="node" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="/usr/local/lib/node_modules/prettier" />
+    <property name="settings.editor.selected.configurable" value="settings.javascript.prettier" />
+  </component>
+  <component name="RunManager">
+    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.dev" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ec9ea75b-e88a-478f-8a49-7a8584c7fd8c" name="Default Changelist" comment="" />
+      <created>1590994393529</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1590994393529</updated>
+      <workItem from="1590994395049" duration="7000" />
+      <workItem from="1590994422300" duration="969000" />
+      <workItem from="1591057448573" duration="398000" />
+      <workItem from="1591058232661" duration="15394000" />
+      <workItem from="1591100733746" duration="18284000" />
+      <workItem from="1591257271527" duration="4690000" />
+      <workItem from="1592604013963" duration="13000" />
+      <workItem from="1592604051139" duration="14629000" />
+    </task>
+    <task id="LOCAL-00001" summary="add FixedFooter">
+      <created>1591081522126</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1591081522126</updated>
+    </task>
+    <task id="LOCAL-00002" summary="add styles for sticky-header">
+      <created>1591083170503</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1591083170503</updated>
+    </task>
+    <task id="LOCAL-00003" summary="исправил лейаут&#10;сделал стили для больших экранов&#10;//TODO: сделать адаптив">
+      <created>1591100861081</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1591100861081</updated>
+    </task>
+    <task id="LOCAL-00004" summary="все еще сделал стили для больших экранов&#10;//TODO: сделать адаптив">
+      <created>1591169469991</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1591169469991</updated>
+    </task>
+    <task id="LOCAL-00005" summary="исправил страницу доставки&#10;не было закрывающих тегов">
+      <created>1591171995833</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1591171995833</updated>
+    </task>
+    <task id="LOCAL-00006" summary="добавил модальное окно&#10;нужно добавить проверку был ли поддтвержден адресс&#10;пока добавил хендлер, где тупо захардеодил параметр, что ьы выводить модалку&#10;еужно сделать окно для модалки.">
+      <created>1591179059727</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1591179059727</updated>
+    </task>
+    <task id="LOCAL-00007" summary="переделать карточку&#10;не выводить ее через пропс.чилдрен&#10;иначе срабатывает онклик модалки">
+      <created>1591186955486</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1591186955486</updated>
+    </task>
+    <task id="LOCAL-00008" summary="переделать карточку&#10;не выводить ее через пропс.чилдрен&#10;иначе срабатывает онклик модалки">
+      <created>1591257365174</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1591257365174</updated>
+    </task>
+    <task id="LOCAL-00009" summary="-улучшил алгоритм вывода лейблов&#10;-мелкие исправления ошибок">
+      <created>1592606467262</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1592606467262</updated>
+    </task>
+    <task id="LOCAL-00010" summary="сделал рефактор на функциональных компонентах">
+      <created>1592606803838</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1592606803838</updated>
+    </task>
+    <task id="LOCAL-00011" summary="поправил z-index">
+      <created>1592682452755</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1592682452755</updated>
+    </task>
+    <task id="LOCAL-00012" summary="токены доступа и рефреша добавляются в кукки&#10;закрывается модалка&#10;показывается временный алерт если что то пошло не так">
+      <created>1592689872637</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1592689872637</updated>
+    </task>
+    <task id="LOCAL-00013" summary="добавил стейт для залогинненого состояния&#10;мелкие исправления в коде">
+      <created>1592692607801</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1592692607801</updated>
+    </task>
+    <task id="LOCAL-00014" summary="перкписал все сначало">
+      <created>1592800166436</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1592800166436</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add FixedFooter" />
+    <MESSAGE value="add styles for sticky-header" />
+    <MESSAGE value="исправил лейаут&#10;сделал стили для больших экранов&#10;//TODO: сделать адаптив" />
+    <MESSAGE value="все еще сделал стили для больших экранов&#10;//TODO: сделать адаптив" />
+    <MESSAGE value="исправил страницу доставки&#10;не было закрывающих тегов" />
+    <MESSAGE value="добавил модальное окно&#10;нужно добавить проверку был ли поддтвержден адресс&#10;пока добавил хендлер, где тупо захардеодил параметр, что ьы выводить модалку&#10;еужно сделать окно для модалки." />
+    <MESSAGE value="переделать карточку&#10;не выводить ее через пропс.чилдрен&#10;иначе срабатывает онклик модалки" />
+    <MESSAGE value="-улучшил алгоритм вывода лейблов&#10;-мелкие исправления ошибок" />
+    <MESSAGE value="сделал рефактор на функциональных компонентах" />
+    <MESSAGE value="поправил z-index" />
+    <MESSAGE value="токены доступа и рефреша добавляются в кукки&#10;закрывается модалка&#10;показывается временный алерт если что то пошло не так" />
+    <MESSAGE value="добавил стейт для залогинненого состояния&#10;мелкие исправления в коде" />
+    <MESSAGE value="перкписал все сначало" />
+    <option name="LAST_COMMIT_MESSAGE" value="перкписал все сначало" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1591084597462">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/1440.23.2560.1057/0.0.1440.900@0.0.1440.900" timestamp="1591084597462" />
+    <state x="408" y="172" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1592604017759">
+      <screen x="0" y="23" width="1440" height="814" />
+    </state>
+    <state x="408" y="172" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/-2560.-11.2560.1057/0.23.1440.814@0.23.1440.814" timestamp="1592604017759" />
+    <state x="-2053" y="-6" width="909" height="813" key="CommitChangelistDialog2" timestamp="1592800166315">
+      <screen x="-2560" y="-34" width="2560" height="1080" />
+    </state>
+    <state x="-2053" y="-6" key="CommitChangelistDialog2/-2560.-34.2560.1080/0.0.1440.900@-2560.-34.2560.1080" timestamp="1592692607687" />
+    <state x="-2053" y="-6" key="CommitChangelistDialog2/-2560.-34.2560.1080/0.23.1440.877@-2560.-34.2560.1080" timestamp="1592800166315" />
+    <state x="285" y="23" width="909" height="813" key="CommitChangelistDialog2/1440.0.2560.1080/0.0.1440.900@0.0.1440.900" timestamp="1591257364952" />
+    <state x="164" y="58" key="DiffContextDialog" timestamp="1591100804058">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="164" y="58" key="DiffContextDialog/1440.0.2560.1080/0.0.1440.900@0.0.1440.900" timestamp="1591100804058" />
+    <state width="1259" height="209" key="GridCell.Tab.0.bottom" timestamp="1592691695449">
+      <screen x="-2560" y="-34" width="2560" height="1080" />
+    </state>
+    <state width="1398" height="209" key="GridCell.Tab.0.bottom/-2560.-11.2560.1057/0.23.1440.814@0.23.1440.814" timestamp="1592604350674" />
+    <state width="1259" height="209" key="GridCell.Tab.0.bottom/-2560.-34.2560.1080/0.0.1440.900@-2560.-34.2560.1080" timestamp="1592691695449" />
+    <state width="1259" height="209" key="GridCell.Tab.0.center" timestamp="1592691695448">
+      <screen x="-2560" y="-34" width="2560" height="1080" />
+    </state>
+    <state width="1398" height="209" key="GridCell.Tab.0.center/-2560.-11.2560.1057/0.23.1440.814@0.23.1440.814" timestamp="1592604350673" />
+    <state width="1259" height="209" key="GridCell.Tab.0.center/-2560.-34.2560.1080/0.0.1440.900@-2560.-34.2560.1080" timestamp="1592691695448" />
+    <state width="1259" height="209" key="GridCell.Tab.0.left" timestamp="1592691695448">
+      <screen x="-2560" y="-34" width="2560" height="1080" />
+    </state>
+    <state width="1398" height="209" key="GridCell.Tab.0.left/-2560.-11.2560.1057/0.23.1440.814@0.23.1440.814" timestamp="1592604350672" />
+    <state width="1259" height="209" key="GridCell.Tab.0.left/-2560.-34.2560.1080/0.0.1440.900@-2560.-34.2560.1080" timestamp="1592691695448" />
+    <state width="1259" height="209" key="GridCell.Tab.0.right" timestamp="1592691695449">
+      <screen x="-2560" y="-34" width="2560" height="1080" />
+    </state>
+    <state width="1398" height="209" key="GridCell.Tab.0.right/-2560.-11.2560.1057/0.23.1440.814@0.23.1440.814" timestamp="1592604350673" />
+    <state width="1259" height="209" key="GridCell.Tab.0.right/-2560.-34.2560.1080/0.0.1440.900@-2560.-34.2560.1080" timestamp="1592691695449" />
+    <state x="144" y="93" key="MergeDialog" timestamp="1591316170650">
+      <screen x="0" y="23" width="1440" height="813" />
+    </state>
+    <state x="144" y="93" key="MergeDialog/1440.23.2560.1057/0.23.1440.813@0.23.1440.813" timestamp="1591316170650" />
+    <state x="-2167" y="72" key="SettingsEditor" timestamp="1592691621233">
+      <screen x="-2560" y="-34" width="2560" height="1080" />
+    </state>
+    <state x="-2167" y="72" key="SettingsEditor/-2560.-34.2560.1080/0.0.1440.900@-2560.-34.2560.1080" timestamp="1592691621233" />
+    <state x="221" y="89" key="SettingsEditor/1440.23.2560.1057/0.0.1440.900@0.0.1440.900" timestamp="1591088435803" />
+    <state x="221" y="103" key="SettingsEditor/1440.23.2560.1057/0.23.1440.813@0.23.1440.813" timestamp="1591089914182" />
+    <state x="-1991" y="194" key="Vcs.Push.Dialog.v2" timestamp="1592692618642">
+      <screen x="-2560" y="-34" width="2560" height="1080" />
+    </state>
+    <state x="-1991" y="194" key="Vcs.Push.Dialog.v2/-2560.-34.2560.1080/0.0.1440.900@-2560.-34.2560.1080" timestamp="1592692618642" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/1440.0.2560.1080/0.0.1440.900@0.0.1440.900" timestamp="1591186958334" />
+    <state x="508" y="350" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1592604064338">
+      <screen x="0" y="23" width="1440" height="814" />
+    </state>
+    <state x="508" y="350" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-2560.-11.2560.1057/0.23.1440.814@0.23.1440.814" timestamp="1592604064338" />
+    <state x="508" y="362" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1440.0.2560.1080/0.0.1440.900@0.0.1440.900" timestamp="1591257371079" />
+    <state x="508" y="350" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1440.23.2560.1057/0.23.1440.813@0.23.1440.813" timestamp="1591354893887" />
+    <state x="-1817" y="212" width="1624" height="588" key="find.popup" timestamp="1592692615386">
+      <screen x="-2560" y="-34" width="2560" height="1080" />
+    </state>
+    <state x="-1817" y="212" width="1624" height="588" key="find.popup/-2560.-34.2560.1080/0.0.1440.900@-2560.-34.2560.1080" timestamp="1592692615386" />
+    <state x="418" y="205" width="913" height="490" key="find.popup/1440.0.2560.1080/0.0.1440.900@0.0.1440.900" timestamp="1591182113895" />
+    <state x="418" y="205" width="604" height="490" key="find.popup/1440.23.2560.1057/0.0.1440.900@0.0.1440.900" timestamp="1591084361949" />
+    <state x="468" y="149" key="git4idea.branch.GitSmartOperationDialog" timestamp="1592604095904">
+      <screen x="0" y="23" width="1440" height="814" />
+    </state>
+    <state x="468" y="149" key="git4idea.branch.GitSmartOperationDialog/-2560.-11.2560.1057/0.23.1440.814@0.23.1440.814" timestamp="1592604095904" />
+    <state x="385" y="211" width="670" height="728" key="search.everywhere.popup" timestamp="1591090057345">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="385" y="211" width="670" height="728" key="search.everywhere.popup/1440.0.2560.1080/0.0.1440.900@0.0.1440.900" timestamp="1591090057344" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/1440.23.2560.1057/0.0.1440.836@0.0.1440.836" timestamp="1591088342983" />
+    <state x="385" y="211" width="670" height="728" key="search.everywhere.popup/1440.23.2560.1057/0.23.1440.813@0.23.1440.813" timestamp="1591089945402" />
+  </component>
+</project>

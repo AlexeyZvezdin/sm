@@ -1,0 +1,19 @@
+@import '../../public/css/style';
+
+.personal-page-header{
+   &__back-button {
+     height: 32px;
+     width: 32px;
+     display: inline-block;
+     cursor: pointer;
+     border: 1px solid rgba(29,29,29,.2);
+     border-radius: 50%;
+     background-size: 24px 24px;
+     background: transparent url(/img/icons/icon-back-arrow.svg) no-repeat 50%;
+     @include min-width(md) {
+       height: 40px;
+       width: 40px;
+       background-size: 12px 12px;
+     }
+   }
+}
