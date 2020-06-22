@@ -1,7 +1,18 @@
 @import '../../public/css/style';
+@import '../../public/css/fonts';
 
 .personal-page-header{
+  padding-top: 10px;
+  margin-bottom: 6px;
+  padding-left: 16px;
+  border-top: 1px solid rgba(29,29,29,.07);
+  border-bottom: 1px solid rgba(29,29,29,.07);
+  @include min-width(md) {
+    padding: 20px 30px 12px;
+    margin-bottom: 0;
+  }
    &__back-button {
+    // display: inline-block;
      height: 32px;
      width: 32px;
      display: inline-block;
@@ -16,4 +27,30 @@
        background-size: 12px 12px;
      }
    }
+  &__title {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 4px;
+    margin-left: 16px;
+    font-family: Pusia sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.2;
+    letter-spacing: .5px;
+    color: #1d1d1d;
+    text-transform: uppercase;
+    @include min-width(md) {
+      margin-top: 0;
+      font-size: 30px;
+      font-weight: 800;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.33;
+      letter-spacing: 1.5px;
+      color: #1d1d1d;
+      font-family: Pusia sans-serif;
+    }
+  }
 }

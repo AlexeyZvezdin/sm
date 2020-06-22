@@ -1,6 +1,7 @@
 node_modules
 bash.exe.stackdump
 /.next/**
+/.idea
 */.next/**
 !.next
 .next/**
