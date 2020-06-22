@@ -12,7 +12,7 @@ export default class PersonalPage extends Component {
             <div className={'personal-page__avatar'}>
               <img src={'img/ic-profile-placeholder.svg'}/>
             </div>
-              <input id={'personal-page__change-photo'} type={'file'} className={'personal-page__change-photo_hiden'}/>
+              <input id={'personal-page__change-photo'} type={'file'} className={'personal-page__change-photo_hidden'}/>
             <label htmlFor={'personal-page__change-photo'} className={'personal-page__change-photo'}>Изменить фото</label>
           </div>
 

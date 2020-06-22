@@ -1,4 +1,5 @@
 .personal-page{
+  padding: 34px 58px;
   &__avatar{
     display: flex;
     justify-content: center;
@@ -9,15 +10,19 @@
     background-color: #ddd;
     background-position: 50%;
     background-size: cover;
+    &-container{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 144px;
+      text-align: center;
+    }
   }
   &__change-photo{
-
     margin-top: 10px;
-    width: 100%;
-    text-align: center;
     color: #e30613;
     cursor: pointer;
-    &_hiden {
+    &_hidden {
       display: none;
     }
   }
