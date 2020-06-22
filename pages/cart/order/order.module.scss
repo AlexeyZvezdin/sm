@@ -235,6 +235,11 @@
 
 // date picker
 .date_picker {
+  display: flex;
+  justify-content: space-between;
+}
+
+.date_picker-date {
 }
 
 .date_picker .date_picker-label {
@@ -245,4 +250,7 @@
   pointer-events: none;
   margin-bottom: 6px;
   transition: all 0.3s ease;
+}
+
+.date_picker-time {
 }

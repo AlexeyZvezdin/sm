@@ -12,6 +12,8 @@
 
 .banners__swiper-container img {
   width: 100%;
+  max-height: 450px;
+  object-fit: cover;
 }
 
 // .products__grid {

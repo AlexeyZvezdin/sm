@@ -80,7 +80,7 @@ class Header extends React.Component {
     // console.log(sumCounter, ' sumCounter');
     // console.log(this.props.sum, ' this.props.sum');
     if (this.props.sum === 0 && sumCounter) {
-      console.log('yeah its workig nwhen is tri');
+      // console.log('yeah its workig nwhen is tri');
       this.setState({ ...this.state, cardSum: sumCounter });
     }
     if (!LScounter) {
@@ -88,7 +88,7 @@ class Header extends React.Component {
     } else if (LScounter > 0) {
       this.setState({ ...this.state, cardCounter: LScounter });
     } else {
-      console.log(LScounter, ' LScounter is below zero?');
+      // console.log(LScounter, ' LScounter is below zero?');
       throw Error;
     }
   }
@@ -112,9 +112,6 @@ class Header extends React.Component {
   };
 
   render() {
-    // console.log(this.props, ' HEADER PRPS');
-    console.log(this.state.address, ' ADRESSS');
-
     const menu = links.map((el, index) => (
       <li key={index}>
         <a href={el.link}>{el.name}</a>

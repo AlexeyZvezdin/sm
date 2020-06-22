@@ -7,7 +7,7 @@ const addressReducer = (state = { address: '' }, action) => {
   //     address = JSON.parse(localStorage.getItem('address'));
   //   }
   // }
-  console.log(action.payload, ' action.payload');
+  // console.log(action.payload, ' action.payload');
   switch (action.type) {
     case 'DELIVERY_ADDRESS_DATA':
       return {
