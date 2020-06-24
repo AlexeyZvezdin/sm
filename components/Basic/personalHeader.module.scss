@@ -7,11 +7,10 @@
   border-top: 1px solid rgba(29,29,29,.07);
   border-bottom: 1px solid rgba(29,29,29,.07);
   @include min-width(md) {
-    padding: 20px 30px 12px;
+    padding: 20px 20px 12px;
     margin-bottom: 0;
   }
    &__back-button {
-    // display: inline-block;
      height: 32px;
      width: 32px;
      display: inline-block;

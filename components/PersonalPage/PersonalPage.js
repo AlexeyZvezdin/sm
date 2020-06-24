@@ -19,7 +19,9 @@ export default class PersonalPage extends Component {
             <div  className={'personal-page__form'}>
               <Input>Имя</Input>
               <Input Value={'+7 (999) 999 99 99'} ReadOnly={true}>Телефон</Input>
+              <p className={'personal-page__text'}>Добавьте email и будьте в курсе наших новинок и акций. Получайте индивидуальные промокод, скидки и подарки</p>
               <Input>Добавь email</Input>
+              <p className={'personal-page__text'}>Укажите свой день рождения, чтобы получать специальные предложения и подарки.</p>
             </div>
         </div>
       </>

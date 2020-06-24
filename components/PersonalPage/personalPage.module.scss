@@ -1,7 +1,8 @@
-.personal-page{
+.personal-page {
   display: flex;
   padding: 34px 80px;
-  &__avatar{
+
+  &__avatar {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,15 +16,14 @@
       width: 56px;
       height: 56px;
     }
-    &-container{
+    &-container {
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      width: 144px;
       text-align: center;
+      flex-grow: 0;
     }
   }
-  &__change-photo{
+  &__change-photo {
     margin-top: 10px;
     color: #e30613;
     cursor: pointer;
@@ -31,11 +31,31 @@
       display: none;
     }
   }
-  &__form{
+  &__form {
     display: flex;
     flex-direction: column;
     width: available;
     flex-grow: 1;
     margin-left: 36px;
+  }
+  &__text {
+    margin: 24px 0;
+    flex-grow: 0;
+
+    font-family: Gotham Pro, serif;
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.75;
+    letter-spacing: normal;
+    color: rgba(0, 0, 0, 0.8);
+    &::before {
+      position: relative;
+      top: 20px;
+      //noinspection CssUnknownTarget
+      content: url('/img/icons/giftbox-outline.svg');
+      margin-right: 24px;
+    }
   }
 }
