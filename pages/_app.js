@@ -65,11 +65,13 @@ export default withRedux(makeStore, { debug: false })(
 
       // console.log(catalogStructure, ' catalogStructure');
       // If catalog structure is not exists than you can get errors on _error page or others
-      catalogStructure.result.update.categories.map((item) =>
-        thisCityCategoriesData.result.update.items.filter((categoryItem) =>
-          categoryItem.id === item.id ? stickyTabs.push(categoryItem) : ''
-        )
-      );
+      catalogStructure
+        ? catalogStructure.result.update.categories.map((item) =>
+            thisCityCategoriesData.result.update.items.filter((categoryItem) =>
+              categoryItem.id === item.id ? stickyTabs.push(categoryItem) : ''
+            )
+          )
+        : '';
 
       let stickyTabsWithMain = [
         ...stickyTabs,

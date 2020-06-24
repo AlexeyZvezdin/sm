@@ -22,6 +22,11 @@ class index extends React.Component {
   //  Object.values(productsFromStorage) Вот это надо переадресовывать если нет продуктов
   // fetcher method is unpredictable right here, it saves options to itself
   async componentDidMount() {
+    const sumCounter = localStorage.getItem('sumCounter');
+    this.setState({
+      ...this.state,
+      sumCounter: sumCounter,
+    });
     const AddressId = JSON.parse(localStorage.getItem('currentPickUpAddress'));
     const deliveryAddress = JSON.parse(
       localStorage.getItem('currentDeliveryAddress')
@@ -49,7 +54,7 @@ class index extends React.Component {
         };
       })
       .filter((item) => item !== undefined);
-    console.log(prodsToOrder, ' prodsToOrder');
+    // console.log(prodsToOrder, ' prodsToOrder');
     // Поставить исключение когда продуктов нет
     let options = {
       method: 'PUT',
@@ -67,10 +72,10 @@ class index extends React.Component {
       }),
     };
 
-    let res = await fetch(
+    const res = await fetch(
       `https://client-api.sushi-master.ru/api/v1/order`,
       options
-    );
+    ).then((data) => data.json());
     // Просто на время сделаю это
     this.setState({
       ...this.state,
@@ -306,6 +311,67 @@ class index extends React.Component {
       );
     };
 
+    const orderSwitchers = () => {
+      let paymentSwitch = (options) => {
+        return options.map((item) => {
+          switch (item) {
+            case 'CASH':
+              return (
+                <div className="order-switcher">
+                  <p>Наличными</p>
+                </div>
+              );
+            case 'CARD_COURIER':
+              return (
+                <div className="order-switcher">
+                  <p>Картой курьеру</p>
+                </div>
+              );
+            case 'CARD_ONLINE':
+              return (
+                <div className="order-switcher">
+                  <p>Онлайн</p>
+                </div>
+              );
+            case 'CASHBOX':
+              return (
+                <div className="order-switcher">
+                  <p>Оплата в ресторане</p>
+                </div>
+              );
+            default:
+              return item;
+          }
+        });
+      };
+
+      return (
+        <>
+          {this.state.deliverySwitcher ? (
+            <div className="order-switchers-box">
+              {this.state.responseOrder
+                ? paymentSwitch(
+                    this.state.responseOrder.paymentInfo.paymentTypesWeb
+                      .deliveryPaymentTypes
+                  )
+                : ''}
+            </div>
+          ) : this.state.pickupSwitcher ? (
+            <div className="order-switchers-box">
+              {this.state.responseOrder
+                ? paymentSwitch(
+                    this.state.responseOrder.paymentInfo.paymentTypesWeb
+                      .restaurantPaymentTypes
+                  )
+                : ''}
+            </div>
+          ) : (
+            ''
+          )}
+        </>
+      );
+    };
+
     return (
       <div className="order-box">
         <div className="order-back_button">
@@ -324,6 +390,31 @@ class index extends React.Component {
           {/* Оплаты квадрат */}
           <div className="order-widget">
             <h3>Способы оплаты</h3>
+            {/* Переключатели */}
+            <div className="order-switchers">{orderSwitchers()}</div>
+            {/* Инфа  */}
+            <div className="order-payment_info">
+              <div className="order-payment_info-products">
+                <span>Товары</span>
+                <span>{this.state.sumCounter} ₽</span>
+              </div>
+              <div className="order-payment_info-total_result">
+                <span>Итого</span>
+                <span>{this.state.sumCounter} ₽</span>
+              </div>
+            </div>
+            {/* политика конф */}
+            <div className="order-conf_checkbox">
+              <input id="rules" type="checkbox" />
+              <label htmlFor="rules">
+                <p>
+                  Я согласен с{' '}
+                  <a href="/public-offert">пользовательским соглашением</a> и{' '}
+                  <a href="/privacy-policy">политикой конфиденциальности</a> и
+                  даю согласение на обработку моих персональных данных
+                </p>
+              </label>
+            </div>
           </div>
         </div>
       </div>

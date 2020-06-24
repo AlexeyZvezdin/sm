@@ -20,9 +20,10 @@ function Product({ product, store, ...props }) {
   const [productInfo, setProductInfo] = React.useState(true);
   const router = useRouter();
   const handleCounterClick = async (action) => {
-    const cardCount = localStorage.getItem('cardCounter');
-    console.log(cardCount, ' totalCounter');
-    if (cardCount == 0) {
+    const cardCount = await localStorage.getItem('cardCounter');
+    console.log(cardCount, ' cardCount');
+    // потом надо будет сделать проверку на наличие адреса все-таки
+    if (cardCount == null) {
       props.dispatchAddressModalStatus();
     }
     if (action === 'inc') {
