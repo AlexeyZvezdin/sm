@@ -13,15 +13,20 @@
   &__input {
     width: 100%;
     padding: 10px 10px 10px 5px;
+    font: 400 18px Arial;
+    color: rgba(0,0,0,.75);
     &-label {
       color: rgba(0,0,0, 0.3);
       font-size: 13px;
-      font-family: sanst-serif;
+      font-family: serif;
     }
   }
   &__save-button {
     color: #e30613;
     cursor: pointer;
     font-size: 14px;
+    &_hidden{
+      display: none;
+    }
   }
 }
