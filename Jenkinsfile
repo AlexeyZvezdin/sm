@@ -14,6 +14,7 @@ node {
         dir('sushimaster_ssr_front') {
             try {
                 sh 'npm install'
+                sh 'npm run build'
             }
             catch (err) {
                 notify("*Site SSR*: Error during building - ${err}", '#F21616')
@@ -27,6 +28,7 @@ node {
             try {
                 sshagent(['dev-server-1']) {
                     sh 'rsync -avz --progress ${WORKSPACE}/sushimaster_ssr_front/* vkirilichev@185.118.66.215:/opt/apps/sushimaster-test/sushimaster_ssr_front'
+                    sh 'ssh vkirilichev@185.118.66.215 \'pm2 restart SushiMaster_Site\''
                 }
             }
             catch (err) {
