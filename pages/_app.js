@@ -126,7 +126,7 @@ export default withRedux(makeStore, { debug: false })(
       });
       ctx.store.dispatch({
         type: 'INITIAL_BANNERS',
-        payload: getAllBannersData.result.update,
+        payload: getAllBannersData ? getAllBannersData.result.update : '',
       });
       ctx.store.dispatch({
         type: 'INITIAL_PRODUCTS',
