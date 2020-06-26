@@ -2,6 +2,7 @@ import { Component } from 'react';
 import './personalPage.module.scss';
 import { PersonalHeader } from '../Basic/PersonalHeader';
 import { Input } from '../Basic/Input'
+import PersonalMenu from '../PersonalMenu/PersonalMenu'
 
 export default class PersonalPage extends Component {
   render() {
@@ -23,6 +24,7 @@ export default class PersonalPage extends Component {
               <Input>Добавь email</Input>
               <p className={'personal-page__text'}>Укажите свой день рождения, чтобы получать специальные предложения и подарки.</p>
             </div>
+          <PersonalMenu/>
         </div>
       </>
     );
