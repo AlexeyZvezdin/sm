@@ -1,7 +1,7 @@
 import { PersonalHeader } from '../Basic/PersonalHeader';
-import './bonusPage.module.scss'
-import { Input } from '../Basic/Input'
-import PersonalMenu from '../PersonalMenu/PersonalMenu'
+import './bonusPage.module.scss';
+import { Input } from '../Basic/Input';
+import PersonalMenu from '../PersonalMenu/PersonalMenu';
 
 export const BonusPage = () => {
   return (
@@ -16,11 +16,28 @@ export const BonusPage = () => {
             />
           </div>
           <div className={'bonus-page__container__information'}>
-            <Input Value={'+7 (999) 999 99 99'} ReadOnly={true}>Телефон</Input>
-            <h4 className={'bonus-page__container__amount'}>0</h4> {/*заменить хардкод на проп*/}
-            <p className={'bonus-page__container__label'}>Бонусы</p>
+            <Input Value={'+7 (999) 999 99 99'} ReadOnly={true}>
+              Телефон
+            </Input>
+            <div className={'dash'}>
+              <h4 className={'bonus-page__container__amount'}>0</h4>{' '}
+              {/*заменить хардкод на проп*/}
+              <p className={'bonus-page__container__label'}>Бонусы</p>
+            </div>
+          </div>
+          <PersonalMenu />
         </div>
-          <PersonalMenu/>
+        <div>
+          <h4>ИСТОРИЯ СПИСАНИЯ И НАЧИСЛЕНИЙ</h4>
+        </div>
+        <div>
+          <h4>ПРИГЛАСИ ДРУГА</h4>
+        </div>
+        <div>
+          <h4>ОТПРАВЬ ССЫЛКУ</h4>
+        </div>
+        <div>
+          <h4>СИСТЕМА ЛОЯЛЬНОСТИ</h4>
         </div>
       </div>
     </>
