@@ -1,8 +1,12 @@
 .personal-menu {
   display: flex;
   flex-direction: column;
-  justify-content: left;
-  order-radius: 10px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  flex-basis: 25%;
+  border-radius: 10px;
   border: 1px solid rgba(29,29,29,.2);
   overflow: hidden;
+  margin-left: 60px;
 }
