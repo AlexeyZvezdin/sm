@@ -109,6 +109,10 @@ class index extends React.Component {
           .substring(0, 10)}&longitude=${lon}&latitude=${lat}`
         // linesOpt
       ).then((data) => data.json());
+      this.setState({
+        ...this.state,
+        deliveryInterval: lines,
+      });
       console.log(lines, ' LINES courier');
     } else if (this.state.pickupSwitcher && AddressId != undefined) {
       lines = await fetch(
@@ -119,6 +123,10 @@ class index extends React.Component {
         }`
         // linesOpt
       ).then((data) => data.json());
+      this.setState({
+        ...this.state,
+        pickupInterval: lines,
+      });
       console.log(lines, ' LINES restaurant');
     }
   }
@@ -202,7 +210,6 @@ class index extends React.Component {
   };
 
   render() {
-    console.log(this.state, ' THIS STATE');
     const renderDelivery = () => {
       return (
         <div className="order-forms-delivery input_group">
@@ -266,11 +273,49 @@ class index extends React.Component {
     };
 
     const DateIntervals = () => {
-      return (
-        <div className="coutier_form-date_lines-box">
-          <p class="date_picker-label">Время</p>
-        </div>
-      );
+      if (
+        this.state.deliveryInterval != undefined &&
+        this.state.deliverySwitcher
+      )
+        return (
+          <select name="delivery_time_select">
+            <option value="Время" disabled>
+              Время
+            </option>
+            {this.state.deliveryInterval.result.map((item) => {
+              return (
+                <option key={item.hour} value={item.hour}>
+                  {item.hour}:{item.minute.value}
+                </option>
+              );
+            })}
+          </select>
+        );
+      else if (
+        this.state.pickupInterval &&
+        this.state.pickupSwitcher != undefined
+      ) {
+        return (
+          <select name="pickup_time_select">
+            <option value="Время" disabled>
+              Время
+            </option>
+            {this.state.pickupInterval.result.map((item) => {
+              return (
+                <option key={item.hour} value={item.hour}>
+                  {item.hour}:{item.minute.value}
+                </option>
+              );
+            })}
+          </select>
+        );
+      } else {
+        return (
+          <select>
+            <option>Время</option>
+          </select>
+        );
+      }
     };
 
     const CourierForm = () => {
@@ -352,7 +397,12 @@ class index extends React.Component {
                   <DPicker method="courier" />
                 </div>
                 <div className="coutier_form-date_lines">
-                  <DateIntervals />
+                  <div className="coutier_form-date_lines-box">
+                    <label htmlFor="" className="date_picker-label">
+                      Время
+                    </label>
+                    <DateIntervals />
+                  </div>
                 </div>
               </div>
             </div>

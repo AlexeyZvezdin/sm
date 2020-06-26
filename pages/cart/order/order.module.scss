@@ -374,5 +374,17 @@
 }
 
 .courier_form-date_picker {
-  margin-right: 70px;
+  margin-right: 170px;
+  width: 300px;
+}
+
+.coutier_form-date_lines-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.coutier_form-date_lines-box select {
+  font-size: 1.2rem;
+  margin-top: 2px;
+  width: 400px;
 }
