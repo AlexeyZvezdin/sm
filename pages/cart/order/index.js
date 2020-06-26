@@ -405,6 +405,22 @@ class index extends React.Component {
                   </div>
                 </div>
               </div>
+              {/* Дополнительно */}
+              <div className="courier_form-comment">
+                <h2>Дополнительно</h2>
+              </div>
+              <div className="courier_form-comment_textarea">
+                <label htmlFor="comment_textarea" className="date_picker-label">
+                  Комментарий
+                </label>
+                <textarea
+                  name="comment_textarea"
+                  id="comment_textarea"
+                  rows="3"
+                  cols="50"
+                ></textarea>
+                <div className="textarea_highlight"></div>
+              </div>
             </div>
           </div>
         </form>
@@ -522,6 +538,10 @@ class index extends React.Component {
                   даю согласение на обработку моих персональных данных
                 </p>
               </label>
+            </div>
+            {/* Кнопка */}
+            <div className="order-button_submit">
+              <button>заказать</button>
             </div>
           </div>
         </div>

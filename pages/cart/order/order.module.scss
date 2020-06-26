@@ -388,3 +388,57 @@
   margin-top: 2px;
   width: 400px;
 }
+
+// Кнопка заказа
+
+.order-button_submit {
+  margin-top: 24px;
+}
+
+.order-button_submit button {
+  color: white;
+  padding: 11px 0;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 20px;
+  background-color: #e30613;
+  padding: 10px 50px 7px;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.71;
+  letter-spacing: 0.4px;
+}
+
+.order-button_submit button.disabled {
+  color: #fff;
+  background-color: silver;
+}
+
+// courier_form-comment
+.courier_form-comment {
+  margin-top: 74px;
+}
+
+.courier_form-comment_textarea {
+  margin-bottom: 44px;
+}
+
+.courier_form-comment_textarea textarea {
+  font-size: 1.4rem;
+  width: 100%;
+}
+
+.textarea_highlight {
+  height: 0px;
+  width: 0px;
+  background-color: black;
+  transition: all 0.2s ease-in;
+}
+
+.courier_form-comment_textarea label + textarea:focus + .textarea_highlight,
+.courier_form-comment_textarea textarea:focus + .textarea_highlight {
+  height: 2px;
+  width: 100%;
+}
