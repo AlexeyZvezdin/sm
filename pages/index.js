@@ -19,6 +19,7 @@ import { splittedBanners } from '../components/Banners/splittedBanners';
 import { renderBanners } from '../components/Banners/renderBanners';
 import PersonalPage from '../components/PersonalPage/PersonalPage'
 import React from 'react'
+import { BonusPage } from '../components/BonusPage/BonusPage'
 // { data, allCities, error }
 /**
  * @param {number} currentPageIndex — seems to me useless num, but let's see to the future
@@ -61,7 +62,8 @@ function Index(props) {
   // }, []);
 
   return (
-    <PersonalPage/>
+    // <PersonalPage/>
+    <BonusPage/>
     //!Временно закоментил!
     // <div className="main_box">
     //   <div className="subcategory-selector">

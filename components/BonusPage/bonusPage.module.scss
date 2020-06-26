@@ -1,0 +1,38 @@
+.bonus-page__container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 34px 80px;
+  &__section {
+    display: flex;
+    padding: 36px 0;
+    justify-content: space-between;
+  }
+  &__information {
+  }
+  &__avatar-container {
+    width: 144px;
+    height: 144px;
+  }
+  &__avatar-placeholder {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left center;
+  }
+  &__amount {
+    margin-bottom: 0.5rem;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.2;
+    color: inherit;
+    padding-left: 10px;
+  }
+  &__label {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.54);
+    margin-top: 0;
+    margin-bottom: 1rem;
+    padding-left: 10px;
+  }
+}
