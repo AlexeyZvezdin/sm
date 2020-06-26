@@ -14,6 +14,10 @@ import {
 import './order.module.scss';
 
 class index extends React.Component {
+  // Так же в стейте эти объекты
+  // responseOrder: '',
+  // sumCounter: '',
+  // deliveryAddress: '',
   state = {
     deliverySwitcher: true,
     pickupSwitcher: false,
@@ -27,11 +31,17 @@ class index extends React.Component {
       ...this.state,
       sumCounter: sumCounter,
     });
+    // Пока более подробная инфа о ресторане не нужна поэтому не сую ее в стейт
     const AddressId = JSON.parse(localStorage.getItem('currentPickUpAddress'));
     const deliveryAddress = JSON.parse(
       localStorage.getItem('currentDeliveryAddress')
     );
-
+    if (deliveryAddress) {
+      this.setState({
+        ...this.state,
+        deliveryAddress: deliveryAddress,
+      });
+    }
     if (!(AddressId || deliveryAddress)) {
       await this.props.dispatchAddressModalStatus();
     }
@@ -81,6 +91,36 @@ class index extends React.Component {
       ...this.state,
       responseOrder: res.result,
     });
+
+    // время
+
+    // Запрос дат
+    var today = new Date();
+    let linesOpt = {};
+    let lines;
+    if (this.state.deliverySwitcher && deliveryAddress != undefined) {
+      let lat = deliveryAddress.location.latitude;
+      let lon = deliveryAddress.location.longitude;
+      lines = await fetch(
+        `https://client-api.sushi-master.ru/api/v1/delivery/time/lines?cityId=${
+          this.props.city.cityId
+        }&date=${today
+          .toISOString()
+          .substring(0, 10)}&longitude=${lon}&latitude=${lat}`
+        // linesOpt
+      ).then((data) => data.json());
+      console.log(lines, ' LINES courier');
+    } else if (this.state.pickupSwitcher && AddressId != undefined) {
+      lines = await fetch(
+        `https://client-api.sushi-master.ru/api/v1/delivery/time/lines?cityId=${
+          this.props.city.cityId
+        }&date=${today.toISOString().substring(0, 10)}&restaurantId=${
+          AddressId.id
+        }`
+        // linesOpt
+      ).then((data) => data.json());
+      console.log(lines, ' LINES restaurant');
+    }
   }
 
   handlePickupSwitch = () => {
@@ -162,6 +202,7 @@ class index extends React.Component {
   };
 
   render() {
+    console.log(this.state, ' THIS STATE');
     const renderDelivery = () => {
       return (
         <div className="order-forms-delivery input_group">
@@ -172,7 +213,13 @@ class index extends React.Component {
             name="order-forms-address_input"
             type="text"
             placeholder="Введите адрес"
-            value={this.state.inputValue}
+            value={
+              this.state.inputValue
+                ? this.state.inputValue
+                : this.state.deliveryAddress
+                ? this.state.deliveryAddress.formattedAddress
+                : ''
+            }
           />
           <div className="address_highlight"></div>
           <div className="order-forms-delivery-prompts">
@@ -214,6 +261,14 @@ class index extends React.Component {
               <span>Можно забрать из ресторанов</span>
             </div>
           </div>
+        </div>
+      );
+    };
+
+    const DateIntervals = () => {
+      return (
+        <div className="coutier_form-date_lines-box">
+          <p class="date_picker-label">Время</p>
         </div>
       );
     };
@@ -295,6 +350,9 @@ class index extends React.Component {
               <div className="courier_form-date_section">
                 <div className="courier_form-date_picker">
                   <DPicker method="courier" />
+                </div>
+                <div className="coutier_form-date_lines">
+                  <DateIntervals />
                 </div>
               </div>
             </div>

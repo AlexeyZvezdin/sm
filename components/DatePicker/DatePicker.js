@@ -37,7 +37,6 @@ function DPicker(props) {
       <div className="date_picker-date">
         <p className="date_picker-label">Дата</p>
         <DatePicker onChange={onChange} value={value} />
-        <h1>ты че охуел</h1>
       </div>
       <div className="date_picker-time">{renderTimeLines()}</div>
     </div>
