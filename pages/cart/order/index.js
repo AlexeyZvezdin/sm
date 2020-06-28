@@ -318,37 +318,41 @@ class index extends React.Component {
       }
     };
 
+    const NameAndPhone = () => (
+      <>
+        <div className="input_group">
+          <label htmlFor="courier_form-name"></label>
+          <input
+            type="text"
+            placeholder="Имя*"
+            id="courier_form-name"
+            name="name"
+          />
+          <div className="name_highlight"></div>
+        </div>
+        <div className="input_group">
+          <label htmlFor="phone_input">Номер телефона</label>
+          <InputMask
+            id="phone_input"
+            name="phone"
+            alwaysShowMask
+            onChange={(e) => this.handlePhone(e)}
+            mask={'+7 \\999 999 99 99'}
+            type="text"
+            maskChar={null}
+            required
+          />
+          <div className="phone_highlight"></div>
+        </div>
+      </>
+    );
+
     const CourierForm = () => {
       return (
         <form id="courier_form">
-          <h2>Данные получателя</h2>
           <div className="courier_form">
-            <div className="courier_form-name_n_phone">
-              <div className="input_group">
-                <label htmlFor="courier_form-name"></label>
-                <input
-                  type="text"
-                  placeholder="Имя*"
-                  id="courier_form-name"
-                  name="name"
-                />
-                <div className="name_highlight"></div>
-              </div>
-              <div className="input_group">
-                <label htmlFor="phone_input">Номер телефона</label>
-                <InputMask
-                  id="phone_input"
-                  name="phone"
-                  alwaysShowMask
-                  onChange={(e) => this.handlePhone(e)}
-                  mask={'+7 \\999 999 99 99'}
-                  type="text"
-                  maskChar={null}
-                  required
-                />
-                <div className="phone_highlight"></div>
-              </div>
-            </div>
+            <h2>Данные получателя</h2>
+            <div className="courier_form-name_n_phone">{NameAndPhone()}</div>
             <div className="courier_form-address">
               <h2>Адрес</h2>
               <div className="courier_form-address-section">
@@ -406,31 +410,47 @@ class index extends React.Component {
                 </div>
               </div>
               {/* Дополнительно */}
-              <div className="courier_form-comment">
-                <h2>Дополнительно</h2>
-              </div>
-              <div className="courier_form-comment_textarea">
-                <label htmlFor="comment_textarea" className="date_picker-label">
-                  Комментарий
-                </label>
-                <textarea
-                  name="comment_textarea"
-                  id="comment_textarea"
-                  rows="3"
-                  cols="50"
-                ></textarea>
-                <div className="textarea_highlight"></div>
-              </div>
+              {InputComment()}
             </div>
           </div>
         </form>
       );
     };
 
+    const InputComment = () => (
+      <>
+        <div className="courier_form-comment">
+          <h2>Дополнительно</h2>
+        </div>
+        <div className="courier_form-comment_textarea">
+          <label htmlFor="comment_textarea" className="date_picker-label">
+            Комментарий
+          </label>
+          <textarea
+            name="comment_textarea"
+            id="comment_textarea"
+            rows="3"
+            cols="50"
+          ></textarea>
+          <div className="textarea_highlight"></div>
+        </div>
+      </>
+    );
+
     const PickupForm = () => {
       return (
         <form id="pickup_form">
-          <h2>Самовывоз</h2>
+          <h2>
+            Пункты самовывоза в г. {this.props.city.name} ({})
+          </h2>
+          <div className="pickup_form-address_choice">
+            <div className="input_group">
+              <label htmlFor="">Выберите адрес ресторана</label>
+            </div>
+          </div>
+          <h2>Данные получателя</h2>
+          <div className="courier_form-name_n_phone">{NameAndPhone()}</div>
+          {InputComment()}
         </form>
       );
     };
