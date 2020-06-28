@@ -6,6 +6,7 @@ import makeStore from '../redux/store';
 import withRedux from 'next-redux-wrapper';
 import AddressModal from '../components/Modals/AddressModal';
 import LoginModal from '../components/Modals/Login';
+import RestaurantModal from '../components/Modals/RestaurantModal';
 import CityChoiceModal from '../components/Modals/CityChoiceModal';
 import { dispatchCategoriesWithMain } from '../redux/actions/dispatchStickyTabsWithMain';
 import { parseCookies } from '../utils/parseCookies';
@@ -156,6 +157,7 @@ export default withRedux(makeStore, { debug: false })(
           <CityChoiceModal />
           <AddressModal />
           <LoginModal />
+          <RestaurantModal />
           <Layout>
             <Component {...pageProps}></Component>
           </Layout>

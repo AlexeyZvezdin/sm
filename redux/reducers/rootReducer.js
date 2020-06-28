@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 import initialReducer from './initialReducer';
 import modalReducer from './modals/cityModalReducer';
 import addressModalReducer from './modals/addressToggleReducer';
+import restaurantModal from './modals/restaurantModal';
 import cardReducer from './card/cardReducer';
 import { cardCounter } from './card/cardReducer';
 import sumCounter from './card/sumCounter';
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
   loginModal: loginToggleReducer,
   city: cityReducer,
   address: addressReducer,
+  restModal: restaurantModal,
   card: combineReducers({ cardReducer, cardCounter, sumCounter }),
 });
 

@@ -42,6 +42,15 @@ class index extends React.Component {
         deliveryAddress: deliveryAddress,
       });
     }
+    if (AddressId) {
+      // TODO: Потом сделать через свич-кейс переключение дефолтных форм
+      this.setState({
+        ...this.state,
+        pickupAddress: AddressId,
+        deliverySwitcher: false,
+        pickupSwitcher: true,
+      });
+    }
     if (!(AddressId || deliveryAddress)) {
       await this.props.dispatchAddressModalStatus();
     }
@@ -207,6 +216,10 @@ class index extends React.Component {
         addresses: res.result.items,
       });
     }
+  };
+
+  pickupAddressClick = async () => {
+    this.props.dispatchRestModal();
   };
 
   render() {
@@ -440,12 +453,20 @@ class index extends React.Component {
     const PickupForm = () => {
       return (
         <form id="pickup_form">
-          <h2>
-            Пункты самовывоза в г. {this.props.city.name} ({})
-          </h2>
+          <h2>Пункты самовывоза в г. {this.props.city.name}</h2>
           <div className="pickup_form-address_choice">
             <div className="input_group">
               <label htmlFor="">Выберите адрес ресторана</label>
+              <p
+                className="pickup_form-address_input"
+                onClick={() => this.pickupAddressClick()}
+              >
+                {this.props.address
+                  ? this.props.address.address
+                  : this.state.pickupAddress
+                  ? this.state.pickupAddress.address
+                  : ''}
+              </p>
             </div>
           </div>
           <h2>Данные получателя</h2>
@@ -570,13 +591,17 @@ class index extends React.Component {
   }
 }
 
-const mapState = ({ store: { city } }) => ({
+const mapState = ({ store: { city }, address }) => ({
   city,
+  address,
 });
 
 const mapDispatch = (dispatch) => ({
   dispatchAddressModalStatus: (status) =>
     dispatch({ type: 'OPEN_ADDRESS_MODAL' }),
+  dispatchRestModal: () => {
+    dispatch({ type: 'OPEN_REST_MODAL' });
+  },
 });
 
 export default connect(mapState, mapDispatch)(index);

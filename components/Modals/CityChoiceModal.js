@@ -4,8 +4,6 @@ import fetcher from '../../utils/fetcher';
 import s from './css/city_choice.module.scss';
 import { selectCity } from '../../redux/actions/selectCity';
 
-import { dispatchCategoriesWithMain } from '../../redux/actions/dispatchStickyTabsWithMain';
-
 class CityChoiceModal extends React.Component {
   constructor(props) {
     super(props);

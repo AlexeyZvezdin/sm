@@ -404,3 +404,11 @@ input:checked + .m_m-pickup-item {
     flex-wrap: wrap;
   }
 }
+
+.restaurant_modal {
+  background-color: #fff;
+  width: 900px;
+  padding: 20px 60px;
+  border-radius: 6px;
+  box-shadow: 0px 0px 6px 2px white;
+}
