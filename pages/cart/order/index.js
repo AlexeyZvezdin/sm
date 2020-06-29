@@ -162,6 +162,12 @@ class index extends React.Component {
       phone: e.target.value,
     });
   };
+  handleName = (e) => {
+    this.setState({
+      ...this.state,
+      name: e.target.value,
+    });
+  };
 
   handleInputChange = async (e) => {
     // console.log(this.props, ' CITY ID');
@@ -190,7 +196,7 @@ class index extends React.Component {
   chooseStreet = async (item) => {
     console.log(item, ' formateer itemitemitem');
     if (item.formattedAddress === this.state.addressInValue) {
-      console.log(' DADADA');
+      console.log(' item.formattedAddress === this.state.addressInValue');
       this.setState({
         ...this.state,
         addresses: [],
@@ -223,9 +229,75 @@ class index extends React.Component {
     this.props.dispatchRestModal();
   };
 
+  fixTime = (time) => {
+    console.log(time, 'TIME');
+    let day;
+    if (
+      this.state.deliverySwitcher === true &&
+      this.state.pickupSwitcher === false
+    ) {
+      console.log(this.state.deliveryInterval, ' deliveryInterval');
+      day = time.setHours(this.state.selectedPickupTime || 0);
+    } else if (
+      this.state.deliverySwitcher === false &&
+      this.state.pickupSwitcher === true
+    ) {
+      console.log(this.state, ' pickupInterval');
+      day = time.setHours(this.state.selectedPickupTime || 0);
+    }
+
+    console.log(day, ' DAY');
+    console.log(new Date(day), ' DA 2 Y');
+  };
+
+  // Выбор времени при селекте
+  // Нужно чтобы
+  selectTimeChange = (e, hour, minute) => {
+    console.log(this.state.selectValue, ' this.state.selectValue');
+    if (hour) {
+      console.log(hour, ' HOUR');
+      console.log(minute, ' minute');
+    } else {
+      console.log(e.target.value, ' EVENT');
+      this.setState({
+        ...this.state,
+        selectedPickupTime: e.target.value,
+        selectValue: e.target.value,
+      });
+    }
+  };
+
+  genReq = (typeOfDelivery) => {
+    // 0: "RESTAURANT"
+    // 1: "DELIVERY"
+    let deliveryType =
+      typeOfDelivery == 'pickup_form' ? 'RESTAURANT' : 'DELIVERY';
+    // TODO: deliveryType добавить проверку на исключение, чтобы по еще одной форме проверялось
+    return {
+      id: this.state.responseOrder.id,
+      comment: this.state.comment,
+      bonuses: 0,
+      user: {
+        name: this.state.name,
+        phone: this.state.phone,
+      },
+      delivery: {
+        deliveryType: deliveryType,
+        [deliveryType === 'DELIVERY' ? 'addressId' : 'restaurantId']:
+          deliveryType === 'DELIVERY'
+            ? this.state.currentDeliveryAddress.placeId || null
+            : this.state.pickupAddress.id || null,
+        restaurantId: this.state.pickupAddress.id,
+        time: '',
+      },
+    };
+  };
+
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e, ' EVENT');
+    console.log(e.target.form.id, ' EVENT form');
+    this.genReq(e.target.form.id);
+    console.log(this.state, ' EVENT this.state');
   };
 
   waysOfPaySwitchClick = (e) => {
@@ -312,33 +384,55 @@ class index extends React.Component {
       if (
         this.state.deliveryInterval != undefined &&
         this.state.deliverySwitcher
-      )
+      ) {
+        this.selectTimeChange(
+          null,
+          this.state.deliveryInterval.result[0].hour,
+          this.state.deliveryInterval.result[0].minute.value
+        );
         return (
-          <select name="delivery_time_select">
+          <select
+            name="delivery_time_select"
+            value={
+              this.state.selectValue
+                ? this.state.selectValue
+                : this.state.pickupInterval.result[0].hour
+            }
+            onChange={this.selectTimeChange}
+          >
             <option value="Время" disabled>
               Время
             </option>
-            {this.state.deliveryInterval.result.map((item) => {
+            {this.state.deliveryInterval.result.map((item, index) => {
               return (
-                <option key={item.hour} value={item.hour}>
+                <option key={index} hour={item.hour}>
                   {item.hour}:{item.minute.value}
                 </option>
               );
             })}
           </select>
         );
-      else if (
+      } else if (
         this.state.pickupInterval &&
         this.state.pickupSwitcher != undefined
       ) {
+        this.selectTimeChange(
+          null,
+          this.state.pickupInterval.result[0].hour,
+          this.state.pickupInterval.result[0].minute.value
+        );
         return (
-          <select name="pickup_time_select">
+          <select
+            name="pickup_time_select"
+            value={this.state.selectValue}
+            onChange={this.selectTimeChange}
+          >
             <option value="Время" disabled>
               Время
             </option>
-            {this.state.pickupInterval.result.map((item) => {
+            {this.state.pickupInterval.result.map((item, index) => {
               return (
-                <option key={item.hour} value={item.hour}>
+                <option key={index} hour={item.hour}>
                   {item.hour}:{item.minute.value}
                 </option>
               );
@@ -363,6 +457,7 @@ class index extends React.Component {
             placeholder="Имя*"
             id="courier_form-name"
             name="name"
+            onChange={(e) => this.handleName(e)}
           />
           <div className="name_highlight"></div>
         </div>
@@ -434,7 +529,7 @@ class index extends React.Component {
               </div>
               <div className="courier_form-date_section">
                 <div className="courier_form-date_picker">
-                  <DPicker method="courier" />
+                  <DPicker method="courier" fixTime={this.fixTime} />
                 </div>
                 <div className="coutier_form-date_lines">
                   <div className="coutier_form-date_lines-box">
@@ -508,7 +603,7 @@ class index extends React.Component {
           </div>
           <div className="courier_form-date_section">
             <div className="courier_form-date_picker">
-              <DPicker method="courier" />
+              <DPicker method="courier" fixTime={this.fixTime} />
             </div>
             <div className="coutier_form-date_lines">
               <div className="coutier_form-date_lines-box">
