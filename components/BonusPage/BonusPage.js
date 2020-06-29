@@ -17,7 +17,7 @@ export const BonusPage = () => {
              alt={'placeholder'}/>
           </div>
           <div className={'bonus-page__container__information'}>
-            <Input Value={'+7 (999) 999 99 99'} ReadOnly={true}>
+            <Input Value={'+7 (999) 999 99 99'} ReadOnly={true}> {/*заменить хардкод на проп*/}
               Телефон
             </Input>
             <div className={'dash'}>
