@@ -12,7 +12,7 @@ export const BonusMenu = (props) => {
   return (
     <div className={'bonus-page__container__menu-section'}>
       <h4 className={'bonus-page__container__menu-section__title'}>
-        {props.children}
+        {props.children[0]}
       </h4>
       <span
         onClick={showMenu}
@@ -20,6 +20,7 @@ export const BonusMenu = (props) => {
           classnames('bonus-page__container__menu-section__btn ', {'expand': state.show})
         }
       />
+      <div className={classnames('bonus-page__container__menu-section', {'menu-expand': state.show})}>{props.children[1]}</div>
     </div>
   );
 };

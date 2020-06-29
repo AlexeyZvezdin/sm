@@ -14,7 +14,7 @@ export const BonusPage = () => {
             <img
               className={'bonus-page__container__avatar-placeholder'}
               src={'img/ic-profile-placeholder.svg'}
-            />
+             alt={'placeholder'}/>
           </div>
           <div className={'bonus-page__container__information'}>
             <Input Value={'+7 (999) 999 99 99'} ReadOnly={true}>
@@ -28,11 +28,10 @@ export const BonusPage = () => {
           </div>
           <PersonalMenu />
         </div>
-        <BonusMenu>ИСТОРИЯ СПИСАНИЯ И НАЧИСЛЕНИЙ</BonusMenu>
-        <BonusMenu>ПРИГЛАСИ ДРУГА</BonusMenu>
-        <BonusMenu>ОТПРАВЬ ССЫЛКУ</BonusMenu>
-        <BonusMenu>СИСТЕМА ЛОЯЛЬНОСТИ</BonusMenu>
-
+        <BonusMenu>{['ИСТОРИЯ СПИСАНИЯ И НАЧИСЛЕНИЙ']}</BonusMenu>
+        <BonusMenu>{['ПРИГЛАСИ ДРУГА']}</BonusMenu>
+        <BonusMenu>{['ОТПРАВЬ ССЫЛКУ']}</BonusMenu>
+        <BonusMenu>{['СИСТЕМА ЛОЯЛЬНОСТИ']}</BonusMenu>
       </div>
     </>
   );
