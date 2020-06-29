@@ -1,20 +1,16 @@
-//Components
 // import Header from '../../components/Basic/Header';
 import Head from 'next/head';
 // import SubHeader from '../../components/delivery/SubHeader';
 import DeliveryZoneItem from '../../components/delivery/DeliveryZoneItem';
 import InfoItem from '../../components/delivery/InfoItem';
 import AddressItem from '../../components/delivery/AddressItem.js';
-import SubHeaderBackButton from '../../components/Basic/SubHeaderBackButton';
+// import SubHeaderBackButton from '../../components/Basic/SubHeaderBackButton';
 
 import SubHeader from '../../components/Basic/SubHeader';
 
 import { connect } from 'react-redux';
 
 import s from './delivery.module.scss';
-//API
-// import Head from '../../components/Head';
-// import PropTypes from 'prop-types'
 import { msToTime } from '../../utils/msToTime';
 
 // let map;
@@ -57,7 +53,6 @@ class Index extends React.Component {
   componentDidMount() {
     this.updateInfo();
     // this.props.showHeader(false);
-    // console.log(this.props, ' DELIVERY PROPS');
   }
 
   updateInfo = async () => {
@@ -96,7 +91,7 @@ class Index extends React.Component {
 
   initMap = () => {
     console.log(this.props.cityId, 'is trying to render map? ');
-
+    // Переписать на реакт модуле для яндекс карт
     let map = new window.ymaps.Map(
       'map',
       {
@@ -185,7 +180,7 @@ class Index extends React.Component {
       <>
         <Head>
           <script
-            defer
+            async="async"
             src="https://api-maps.yandex.ru/2.1/?apikey=78245263-55a3-404a-b40b-4470b2b76b9c&lang=ru_RU&coordorder=longlat"
             type="text/javascript"
           ></script>

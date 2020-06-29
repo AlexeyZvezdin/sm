@@ -19,7 +19,7 @@ class FixedFooter extends React.Component {
     let sumCounter = await localStorage.getItem('sumCounter');
 
     if (this.props.sum === 0 && sumCounter) {
-      console.log('yeah its workig nwhen is tri');
+      // console.log('yeah its workig nwhen is tri');
       this.setState({ ...this.state, cardSum: sumCounter });
     }
     if (!LScounter) {

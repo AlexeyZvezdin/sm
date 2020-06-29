@@ -448,4 +448,38 @@
   margin-top: 12px;
   font-size: 22px;
   cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pickup_form-address_choice .input_group {
+  width: 100%;
+}
+
+.edit-restaurant {
+  display: flex;
+  cursor: pointer;
+  font-family: Gotham Pro;
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.71;
+  letter-spacing: normal;
+  text-align: center;
+  color: #e30613;
+}
+.restaurant-picker {
+  margin-top: 6px;
+  margin-left: 8px;
+  width: 0;
+  height: 0;
+  border-color: transparent transparent transparent #000;
+  border-style: solid;
+  border-width: 5px 0 5px 10px;
+}
+
+.current_payment-active {
+  background-color: #1d1d1d;
+  color: #fff;
 }

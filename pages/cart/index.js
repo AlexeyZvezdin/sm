@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { connect } from 'react-redux';
 import { parseCookies } from '../../utils/parseCookies';
 import CardProduct from '../../components/Products/CardProduct';
+import SubHeader from '../../components/Basic/SubHeader';
 import fetcher from '../../utils/fetcher';
 
 class cart extends React.Component {
@@ -167,8 +168,9 @@ class cart extends React.Component {
     return (
       <div className="cart-container">
         <div className="cart-container-back">
-          <p className="cart-container-back-button"></p>
-          <p className="cart-container-back-text">КОРЗИНА</p>
+          <SubHeader>
+            <p className="cart-container-back-text">КОРЗИНА</p>
+          </SubHeader>
         </div>
         <section className="cart-content">
           <div className="cart-products-box">

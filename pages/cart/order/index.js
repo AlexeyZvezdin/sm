@@ -3,6 +3,7 @@ import InputMask from 'react-input-mask';
 import fetcher from '../../../utils/fetcher';
 import { getDeviceToken } from '../../../config/device-token';
 import DPicker from '../../../components/DatePicker/DatePicker';
+import SubHeader from '../../../components/Basic/SubHeader';
 import {
   BASE_URL,
   DEVICE_TYPE_WEB,
@@ -221,6 +222,28 @@ class index extends React.Component {
   pickupAddressClick = async () => {
     this.props.dispatchRestModal();
   };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(e, ' EVENT');
+  };
+
+  waysOfPaySwitchClick = (e) => {
+    this.setState({ ...this.state, currentPaymentType: e.target.dataset.item });
+  };
+
+  /*
+ 
+ '########::'########:'##::: ##:'########::'########:'########::
+  ##.... ##: ##.....:: ###:: ##: ##.... ##: ##.....:: ##.... ##:
+  ##:::: ##: ##::::::: ####: ##: ##:::: ##: ##::::::: ##:::: ##:
+  ########:: ######::: ## ## ##: ##:::: ##: ######::: ########::
+  ##.. ##::: ##...:::: ##. ####: ##:::: ##: ##...:::: ##.. ##:::
+  ##::. ##:: ##::::::: ##:. ###: ##:::: ##: ##::::::: ##::. ##::
+  ##:::. ##: ########: ##::. ##: ########:: ########: ##:::. ##:
+ ..:::::..::........::..::::..::........:::........::..:::::..::
+ 
+*/
 
   render() {
     const renderDelivery = () => {
@@ -461,16 +484,41 @@ class index extends React.Component {
                 className="pickup_form-address_input"
                 onClick={() => this.pickupAddressClick()}
               >
-                {this.props.address
-                  ? this.props.address.address
-                  : this.state.pickupAddress
-                  ? this.state.pickupAddress.address
-                  : ''}
+                <span>
+                  {/* теперь норм */}
+                  {this.props.address && this.props.address.address
+                    ? this.props.address.address
+                    : this.state.pickupAddress
+                    ? this.state.pickupAddress.address
+                    : ''}
+                </span>
+                <span>
+                  <div className="edit-restaurant">
+                    Редактировать <div className="restaurant-picker"></div>
+                  </div>
+                </span>
               </p>
             </div>
           </div>
           <h2>Данные получателя</h2>
           <div className="courier_form-name_n_phone">{NameAndPhone()}</div>
+          {/* Условия самовывоза */}
+          <div className="courier_form-delivery_opts">
+            <h2>Условия самовывоза</h2>
+          </div>
+          <div className="courier_form-date_section">
+            <div className="courier_form-date_picker">
+              <DPicker method="courier" />
+            </div>
+            <div className="coutier_form-date_lines">
+              <div className="coutier_form-date_lines-box">
+                <label htmlFor="" className="date_picker-label">
+                  Время
+                </label>
+                <DateIntervals pickup={true} />
+              </div>
+            </div>
+          </div>
           {InputComment()}
         </form>
       );
@@ -482,26 +530,54 @@ class index extends React.Component {
           switch (item) {
             case 'CASH':
               return (
-                <div className="order-switcher">
-                  <p>Наличными</p>
+                <div
+                  data-item={item}
+                  className={`order-switcher ${
+                    this.state.currentPaymentType === item
+                      ? 'current_payment-active'
+                      : ''
+                  } `}
+                >
+                  <p data-item={item}> Наличными</p>
                 </div>
               );
             case 'CARD_COURIER':
               return (
-                <div className="order-switcher">
-                  <p>Картой курьеру</p>
+                <div
+                  data-item={item}
+                  className={`order-switcher ${
+                    this.state.currentPaymentType === item
+                      ? 'current_payment-active'
+                      : ''
+                  } `}
+                >
+                  <p data-item={item}>Картой курьеру</p>
                 </div>
               );
             case 'CARD_ONLINE':
               return (
-                <div className="order-switcher">
-                  <p>Онлайн</p>
+                <div
+                  data-item={item}
+                  className={`order-switcher ${
+                    this.state.currentPaymentType === item
+                      ? 'current_payment-active'
+                      : ''
+                  } `}
+                >
+                  <p data-item={item}>Онлайн</p>
                 </div>
               );
             case 'CASHBOX':
               return (
-                <div className="order-switcher">
-                  <p>Оплата в ресторане</p>
+                <div
+                  data-item={item}
+                  className={`order-switcher ${
+                    this.state.currentPaymentType === item
+                      ? 'current_payment-active'
+                      : ''
+                  } `}
+                >
+                  <p data-item={item}>Оплата в ресторане</p>
                 </div>
               );
             default:
@@ -539,9 +615,13 @@ class index extends React.Component {
 
     return (
       <div className="order-box">
-        <div className="order-back_button">
-          <p className="order-back_button-arrow"></p>
-          <p className="order-back_button-text">ОФОРМЛЕНИЕ ЗАКАЗА</p>
+        <div
+          className="order-back_button"
+          // onClick={() => this.props.history.push('/order')}
+        >
+          <SubHeader>
+            <p className="order-back_button-text">ОФОРМЛЕНИЕ ЗАКАЗА</p>
+          </SubHeader>
         </div>
         <div className="order">
           <div className="order-forms">
@@ -556,7 +636,12 @@ class index extends React.Component {
           <div className="order-widget">
             <h3>Способы оплаты</h3>
             {/* Переключатели */}
-            <div className="order-switchers">{orderSwitchers()}</div>
+            <div
+              className="order-switchers"
+              onClick={(e) => this.waysOfPaySwitchClick(e)}
+            >
+              {orderSwitchers()}
+            </div>
             {/* Инфа  */}
             <div className="order-payment_info">
               <div className="order-payment_info-products">
@@ -582,7 +667,24 @@ class index extends React.Component {
             </div>
             {/* Кнопка */}
             <div className="order-button_submit">
-              <button>заказать</button>
+              {this.state.pickupSwitcher && (
+                <button
+                  type="submit"
+                  form="pickup_form"
+                  onClick={(e) => this.handleSubmit(e)}
+                >
+                  заказать
+                </button>
+              )}
+              {this.state.deliverySwitcher && (
+                <button
+                  type="submit"
+                  form="courier_form"
+                  onClick={(e) => this.handleSubmit(e)}
+                >
+                  заказать
+                </button>
+              )}
             </div>
           </div>
         </div>
