@@ -23,6 +23,7 @@ class index extends React.Component {
     deliverySwitcher: true,
     pickupSwitcher: false,
     addresses: [],
+    maxDate: new Date(new Date().setDate(new Date().getDate() + 20)),
   };
   //  Object.values(productsFromStorage) Вот это надо переадресовывать если нет продуктов
   // fetcher method is unpredictable right here, it saves options to itself
@@ -80,11 +81,16 @@ class index extends React.Component {
       .filter((item) => item !== undefined);
     // console.log(prodsToOrder, ' prodsToOrder');
     // Поставить исключение когда продуктов нет
+    const deviceToken = getDeviceToken();
+    localStorage.setItem('deviceToken', deviceToken);
+    this.setState({
+      deviceToken: deviceToken,
+    });
     let options = {
       method: 'PUT',
       headers: {
         [HEADER_DEVICE_TYPE]: DEVICE_TYPE_WEB,
-        [HEADER_DEVICE_TOKEN]: getDeviceToken(),
+        [HEADER_DEVICE_TOKEN]: deviceToken,
         'Content-type': 'application/json;charset=UTF-8',
       },
       body: JSON.stringify({
@@ -293,6 +299,169 @@ class index extends React.Component {
       });
     }
   };
+  // прямиком из см
+  generateMinDate = () => {
+    let date = new Date();
+    if (this.state.deliverySwitcher === true) {
+      date = new Date(this.state.data.delivery.deliveryWorkInterval.begin);
+    } else if (this.state.pickupSwitcher === true) {
+      date = new Date(this.state.data.delivery.restaurantWorkInterval.begin);
+    }
+    console.log(date, 'date 111111111111111111111111111111111111111111111111');
+    date = this.setCurrentDate(date);
+    console.log(
+      date,
+      'date 22222222222222222222222222222222222222222222222222'
+    );
+    return date;
+  };
+
+  //Округление до 5ти
+  round = (a) => {
+    let b = a % 5;
+    b && (a = a - b + 5);
+    return a;
+  };
+
+  setCurrentDate = (date) => {
+    let currentDate = new Date();
+    currentDate.setHours(date.getHours());
+    currentDate.setMinutes(date.getMinutes());
+    return currentDate;
+  };
+
+  //Логика определения доступного временного интервала
+  calculateProcessingTime = (pewdate, changeDate) => {
+    let date = pewdate;
+    console.log(
+      date,
+      ' date in calculateProcessingTimecalculateProcessingTime'
+    );
+    let now = new Date();
+    let endDate = this.state.maxDate;
+    let startDate = this.state.minDate;
+    let dateWithProcessing = null;
+
+    if (changeDate) {
+      let newDate = date;
+      if (this.state.deliverySwitcher === true) {
+        newDate.setHours(
+          new Date(
+            this.state.data.delivery.deliveryWorkInterval.begin
+          ).getHours()
+        );
+        newDate.setMinutes(
+          new Date(
+            this.state.data.delivery.deliveryWorkInterval.begin
+          ).getMinutes()
+        );
+        startDate = new Date(
+          this.state.data.delivery.restaurantWorkInterval.begin
+        );
+      } else if (this.state.selectedDeliveryType === 'RESTAURANT') {
+        newDate.setHours(
+          new Date(
+            this.state.data.delivery.restaurantWorkInterval.begin
+          ).getHours()
+        );
+        newDate.setMinutes(
+          new Date(
+            this.state.data.delivery.restaurantWorkInterval.begin
+          ).getMinutes()
+        );
+        startDate = new Date(
+          this.state.data.delivery.restaurantWorkInterval.begin
+        );
+      }
+      startDate = this.setCurrentDate(startDate);
+      //Если день === текущему, то изменяем нижнюю границу времени
+      // this.setState({ selectedTime: newDate, minDate: startDate })
+    }
+
+    if (this.state.deliverySwitcher === true) {
+      dateWithProcessing =
+        now.getTime() + this.state.data.delivery.deliveryProcessingTime;
+    } else if (this.state.pickupSwitcher === true) {
+      dateWithProcessing =
+        now.getTime() + this.state.data.delivery.restaurantProcessingTime;
+    }
+
+    //а) если WorkInterval.begin <= currentTime + processingTime <= WorkInterval.end - то сделать доступным для выбора для текущего время начиная с currentTime + processingTime (с округлением до 5 минут в большую сторону)
+    if (
+      date.getTime() <= dateWithProcessing &&
+      dateWithProcessing <= endDate.getTime()
+    ) {
+      let newDate = new Date(
+        now.getTime() + this.state.data.delivery.deliveryProcessingTime
+      );
+      newDate.setMinutes(this.round(newDate.getMinutes()));
+      date.setHours(newDate.getHours());
+      date.setMinutes(newDate.getMinutes());
+      // this.setState({ selectedTime: newDate })
+      return date;
+    }
+    // б) если WorkInterval.begin > currentTime + processingTime < WorkInterval.end -то сделать доступным для выбора для текущего время начиная с WorkInterval.begin
+    console.log(date.getTime(), 'date.getTime()');
+    // Не работает не известно почему
+    // let tempDate = date.getTime();
+    if (
+      date.getTime() > dateWithProcessing &&
+      dateWithProcessing < endDate.getTime()
+    ) {
+      // this.setState({ selectedTime: date })
+    }
+    //в) если WorkInterval.begin < currentTime + processingTime > WorkInterval.end - то сделать доступным для выбора для следующего время начиная с WorkInterval.begin (текущий день недоступен для выбора)
+    if (
+      date.getTime() < dateWithProcessing &&
+      dateWithProcessing > endDate.getTime()
+    ) {
+      date.setDate(date.getDate() + 1);
+      // this.setState({ selectedTime: date })
+    }
+
+    return date;
+  };
+
+  generateTimeRange = async () => {
+    let minDate = await this.generateMinDate();
+    console.log(minDate, ' MINDATEEEE!!!!');
+    minDate = this.calculateProcessingTime(minDate);
+    this.setState({
+      ...this.state,
+      minDate: minDate,
+    });
+  };
+
+  payment = async (response) => {
+    let request = {
+      id: response.result.id,
+      type:
+        this.state.data.paymentInfo.fullPrice === this.state.enterBonusCount
+          ? 'BONUS'
+          : this.state.selectedPaymentType,
+      // bonus: this.state.enterBonusCount,
+      //  changeFrom: this.state.surrender ? Number(this.state.surrender) : '',
+      changeFrom: '',
+      type: 'CARD_ONLINE',
+    };
+    if (this.state.bonusIsValid && this.state.enterBonusCount > 0) {
+      request = { ...request, bonus: this.state.enterBonusCount };
+    }
+    let options = {
+      method: 'POST',
+      headers: {
+        [HEADER_DEVICE_TYPE]: DEVICE_TYPE_WEB,
+        [HEADER_DEVICE_TOKEN]: this.state.deviceToken,
+        'Content-type': 'application/json;charset=UTF-8',
+      },
+      body: JSON.stringify(request),
+    };
+    const res = await fetch(
+      `https://client-api.sushi-master.ru/api/v1/order/payment/init`,
+      options
+    ).then((data) => data.json());
+    console.log(res, ' res PAYMENT');
+  };
 
   handleSubmit = async (e) => {
     e.preventDefault();
@@ -302,20 +471,44 @@ class index extends React.Component {
       method: 'PATCH',
       headers: {
         [HEADER_DEVICE_TYPE]: DEVICE_TYPE_WEB,
-        [HEADER_DEVICE_TOKEN]: getDeviceToken(),
+        [HEADER_DEVICE_TOKEN]: this.state.deviceToken,
         'Content-type': 'application/json;charset=UTF-8',
       },
       body: JSON.stringify(request),
     };
 
-    const res = await fetch(
+    const response = await fetch(
       `https://client-api.sushi-master.ru/api/v1/order`,
       options
     ).then((data) => data.json());
 
+    this.setState(
+      {
+        ...this.state,
+        data: {
+          ...response.result,
+          user: {
+            name: response.result.user.name,
+            phone: response.result.user.phoneNumber
+              ? response.result.user.phoneNumber.replace(/[^0-9.]/g, '')
+              : null,
+          },
+        },
+      },
+      () => this.generateTimeRange()
+    );
+
+    const submitOrderResponse = await fetch(
+      `https://client-api.sushi-master.ru/api/v2/order/submit`,
+      options
+    ).then((data) => data.json());
+
+    this.payment(submitOrderResponse);
+    localStorage.removeItem('deviceToken');
+    console.log(submitOrderResponse, ' submitOrderResponse');
     console.log(request, ' REQUEST');
-    console.log(res, ' RESPONSE');
-    // console.log(this.state, ' EVENT this.state');
+    // console.log(response, ' RESPONSE');
+    console.log(this.state, ' EVENT this.state');
   };
 
   waysOfPaySwitchClick = (e) => {
@@ -383,12 +576,11 @@ class index extends React.Component {
     } else {
       console.log('Some unpredictaqble error in genReq method');
     }
-
-    console.log(isoTime, ' isoTime');
-    console.log(
-      this.state.selectedPickupTime,
-      ' this.state.selectedPickupTime'
-    );
+    // console.log(isoTime, ' isoTime');
+    // console.log(
+    //   this.state.selectedPickupTime,
+    //   ' this.state.selectedPickupTime'
+    // );
     return {
       id: this.state.responseOrder.id,
       comment: this.state.comment,
