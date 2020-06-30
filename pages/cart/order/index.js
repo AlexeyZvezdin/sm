@@ -61,6 +61,10 @@ class index extends React.Component {
     );
     // Можно сделать иначе ну да ладно, итерирую значения продуктов в корзине подставляя нужное
     // для ордер запроса и если колво равно нулю то фильтрую из массива
+    if (productsFromStorage == null || productsFromStorage == undefined) {
+      window.location.href = '/cart';
+      return;
+    }
     const prodsToOrder = Object.values(productsFromStorage)
       .map((item) => {
         if (!item.quantity) {
@@ -105,6 +109,8 @@ class index extends React.Component {
     // время
 
     // Запрос дат
+    console.time('whatthefuck');
+
     var today = new Date();
     let linesOpt = {};
     let lines;
@@ -139,6 +145,7 @@ class index extends React.Component {
       });
       console.log(lines, ' LINES restaurant');
     }
+    console.timeEnd('whatthefuck');
   }
 
   handlePickupSwitch = () => {
@@ -172,6 +179,7 @@ class index extends React.Component {
   handleInputChange = async (e) => {
     // console.log(this.props, ' CITY ID');
     let val = e.target.value;
+    console.log(' WOOORK res');
 
     let options = {
       countryId: '5e02173559201a0544e20b2d',
@@ -183,10 +191,10 @@ class index extends React.Component {
       ...this.state,
       inputValue: val,
     });
-    const res = await fetcher(
+    let res = await fetcher(
       `https://client-api.sushi-master.ru/api/v2/address/search?countryId=${options.countryId}&cityId=${options.cityId}&query=${options.query}`
     );
-
+    console.log(res, ' res');
     this.setState({
       ...this.state,
       addresses: res.result.items,
@@ -194,9 +202,9 @@ class index extends React.Component {
   };
 
   chooseStreet = async (item) => {
-    console.log(item, ' formateer itemitemitem');
+    // console.log(item, ' formateer itemitemitem');
     if (item.formattedAddress === this.state.addressInValue) {
-      console.log(' item.formattedAddress === this.state.addressInValue');
+      // console.log(' item.formattedAddress === this.state.addressInValue');
       this.setState({
         ...this.state,
         addresses: [],
@@ -230,49 +238,157 @@ class index extends React.Component {
   };
 
   fixTime = (time) => {
-    console.log(time, 'TIME');
+    // console.log(time, ' initial TIME from datePicker');
     let day;
     if (
       this.state.deliverySwitcher === true &&
       this.state.pickupSwitcher === false
     ) {
       console.log(this.state.deliveryInterval, ' deliveryInterval');
-      day = time.setHours(this.state.selectedPickupTime || 0);
+      day = time.setHours(0);
     } else if (
       this.state.deliverySwitcher === false &&
       this.state.pickupSwitcher === true
     ) {
-      console.log(this.state, ' pickupInterval');
-      day = time.setHours(this.state.selectedPickupTime || 0);
+      // console.log(this.state, ' pickupInterval');
+      day = time.setHours(0);
     }
 
-    console.log(day, ' DAY');
-    console.log(new Date(day), ' DA 2 Y');
+    const dayWithoutHoursAndMinutes = new Date(
+      new Date(new Date(day).setHours(0)).setMinutes(0)
+    );
+    this.setState({
+      ...this.state,
+      dayWithoutHoursAndMinutes: dayWithoutHoursAndMinutes,
+    });
+    // console.log(dayWithoutHoursAndMinutes, ' DAY dayWithoutHoursAndMinutes');
   };
 
   // Выбор времени при селекте
   // Нужно чтобы
   selectTimeChange = (e, hour, minute) => {
-    console.log(this.state.selectValue, ' this.state.selectValue');
+    // При первом рендере этот метод отрабатывает в другом месте
+    // и туда ставятся часы и минуты первого доступного времени
+    const dayWithoutHoursAndMinutes = this.state.dayWithoutHoursAndMinutes;
+    let firstAvailableHour;
+
     if (hour) {
-      console.log(hour, ' HOUR');
-      console.log(minute, ' minute');
+      // Проверить надо утрмо на другихз датах будет, 11 : 45 например
+      // !!! не вставлять сюда сетСтейт, вызовет бесконечный ререндер так как часы есть всегда
+      firstAvailableHour = new Date(
+        new Date(dayWithoutHoursAndMinutes.setHours(hour)).setMinutes(minute)
+      );
     } else {
-      console.log(e.target.value, ' EVENT');
+      let splittingDate = e.target.value.split(':');
+      firstAvailableHour = new Date(
+        new Date(
+          dayWithoutHoursAndMinutes.setHours(splittingDate[0])
+        ).setMinutes(splittingDate[1])
+      );
+
       this.setState({
         ...this.state,
-        selectedPickupTime: e.target.value,
+        selectedPickupTime: firstAvailableHour,
         selectValue: e.target.value,
       });
     }
   };
 
+  handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log(e.target.form.id, ' EVENT form');
+    const request = this.genReq(e.target.form.id);
+    let options = {
+      method: 'PATCH',
+      headers: {
+        [HEADER_DEVICE_TYPE]: DEVICE_TYPE_WEB,
+        [HEADER_DEVICE_TOKEN]: getDeviceToken(),
+        'Content-type': 'application/json;charset=UTF-8',
+      },
+      body: JSON.stringify(request),
+    };
+
+    const res = await fetch(
+      `https://client-api.sushi-master.ru/api/v1/order`,
+      options
+    ).then((data) => data.json());
+
+    console.log(request, ' REQUEST');
+    console.log(res, ' RESPONSE');
+    // console.log(this.state, ' EVENT this.state');
+  };
+
+  waysOfPaySwitchClick = (e) => {
+    this.setState({ ...this.state, currentPaymentType: e.target.dataset.item });
+  };
+
+  LocalISODateFormat = (date) => {
+    function toISOLocal(d) {
+      var z = (n) => ('0' + n).slice(-2);
+      var zz = (n) => ('00' + n).slice(-3);
+      var off = d.getTimezoneOffset();
+      var sign = off < 0 ? '+' : '-';
+      off = Math.abs(off);
+      // если что то от getHours отнять оффсет и все
+      return (
+        d.getFullYear() +
+        '-' +
+        z(d.getMonth() + 1) +
+        '-' +
+        z(d.getDate()) +
+        'T' +
+        z(d.getHours()) +
+        ':' +
+        z(d.getMinutes()) +
+        ':' +
+        z(d.getSeconds()) +
+        '.' +
+        zz(d.getMilliseconds()) +
+        sign +
+        z((off / 60) | 0) +
+        ':' +
+        z(off % 60)
+      );
+    }
+    let isoTime = toISOLocal(date).slice(0, 19);
+    return isoTime;
+  };
+
+  handleComment = (e) => {
+    this.setState({
+      ...this.state,
+      comment: e.target.value,
+    });
+  };
+
+  handleAddressChange = (e) => {
+    console.log(e.target.value, '  e.target.value');
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  };
+
   genReq = (typeOfDelivery) => {
     // 0: "RESTAURANT"
     // 1: "DELIVERY"
+    // TODO: deliveryType добавить проверку на исключение, чтобы по еще одной форме проверялось
     let deliveryType =
       typeOfDelivery == 'pickup_form' ? 'RESTAURANT' : 'DELIVERY';
-    // TODO: deliveryType добавить проверку на исключение, чтобы по еще одной форме проверялось
+
+    let isoTime;
+    if (this.state.selectedPickupTime != undefined) {
+      isoTime = this.LocalISODateFormat(this.state.selectedPickupTime);
+    } else if (this.state.dayWithoutHoursAndMinutes) {
+      isoTime = this.LocalISODateFormat(this.state.dayWithoutHoursAndMinutes);
+    } else {
+      console.log('Some unpredictaqble error in genReq method');
+    }
+
+    console.log(isoTime, ' isoTime');
+    console.log(
+      this.state.selectedPickupTime,
+      ' this.state.selectedPickupTime'
+    );
     return {
       id: this.state.responseOrder.id,
       comment: this.state.comment,
@@ -288,20 +404,33 @@ class index extends React.Component {
             ? this.state.currentDeliveryAddress.placeId || null
             : this.state.pickupAddress.id || null,
         restaurantId: this.state.pickupAddress.id,
-        time: '',
+        time: this.state.selectedPickupTime
+          ? this.state.selectedPickupTime.valueOf()
+          : this.state.dayWithoutHoursAndMinutes.valueOf(),
+        isoTime: isoTime,
       },
+      // потом сделаем soon
+      isSoon: this.state.soon,
+      fullFormattedAddress:
+        deliveryType === 'DELIVERY'
+          ? this.state.currentDeliveryAddress.formattedAddress
+          : this.state.pickupAddress.address,
+      // deliveryAddress: this.state.deliverySwitcher && this.state.currentDeliveryAddress ? ,
+      // По образу и подобию спа СМ
+      deliveryAddress: this.state.currentDeliveryAddress
+        ? {
+            title: undefined,
+            [deliveryType === 'DELIVERY' ? 'addressId' : 'restaurantId']:
+              deliveryType === 'DELIVERY'
+                ? this.state.currentDeliveryAddress.id || null
+                : this.state.pickupAddress.id || null,
+            apartment: this.state.kv,
+            intercom: this.state.df,
+            entrance: this.state.pz,
+            floor: this.state.fl,
+          }
+        : null,
     };
-  };
-
-  handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(e.target.form.id, ' EVENT form');
-    this.genReq(e.target.form.id);
-    console.log(this.state, ' EVENT this.state');
-  };
-
-  waysOfPaySwitchClick = (e) => {
-    this.setState({ ...this.state, currentPaymentType: e.target.dataset.item });
   };
 
   /*
@@ -318,6 +447,7 @@ class index extends React.Component {
 */
 
   render() {
+    console.log(this.state, ' THIS STATE');
     const renderDelivery = () => {
       return (
         <div className="order-forms-delivery input_group">
@@ -416,6 +546,7 @@ class index extends React.Component {
         this.state.pickupInterval &&
         this.state.pickupSwitcher != undefined
       ) {
+        // Здесь наверное надо разделить функционал и сделать отдельную функцию для обработки
         this.selectTimeChange(
           null,
           this.state.pickupInterval.result[0].hour,
@@ -493,22 +624,46 @@ class index extends React.Component {
               <div className="courier_form-house_info">
                 <div className="house_info">
                   <label htmlFor="kv">Квартира</label>
-                  <input type="number" name="kv" id="kv" required />
+                  <input
+                    onChange={this.handleAddressChange}
+                    type="number"
+                    name="kv"
+                    id="kv"
+                    required
+                  />
                   <div className="house_info_highlight"></div>
                 </div>
                 <div className="house_info">
                   <label htmlFor="df">Домофон</label>
-                  <input type="number" name="df" id="df" required />
+                  <input
+                    onChange={this.handleAddressChange}
+                    type="number"
+                    name="df"
+                    id="df"
+                    required
+                  />
                   <div className="house_info_highlight"></div>
                 </div>
                 <div className="house_info">
                   <label htmlFor="pz">Подъезд</label>
-                  <input type="number" name="pz" id="pz" required />
+                  <input
+                    onChange={this.handleAddressChange}
+                    type="number"
+                    name="pz"
+                    id="pz"
+                    required
+                  />
                   <div className="house_info_highlight"></div>
                 </div>
                 <div className="house_info">
                   <label htmlFor="fl">Этаж</label>
-                  <input type="number" name="fl" id="fl" required />
+                  <input
+                    onChange={this.handleAddressChange}
+                    type="number"
+                    name="fl"
+                    id="fl"
+                    required
+                  />
                   <div className="house_info_highlight"></div>
                 </div>
               </div>
@@ -558,6 +713,7 @@ class index extends React.Component {
             Комментарий
           </label>
           <textarea
+            onChange={this.handleComment}
             name="comment_textarea"
             id="comment_textarea"
             rows="3"

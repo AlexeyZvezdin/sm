@@ -32,7 +32,6 @@ class DPicker extends React.Component {
     this.props.fixTime ? this.props.fixTime(date) : '';
   };
   render() {
-    console.log(this.state.date, ' THISSTATE DATE');
     return (
       <div className="date_picker">
         <div className="date_picker-date">
