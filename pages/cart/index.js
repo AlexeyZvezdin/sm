@@ -17,6 +17,14 @@ class cart extends React.Component {
   };
 
   async componentDidMount() {
+    // Если не выбран адрес, то ставим его
+    const AddressId = JSON.parse(localStorage.getItem('currentPickUpAddress'));
+    const deliveryAddress = JSON.parse(
+      localStorage.getItem('currentDeliveryAddress')
+    );
+    if (!(AddressId || deliveryAddress)) {
+      await this.props.dispatchAddressModalStatus();
+    }
     // Из редакса если есть то берем их, если нет то триггерим локалстор
     if (this.props.cardProducts) {
       let cardProducts = await JSON.parse(localStorage.getItem('cardProducts'));
@@ -204,4 +212,9 @@ const mapState = ({
   return { cardProducts, sum, city };
 };
 
-export default connect(mapState)(cart);
+const mapDispatch = (dispatch) => ({
+  dispatchAddressModalStatus: (status) =>
+    dispatch({ type: 'OPEN_ADDRESS_MODAL' }),
+});
+
+export default connect(mapState, mapDispatch)(cart);

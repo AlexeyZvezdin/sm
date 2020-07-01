@@ -53,9 +53,9 @@ class index extends React.Component {
         pickupSwitcher: true,
       });
     }
-    if (!(AddressId || deliveryAddress)) {
-      await this.props.dispatchAddressModalStatus();
-    }
+    // if (!(AddressId || deliveryAddress)) {
+    //   await this.props.dispatchAddressModalStatus();
+    // }
 
     const productsFromStorage = JSON.parse(
       localStorage.getItem('cardProducts')
