@@ -176,27 +176,29 @@ export default connect(
   else
     return (
       <div className="card_product">
-        {/* picture */}
-        <div className="card_product-img">
-          <img
-            src={`https://client-api.sushi-master.ru/pics/${item.product.mainPictureId}?width=400`}
-            alt=""
-          />
+        <div className="card_product-sub">
+          {/* picture */}
+          <div className="card_product-img">
+            <img
+              src={`https://client-api.sushi-master.ru/pics/${item.product.mainPictureId}?width=400`}
+              alt=""
+            />
+          </div>
+          {/* info block */}
+          <div className="card_product-text">
+            <p className="card_product-name">{item.product.name}</p>
+            <p className="card_product-info">
+              {item.product.priceVariants[0].pieces} шт.
+            </p>
+            <p className="card_product-info">
+              {Number(item.quantity) *
+                Number(item.product.nutritionalElement.weight)}{' '}
+              гр.
+            </p>
+          </div>
         </div>
-        {/* info block */}
-        <div className="card_product-text">
-          <p className="card_product-name">{item.product.name}</p>
-          <p className="card_product-info">
-            {item.product.priceVariants[0].pieces} шт.
-          </p>
-          <p className="card_product-info">
-            {Number(item.quantity) *
-              Number(item.product.nutritionalElement.weight)}{' '}
-            гр.
-          </p>
-        </div>
+
         {/* counter */}
-        {/* {Counter()} */}
         <div className="cart-button cart-button-border">
           <div className="cart-button__expanded">
             <div

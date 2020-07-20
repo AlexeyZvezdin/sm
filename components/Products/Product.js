@@ -21,9 +21,9 @@ function Product({ product, store, ...props }) {
   const router = useRouter();
   const handleCounterClick = async (action) => {
     const cardCount = await localStorage.getItem('cardCounter');
-    console.log(cardCount, ' cardCount');
+
     // потом надо будет сделать проверку на наличие адреса все-таки
-    if (cardCount == null) {
+    if (!cardCount) {
       props.dispatchAddressModalStatus();
     }
     if (action === 'inc') {

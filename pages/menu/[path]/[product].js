@@ -1,6 +1,17 @@
 import Product from '../../../components/Products/Product';
 import './single_product.module.scss';
 import { useRouter } from 'next/router';
+// cookies
+import Cookies from 'js-cookie';
+// req data
+import {
+  DEVICE_TYPE_WEB,
+  HEADER_AUTH_TOKEN,
+  HEADER_DEVICE_TOKEN,
+  HEADER_DEVICE_TYPE,
+} from '../../../config/api';
+
+import { getDeviceToken } from '../../../config/device-token';
 
 export default function (props) {
   // console.log(props, ' PROPS INDI PRODUCT');
@@ -23,7 +34,24 @@ export default function (props) {
     (item) => routerProductPath === item.url
   );
   if (!product[0]) return '';
-  // console.log(product, ' THIS PRODUCT');
+  console.log(product, ' THIS PRODUCT');
+
+  const options = {
+    headers: {
+      [HEADER_DEVICE_TYPE]: DEVICE_TYPE_WEB,
+      [HEADER_DEVICE_TOKEN]: getDeviceToken(),
+      [HEADER_AUTH_TOKEN]: Cookies.get('at'),
+      'Content-type': 'application/json;charset=UTF-8',
+    },
+  };
+  const hanFavourites = () => {
+    console.log('click');
+    fetch(`https://client-api.sushi-master.ru/api/v1/products/favourites`, {
+      ...options,
+      body: { productId: product.id },
+      method: 'POST',
+    });
+  };
   return (
     <div className="single_product">
       <div className="single_product-left">
@@ -57,7 +85,10 @@ export default function (props) {
               <img src="/img/icons/icon-cart.svg" alt="" />
             </span>
           </button>
-          <div className="single_product__buttons__favourite-icon">
+          <div
+            className="single_product__buttons__favourite-icon"
+            onClick={hanFavourites}
+          >
             <button></button>
           </div>
         </div>
@@ -92,5 +123,5 @@ export default function (props) {
         </div>
       </div>
     </div>
-  )}
-
+  );
+}

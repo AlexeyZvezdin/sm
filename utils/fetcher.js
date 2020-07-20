@@ -25,4 +25,6 @@ function fetcher(url, otherOpts) {
     .catch((err) => console.log(err, ' ERROR in FETHCER'));
 }
 
+export { options as FetchOptions };
+
 export default fetcher;

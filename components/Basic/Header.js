@@ -2,6 +2,7 @@ import Link from 'next/link';
 import * as UrlBuilder from '../../utils/UrlBuilder';
 import { connect } from 'react-redux';
 import s from './header.module.scss';
+
 const links = [
   {
     name: 'Акции',
@@ -65,20 +66,7 @@ class Header extends React.Component {
           : '',
       });
     }
-    // if (currentDeliveryAddress) {
-    //   this.setState({
-    //     ...this.state,
-    //     address: currentDeliveryAddress.formattedAddress,
-    //   });
-    // } else if (currentPickUpAddress) {
-    //   this.setState({
-    //     ...this.state,
-    //     address: currentPickUpAddress.formattedAddress,
-    //   });
-    // }
-    // console.log(LScounter, ' LScounter');
-    // console.log(sumCounter, ' sumCounter');
-    // console.log(this.props.sum, ' this.props.sum');
+
     if (this.props.sum === 0 && sumCounter) {
       // console.log('yeah its workig nwhen is tri');
       this.setState({ ...this.state, cardSum: sumCounter });
@@ -118,6 +106,11 @@ class Header extends React.Component {
       </li>
     ));
     let re = /\D/gi; // Убирает всесимволы для номера
+
+    console.log(this.props.favProducts, ' favProducts');
+    console.log(this.props.personalAddresses, ' personalAddresses');
+    console.log(this.props.profileInfo, ' profileInfo');
+    console.log(this.props.promos, ' promos');
     return (
       <header className="main_header">
         <a href="/" className={s['header-logo']}>
@@ -147,12 +140,12 @@ class Header extends React.Component {
           ) : (
             <a>No phone</a>
           )} */}
-          {this.props.address.address || this.state.address ? (
+          {this.props.address || this.state.address ? (
             <button
               className={s['header-address']}
               onClick={this.handleAddressModal}
             >
-              {this.props.address.address || this.state.address}
+              {this.props.address || this.state.address}
             </button>
           ) : (
             <a
@@ -201,6 +194,8 @@ class Header extends React.Component {
             </a>
           </div>
           <div className={s['profile-badge-block']}>
+            {/* /img/icons/ic-profile-placeholder.svg */}
+
             <button
               className={s['profile-badge-block__login']}
               onClick={this.handleLogin}
@@ -217,13 +212,14 @@ class Header extends React.Component {
 const mapStateToProps = ({
   cityModal,
   addressModal,
-  address,
+  address: { address },
   loginModal,
   store: { city },
   card: {
     cardCounter,
     sumCounter: { sum },
   },
+  lk: { favProducts, personalAddresses, profileInfo, promos },
 }) => {
   const cityModalBg = cityModal.openModalBg;
   const addressModalBg = addressModal.openModalBg;
@@ -235,6 +231,10 @@ const mapStateToProps = ({
     cardCounter,
     sum,
     address,
+    favProducts,
+    personalAddresses,
+    profileInfo,
+    promos,
   };
 };
 const dispatchToProps = (dispatch) => ({

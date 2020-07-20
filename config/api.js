@@ -3,3 +3,4 @@ export const HEADER_DEVICE_TYPE = 'X-Device-Type';
 export const HEADER_DEVICE_TOKEN = 'X-Device-Token';
 /* other */
 export const DEVICE_TYPE_WEB = 'WEB';
+export const BASE_URL = 'https://client-api.sushi-master.ru/api/';

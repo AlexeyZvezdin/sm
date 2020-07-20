@@ -20,7 +20,7 @@ export default withRedux(makeStore, { debug: false })(
       let defaultCityId = '5d3834ac59201a66b905d832';
       if (ctx.req) {
         cookies = parseCookies(ctx.req);
-        console.log(cookies, ' COOKIES');
+        // console.log(cookies, ' COOKIES');
         defaultCityId = cookies.cityId
           ? cookies.cityId
           : '5d3834ac59201a66b905d832';

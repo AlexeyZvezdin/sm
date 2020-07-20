@@ -29,7 +29,7 @@ class RestaurantModal extends React.Component {
       'currentPickUpAddress',
       JSON.stringify(this.state.currentPickUpAddress)
     );
-    const payload = this.state.currentPickUpAddress.address;
+    const payload = this.state.currentPickUpAddress;
     this.props.addressModal({
       type: 'PICKUP_ADDRESS_DATA',
       payload: payload,

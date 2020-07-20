@@ -5,6 +5,8 @@ import p_s from '../Products/products.module.scss';
 export let renderBanners = (banners, index, products) => {
   const swiperParams = {
     spaceBetween: 0,
+    calculateHeight: true,
+    resizeReInit: true,
     pagination: {
       el: '.swiper-pagination',
       clickable: true,
@@ -31,14 +33,15 @@ export let renderBanners = (banners, index, products) => {
             rebuildOnUpdate={true}
             {...swiperParams}
           >
+            {/* this type of lazy lodaing os broking the swiper, need to find another way later */}
             {banners.map((el) => (
               <img
                 key={el.id}
                 style={{
                   padding: '1px',
                 }}
-                src="/img/spinner2.gif"
-                data-src={`https://client-api.sushi-master.ru/pics/${el.pictureId}`}
+                // src="/img/spinner2.gif"
+                src={`https://client-api.sushi-master.ru/pics/${el.pictureId}`}
               />
             ))}
           </Swiper>

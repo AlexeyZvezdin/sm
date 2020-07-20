@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import InputMask from 'react-input-mask';
 import fetcher from '../../../utils/fetcher';
+import { FetchOptions } from '../../../utils/fetcher';
 import { getDeviceToken } from '../../../config/device-token';
 import DPicker from '../../../components/DatePicker/DatePicker';
 import SubHeader from '../../../components/Basic/SubHeader';
@@ -27,6 +28,19 @@ class index extends React.Component {
   };
   //  Object.values(productsFromStorage) Вот это надо переадресовывать если нет продуктов
   // fetcher method is unpredictable right here, it saves options to itself
+
+  componentDidUpdate(prevProps) {
+    // Популярный пример (не забудьте сравнить пропсы):
+    if (this.props.address !== prevProps.address) {
+      console.log(this.props.address, 'this.props.address');
+      console.log(prevProps, ' prevProps');
+      this.setState({
+        ...this.state,
+        pickupAddress: this.props.address,
+      });
+    }
+  }
+
   async componentDidMount() {
     const sumCounter = localStorage.getItem('sumCounter');
     this.setState({
@@ -84,6 +98,7 @@ class index extends React.Component {
     const deviceToken = getDeviceToken();
     localStorage.setItem('deviceToken', deviceToken);
     this.setState({
+      ...this.state,
       deviceToken: deviceToken,
     });
     let options = {
@@ -93,10 +108,12 @@ class index extends React.Component {
         [HEADER_DEVICE_TOKEN]: deviceToken,
         'Content-type': 'application/json;charset=UTF-8',
       },
+      // deliverySwitcher: true,
+      // pickupSwitcher: false,
       body: JSON.stringify({
-        addressId: AddressId ? AddressId.id : '',
+        addressId: this.state.deliverySwitcher ? '' : AddressId?.id,
         cityId: this.props.city.cityId,
-        deliveryType: deliveryAddress ? 'DELIVERY' : 'RESTAURANT',
+        deliveryType: this.state.deliverySwitcher ? 'DELIVERY' : 'RESTAURANT',
         products: prodsToOrder,
         promocode: '',
       }),
@@ -120,31 +137,54 @@ class index extends React.Component {
     var today = new Date();
     let linesOpt = {};
     let lines;
-    if (this.state.deliverySwitcher && deliveryAddress != undefined) {
+    // При первом рендере если Доставка курьером и Адрес дома не существ.
+    if (deliveryAddress != undefined) {
       let lat = deliveryAddress.location.latitude;
       let lon = deliveryAddress.location.longitude;
-      lines = await fetch(
-        `https://client-api.sushi-master.ru/api/v1/delivery/time/lines?cityId=${
-          this.props.city.cityId
-        }&date=${today
-          .toISOString()
-          .substring(0, 10)}&longitude=${lon}&latitude=${lat}`
-        // linesOpt
-      ).then((data) => data.json());
+      lines = await window
+        .fetch(
+          `https://client-api.sushi-master.ru/api/v1/delivery/time/lines?cityId=${
+            this.props.city.cityId
+          }&date=${today
+            .toISOString()
+            .substring(0, 10)}&longitude=${lon}&latitude=${lat}`,
+          { ...FetchOptions, method: 'GET', body: null }
+        )
+        .then((data) => data.json());
       this.setState({
         ...this.state,
         deliveryInterval: lines,
       });
       console.log(lines, ' LINES courier');
-    } else if (this.state.pickupSwitcher && AddressId != undefined) {
-      lines = await fetch(
-        `https://client-api.sushi-master.ru/api/v1/delivery/time/lines?cityId=${
-          this.props.city.cityId
-        }&date=${today.toISOString().substring(0, 10)}&restaurantId=${
-          AddressId.id
-        }`
-        // linesOpt
-      ).then((data) => data.json());
+      // так же если нет Адрессайди то после загрузить время и для второй вкладки
+      if (AddressId != undefined) {
+        lines = await window
+          .fetch(
+            `https://client-api.sushi-master.ru/api/v1/delivery/time/lines?cityId=${
+              this.props.city.cityId
+            }&date=${today.toISOString().substring(0, 10)}&restaurantId=${
+              AddressId.id
+            }`,
+            { ...FetchOptions, method: 'GET', body: null }
+          )
+          .then((data) => data.json());
+        this.setState({
+          ...this.state,
+          pickupInterval: lines,
+        });
+        console.log(lines, ' LINES restaurant');
+      }
+    } else if (AddressId != undefined) {
+      lines = await window
+        .fetch(
+          `https://client-api.sushi-master.ru/api/v1/delivery/time/lines?cityId=${
+            this.props.city.cityId
+          }&date=${today.toISOString().substring(0, 10)}&restaurantId=${
+            AddressId.id
+          }`,
+          { ...FetchOptions, method: 'GET', body: null }
+        )
+        .then((data) => data.json());
       this.setState({
         ...this.state,
         pickupInterval: lines,
@@ -153,7 +193,7 @@ class index extends React.Component {
     }
     console.timeEnd('whatthefuck');
   }
-
+  // Простая Обработка переключателей
   handlePickupSwitch = () => {
     this.setState({
       ...this.state,
@@ -169,6 +209,7 @@ class index extends React.Component {
     });
   };
 
+  // Обработка телефона и имени. Можно добавить сюда поверхностную валидацию попозже
   handlePhone = (e) => {
     this.setState({
       ...this.state,
@@ -181,12 +222,10 @@ class index extends React.Component {
       name: e.target.value,
     });
   };
-
+  // Обработка ввода адреса доставки
   handleInputChange = async (e) => {
     // console.log(this.props, ' CITY ID');
     let val = e.target.value;
-    console.log(' WOOORK res');
-
     let options = {
       countryId: '5e02173559201a0544e20b2d',
       cityId: this.props.city.cityId,
@@ -206,11 +245,12 @@ class index extends React.Component {
       addresses: res.result.items,
     });
   };
-
+  // Обработка адреса доставки при клике на меню из адресов
   chooseStreet = async (item) => {
     // console.log(item, ' formateer itemitemitem');
     if (item.formattedAddress === this.state.addressInValue) {
       // console.log(' item.formattedAddress === this.state.addressInValue');
+      this.deliveryRequestToGetAddressId();
       this.setState({
         ...this.state,
         addresses: [],
@@ -237,6 +277,10 @@ class index extends React.Component {
         addresses: res.result.items,
       });
     }
+  };
+
+  deliveryRequestToGetAddressId = () => {
+    console.log(this.state.currentDeliveryAddress, ' currentDeliveryAddress');
   };
 
   pickupAddressClick = async () => {
@@ -639,7 +683,7 @@ class index extends React.Component {
 */
 
   render() {
-    console.log(this.state, ' THIS STATE');
+    console.log(this.state.currentDeliveryAddress, ' THIS STATE');
     const renderDelivery = () => {
       return (
         <div className="order-forms-delivery input_group">
@@ -660,9 +704,10 @@ class index extends React.Component {
           />
           <div className="address_highlight"></div>
           <div className="order-forms-delivery-prompts">
-            {this.state.addresses.map((item) => {
+            {this.state.addresses.map((item, index) => {
               return (
                 <p
+                  key={index}
                   className="order-forms-delivery-prompt"
                   onClick={() => this.chooseStreet(item)}
                 >
@@ -718,7 +763,7 @@ class index extends React.Component {
             value={
               this.state.selectValue
                 ? this.state.selectValue
-                : this.state.pickupInterval.result[0].hour
+                : this.state.pickupInterval?.result[0].hour
             }
             onChange={this.selectTimeChange}
           >
@@ -936,9 +981,9 @@ class index extends React.Component {
                     : ''}
                 </span>
                 <span>
-                  <div className="edit-restaurant">
-                    Редактировать <div className="restaurant-picker"></div>
-                  </div>
+                  <span className="edit-restaurant">
+                    Редактировать <span className="restaurant-picker"></span>
+                  </span>
                 </span>
               </p>
             </div>
@@ -1136,14 +1181,14 @@ class index extends React.Component {
   }
 }
 
-const mapState = ({ store: { city }, address }) => ({
+const mapState = ({ store: { city }, address: { address } }) => ({
   city,
   address,
 });
 
 const mapDispatch = (dispatch) => ({
-  dispatchAddressModalStatus: (status) =>
-    dispatch({ type: 'OPEN_ADDRESS_MODAL' }),
+  // dispatchAddressModalStatus: (status) =>
+  //   dispatch({ type: 'OPEN_ADDRESS_MODAL' }),
   dispatchRestModal: () => {
     dispatch({ type: 'OPEN_REST_MODAL' });
   },

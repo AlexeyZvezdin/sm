@@ -18,6 +18,10 @@ import { msToTime } from '../../utils/msToTime';
 
 import fetcher from '../../utils/fetcher';
 
+function sleep(time) {
+  return new Promise((resolve) => setTimeout(resolve, time));
+}
+
 class Index extends React.Component {
   constructor(props) {
     super(props);
@@ -51,7 +55,9 @@ class Index extends React.Component {
   // }
 
   componentDidMount() {
-    this.updateInfo();
+    sleep(1500).then(() => {
+      this.updateInfo();
+    });
     // this.props.showHeader(false);
   }
 
@@ -180,7 +186,8 @@ class Index extends React.Component {
       <>
         <Head>
           <script
-            async="async"
+            async
+            defer
             src="https://api-maps.yandex.ru/2.1/?apikey=78245263-55a3-404a-b40b-4470b2b76b9c&lang=ru_RU&coordorder=longlat"
             type="text/javascript"
           ></script>

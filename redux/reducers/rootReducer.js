@@ -9,6 +9,10 @@ import sumCounter from './card/sumCounter';
 import cityReducer from './city/cityReducer';
 import addressReducer from './address/addressReducer';
 import loginToggleReducer from './modals/login';
+import profileInfo from './lk/profileInfo';
+import favProducts from './lk/favProducts';
+import promos from './lk/promos';
+import personalAddresses from './lk/personalAddresses';
 // Сделать общее решение для модалок
 const rootReducer = combineReducers({
   store: initialReducer,
@@ -19,6 +23,7 @@ const rootReducer = combineReducers({
   address: addressReducer,
   restModal: restaurantModal,
   card: combineReducers({ cardReducer, cardCounter, sumCounter }),
+  lk: combineReducers({ favProducts, personalAddresses, profileInfo, promos }),
 });
 
 export default rootReducer;

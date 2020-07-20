@@ -6,6 +6,29 @@ import { parseCookies } from '../../utils/parseCookies';
 import CardProduct from '../../components/Products/CardProduct';
 import SubHeader from '../../components/Basic/SubHeader';
 import fetcher from '../../utils/fetcher';
+import browserFetch from '../../utils/browserFetch';
+import { getDeviceToken } from '../../config/device-token';
+import {
+  BASE_URL,
+  DEVICE_TYPE_WEB,
+  HEADER_AUTH_TOKEN,
+  HEADER_DEVICE_TOKEN,
+  HEADER_DEVICE_TYPE,
+} from '../../config/api';
+
+const makeProducts = (prods) => {
+  let products = Object.values(prods);
+  let productsForReq = products.map((item) => {
+    return {
+      count: item.quantity,
+      priceVariantId: item.product.priceVariants[0].id,
+      productId: item.product.id,
+      type: 'DEFAULT',
+    };
+  });
+
+  return productsForReq;
+};
 
 class cart extends React.Component {
   // static async getInitialProps(ctx) {
@@ -14,6 +37,7 @@ class cart extends React.Component {
   state = {
     products: [],
     cardSum: 0,
+    promocode: '',
   };
 
   async componentDidMount() {
@@ -43,30 +67,31 @@ class cart extends React.Component {
     if (this.props.sum === 0 && sumCounter) {
       this.setState({ ...this.state, cardSum: sumCounter });
     }
-
+    // Унифицировать
     if (this.state.products) {
-      let products = Object.values(this.state.products);
-      let productsForReq = products.map((item) => {
-        return {
-          count: item.quantity,
-          priceVariantId: item.product.priceVariants[0].id,
-          productId: item.product.id,
-          type: 'DEFAULT',
-        };
+      let productsForReq = makeProducts(this.state.products);
+
+      const deviceToken = getDeviceToken();
+      this.setState({
+        ...this.state,
+        deviceToken: deviceToken,
       });
-      const options = {
-        body: JSON.stringify({
+
+      const res = await browserFetch(
+        `v1/cart`,
+        'POST',
+        JSON.stringify({
           cityId: this.props.city.cityId,
           products: productsForReq,
-          promocode: '',
+          promocode: this.state.promocode,
         }),
-        method: 'POST',
-      };
-
-      const res = await fetcher(
-        `https://client-api.sushi-master.ru/api/v1/cart`,
-        options
+        deviceToken
       );
+
+      this.setState({
+        ...this.state,
+        cardResponse: res.result,
+      });
       console.log(res, ' RESULXT CARD');
     }
   }
@@ -102,39 +127,68 @@ class cart extends React.Component {
       );
     }
   }
-
+  // Вот тут внимательно. Нужно перед редиректом скорее всего делать еще один
+  // запрос /кард, для формирования запроса в сейлплей
+  // это я завтра уточню
   // handleOrder = () => {
   //   // const res = fetcher(`https://client-api.sushi-master.ru/api/v1/cart`);
   // };
 
-  render() {
-    // if (typeof localStorage != 'undefined') {
-    //   let cardProducts = JSON.parse(localStorage.getItem('cardProducts'));
-    //   console.log('эты работаешь ваще');
+  handlePromocode = (e) => {
+    e.preventDefault();
+    let cardProducts = JSON.parse(localStorage.getItem('cardProducts'));
 
-    //   if (cardProducts != this.state.products) {
-    //     console.log('эты работаешь ваще тру RENDER ');
-    //     this.setState({
-    //       products: cardProducts,
-    //     });
-    //   }
-    // }
+    let productsForReq = makeProducts(cardProducts);
+
+    const res = browserFetch(
+      `v1/cart`,
+      'POST',
+      JSON.stringify({
+        cityId: this.props.city.cityId,
+        products: productsForReq,
+        promocode: e.target.promocode.value,
+      }),
+      this.state.deviceToken
+    ).then((res) =>
+      this.setState({
+        ...this.state,
+        promocode: res.result,
+        promocodeState: res.result.promocodeState,
+      })
+    );
+  };
+  // После запроса промокода вроде как должен еще раз запрос кард
+  // надо очередную обертку над запросами делать
+  render() {
+    console.log(this.state.promocode, ' RES RES PROMOCODE');
+
     const renderWidget = () => {
       return (
         <div className="cart-order-widget">
           {/* промокод */}
-          <div className="cart-order-widget-promocode">
-            <input
-              className="order-inner-container_input"
-              type="text"
-              name="promocode"
-              id="promocode"
-              placeholder="Промокод"
-            />
-            <span className="inner-container__promocode_enter">
+          <form
+            className="cart-order-widget-promocode"
+            onSubmit={this.handlePromocode}
+          >
+            <div>
+              <input
+                className="order-inner-container_input"
+                type="text"
+                name="promocode"
+                id="promocode"
+                placeholder="Промокод"
+              />
+              {this.state.promocodeState === 'VALID' ? (
+                <div className="promocode_highlight"></div>
+              ) : (
+                ''
+              )}
+            </div>
+            <button type="submit" className="inner-container__promocode_enter">
               <span className="inner-container__promocode_arrow"></span>
-            </span>
-          </div>
+            </button>
+          </form>
+
           {/* информация */}
           <div className="cart-content-info">
             {/* Товары */}

@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import fetcher from '../../utils/fetcher';
+import { FetchOptions } from '../../utils/fetcher';
 import s from './css/city_choice.module.scss';
 import { addressModal } from '../../redux/actions/addressModal';
 
@@ -94,10 +95,13 @@ class AddressModal extends React.Component {
       ...this.state,
       inputValue: val,
     });
-    const res = await fetcher(
-      `https://client-api.sushi-master.ru/api/v2/address/search?countryId=${options.countryId}&cityId=${options.cityId}&query=${options.query}`,
-      options
-    );
+    const res = await window
+      .fetch(
+        `https://client-api.sushi-master.ru/api/v2/address/search?countryId=${options.countryId}&cityId=${options.cityId}&query=${options.query}`,
+        { ...FetchOptions, method: 'GET', body: null }
+      )
+      .then((res) => res.json());
+
     this.setState({
       ...this.state,
       addresses: res.result.items,
@@ -118,10 +122,12 @@ class AddressModal extends React.Component {
       query: JSON.stringify(item.formattedAddress),
       placeId: item.placeId,
     };
-    const res = await fetcher(
-      `https://client-api.sushi-master.ru/api/v2/address/search?countryId=${options.countryId}&cityId=${options.cityId}&query=${options.query}`,
-      options
-    );
+    const res = await window
+      .fetch(
+        `https://client-api.sushi-master.ru/api/v2/address/search?countryId=${options.countryId}&cityId=${options.cityId}&query=${options.query}&placeId=${options.placeId}`,
+        { ...FetchOptions, method: 'GET', body: null }
+      )
+      .then((res) => res.json());
     this.setState({
       ...this.state,
       currentDeliveryAddress: item,

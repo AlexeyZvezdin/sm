@@ -4,17 +4,30 @@
 }
 
 .banners__swiper-container {
-  width: 100%;
+  // width: 100%;
   @media (min-width: 1330px) {
     max-height: 465px;
+    height: 465px;
   }
 }
 
 .banners__swiper-container img {
   width: 100%;
-  max-height: 450px;
   object-fit: cover;
 }
+
+// .swiper-container {
+//   width: 100%;
+//   max-height: 450px;
+// }
+// .swiper-slide {
+//   width: auto;
+//   max-height: 450px;
+// }
+// .swiper-container img {
+//   width: 100% !important;
+//   height: 450px;
+// }
 
 // .products__grid {
 //   display: grid;

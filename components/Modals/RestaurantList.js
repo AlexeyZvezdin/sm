@@ -37,7 +37,7 @@ export default class RestaurantList extends React.Component {
               let timeEndFinal =
                 timeEnd > 24 ? timeEnd - 24 : Math.ceil(timeEnd);
               return (
-                <>
+                <div key={index}>
                   <input
                     id={index}
                     type="radio"
@@ -55,7 +55,7 @@ export default class RestaurantList extends React.Component {
                       {timeStart}:00 - {timeEndFinal}:00
                     </span>
                   </label>
-                </>
+                </div>
               );
             })
           : ''}

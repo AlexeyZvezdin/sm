@@ -4,6 +4,9 @@
   margin-right: 10%;
   position: relative;
   min-height: 900px;
+  @media (max-width: 992px) {
+    margin-right: 0px;
+  }
   @media (max-width: 768px) {
     margin-right: 0px;
   }
@@ -49,7 +52,7 @@
 
 .cart-products-box {
   flex: 0 0 75%;
-  @media (max-width: 768px) {
+  @media (max-width: 992px) {
     flex: 0 0 100%;
   }
 }
@@ -68,7 +71,8 @@
   color: #1d1d1d;
 
   @media (max-width: 545px) {
-    margin-left: 0;
+    // margin-left: 0;
+    width: auto;
   }
 }
 
@@ -84,6 +88,7 @@
   margin-top: 50px;
   @media (max-width: 545px) {
     margin: 12px auto;
+    min-width: 310px;
   }
 }
 
@@ -124,6 +129,22 @@
   justify-content: center;
   align-items: center;
 }
+
+.inner-container__promocode_enter:hover {
+  background-color: red;
+}
+
+.promocode_highlight {
+  height: 2px;
+  width: 100%;
+  background-color: lightgreen;
+  transition: all 0.2s ease-in;
+}
+
+// #promocode:focus + .promocode_highlight {
+//   height: 2px;
+//   width: 100%;
+// }
 
 .inner-container__promocode_arrow {
   position: relative;
@@ -230,28 +251,56 @@
   align-items: center;
   margin: 20px 10px;
   margin-left: 110px;
-
-  @media (max-width: 545px) {
-    // flex-wrap: wrap;
+  @media (max-width: 992px) {
     margin: 20px 10px;
   }
+  @media (max-width: 545px) {
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px 6px;
+  }
 }
+
+.card_product-sub {
+  display: flex;
+  flex-basis: 30%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  @media (max-width: 1600px) {
+    flex-basis: 40%;
+  }
+  @media (max-width: 1250px) {
+    flex-basis: 45%;
+  }
+  @media (max-width: 545px) {
+    margin-bottom: 20px;
+  }
+}
+
 .card_product-img {
-  width: 20%;
+  // width: 20%;
 
   @media (max-width: 1124px) {
     width: 210px;
   }
   @media (max-width: 545px) {
-    width: 190px;
+    width: 210px;
   }
 }
 .card_product-img img {
   width: 190px;
+  @media (max-width: 545px) {
+    width: 200px;
+  }
 }
 
 .card_product-text {
-  width: 20%;
+  margin-left: 12px;
+  max-width: 30%;
+  @media (max-width: 545px) {
+    width: 100px;
+  }
 }
 
 .card_product-name {
@@ -273,6 +322,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   @media (max-width: 545px) {
     font-size: 1.2rem;
     padding-left: 20px;
@@ -295,11 +345,14 @@
   width: 21px;
   height: 23px;
   margin-left: 10px;
+  @media (max-width: 992px) {
+    width: 47px;
+    height: 30px;
+  }
   @media (max-width: 545px) {
     width: 36px;
     height: 40px;
     margin-left: 16px;
-    display: none;
   }
 }
 

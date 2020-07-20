@@ -79,6 +79,7 @@ const mapState = (
     },
     cityModal,
     addressModal,
+    loginModal: { openModal },
   },
   {
     router: {
@@ -86,7 +87,8 @@ const mapState = (
     },
   }
 ) => {
-  const openModalBg = cityModal.openModalBg || addressModal.openModalBg;
+  const openModalBg =
+    cityModal.openModalBg || addressModal.openModalBg || openModal;
   return {
     catalogStructure,
     categories,
